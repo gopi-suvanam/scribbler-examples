@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "name": "New JSNB",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "//For Loop\nfor (let i = 0; i < 5; i++) {\n  scrib.show(i);\n}",
+      "status": "[1]<br><span style=\"font-size:8px\">2ms<span></span></span>",
+      "output": "0 <br>1 <br>2 <br>3 <br>4 <br>",
+      "type": "code"
+    },
+    {
+      "code": "//For....of Loop\nconst techStack = [\"JavaScript\", \"React\", \"Node.js\"];\nfor (const tech of techStack) {\n  scrib.show(tech);\n}",
+      "status": "[2]<br><span style=\"font-size:8px\">2ms<span></span></span>",
+      "output": "JavaScript <br>React <br>Node.js <br>",
+      "type": "code"
+    },
+    {
+      "code": "//For Each Array Method\nconst numbers = [1, 2, 3, 4, 5];\nnumbers.forEach(number => {\n  scrib.show(number);\n});",
+      "status": "[3]<br><span style=\"font-size:8px\">3ms<span></span></span>",
+      "output": "1 <br>2 <br>3 <br>4 <br>5 <br>",
+      "type": "code"
+    },
+    {
+      "code": "//For...in Loop\nconst user = { name: \"TechExplorer\", role: \"Developer\", language: \"JavaScript\" };\nfor (const key in user) {\n  scrib.show(`${key}: ${user[key]}`);\n}",
+      "status": "[4]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "name: TechExplorer <br>role: Developer <br>language: JavaScript <br>",
+      "type": "code"
+    },
+    {
+      "code": "//While Loop\nlet counter = 0;\nwhile (counter < 3) {\n  scrib.show(counter);\n  counter++;\n}",
+      "status": "[5]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "0 <br>1 <br>2 <br>2 <br>",
+      "type": "code"
+    },
+    {
+      "code": "//Do While Loop\nlet count = 0;\ndo {\n  scrib.show(count);\n  count++;\n} while (count < 3);",
+      "status": "[6]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "0 <br>1 <br>2 <br>2 <br>",
+      "type": "code"
+    },
+    {
+      "code": "//Map Array Method\nconst numbers = [1, 2, 3, 4, 5];\nconst doubledNumbers = numbers.map(number => number * 2);\nscrib.show(doubledNumbers);",
+      "status": "[7]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "[\n  2,\n  4,\n  6,\n  8,\n  10\n] <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
