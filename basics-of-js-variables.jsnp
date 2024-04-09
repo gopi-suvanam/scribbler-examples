@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "name": "New JSNB",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "let userName = \"JohnDoe\";\nfunction calculateTotalAmount() {\n  scrib.show(\"camelCase\");\n}\ncalculateTotalAmount();",
+      "status": "[3]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "camelCase <br>",
+      "type": "code"
+    },
+    {
+      "code": "class CarModel {\n  constructor(make, year) {\n    this.make = make;\n    this.year = year;\n  }\n}\nscrib.show(\"PascalCase\");",
+      "status": "[4]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "PascalCase <br>",
+      "type": "code"
+    },
+    {
+      "code": "const MAX_ATTEMPTS = 3;\nconst API_KEY = \"your_api_key_here\";\nscrib.show(\"UPPER_CASE_WITH_UNDERSCORES - Constants\")",
+      "status": "[5]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "UPPER_CASE_WITH_UNDERSCORES - Constants <br>",
+      "type": "code"
+    },
+    {
+      "code": "// Avoid\nlet x = 10;\n\n// Prefer\nlet numberOfRetries = 10;\n\nscrib.show(\"Be Descriptive, Avoid single letter\");",
+      "status": "[6]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Be Descriptive, Avoid single letter <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
