@@ -1,0 +1,140 @@
+{
+  "metadata": {
+    "name": "ES 6 Features",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1  style=\"color:#555\">Exploring JavaScript ES6 Features </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        Learn  -  Experiment  - Develop\n    </p><br></div>",
+      "status": "",
+      "output": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1 style=\"color:#555\">Exploring JavaScript ES6 Features </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        Learn  -  Experiment  - Develop\n    </p><br></div>",
+      "type": "html"
+    },
+    {
+      "code": "<h2>1. _let_ and _const_</h2>",
+      "status": "",
+      "output": "<h2>1. _let_ and _const_</h2>",
+      "type": "html"
+    },
+    {
+      "code": "let count = 10;\ncount = 20; // Valid: count can be reassigned\n",
+      "status": "[2]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "20 <br>",
+      "type": "code"
+    },
+    {
+      "code": "\nconst pi = 3.14;\npi=10; //pi cant be reassigned",
+      "status": "[-]",
+      "output": "<p class=\"error\">Assignment to constant variable.</p>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>2. Template Literals</h2>",
+      "status": "",
+      "output": "<h2>2. Template Literals</h2>",
+      "type": "html"
+    },
+    {
+      "code": "const name = \"Alice\";\nconst message = `Welcome, ${name}!How are you today?`;\nmessage",
+      "status": "[9]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Welcome, Alice!How are you today? <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>3. Arrow Functions</h2>",
+      "status": "",
+      "output": "<h2>3. Arrow Functions</h2>",
+      "type": "html"
+    },
+    {
+      "code": "const add = (a, b) => a + b;\nconst greet = name => `Hello, ${name}!`;\ngreet('Wrold')",
+      "status": "[10]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Hello, Wrold! <br>",
+      "type": "code"
+    },
+    {
+      "code": "\n// With array methods\nconst numbers = [1, 2, 3];\nconst doubled = numbers.map(num => num * 2);\ndoubled",
+      "status": "[11]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "[\n  2,\n  4,\n  6\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>4. Destructuring Assignment</h2>\n",
+      "status": "",
+      "output": "<h2>4. Destructuring Assignment</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "// Array destructuring\nconst numbers = [1, 2, 3];\nconst [first, second] = numbers;\nfirst",
+      "status": "[13]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "1 <br>",
+      "type": "code"
+    },
+    {
+      "code": "// Object destructuring\nconst person = { firstName: \"John\", lastName: \"Doe\" };\nconst { firstName, lastName } = person;\nfirstName+\" \"+lastName",
+      "status": "[14]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "John Doe <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>5. Spread and Rest Operators</h2>",
+      "status": "",
+      "output": "<h2>5. Spread and Rest Operators</h2>",
+      "type": "html"
+    },
+    {
+      "code": "const numbers = [1, 2, 3];\nconst allNumbers = [...numbers, 4, 5];\n\nfunction sum(...args) {\n    return args.reduce((total, current) => total + current, 0);\n}\nsum(1, 2, 3) // Output: 6\n",
+      "status": "[15]<br><span style=\"font-size:8px\">5ms<span></span></span>",
+      "output": "6 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>6. Enhanced Object Literals</h2>\n",
+      "status": "",
+      "output": "<h2>6. Enhanced Object Literals</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "const name = \"Alice\";\nconst age = 30;\n\nconst person = {\n    name, // Shorthand for name: name\n    age,  // Shorthand for age: age\n    greet() {\n        return `Hello, ${this.name}!`;\n    }\n};\n\nperson",
+      "status": "[16]<br><span style=\"font-size:8px\">2ms<span></span></span>",
+      "output": "{\n  \"name\": \"Alice\",\n  \"age\": 30\n} <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>7. Classes</h2>",
+      "status": "",
+      "output": "<h2>7. Classes</h2>",
+      "type": "html"
+    },
+    {
+      "code": "class Animal {\n    constructor(name) {\n        this.name = name;\n    }\n    speak() {\n        return(`${this.name} makes a sound.`);\n    }\n}\n\nclass Dog extends Animal {\n    speak() {\n        return(`${this.name} barks!`);\n    }\n}\n\nconst myDog = new Dog(\"Buddy\");\nmyDog.speak(); // Output: Buddy barks!",
+      "status": "[19]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Buddy barks! <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>8. Promises</h2>",
+      "status": "",
+      "output": "",
+      "type": "html"
+    },
+    {
+      "code": "function fetchData() {\n    return new Promise((resolve, reject) => {\n        setTimeout(() => {\n            resolve(\"Data fetched successfully!\");\n        }, 2000);\n    });\n}\n\nfetchData()\n    .then(data => scrib.show(data))\n    .catch(error => scrib.showr(error));",
+      "status": "[20]<br><span style=\"font-size:8px\">2ms<span></span></span>",
+      "output": "{} <br>Data fetched successfully! <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>Sample Notebooks</h2>\n<hr>\n  You can do a lot more using Scribbler. Some sample notebooks are below:\n<ol style=\"font-size:14px\">\n  <li><a href=\".#./examples/Dynamic-Simulation.jsnb\" target=\"_blank\">Dynamic Simulation</a></li>\n\t<li><a href=\".#./examples/Black-Scholes.jsnb\" target=\"_blank\">Option Pricing</a></li>\n\t  <li><a  href=\".#./examples/Runge-Kutta-for-Differential-Equations.jsnb\" target=\"_blank\">Solving Differential Equation</a></li>\n\t\t<li><a href=\".#./examples/Decentralized-ML-Model-Storage.jsnb\" target=\"_blank\">Machine Learning</a></li>\n\t\t  <li><a href=\".#./examples/Plotly-Example.jsnb\" target=\"_blank\">Charts Using Plotly</a></li>\n</ol>\n   ",
+      "status": "",
+      "output": "<h2>Sample Notebooks</h2>\n<hr>\n  You can do a lot more using Scribbler. Some sample notebooks are below:\n<ol style=\"font-size:14px\">\n  <li><a href=\".#./examples/Dynamic-Simulation.jsnb\" target=\"_blank\">Dynamic Simulation</a></li>\n\t<li><a href=\".#./examples/Black-Scholes.jsnb\" target=\"_blank\">Option Pricing</a></li>\n\t  <li><a href=\".#./examples/Runge-Kutta-for-Differential-Equations.jsnb\" target=\"_blank\">Solving Differential Equation</a></li>\n\t\t<li><a href=\".#./examples/Decentralized-ML-Model-Storage.jsnb\" target=\"_blank\">Machine Learning</a></li>\n\t\t  <li><a href=\".#./examples/Plotly-Example.jsnb\" target=\"_blank\">Charts Using Plotly</a></li>\n</ol>\n   ",
+      "type": "html"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
