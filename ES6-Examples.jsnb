@@ -33,6 +33,12 @@
       "type": "code"
     },
     {
+      "code": "function example(){\n   if (true){\n     var x = 10;\n   }\n   scrib.show(x); \n}\nexample();",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "10 <br>",
+      "type": "code"
+    },
+    {
       "code": "<h2>2. Template Literals</h2>",
       "status": "",
       "output": "<h2>2. Template Literals</h2>",
