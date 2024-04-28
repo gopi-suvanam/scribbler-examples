@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "name": "New JSNB",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h2>1.  Cloning Arrays</h2>",
+      "status": "",
+      "output": "<h2>1.  Cloning Arrays</h2>",
+      "type": "html"
+    },
+    {
+      "code": "const originalArray = [1, 2, 3];\nconst clonedArray = [...originalArray];\n\nscrib.show(clonedArray);",
+      "status": "[3]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "[\n  1,\n  2,\n  3\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>2. Concatenating Arrays</h1>",
+      "status": "",
+      "output": "<h1>2. Concatenating Arrays</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const array1 = [1, 2, 3];\nconst array2 = [4, 5, 6];\n\nconst combinedArray = [...array1, ...array2];\n\nscrib.show(combinedArray); ",
+      "status": "[4]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "[\n  1,\n  2,\n  3,\n  4,\n  5,\n  6\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>3. Extending the Objects</h1>",
+      "status": "",
+      "output": "<h1>3. Extending the Objects</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const originalObject = { name: \"TechWizard\", role: \"Creator\" };\nconst extendedObject = { ...originalObject, status: \"Active\" };\n\nscrib.show(extendedObject);",
+      "status": "[5]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "{\n  \"name\": \"TechWizard\",\n  \"role\": \"Creator\",\n  \"status\": \"Active\"\n} <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>4. Dynamic Function Arguments</h1>",
+      "status": "",
+      "output": "<h1>4. Dynamic Function Arguments</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function displayInfo(...info) {\n  scrib.show(info.join(\", \"));\n}\ndisplayInfo(\"Tech\", \"Content\", \"Creator\");",
+      "status": "[6]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Tech, Content, Creator <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
