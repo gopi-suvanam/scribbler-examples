@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "name": "Remove-Duplicates-From-Array(MSIQ)",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Most Asked Interview Question - Remove Duplicates from Array </h1>",
+      "status": "",
+      "output": "<h1>Most Asked Interview Question - Remove Duplicates from Array </h1>",
+      "type": "html"
+    },
+    {
+      "code": "<h1>Using Set</h1>",
+      "status": "",
+      "output": "<h1>Using Set</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const messyArray = [1, 2, 3, 4, 4, 5, 6, 6];\nconst uniqueSet = new Set(messyArray);\n\nconst cleanArray = [...uniqueSet];\n\ncleanArray\n",
+      "status": "[1]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "[\n  1,\n  2,\n  3,\n  4,\n  5,\n  6\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1> Using Spread and Set Together </h1>",
+      "status": "",
+      "output": "<h1> Using Spread and Set Together </h1>",
+      "type": "html"
+    },
+    {
+      "code": "const colors = ['red', 'blue', 'green', 'red', 'yellow', 'blue'];\nconst uniqueColors = [...new Set(colors)];\n\nuniqueColors",
+      "status": "[2]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "[\n  \"red\",\n  \"blue\",\n  \"green\",\n  \"yellow\"\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Heterogeneous Type Arrays</h1>",
+      "status": "",
+      "output": "<h1>Heterogeneous Type Arrays</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const mixedTypes = [1, 'apple', 2, 'banana', \n                   'apple', 1, 2];\nconst uniqueMixedTypes = [...new Set(mixedTypes)];\n\nuniqueMixedTypes",
+      "status": "[3]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "[\n  1,\n  \"apple\",\n  2,\n  \"banana\"\n] <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
