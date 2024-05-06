@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "name": "Promises and Async Programming",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Mastering Promises and Async Programming in JavaScript</h1>",
+      "status": "",
+      "output": "<h1>Mastering Promises and Async Programming in JavaScript</h1>",
+      "type": "html"
+    },
+    {
+      "code": "<h2>Creating a Promise\n</h2>",
+      "status": "",
+      "output": "<h2>Creating a Promise\n</h2>",
+      "type": "html"
+    },
+    {
+      "code": "var myPromise = new Promise((resolve, reject) => {\n  // Asynchronous operation\n  setTimeout(() => {\n    // Resolve the promise with a value\n    resolve('Operation completed successfully');\n  }, 2000);\n});\n",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "<h2>Consuming a Promise</h2>",
+      "status": "",
+      "output": "<h2>Consuming a Promise</h2>",
+      "type": "html"
+    },
+    {
+      "code": "myPromise\n  .then((result) => {\n    scrib.show('Success:', result);\n  })\n  .catch((error) => {\n    scrib.show('Error:', error);\n  });",
+      "status": "[7]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "{} <br>Success: Operation completed successfully <br>",
+      "type": "code"
+    },
+    {
+      "code": "fetch('https://api.example.com/data')\n  .then((response) => {\n    // Check if the request was successful\n    if (!response.ok) {\n      throw new Error('Network response was not ok');\n    }\n    // Parse the JSON response\n    return response.json();\n  })\n  .then((data) => {\n    // Handle the JSON data\n    scrib.show('Data received:', data);\n  })\n  .catch((error) => {\n    // Handle any errors\n    scrib.show('Error fetching data:', error.message);\n  });",
+      "status": "[10]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "{} <br>Error fetching data: Failed to fetch <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>Asynchronous Operation with a Promise</h2>",
+      "status": "",
+      "output": "<h2>Asynchronous Operation with a Promise</h2>",
+      "type": "html"
+    },
+    {
+      "code": "// Function that returns a promise\nfunction tryPromise() {\n  return new Promise((resolve, reject) => {\n    // Simulate an asynchronous operation with a delay\n    setTimeout(() => {\n      // Resolve the promise with a value\n      resolve('Data fetched successfully');\n    }, 2000); // Resolve after 2 seconds\n  });\n}\nasync function processData() {\n  try {\n    // Wait for the promise to resolve\n    // Create a promise\n\tconst dataPromise = tryPromise();\n\n\t// Await the resolution of the promise\n\tconst data = await dataPromise;\n\n    \n    // Handle the resolved data\n    scrib.show('Data:', data);\n  } catch (error) {\n    // Handle any errors\n    scrib.show('Error:', error.message);\n  }\n}\n\n// Call the asynchronous function\nprocessData();",
+      "status": "[13]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "{} <br>Data: Data fetched successfully <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
