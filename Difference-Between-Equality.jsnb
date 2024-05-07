@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "name": "Difference between == and ===<br>",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>'==' Equality Example</h1>",
+      "status": "",
+      "output": "<h1>'==' Equality Example</h1>",
+      "type": "html"
+    },
+    {
+      "code": "scrib.show(5 == \"5\");\nscrib.show(true == 1);",
+      "status": "[2]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "true <br>true <br>",
+      "type": "code"
+    },
+    {
+      "code": " <h1>'===' Equality Example</h1>",
+      "status": "",
+      "output": " <h1>'===' Equality Example</h1>",
+      "type": "html"
+    },
+    {
+      "code": "scrib.show(5 === \"5\"); \nscrib.show(true === 1); ",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "false <br>false <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>'==' vs. '===' Comparison </h1> ",
+      "status": "",
+      "output": "<h1>'==' vs. '===' Comparison </h1> ",
+      "type": "html"
+    },
+    {
+      "code": "const num = 42;\nconst str = \"42\";\n\nscrib.show(num == str);\nscrib.show(num === str);",
+      "status": "[4]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "true <br>false <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
