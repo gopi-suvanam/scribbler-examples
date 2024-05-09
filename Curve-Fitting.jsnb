@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "name": "Curve Fitting and Interpolation Techniques",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1  style=\"color:#555\">Curve Fitting and Interpolation Techniques </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        Curve fitting and interpolation techniques are powerful tools for analyzing and modeling data in JavaScript.\n    </p><br></div>",
+      "status": "",
+      "output": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1 style=\"color:#555\">Curve Fitting and Interpolation Techniques </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        Curve fitting and interpolation techniques are powerful tools for analyzing and modeling data in JavaScript.\n    </p><br></div>",
+      "type": "html"
+    },
+    {
+      "code": "\n<h2>Linear Interpolation</h2>\n",
+      "status": "",
+      "output": "\n<h2>Linear Interpolation</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "function linearInterpolation(x1, y1, x2, y2, x) {\n    return y1 + (y2 - y1) * ((x - x1) / (x2 - x1));\n}\n\n// Example usage:\nlet x1 = 0, y1 = 10;\nlet x2 = 5, y2 = 20;\nlet interpolatedValue = linearInterpolation(x1, y1, x2, y2, 2.5);\ninterpolatedValue",
+      "status": "[1]<br><span style=\"font-size:8px\">3ms<span></span></span>",
+      "output": "15 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>Polynomial Interpolation</h2>",
+      "status": "",
+      "output": "<h2>Polynomial Interpolation</h2>",
+      "type": "html"
+    },
+    {
+      "code": "function greet(who){\n   scrib.show(\"Hello \"+who); \n}\ngreet(\"world\")",
+      "status": "[3]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Hello world <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>Cubic Spline</h2>",
+      "status": "",
+      "output": "<h4>And of course you can make the world greener! </h4>",
+      "type": "html"
+    },
+    {
+      "code": "scrib.loadScript(\"https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js\",false)",
+      "status": "[2]<br><span style=\"font-size:8px\">110ms<span></span></span>",
+      "output": "function(t){function g(e,t){return e=Math.abs(e),t=Math.abs(t),e&gt;t?e*Math.sqrt(1+t*t/e/e):t==0?e:t*Math.sqrt(1+e*e/t/t)}var n,r=numeric.epsilon,i=1e-64/r,s=50,o=0,u=0,a=0,f=0,l=0,c=numeric.clone(t),h=c.length,p=c[0].length;if(h<p)throw\"need more=\"\" rows=\"\" than=\"\" columns\";var=\"\" d=\"new\" array(p),v=\"new\" array(p);for(u=\"0;u<p;u++)d[u]=v[u]=0;var\" m=\"numeric.rep([p,p],0),y=0,b=0,w=0,E=0,S=0,x=0,T=0;for(u=0;u<p;u++){d[u]=b,T=0,l=u+1;for(a=u;a<h;a++)T+=c[a][u]*c[a][u];if(T<=i)b=0;else{y=c[u][u],b=Math.sqrt(T),y\">=0&amp;&amp;(b=-b),w=y*b-T,c[u][u]=y-b;for(a=l;a<p;a++){t=0;for(f=u;f<h;f++)t+=c[f][u]*c[f][a];y=t w;for(f=\"u;f<h;f++)c[f][a]+=y*c[f][u]}}v[u]=b,T=0;for(a=l;a<p;a++)T+=c[u][a]*c[u][a];if(T<=i)b=0;else{y=c[u][u+1],b=Math.sqrt(T),y\">=0&amp;&amp;(b=-b),w=y*b-T,c[u][u+1]=y-b;for(a=l;a<p;a++)d[a]=c[u][a] w;for(a=\"l;a<h;a++){T=0;for(f=l;f<p;f++)T+=c[a][f]*c[u][f];for(f=l;f<p;f++)c[a][f]+=T*d[f]}}S=Math.abs(v[u])+Math.abs(d[u]),S\">E&amp;&amp;(E=S)}for(u=p-1;u!=-1;u+=-1){if(b!=0){w=b*c[u][u+1];for(a=l;a<p;a++)m[a][u]=c[u][a] w;for(a=\"l;a<p;a++){T=0;for(f=l;f<p;f++)T+=c[u][f]*m[f][a];for(f=l;f<p;f++)m[f][a]+=T*m[f][u]}}for(a=l;a<p;a++)m[u][a]=0,m[a][u]=0;m[u][u]=1,b=d[u],l=u}for(u=p-1;u!=-1;u+=-1){l=u+1,b=v[u];for(a=l;a<p;a++)c[u][a]=0;if(b!=0){w=c[u][u]*b;for(a=l;a<p;a++){T=0;for(f=l;f<h;f++)T+=c[f][u]*c[f][a];y=T/w;for(f=u;f<h;f++)c[f][a]+=y*c[f][u]}for(a=u;a<h;a++)c[a][u]=c[a][u]/b}else\" for(a=\"u;a<h;a++)c[a][u]=0;c[u][u]+=1}r*=E;for(f=p-1;f!=-1;f+=-1)for(var\" n=\"0;N<s;N++){var\" c=\"!1;for(l=f;l!=-1;l+=-1){if(Math.abs(d[l])<=r){C=!0;break}if(Math.abs(v[l-1])<=r)break}if(!C){o=0,T=1;var\" k=\"l-1;for(u=l;u<f+1;u++){y=T*d[u],d[u]=o*d[u];if(Math.abs(y)<=r)break;b=v[u],w=g(y,b),v[u]=w,o=b/w,T=-y/w;for(a=0;a<h;a++)S=c[a][k],x=c[a][u],c[a][k]=S*o+x*T,c[a][u]=-S*T+x*o}}x=v[f];if(l==f){if(x<0){v[f]=-x;for(a=0;a<p;a++)m[a][f]=-m[a][f]}break}if(N\">=s-1)throw\"Error: no convergence.\";E=v[l],S=v[f-1],b=d[f-1],w=d[f],y=((S-x)*(S+x)+(b-w)*(b+w))/(2*w*S),b=g(y,1),y&lt;0?y=((E-x)*(E+x)+w*(S/(y-b)-w))/E:y=((E-x)*(E+x)+w*(S/(y+b)-w))/E,o=1,T=1;for(u=l+1;u<f+1;u++){b=d[u],s=v[u],w=t*b,b=o*b,x=g(y,w),d[u-1]=x,o=y x,t=\"w/x,y=E*o+b*T,b=-E*T+b*o,w=S*T,S*=o;for(a=0;a<p;a++)E=m[a][u-1],x=m[a][u],m[a][u-1]=E*o+x*T,m[a][u]=-E*T+x*o;x=g(y,w),v[u-1]=x,o=y/x,T=w/x,y=o*b+T*S,E=-T*b+o*S;for(a=0;a<h;a++)S=c[a][u-1],x=c[a][u],c[a][u-1]=S*o+x*T,c[a][u]=-S*T+x*o}d[l]=0,d[f]=y,v[f]=E}for(u=0;u<v.length;u++)v[u]<r&amp;&amp;(v[u]=0);for(u=0;u<p;u++)for(a=u-1;a\">=0;a--)if(v[a]</f+1;u++){b=d[u],s=v[u],w=t*b,b=o*b,x=g(y,w),d[u-1]=x,o=y></p;a++)m[a][u]=c[u][a]></p;a++)d[a]=c[u][a]></p;a++){t=0;for(f=u;f<h;f++)t+=c[f][u]*c[f][a];y=t></p)throw\"need><br>",
+      "type": "code"
+    },
+    {
+      "code": "const x = [0, 1, 2, 3, 4];\nconst y = [1, 4, 7, 12, 21];\nvar spline=numeric.spline(x,y);\nscrib.show(\"At 2.5:\",spline.at(2.5))\n",
+      "status": "[15]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "At 2.5: 9.044642857142858 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h3>Let's plot the spline chart</h3>",
+      "status": "",
+      "output": "<h3>Let's plot the spline chart</h3>",
+      "type": "html"
+    },
+    {
+      "code": "spline.at(3)\n//range(0,10).map(x=>[x,spline.at(x)]).plot('scatter')",
+      "status": "[26]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "12 <br>",
+      "type": "code"
+    },
+    {
+      "code": "scrib.loadScript(\"https://cdn.jsdelivr.net/npm/regression\").then(_=>scrib.show(\"loaded\"));\n",
+      "status": "[7]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "{} <br>loaded <br>",
+      "type": "code"
+    },
+    {
+      "code": "const data = [[0, 2], [1, 3], [2, 5], [3, 7], [4, 11]];\nvar polynomial = regression.polynomial(data, { order: 2 });\nconst equation = polynomial.equation;\nequation",
+      "status": "[23]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "[\n  0.43,\n  0.49,\n  2.06\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "polynomial.predict(2.5)",
+      "status": "[24]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "[\n  2.5,\n  5.97\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h3>Let's plot the polynomial equation</h3>",
+      "status": "",
+      "output": "<h3>Let's plot the polynomial equation</h3>",
+      "type": "html"
+    },
+    {
+      "code": "//range(0,10).map(x=>polynomial.predict(x)).plot('scatter')",
+      "status": "[27]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
