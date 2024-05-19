@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "name": "Classes and Objects<br>",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1> Classes in JavaScript </h1>",
+      "status": "",
+      "output": "<h1> Classes in JavaScript </h1>",
+      "type": "html"
+    },
+    {
+      "code": "// Define a class\nclass Person {\n  constructor(name, age) {\n    this.name = name;\n    this.age = age;\n  }\n\n  introduce() {\n    scrib.show(`Hello, my name is ${this.name} and I am ${this.age} years old.`);\n  }\n}\n\n// Create instances of the class\nconst person1 = new Person('Alice', 25);\nconst person2 = new Person('Bob', 30);\n\n// Use the instances\nperson1.introduce(); \nperson2.introduce(); ",
+      "status": "[1]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Hello, my name is Alice and I am 25 years old. <br>Hello, my name is Bob and I am 30 years old. <br>",
+      "type": "code"
+    },
+    {
+      "code": "class Animal {\n    constructor(name) {\n        this.name = name;\n    }\n    speak() {\n        return(`${this.name} makes a sound.`);\n    }\n}\n\nclass Dog extends Animal {\n    speak() {\n        return(`${this.name} barks!`);\n    }\n}\n\nconst myDog = new Dog(\"Buddy\");\nmyDog.speak(); ",
+      "status": "[2]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Buddy barks! <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Inheritance</h1>",
+      "status": "",
+      "output": "<h1>Inheritance</h1>",
+      "type": "html"
+    },
+    {
+      "code": "class Person {\n  constructor(name, age) {\n    this.name = name;\n    this.age = age;\n  }\n\n  introduce() {\n    scrib.show(`Hello, my name is ${this.name} and I am ${this.age} years old.`);\n  }\n}\n\nclass Employee extends Person {\n  constructor(name, age, jobTitle) {\n    super(name, age);\n    this.jobTitle = jobTitle;\n  }\n\n  introduce() {\n    scrib.show(`Hello, my name is ${this.name}, I am ${this.age} years old, and I work as a ${this.jobTitle}.`);\n  }\n}\n\nconst employee = new Employee('Charlie', 35, 'Developer');\nemployee.introduce();\n",
+      "status": "[3]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Hello, my name is Charlie, I am 35 years old, and I work as a Developer. <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
