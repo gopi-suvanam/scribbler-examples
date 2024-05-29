@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "name": "Top-Level Await",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1  style=\"color:#555\">Top-Level Await Experiments</h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        Use top-level awaits in Scribbler for ease of using asynchronous programming.\n    </p><br></div>",
+      "status": "",
+      "output": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1 style=\"color:#555\">Top-Level Await Experiments</h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        Use top-level awaits in Scribbler for ease of using asynchronous programming.\n    </p><br></div>",
+      "type": "html"
+    },
+    {
+      "code": "let response=await fetch(\"https://fake-json-api.mock.beeceptor.com/users\");\nvar localData=await response.json()\nscrib.show(localData)",
+      "status": "[39]<br><span style=\"font-size:8px\">394ms<span></span></span>",
+      "output": "[\n  {\n    \"id\": 1,\n    \"name\": \"Arnulfo Schimmel\",\n    \"company\": \"Easton\",\n    \"username\": \"Shyanne7\",\n    \"email\": \"Brandt_Carroll@yahoo.com\",\n    \"address\": \"7644 Swift Harbor\",\n    \"zip\": \"22815-2126\",\n    \"state\": \"Connecticut\",\n    \"country\": \"Niger\",\n    \"phone\": \"456.296.5868 x359\",\n    \"photo\": \"https://json-server.dev/ai-profiles/43.png\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Genesis Lubowitz\",\n    \"company\": \"Lupe\",\n    \"username\": \"Layla72\",\n    \"email\": \"Ceasar35@hotmail.com\",\n    \"address\": \"480 Krajcik Mall\",\n    \"zip\": \"15557\",\n    \"state\": \"Idaho\",\n    \"country\": \"Georgia\",\n    \"phone\": \"1-384-710-4748\",\n    \"photo\": \"https://json-server.dev/ai-profiles/58.png\"\n  },\n  {\n    \"id\": 3,\n    \"name\": \"Cleta Schaden\",\n    \"company\": \"Nicolette\",\n    \"username\": \"Amos60\",\n    \"email\": \"Terrill.Monahan11@yahoo.com\",\n    \"address\": \"53196 Kuhlman Meadows\",\n    \"zip\": \"98380-7552\",\n    \"state\": \"Georgia\",\n    \"country\": \"Martinique\",\n    \"phone\": \"1-461-924-4165\",\n    \"photo\": \"https://json-server.dev/ai-profiles/29.png\"\n  },\n  {\n    \"id\": 4,\n    \"name\": \"Syble MacGyver\",\n    \"company\": \"Ava\",\n    \"username\": \"Julius_Grimes\",\n    \"email\": \"Hershel76@yahoo.com\",\n    \"address\": \"275 Smitham Harbors\",\n    \"zip\": \"71377-1120\",\n    \"state\": \"Iowa\",\n    \"country\": \"Dominican Republic\",\n    \"phone\": \"285.596.9409 x7423\",\n    \"photo\": \"https://json-server.dev/ai-profiles/93.png\"\n  },\n  {\n    \"id\": 5,\n    \"name\": \"Erich Lind\",\n    \"company\": \"Floy\",\n    \"username\": \"Modesta8\",\n    \"email\": \"Newton83@gmail.com\",\n    \"address\": \"5501 Rebeka Glens\",\n    \"zip\": \"65704-4876\",\n    \"state\": \"Kentucky\",\n    \"country\": \"New Zealand\",\n    \"phone\": \"1-329-958-3403 x3091\",\n    \"photo\": \"https://json-server.dev/ai-profiles/85.png\"\n  },\n  {\n    \"id\": 6,\n    \"name\": \"Afton Kessler\",\n    \"company\": \"Alverta\",\n    \"username\": \"Franco45\",\n    \"email\": \"Hudson.Runolfsson@yahoo.com\",\n    \"address\": \"176 Nova Creek\",\n    \"zip\": \"57725-8749\",\n    \"state\": \"Pennsylvania\",\n    \"country\": \"Gabon\",\n    \"phone\": \"238.406.8177 x882\",\n    \"photo\": \"https://json-server.dev/ai-profiles/17.png\"\n  },\n  {\n    \"id\": 7,\n    \"name\": \"Esperanza Padberg\",\n    \"company\": \"Jayce\",\n    \"username\": \"Rhianna.Reichert\",\n    \"email\": \"Albina.Crist@gmail.com\",\n    \"address\": \"358 Kunde Junctions\",\n    \"zip\": \"98926\",\n    \"state\": \"New Hampshire\",\n    \"country\": \"French Southern Territories\",\n    \"phone\": \"998.429.9235 x2445\",\n    \"photo\": \"https://json-server.dev/ai-profiles/98.png\"\n  },\n  {\n    \"id\": 8,\n    \"name\": \"Nolan Rau\",\n    \"company\": \"Otha\",\n    \"username\": \"Adelbert_Bednar\",\n    \"email\": \"Jevon_Spencer@hotmail.com\",\n    \"address\": \"8077 Braun Oval\",\n    \"zip\": \"10543\",\n    \"state\": \"Wyoming\",\n    \"country\": \"Denmark\",\n    \"phone\": \"(265) 835-0699 x68558\",\n    \"photo\": \"https://json-server.dev/ai-profiles/69.png\"\n  },\n  {\n    \"id\": 9,\n    \"name\": \"Abbie Howell\",\n    \"company\": \"Blaise\",\n    \"username\": \"Gabrielle.Heathcote\",\n    \"email\": \"Arlie17@gmail.com\",\n    \"address\": \"953 Heidenreich Manors\",\n    \"zip\": \"74933\",\n    \"state\": \"Arkansas\",\n    \"country\": \"Holy See (Vatican City State)\",\n    \"phone\": \"1-722-575-2875\",\n    \"photo\": \"https://json-server.dev/ai-profiles/30.png\"\n  },\n  {\n    \"id\": 10,\n    \"name\": \"Stephan O'Keefe\",\n    \"company\": \"Ressie\",\n    \"username\": \"Eugenia.Boyer\",\n    \"email\": \"Cristobal.Dooley95@hotmail.com\",\n    \"address\": \"6313 Doug Loop\",\n    \"zip\": \"96404\",\n    \"state\": \"Kentucky\",\n    \"country\": \"Estonia\",\n    \"phone\": \"361-789-4945 x38261\",\n    \"photo\": \"https://json-server.dev/ai-profiles/57.png\"\n  }\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "localData",
+      "status": "[-]",
+      "output": "<p class=\"error\">localData is not defined</p>",
+      "type": "code"
+    },
+    {
+      "code": "var globalVar;",
+      "status": "[40]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "globalVar=await 2*2; //You can also use an asynchronous function like ftech here.",
+      "status": "[-]",
+      "output": "<p class=\"error\">Unexpected end of input</p>",
+      "type": "code"
+    },
+    {
+      "code": "globalVar",
+      "status": "[44]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "4 <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
