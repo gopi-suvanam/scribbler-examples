@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "name": "New JSNB",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Basic Code </h1>",
+      "status": "",
+      "output": "<h1>Basic Code </h1>",
+      "type": "html"
+    },
+    {
+      "code": "const user = {\n  name: \"TechExplorer\",\n  role: \"Developer\",\n  expertise: \"JavaScript\"\n};\n\nconst entriesArray = Object.entries(user);\nentriesArray",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "[\n  [\n    \"name\",\n    \"TechExplorer\"\n  ],\n  [\n    \"role\",\n    \"Developer\"\n  ],\n  [\n    \"expertise\",\n    \"JavaScript\"\n  ]\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Dynamic Iteration with for...of Loop </h1>",
+      "status": "",
+      "output": "<h1>Dynamic Iteration with for...of Loop </h1>",
+      "type": "html"
+    },
+    {
+      "code": "const userDetails = {\n  name: \"Alice\",\n  age: 28,\n  country: \"Wonderland\"\n};\n\nfor (const [key, value] of Object.entries(userDetails)) {\n  scrib.show(`${key}: ${value}`);\n}\n",
+      "status": "[4]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "name: Alice <br>age: 28 <br>country: Wonderland <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1> Transformative Operations </h1>",
+      "status": "",
+      "output": "<h1> Transformative Operations </h1>",
+      "type": "html"
+    },
+    {
+      "code": "const originalObject = { name: \"TechGuru\", skills: [\"JavaScript\", \"React\"] };\n\nconst transformedObject = Object.fromEntries(\n  Object.entries(originalObject).map(([key, value]) => [key.toUpperCase(), value])\n);\n\ntransformedObject",
+      "status": "[5]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "{\n  \"NAME\": \"TechGuru\",\n  \"SKILLS\": [\n    \"JavaScript\",\n    \"React\"\n  ]\n} <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
