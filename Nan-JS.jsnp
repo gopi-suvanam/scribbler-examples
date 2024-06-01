@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "name": "Nan in JavaScript",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Division by zero</h1>",
+      "status": "",
+      "output": "<h1>Division by zero</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const result = 10 / 0;\nconst invalidResult = \"Hello\" / 5; \nresult\ninvalidResult",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "NaN <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Invalid arithmetic operations</h1>",
+      "status": "",
+      "output": "<h1>Invalid arithmetic operations</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const invalidOperation = Math.sqrt(-1);\ninvalidOperation",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "NaN <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Parsing non-numeric strings</h1>",
+      "status": "",
+      "output": "<h1>Parsing non-numeric strings</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const invalidNumber = parseInt(\"Hello\");\ninvalidNumber",
+      "status": "[4]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "NaN <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Detecting NaN</h1>",
+      "status": "",
+      "output": "<h1>Detecting NaN</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const invalidNumber = parseInt(\"Hello\");\nscrib.show(isNaN(invalidNumber));\nscrib.show(isNaN(10));",
+      "status": "[8]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "true <br>false <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Bonus Interview Question</h1>",
+      "status": "",
+      "output": "<h1>Bonus Interview Question</h1>",
+      "type": "html"
+    },
+    {
+      "code": "scrib.show(NaN===NaN);",
+      "status": "[11]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "false <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
