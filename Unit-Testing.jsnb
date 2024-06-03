@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "name": "Unit Testing",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1  style=\"color:#555\"> Unit Testing Web Apps </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        Scribbler provides a flexible and interactive environment for unit testing web applications.\n    </p><br></div>",
+      "status": "",
+      "output": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1 style=\"color:#555\"> Unit Testing Web Apps </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        Scribbler provides a flexible and interactive environment for unit testing web applications.\n    </p><br></div>",
+      "type": "html"
+    },
+    {
+      "code": "<h2>Test Results</h2>\n<div id=\"mocha\"></div>\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/mocha/9.2.2/mocha.min.css\">\n",
+      "status": "",
+      "output": "<h2>Test Results</h2>\n<div id=\"mocha\"></div>\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/mocha/9.2.2/mocha.min.css\">\n",
+      "type": "html"
+    },
+    {
+      "code": "await scrib.loadScript('https://cdnjs.cloudflare.com/ajax/libs/mocha/9.2.2/mocha.min.js');\nmocha.setup('bdd'); // Setup Mocha with BDD interface\nawait scrib.loadScript('https://cdnjs.cloudflare.com/ajax/libs/chai/4.3.4/chai.min.js');\nwindow.expect = chai.expect;\nscrib.show(\"loaded\")",
+      "status": "[10]<br><span style=\"font-size:8px\">182ms<span></span></span>",
+      "output": "loaded <br>",
+      "type": "code"
+    },
+    {
+      "code": "function add(a, b) {\n    return a + b;\n}\n\n// Define our tests\ndescribe('Addition Function', function() {\n    it('should return 4 when adding 2 and 2', function() {\n        expect(add(2, 2)).to.equal(4);\n    });\n\n    it('should return 0 when adding -2 and 2', function() {\n        expect(add(-2, 2)).to.equal(0);\n    });\n});\n\n// Run the tests\nmocha.run();\n\"finished tests\"",
+      "status": "[11]<br><span style=\"font-size:8px\">8ms<span></span></span>",
+      "output": "finished tests <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
