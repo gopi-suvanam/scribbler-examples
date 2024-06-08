@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "name": "Arrays.every() Method",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Basic Usage</h1>",
+      "status": "",
+      "output": "<h1>Basic Usage</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const numbers = [1, 2, 3, 4, 5];\n\nconst allPositive = numbers.every(number => number > 0);\nallPositive",
+      "status": "[1]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "true <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Simplified Data Validation</h1>",
+      "status": "",
+      "output": "<h1>Simplified Data Validation</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const temperatures = [22, 25, 19, 30, 27];\n\nconst isBelowThreshold = temperatures.every(temp => temp < 32);\nisBelowThreshold",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "true <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Early Exit Optimization</h1>",
+      "status": "",
+      "output": "<h1>Early Exit Optimization</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const examScores = [85, 90, 92, 88, 78];\n\nconst passedAllExams = examScores.every(score => score >= 70);\npassedAllExams",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "true <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Array Consistency Check</h1>",
+      "status": "",
+      "output": "<h1>Array Consistency Check</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const binaryNumbers = [\"101\", \"110\", \"011\"];\n\nconst isBinary = binaryNumbers.every(num => /^[01]+$/.test(num));\nisBinary",
+      "status": "[4]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "true <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
