@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "name": "Agent-Based Models",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1  style=\"color:#555\">Agent-Based Models </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        This notebook gives a outline of ABMs along with JavaScript code.\n    </p><br></div>",
+      "status": "",
+      "output": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1 style=\"color:#555\">Agent-Based Models </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        This notebook gives a outline of ABMs along with JavaScript code.\n    </p><br></div>",
+      "type": "html"
+    },
+    {
+      "code": "<style>\n        canvas {\n            border: 1px solid black;\n        }\n    </style>\n    <canvas id=\"canvas\" width=\"600\" height=\"600\"></canvas>\n    <script src=\"abm.js\"></script>",
+      "status": "",
+      "output": "<style>\n        canvas {\n            border: 1px solid black;\n        }\n    </style>\n    <canvas id=\"canvas\" width=\"600\" height=\"600\"></canvas>\n    <script src=\"abm.js\"></script>",
+      "type": "html"
+    },
+    {
+      "code": "var canvas = document.getElementById('canvas');\nvar ctx = canvas.getContext('2d');\n\nclass Agent {\n    constructor(x, y) {\n        this.x = x;\n        this.y = y;\n        this.size = 5;\n    }\n\n    // Randomly move the agent\n    move() {\n        let dx = Math.floor(Math.random() * 3) - 1;\n        let dy = Math.floor(Math.random() * 3) - 1;\n        \n        let newX = this.x + dx;\n        let newY = this.y + dy;\n\n        // Prevent moving out of bounds\n        newX = Math.max(0, Math.min(canvas.width - this.size, newX));\n        newY = Math.max(0, Math.min(canvas.height - this.size, newY));\n\n        // Avoid collisions\n        for (const agent of agents) {\n            if (agent !== this && this.isColliding(agent, newX, newY)) {\n                return; // Don't move if it would cause a collision\n            }\n        }\n\n        this.x = newX;\n        this.y = newY;\n    }\n\n    // Check if this agent would collide with another agent at new coordinates\n    isColliding(other, newX, newY) {\n        return newX < other.x + other.size &&\n               newX + this.size > other.x &&\n               newY < other.y + other.size &&\n               newY + this.size > other.y;\n    }\n\n    // Draw the agent\n    draw() {\n        ctx.fillStyle = 'blue';\n        ctx.fillRect(this.x, this.y, this.size, this.size);\n    }\n}\nconst agents = [];\nconst numAgents = 100;\n\n// Initialize agents with random positions\nfor (let i = 0; i < numAgents; i++) {\n    const x = Math.floor(Math.random() * canvas.width);\n    const y = Math.floor(Math.random() * canvas.height);\n    agents.push(new Agent(x, y));\n}\n\nfunction update() {\n    ctx.clearRect(0, 0, canvas.width, canvas.height);\n    for (const agent of agents) {\n        agent.move();\n        agent.draw();\n    }\n    requestAnimationFrame(update);\n}\n\nupdate();",
+      "status": "[6]<br><span style=\"font-size:8px\">9ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "",
+      "status": "",
+      "output": "",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
