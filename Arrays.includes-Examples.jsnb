@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "name": "Array.includes()",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Basic Implementation</h1>",
+      "status": "",
+      "output": "<h1>Basic Implementation</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const techStack = [\"JavaScript\", \"React\", \"Node\", \"MongoDB\"];\n\nscrib.show(techStack.includes(\"React\")); \nscrib.show(techStack.includes(\"Angular\")); ",
+      "status": "[1]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "true <br>false <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1> Simplified Conditional Statements</h1>",
+      "status": "",
+      "output": "<h1> Simplified Conditional Statements</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const userType = [\"Admin\", \"User\", \"Guest\"];\nconst currentUserType = \"User\";\n\nif (userType.includes(currentUserType)) {\n  scrib.show(\"Access Granted!\");\n} else {\n  scrib.show(\"Access Denied!\");\n}",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Access Granted! <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>In Numberics</h1>",
+      "status": "",
+      "output": "<h1>In Numberics</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const numbers = [1, 2, 3, 4, 5];\n\nscrib.show(numbers.includes(3)); \nscrib.show(numbers.includes(10)); \n",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "true <br>false <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>No More Classics</h1>",
+      "status": "",
+      "output": "<h1>No More Classics</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const fruits = [\"Apple\", \"Banana\", \"Orange\"];\n\n// Old way\nif (fruits.indexOf(\"Banana\") !== -1) {\n  scrib.show(\"Found Banana!\");\n} else {\n  scrib.show(\"No Banana found!\");\n}\n\n// With 'includes'\nif (fruits.includes(\"Banana\")) {\n  scrib.show(\"Found Banana!\");\n} else {\n  scrib.show(\"No Banana found!\");\n}\n",
+      "status": "[4]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Found Banana! <br>Found Banana! <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
