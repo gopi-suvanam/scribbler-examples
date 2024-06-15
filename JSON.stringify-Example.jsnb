@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "name": "JSON.Stringify",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Basic Implementation</h1>",
+      "status": "",
+      "output": "<h1>Basic Implementation</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const user = {\n  name: \"TechExplorer\",\n  skills: [\"JavaScript\", \"React\", \"Node.js\"],\n  level: \"Advanced\"\n};\n\nconst jsonString = JSON.stringify(user);\nscrib.show(jsonString);",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "{\"name\":\"TechExplorer\",\"skills\":[\"JavaScript\",\"React\",\"Node.js\"],\"level\":\"Advanced\"} <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Nested Objects and Arrays</h1>",
+      "status": "",
+      "output": "<h1>Nested Objects and Arrays</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const book = {\n  title: \"The Coding Odyssey\",\n  author: {\n    name: \"CodeMaster\",\n    expertise: [\"JavaScript\", \"Python\"]\n  },\n  pages: 300\n};\n\nconst bookJson = JSON.stringify(book);\nscrib.show(bookJson);",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "{\"title\":\"The Coding Odyssey\",\"author\":{\"name\":\"CodeMaster\",\"expertise\":[\"JavaScript\",\"Python\"]},\"pages\":300} <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Filtering and Formatting</h1>",
+      "status": "",
+      "output": "<h1>Filtering and Formatting</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const movie = {\n  title: \"Tech Wars\",\n  genre: \"Sci-Fi\",\n  rating: 4.5\n};\n\nconst formattedJson = JSON.stringify(movie, [\"title\", \"genre\"], 2);\nscrib.show(formattedJson);",
+      "status": "[4]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "{\n  \"title\": \"Tech Wars\",\n  \"genre\": \"Sci-Fi\"\n} <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1> Handling Functions</h1>",
+      "status": "",
+      "output": "<h1> Handling Functions</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const game = {\n  title: \"CodeQuest\",\n  platform: \"Web\",\n  play: function() {\n    console.log(\"Game On!\");\n  }\n};\n\nconst gameJson = JSON.stringify(game, (key, value) => (typeof value === \"function\" ? value.toString() : value));\nscrib.show(gameJson);",
+      "status": "[5]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "{\"title\":\"CodeQuest\",\"platform\":\"Web\",\"play\":\"function() {\\n    console.log(\\\"Game On!\\\");\\n  }\"} <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Preserving Date Objects</h1>",
+      "status": "",
+      "output": "<h1>Preserving Date Objects</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const today = new Date();\n\nconst jsonDate = JSON.stringify(today.toJSON());\nscrib.show(jsonDate);",
+      "status": "[6]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "\"2024-06-15T15:36:24.964Z\" <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
