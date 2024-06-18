@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "name": "Object.Keys()",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Basic Implementation </h1>",
+      "status": "",
+      "output": "<h1>Basic Implementation </h1>",
+      "type": "html"
+    },
+    {
+      "code": "const techStack = {\n  language: \"JavaScript\",\n  library: \"React\",\n  runtime: \"Node.js\"\n};\n\nconst keysArray = Object.keys(techStack);\nscrib.show(keysArray);",
+      "status": "[1]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "[\n  \"language\",\n  \"library\",\n  \"runtime\"\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Iteration with for</h1>",
+      "status": "",
+      "output": "<h1>Iteration with for</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const techDetails = {\n  language: \"JavaScript\",\n  library: \"React\",\n  runtime: \"Node.js\"\n};\n\nObject.keys(techDetails).forEach(key => {\n  scrib.show(`${key}: ${techDetails[key]}`);\n});",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "language: JavaScript <br>library: React <br>runtime: Node.js <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1> Object Transformation</h1>",
+      "status": "",
+      "output": "<h1> Object Transformation</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const originalObject = { name: \"TechExplorer\", skills: [\"JavaScript\", \"React\"] };\n\nconst transformedObject = Object.keys(originalObject).reduce((acc, key) => {\n  acc[key.toUpperCase()] = originalObject[key];\n  return acc;\n}, {});\n\nscrib.show(transformedObject);",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "{\n  \"NAME\": \"TechExplorer\",\n  \"SKILLS\": [\n    \"JavaScript\",\n    \"React\"\n  ]\n} <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Validation and Existence Checks </h1>",
+      "status": "",
+      "output": "<h1>Validation and Existence Checks </h1>",
+      "type": "html"
+    },
+    {
+      "code": "const emptyObject = {};\n\nif (Object.keys(emptyObject).length === 0) {\n scrib.show(\"Empty Object!\");\n}\n",
+      "status": "[4]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Empty Object! <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Dynamic Object Property Retrieval</h1>",
+      "status": "",
+      "output": "<h1>Dynamic Object Property Retrieval</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const userPreference = {\n  theme: \"Dark\",\n  fontSize: \"Medium\",\n  language: \"English\"\n};\n\nconst selectedKey = \"fontSize\";\nscrib.show(userPreference[selectedKey]); ",
+      "status": "[5]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Medium <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
