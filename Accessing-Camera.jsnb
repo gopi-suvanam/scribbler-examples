@@ -11,7 +11,7 @@
     {
       "code": "<h1>Accessing the Camera </h1>\n  ",
       "status": "",
-      "output": "<h1>Accessing the Camera </h1>\n<h3><i>Accessing the camera in JavaScript is a fundamental step in developing XR applications</i></h3>\n  ",
+      "output": "<h1>Accessing the Camera </h1>\n  ",
       "type": "html"
     },
     {
@@ -21,8 +21,8 @@
       "type": "html"
     },
     {
-      "code": "",
-      "status": "[1]<br><span style=\"font-size:8px\">1.644s<span></span></span>",
+      "code": "if(scrib.isSandboxed()){\n alert(\"Take the notebook out of Sandbox by clicking the button ⤯ at the top right corner of this frame. You will be prompted to type in 'I trust' in an alert box.\");\n}\nasync function startCamera() {\n    try {\n        const video = document.getElementById('video');\n        const stream = await navigator.mediaDevices.getUserMedia({ video: true });\n        video.srcObject = stream;\n    } catch (error) {\n        console.error('Error accessing the camera: ', error);\n\t   alert('Unable to access the camera. Please grant permission.');\n    }\n}\n\nstartCamera()",
+      "status": "[5]<br><span style=\"font-size:8px\">33ms<span></span></span>",
       "output": "",
       "type": "code"
     }
