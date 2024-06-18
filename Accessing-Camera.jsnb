@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Accessing Camera",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Accessing the Camera </h1>\n  ",
+      "status": "",
+      "output": "<h1>Accessing the Camera </h1>\n<h3><i>Accessing the camera in JavaScript is a fundamental step in developing XR applications</i></h3>\n  ",
+      "type": "html"
+    },
+    {
+      "code": "<h2>Camera Access Example for XR</h2>\n    <video id=\"video\" width=\"640\" height=\"480\" autoplay></video>",
+      "status": "",
+      "output": "<h2>Camera Access Example for XR</h2>\n    <video id=\"video\" width=\"640\" height=\"480\" autoplay=\"\"></video>",
+      "type": "html"
+    },
+    {
+      "code": "",
+      "status": "[1]<br><span style=\"font-size:8px\">1.644s<span></span></span>",
+      "output": "",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": true
+}
