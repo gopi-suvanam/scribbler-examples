@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "name": "Image Libraries",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1  style=\"color:#555\">JavaScript Libraries for Image Processing </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\nJavaScript ecosystem has a slew of powerful libraries for image processing in the browser.\n\n    </p><br></div>",
+      "status": "",
+      "output": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1 style=\"color:#555\">JavaScript Libraries for Image Processing </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\nJavaScript ecosystem has a slew of powerful libraries for image processing in the browser.\n\n    </p><br></div>",
+      "type": "html"
+    },
+    {
+      "code": "await scrib.loadScript(\"https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js\");",
+      "status": "[1]<br><span style=\"font-size:8px\">439ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Fabric.js Image Manipulation</h1>\n    <canvas id=\"canvas\" width=\"800\" height=\"600\"></canvas>\n\n    <style>\n        canvas {\n            border: 1px solid black;\n        }\n    </style>",
+      "status": "",
+      "output": "<h1>Fabric.js Image Manipulation</h1>\n    <div class=\"canvas-container\" style=\"width: 800px; height: 600px; position: relative; user-select: none;\"><canvas id=\"canvas\" width=\"800\" height=\"600\" class=\"lower-canvas\" style=\"position: absolute; width: 800px; height: 600px; left: 0px; top: 0px; touch-action: none; user-select: none;\"></canvas><canvas class=\"upper-canvas \" width=\"800\" height=\"600\" style=\"position: absolute; width: 800px; height: 600px; left: 0px; top: 0px; touch-action: none; user-select: none;\"></canvas></div>\n\n    <style>\n        canvas {\n            border: 1px solid black;\n        }\n    </style>",
+      "type": "html"
+    },
+    {
+      "code": "    const canvas = new fabric.Canvas('canvas');\n\n    fabric.Image.fromURL('https://www.researchgate.net/profile/Irina-Gladkova/publication/253864235/figure/fig3/AS:668627082690571@1536424527359/The-image-shown-here-is-a-300-300-pixel-cropped-section-of-SEVIRI-Band-3-digital-counts.png', function(img) {\n        img.set({\n            left: 100,\n            top: 100,\n            angle: 0\n        });\n        canvas.add(img);\n    });",
+      "status": "[2]<br><span style=\"font-size:8px\">30ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
