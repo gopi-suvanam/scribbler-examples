@@ -9,9 +9,9 @@
   "jsnbversion": "v0.1",
   "cells": [
     {
-      "code": "<h1>Scientific Computation in JavaScript</h1>",
+      "code": "<h1>Scientific Computation in JavaScript</h1>\nThis is an accompanying notebook for the article: <a href='https://scribbler.live/2024/06/24/Master-Article-on-Scientific-Computation-in-JavaScript.html#example-truss-structure-design-tool'>Master Article on Scientific Computation in JavaScript</a>",
       "status": "",
-      "output": "<h1>Scientific Computation in JavaScript</h1>",
+      "output": "<h1>Scientific Computation in JavaScript</h1>\nThis is an accompanying notebook for the article: <a href=\"https://scribbler.live/2024/06/24/Master-Article-on-Scientific-Computation-in-JavaScript.html#example-truss-structure-design-tool\">Master Article on Scientific Computation in JavaScript</a>",
       "type": "html"
     },
     {
@@ -75,9 +75,9 @@
       "type": "code"
     },
     {
-      "code": "<h2>Engineering Deisgn: Truss</h2>\n<h3>As an exercise implement the truss code here</h3>\nCheck for details: <a href=\"\">Truss Structure Design Tool</a>",
+      "code": "<h2>Engineering Deisgn: Truss</h2>\n<h3>As an exercise implement the truss code here</h3>\nCheck for details: <a href=\"https://scribbler.live/2024/06/24/Master-Article-on-Scientific-Computation-in-JavaScript.html#example-truss-structure-design-tool\">Truss Structure Design Tool</a>",
       "status": "",
-      "output": "<h2>Engineering Deisgn: Truss</h2>\n<h3>As an exercise implement the truss code here</h3>\nCheck for details: <a href=\"\">Truss Structure Design Tool</a>",
+      "output": "<h2>Engineering Deisgn: Truss</h2>\n<h3>As an exercise implement the truss code here</h3>\nCheck for details: <a href=\"https://scribbler.live/2024/06/24/Master-Article-on-Scientific-Computation-in-JavaScript.html#example-truss-structure-design-tool\">Truss Structure Design Tool</a>",
       "type": "html"
     },
     {
