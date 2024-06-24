@@ -9,9 +9,9 @@
   "jsnbversion": "v0.1",
   "cells": [
     {
-      "code": "<h1>Scientific Computation in JavaScript</h1>\nThis is an accompanying notebook for the article: <a href='https://scribbler.live/2024/06/24/Master-Article-on-Scientific-Computation-in-JavaScript.html#example-truss-structure-design-tool'>Master Article on Scientific Computation in JavaScript</a>",
+      "code": "<h1>Scientific Computation in JavaScript</h1>\nThis is an accompanying notebook for the article: <a href='https://scribbler.live/2024/06/24/Master-Article-on-Scientific-Computation-in-JavaScript.html'>Master Article on Scientific Computation in JavaScript</a>",
       "status": "",
-      "output": "<h1>Scientific Computation in JavaScript</h1>\nThis is an accompanying notebook for the article: <a href=\"https://scribbler.live/2024/06/24/Master-Article-on-Scientific-Computation-in-JavaScript.html#example-truss-structure-design-tool\">Master Article on Scientific Computation in JavaScript</a>",
+      "output": "<h1>Scientific Computation in JavaScript</h1>\nThis is an accompanying notebook for the article: <a href=\"https://scribbler.live/2024/06/24/Master-Article-on-Scientific-Computation-in-JavaScript.html\">Master Article on Scientific Computation in JavaScript</a>",
       "type": "html"
     },
     {
