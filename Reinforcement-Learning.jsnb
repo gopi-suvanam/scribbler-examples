@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Reinforcement Learning",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Reinforcement Learning Using Tensofrlow.js</h1>\nA simple reinforcement learning algorithm using Q-Learning in JavaScript with TensorFlow.js.",
+      "status": "",
+      "output": "<h1>Reinforcement Learning Using Tensofrlow.js</h1>\nA simple reinforcement learning algorithm using Q-Learning in JavaScript with TensorFlow.js.",
+      "type": "html"
+    },
+    {
+      "code": "await scrib.loadScript(\"https://cdn.jsdelivr.net/npm/@tensorflow/tfjs\")",
+      "status": "[2]<br><span style=\"font-size:8px\">84ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "class Environment {\n  constructor(size, target) {\n    this.size = size;\n    this.target = target;\n    this.reset();\n  }\n\n  reset() {\n    this.agentPosition = Math.floor(this.size / 2);\n    return this.agentPosition;\n  }\n\n  step(action) {\n    if (action === 0 && this.agentPosition > 0) {\n      this.agentPosition--;\n    } else if (action === 1 && this.agentPosition < this.size - 1) {\n      this.agentPosition++;\n    }\n\n    const done = this.agentPosition === this.target;\n    const reward = done ? 1 : -1;\n\n    return {\n      state: this.agentPosition,\n      reward: reward,\n      done: done\n    };\n  }\n}\n\nclass QLearningAgent {\n  constructor(numStates, numActions, alpha, gamma, epsilon) {\n    this.numStates = numStates;\n    this.numActions = numActions;\n    this.alpha = alpha; // Learning rate\n    this.gamma = gamma; // Discount factor\n    this.epsilon = epsilon; // Exploration rate\n\n    this.qTable = Array.from({ length: numStates }, () =>\n      Array(numActions).fill(0)\n    );\n  }\n\n  chooseAction(state) {\n    if (Math.random() < this.epsilon) {\n      return Math.floor(Math.random() * this.numActions);\n    } else {\n      return this.qTable[state].indexOf(Math.max(...this.qTable[state]));\n    }\n  }\n\n  updateQTable(state, action, reward, nextState) {\n    const bestNextAction = this.qTable[nextState].indexOf(Math.max(...this.qTable[nextState]));\n    this.qTable[state][action] += this.alpha * (reward + this.gamma * this.qTable[nextState][bestNextAction] - this.qTable[state][action]);\n  }\n}\n\nconst env = new Environment(5, 4);\nconst agent = new QLearningAgent(5, 2, 0.1, 0.9, 0.1);\n\nconst numEpisodes = 1000;\n\nfor (let episode = 0; episode < numEpisodes; episode++) {\n  let state = env.reset();\n  let done = false;\n\n  while (!done) {\n    const action = agent.chooseAction(state);\n    const { state: nextState, reward, done: episodeDone } = env.step(action);\n    agent.updateQTable(state, action, reward, nextState);\n\n    state = nextState;\n    done = episodeDone;\n  }\n}\n\nscrib.show(\"Q-Table after training:\");\nscrib.show(agent.qTable);",
+      "status": "[3]<br><span style=\"font-size:8px\">8ms<span></span></span>",
+      "output": "Q-Table after training: <br>[\n  [\n    -1.2247897700103205,\n    -1.2253727269775305\n  ],\n  [\n    -1.2247897700103205,\n    -1.0794329916698449\n  ],\n  [\n    -1.9132790020595984,\n    -0.10000000000000048\n  ],\n  [\n    -1.0860123155948371,\n    0.9999999999999996\n  ],\n  [\n    0,\n    0\n  ]\n] <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
