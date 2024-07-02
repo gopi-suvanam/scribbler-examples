@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "name": "Financial Risk Management",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1  style=\"color:#555\">Financial Risk Management Calculations  in JavaScript </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\nImplementing financial risk management tools in JavaScript     </p><br></div>",
+      "status": "",
+      "output": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1 style=\"color:#555\">Financial Risk Management Calculations  in JavaScript </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\nImplementing financial risk management tools in JavaScript     </p><br></div>",
+      "type": "html"
+    },
+    {
+      "code": "//Value at Risk\n\nfunction calculateVaR(data, confidenceLevel) {\n    let sortedData = data.sort((a, b) => a - b);\n    let index = Math.floor((1 - confidenceLevel) * sortedData.length);\n    return sortedData[index];\n}\n\n// Example usage:\nlet returns = [0.01, -0.02, 0.015, -0.03, 0.005]; // Example return data\nlet VaR = calculateVaR(returns, 0.95);\nVaR",
+      "status": "[1]<br><span style=\"font-size:8px\">6ms<span></span></span>",
+      "output": "-0.03 <br>",
+      "type": "code"
+    },
+    {
+      "code": "//Expected Credit Loss\nfunction calculateExpectedLoss(PD, EAD, LGD) {\n    return PD * EAD * LGD;\n}\n\n// Example usage:\nlet PD = 0.02; // Probability of default: 2%\nlet EAD = 100000; // Exposure at default: $100,000\nlet LGD = 0.5; // Loss given default: 50%\n\nlet expectedLoss = calculateExpectedLoss(PD, EAD, LGD);\nexpectedLoss",
+      "status": "[3]<br><span style=\"font-size:8px\">8ms<span></span></span>",
+      "output": "1000 <br>",
+      "type": "code"
+    },
+    {
+      "code": "function calculateLCR(HQLA, netCashOutflows) {\n    return (HQLA / netCashOutflows) * 100;\n}\n\n// Example usage:\nlet HQLA = 500000; // High-quality liquid assets: $500,000\nlet netCashOutflows = 450000; // Net cash outflows over a 30-day period: $450,000\n\nlet LCR = calculateLCR(HQLA, netCashOutflows);\nLCR",
+      "status": "[4]<br><span style=\"font-size:8px\">3ms<span></span></span>",
+      "output": "111.11111111111111 <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
