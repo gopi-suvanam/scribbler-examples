@@ -69,9 +69,15 @@
       "type": "code"
     },
     {
-      "code": "const A=[[1,2,3],\n        [1,1,0],\n        [1,-2,3],\n        [1,3,4],\n        [1,-10,2],\n        [1,4,4],\n        [1,10,2],\n        [1,3,2],\n        [1,4,-1]];\nconst b=[1,-2,3,4,-5,6,7,-8,9];\nconst model=jStat.models.ols(b,A);\n\nscrib.show(\"Coefficients: \",model.coef);\n",
-      "status": "[8]<br><span style=\"font-size:8px\">13ms<span></span></span>",
-      "output": "Coefficients:  [\n  0.662197222856431,\n  0.5855663255775336,\n  0.013512111085743017\n] <br>",
+      "code": "const A=[[1,2,3],\n        [1,1,0],\n        [1,-2,3],\n        [1,3,4],\n        [1,-10,2],\n        [1,4,4],\n        [1,10,2],\n        [1,3,2],\n        [1,4,-1]];\nconst b=[1,-2,3,4,-5,6,7,-8,9];\nconst model=jStat.models.ols(b,A);\n\nscrib.show(\"Coefficients: \",model.coef);\nscrib.show(\"R-Squared:\",model.R2);\nscrib.show(\"Coeff T-test\",model.t.p )\nscrib.show(\"Model F-test\",\tmodel.f.pvalue)",
+      "status": "[10]<br><span style=\"font-size:8px\">5ms<span></span></span>",
+      "output": "Coefficients:  [\n  0.662197222856431,\n  0.5855663255775336,\n  0.013512111085743017\n] <br>R-Squared: 0.30851376357717286 <br>Coeff T-test [\n  0.8377444317889267,\n  0.15296736158442314,\n  0.9909627983826583\n] <br>Model F-test 0.3306363671859872 <br>",
+      "type": "code"
+    },
+    {
+      "code": "",
+      "status": "",
+      "output": "",
       "type": "code"
     }
   ],
