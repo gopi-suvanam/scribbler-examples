@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "name": "Statistical Analysis",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1  style=\"color:#555\">\nStatistical Analysis in JavaScript\t\t\t</h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\nJavaScript provides a versatile and powerful platform for performing statistical analysis    </p><br></div>",
+      "status": "",
+      "output": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1 style=\"color:#555\">\nStatistical Analysis in JavaScript\t\t\t</h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\nJavaScript provides a versatile and powerful platform for performing statistical analysis    </p><br></div>",
+      "type": "html"
+    },
+    {
+      "code": "//Loading libraries\n\nawait scrib.loadScript(\"https://cdn.jsdelivr.net/npm/simple-statistics@7.7.0/dist/simple-statistics.min.js\");",
+      "status": "[1]<br><span style=\"font-size:8px\">513ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "<h2>Descriptive Statistics</h2>",
+      "status": "",
+      "output": "<h2>Descriptive Statistics</h2>",
+      "type": "html"
+    },
+    {
+      "code": "\nconst data = [1, 2, 2, 3, 4, 4, 4, 5, 5, 6, 7, 8, 9, 9, 10];\n\nconst mean = ss.mean(data);\nconst median = ss.median(data);\nconst mode = ss.mode(data);\nconst variance = ss.variance(data);\nconst standardDeviation = ss.standardDeviation(data);\n\nscrib.show(`Mean: ${mean}`);\nscrib.show(`Median: ${median}`);\nscrib.show(`Mode: ${mode}`);\nscrib.show(`Variance: ${variance}`);\nscrib.show(`Standard Deviation: ${standardDeviation}`);",
+      "status": "[2]<br><span style=\"font-size:8px\">16ms<span></span></span>",
+      "output": "Mean: 5.266666666666667 <br>Median: 5 <br>Mode: 4 <br>Variance: 7.395555555555556 <br>Standard Deviation: 2.7194770739161522 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>Inferential Statistics</h2>",
+      "status": "",
+      "output": "<h2>Inferential Statistics</h2>",
+      "type": "html"
+    },
+    {
+      "code": "const sample1 = [2, 3, 5, 6, 9];\nconst sample2 = [3, 4, 4, 5, 8];\n\nconst tTestResult = ss.tTestTwoSample(sample1, sample2);\nscrib.show(`T-Test Result: ${tTestResult}`);",
+      "status": "[5]<br><span style=\"font-size:8px\">9ms<span></span></span>",
+      "output": "T-Test Result: 0.1336306209562123 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>Correlation Analysis\n</h2>",
+      "status": "",
+      "output": "<h2>Correlation Analysis\n</h2>",
+      "type": "html"
+    },
+    {
+      "code": "const x = [1, 2, 3, 4, 5];\nconst y = [2, 4, 5, 4, 5];\n\nconst correlation = ss.sampleCorrelation(x, y);\nscrib.show(`Pearson Correlation: ${correlation}`);",
+      "status": "[6]<br><span style=\"font-size:8px\">14ms<span></span></span>",
+      "output": "Pearson Correlation: 0.7745966692414834 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>Advanced Statistical Analysis</h2>",
+      "status": "",
+      "output": "<h2>Advanced Statistical Analysis</h2>",
+      "type": "html"
+    },
+    {
+      "code": "await scrib.loadScript(\"https://cdnjs.cloudflare.com/ajax/libs/jstat/1.9.4/jstat.min.js\")",
+      "status": "[7]<br><span style=\"font-size:8px\">513ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "const A=[[1,2,3],\n        [1,1,0],\n        [1,-2,3],\n        [1,3,4],\n        [1,-10,2],\n        [1,4,4],\n        [1,10,2],\n        [1,3,2],\n        [1,4,-1]];\nconst b=[1,-2,3,4,-5,6,7,-8,9];\nconst model=jStat.models.ols(b,A);\n\nscrib.show(\"Coefficients: \",model.coef);\n",
+      "status": "[8]<br><span style=\"font-size:8px\">13ms<span></span></span>",
+      "output": "Coefficients:  [\n  0.662197222856431,\n  0.5855663255775336,\n  0.013512111085743017\n] <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
