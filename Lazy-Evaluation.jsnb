@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "name": "Lazy Evaluation",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1  style=\"color:#555\">Lazy Evaluation in JavaScript </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\nLazy evaluation can be a powerful tool for optimizing performance and managing resource-intensive operations in JavaScript.    </p><br></div>",
+      "status": "",
+      "output": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1 style=\"color:#555\">Lazy Evaluation in JavaScript </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\nLazy evaluation can be a powerful tool for optimizing performance and managing resource-intensive operations in JavaScript.    </p><br></div>",
+      "type": "html"
+    },
+    {
+      "code": "<h2>Performance Optimization Using Generators</h2>",
+      "status": "",
+      "output": "<h2>Performance Optimization Using Generators</h2>",
+      "type": "html"
+    },
+    {
+      "code": "function* largeSequence() {\n  let i = 0;\n  while (i < 1e6) {\n    yield i++;\n  }\n}\n\nconst sequence = largeSequence();\nscrib.show(sequence.next().value); // 0\nscrib.show(sequence.next().value); // 1\n// Only the required elements are generated",
+      "status": "[1]<br><span style=\"font-size:8px\">4ms<span></span></span>",
+      "output": "0 <br>1 <br>",
+      "type": "code"
+    },
+    {
+      "code": "function* fibonacci() {\n  let [a, b] = [0, 1];\n  while (true) {\n    yield a;\n    [a, b] = [b, a + b];\n  }\n}\n\nconst fib = fibonacci();\nscrib.show(fib.next().value); // 0\nscrib.show(fib.next().value); // 1\nscrib.show(fib.next().value); // 1\nscrib.show(fib.next().value); // 2",
+      "status": "[2]<br><span style=\"font-size:8px\">12ms<span></span></span>",
+      "output": "0 <br>1 <br>1 <br>2 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>Improved Responsiveness Using Promises</h2>",
+      "status": "",
+      "output": "<h2>Improved Responsiveness Using Promises</h2>",
+      "type": "html"
+    },
+    {
+      "code": "function fetchData() {\n  return new Promise(resolve => {\n    setTimeout(() => resolve('Data Loaded'), 2000);\n  });\n}\n\nasync function lazyFetch() {\n  const data = await fetchData();\n  scrib.show(data);\n}\nlazyFetch(); // 'Data Loaded' after 2 seconds\n// The application remains responsive while waiting for the data",
+      "status": "[3]<br><span style=\"font-size:8px\">2.002s<span></span></span>",
+      "output": "Data Loaded <br>",
+      "type": "html"
+    },
+    {
+      "code": "<h2>Lazy Evaluation Using Closure</h2>",
+      "status": "",
+      "output": "<h2>Lazy Evaluation Using Closure</h2>",
+      "type": "html"
+    },
+    {
+      "code": "function lazyAdd(a, b) {\n  return () => a + b;\n}\n\n\nfunction lazyMultiply(a, b) {\n  return () => a * b;\n}\n\nconst sum = lazyAdd(3, 4);\nconst product = lazyMultiply(3, 4);\n\n\n//Only one of these is evaluated..\nconst resultType='sum';\nif(resultType=='sum'){\n  scrib.show(sum())\n}else if(resultType=='product'){\n  scrib.show(product())\n}\n",
+      "status": "[7]<br><span style=\"font-size:8px\">5ms<span></span></span>",
+      "output": "7 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>Efficient Functional Programming</h2>",
+      "status": "",
+      "output": "<h2>Efficient Functional Programming</h2>",
+      "type": "html"
+    },
+    {
+      "code": "const range = n => Array.from({ length: n }, (_, i) => i);\nconst lazyMap = (arr, fn) => function* () {\n  for (let item of arr) {\n    yield fn(item);\n  }\n};\n\nconst numbers = range(1000);\nconst lazyDoubled = lazyMap(numbers, x => x * 2);\n\nconst iterator = lazyDoubled();\nscrib.show(iterator.next().value); // 0\nscrib.show(iterator.next().value); // 2",
+      "status": "[8]<br><span style=\"font-size:8px\">7ms<span></span></span>",
+      "output": "0 <br>2 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>On-Demand Data Processing</h2>",
+      "status": "",
+      "output": "<h2>On-Demand Data Processing</h2>",
+      "type": "html"
+    },
+    {
+      "code": "function* dataStream() {\n  let i = 0;\n  while (true) {\n    yield `Data chunk ${i++}`;\n  }\n}\n\nconst stream = dataStream();\nscrib.show(stream.next().value); // Data chunk 0\nscrib.show(stream.next().value); // Data chunk 1",
+      "status": "[10]<br><span style=\"font-size:8px\">3ms<span></span></span>",
+      "output": "Data chunk 0 <br>Data chunk 1 <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
