@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "name": "New JSNB",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>indexOf()</h1>",
+      "status": "",
+      "output": "<h1>indexOf()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const fruits = ['apple', 'banana', 'mango'];\nconst index = fruits.indexOf('banana');\nscrib.show(index)",
+      "status": "[1]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "1 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>includes()</h1>",
+      "status": "",
+      "output": "<h1>includes()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const fruits = ['apple', 'banana', 'mango'];\nconst hasBanana = fruits.includes('banana'); \nscrib.show(hasBanana)",
+      "status": "[2]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "true <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>find()</h1>",
+      "status": "",
+      "output": "<h1>find()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const numbers = [1, 2, 3, 4, 5];\nconst found = numbers.find(num => num > 3); \nscrib.show(found)",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "4 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>findIndex()</h1>",
+      "status": "",
+      "output": "<h1>findIndex()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const numbers = [1, 2, 3, 4, 5];\nconst index = numbers.findIndex(num => num > 3);\nscrib.show(index)",
+      "status": "[4]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "3 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>filter()</h1>",
+      "status": "",
+      "output": "<h1>filter()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const numbers = [1, 2, 3, 4, 5];\nconst filtered = numbers.filter(num => num > 3);\nscrib.show(filtered)",
+      "status": "[5]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "[\n  4,\n  5\n] <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
