@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "name": "Python in Browser",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1  style=\"color:#555\">\n\t\t  Python in the Browser with Pyodide\n\t\t  </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\nPyodide opens up a world of possibilities by bringing Python's capabilities to the browser.     </p><br></div>",
+      "status": "",
+      "output": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1 style=\"color:#555\">\n\t\t  Python in the Browser with Pyodide\n\t\t  </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\nPyodide opens up a world of possibilities by bringing Python's capabilities to the browser.     </p><br></div>",
+      "type": "html"
+    },
+    {
+      "code": "var pyodide;",
+      "status": "[1]<br><span style=\"font-size:8px\">40ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "//Loading Pyodide\nconst src=\"https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js\";\nawait scrib.loadScript(src);\npyodide = await loadPyodide({\n            indexURL : \"https://cdn.jsdelivr.net/pyodide/v0.18.1/full/\"\n        });",
+      "status": "[2]<br><span style=\"font-size:8px\">5.786s<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "<h2>Using Numpy</h2>",
+      "status": "",
+      "output": "<h2>Using Numpy</h2>",
+      "type": "html"
+    },
+    {
+      "code": "//Running Code\nasync function runPythonCode() {\n            await pyodide.loadPackage(\"numpy\");\n\n            let pythonCode = `\n                import numpy as np\n                arr = np.array([1, 2, 3, 4, 5])\n                arr = arr * 2\n                arr.tolist()\n            `;\n\n            let result = pyodide.runPython(pythonCode);\n            scrib.show(result.toString());\n        }\n\n        runPythonCode();\n",
+      "status": "[10]<br><span style=\"font-size:8px\">88ms<span></span></span>",
+      "output": "[2, 4, 6, 8, 10] <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>Using Pandas</h2>",
+      "status": "",
+      "output": "<h2>Using Pandas</h2>",
+      "type": "html"
+    },
+    {
+      "code": "async function runPythonCode() {\n\tawait pyodide.loadPackage(\"pandas\");\n\n  let pythonCode = `\n                import pandas as pd\n                data = {'Name': ['John', 'Anna', 'Peter', 'Linda'],\n                        'Age': [28, 24, 35, 32]}\n                df = pd.DataFrame(data)\n                df\n            `;\n\n  let result = pyodide.runPython(pythonCode);\n  scrib.show(result.to_html());\n}\n\nrunPythonCode();",
+      "status": "[12]<br><span style=\"font-size:8px\">52ms<span></span></span>",
+      "output": "<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Name</th>\n      <th>Age</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>John</td>\n      <td>28</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>Anna</td>\n      <td>24</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>Peter</td>\n      <td>35</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>Linda</td>\n      <td>32</td>\n    </tr>\n  </tbody>\n</table> <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
