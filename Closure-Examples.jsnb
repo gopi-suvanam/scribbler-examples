@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "name": "New JSNB",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Basic Implementation</h1>",
+      "status": "",
+      "output": "<h1>Basic Implementation</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function outerFunction() {\n  const name = \"John\";\n  return function innerFunction() {\n   scrib.show(\"Hello, \" + name);\n  };\n}\n\nconst greet = outerFunction();\ngreet();\n",
+      "status": "[1]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Hello, John <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Usage in private variables</h1>",
+      "status": "",
+      "output": "<h1>Usage in private variables</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function counter() {\n  let count = 0;\n  return function() {\n    return ++count;\n  };\n}\n\nconst increment = counter();\nscrib.show(increment()); \nscrib.show(increment());",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "1 <br>2 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Usage in iterators</h1>",
+      "status": "",
+      "output": "<h1>Usage in iterators</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function createIterator(items) {\n  let index = 0;\n  return function() {\n    return items[index++];\n  };\n}\n\nconst fruitsIterator = createIterator([\"apple\", \"banana\", \"orange\"]);\nscrib.show(fruitsIterator());\nscrib.show(fruitsIterator());",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "apple <br>banana <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
