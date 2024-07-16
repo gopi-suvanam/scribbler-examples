@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "name": "Serialization of Objects",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Serialization of Objects in JavaScript</h1>",
+      "status": "",
+      "output": "<h1>Serialization of Objects in JavaScript</h1>",
+      "type": "html"
+    },
+    {
+      "code": "<h1>Using JSON</h2>",
+      "status": "",
+      "output": "<h1>Using JSON</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const person = {\n  name: \"John Doe\",\n  age: 30,\n  city: \"New York\"\n};\n\n// Serialize object to JSON string\nconst serializedData = JSON.stringify(person);\nconsole.log(serializedData);\n// Output: {\"name\":\"John Doe\",\"age\":30,\"city\":\"New York\"}\n\n// Deserialize JSON string to object\nconst deserializedData = JSON.parse(serializedData);\nscrib.show(deserializedData.name);\nscrib.show(deserializedData.age);\nscrib.show(deserializedData.city);\n// Output: John Doe\n//         30\n//         New York\n",
+      "status": "[39]<br><span style=\"font-size:8px\">31ms<span></span></span>",
+      "output": "John Doe <br>30 <br>New York <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>Using Cyro</h2>",
+      "status": "",
+      "output": "<h2>Using Cyro</h2>",
+      "type": "html"
+    },
+    {
+      "code": "src=\"https://cdn.jsdelivr.net/gh/wesgarland/kvin/kvin.js\";\nscrib.loadScript(src);",
+      "status": "[40]<br><span style=\"font-size:8px\">536ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "KVIN.stringify",
+      "status": "[41]<br><span style=\"font-size:8px\">8ms<span></span></span>",
+      "output": "function () { [native code] } <br>",
+      "type": "code"
+    },
+    {
+      "code": "class Person {\n    constructor(name, age) {\n        this.name = name;\n        this.age = age;\n    }\n\n    greet() {\n\t  console.log(this.name);\n        return `Hello, my name is ${this.name.firstName} and I am ${this.age} years old.`;\n    }\n}\n\n// Create an instance of Person\nconst person = new Person(\"John Doe\", 30);\nKVIN.userCtors.Person = Person;\n\nconst bob = new Person({ firstName: 'bob', lastName: 'weir' },30);\nvar bob_s = KVIN.stringify(bob);\nscrib.show(\"Stingified:--\",bob_s);\n",
+      "status": "[42]<br><span style=\"font-size:8px\">13ms<span></span></span>",
+      "output": "Stingified:-- {\"_serializeVerId\":\"v8\",\"what\":{\"ctr\":\"Person\",\"ps\":{\"name\":{\"raw\":{\"firstName\":\"bob\",\"lastName\":\"weir\"}},\"age\":30}}} <br>",
+      "type": "code"
+    },
+    {
+      "code": "var bob_o = KVIN.parse(bob_s);\nscrib.show(\"Parsed:--\",bob_o);\n\n",
+      "status": "[43]<br><span style=\"font-size:8px\">11ms<span></span></span>",
+      "output": "Parsed:-- {\n  \"name\": {\n    \"firstName\": \"bob\",\n    \"lastName\": \"weir\"\n  },\n  \"age\": 30\n} <br>",
+      "type": "code"
+    },
+    {
+      "code": "//Testing function call\nbob_o.greet()",
+      "status": "[44]<br><span style=\"font-size:8px\">28ms<span></span></span>",
+      "output": "Hello, my name is bob and I am 30 years old. <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
