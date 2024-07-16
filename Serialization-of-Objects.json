@@ -45,9 +45,9 @@
       "type": "code"
     },
     {
-      "code": "class Person {\n    constructor(name, age) {\n        this.name = name;\n        this.age = age;\n    }\n\n    greet() {\n\t  console.log(this.name);\n        return `Hello, my name is ${this.name.firstName} and I am ${this.age} years old.`;\n    }\n}\n\n// Create an instance of Person\nconst person = new Person(\"John Doe\", 30);\nKVIN.userCtors.Person = Person;\n\nconst bob = new Person({ firstName: 'bob', lastName: 'weir' },30);\nvar bob_s = KVIN.stringify(bob);\nscrib.show(\"Stingified:--\",bob_s);\n",
-      "status": "[42]<br><span style=\"font-size:8px\">13ms<span></span></span>",
-      "output": "Stingified:-- {\"_serializeVerId\":\"v8\",\"what\":{\"ctr\":\"Person\",\"ps\":{\"name\":{\"raw\":{\"firstName\":\"bob\",\"lastName\":\"weir\"}},\"age\":30}}} <br>",
+      "code": "class Person {\n    constructor(name, age) {\n        this.name = name;\n        this.age = age;\n    }\n\n    greet() {\n\t  console.log(this.name);\n        return `Hello, my name is ${this.name.firstName} and I am ${this.age} years old.`;\n    }\n}\n\n// Create an instance of Person\nconst person = new Person(\"John Doe\", 30);\nKVIN.userCtors.Person = Person;\n\nconst bob = new Person({ firstName: 'bob', lastName: 'weir' },30);\nvar bob_s = KVIN.stringify(bob);\nscrib.show(\"Stringified:--\",bob_s);\n",
+      "status": "[45]<br><span style=\"font-size:8px\">28ms<span></span></span>",
+      "output": "Stringified:-- {\"_serializeVerId\":\"v8\",\"what\":{\"ctr\":\"Person\",\"ps\":{\"name\":{\"raw\":{\"firstName\":\"bob\",\"lastName\":\"weir\"}},\"age\":30}}} <br>",
       "type": "code"
     },
     {
