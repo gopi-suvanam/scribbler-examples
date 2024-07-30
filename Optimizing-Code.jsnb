@@ -57,9 +57,9 @@
       "type": "code"
     },
     {
-      "code": "<h3>Try more techniques yourself using this article: <a href=''>Optimizing JavaScript Code for Web Performance</a> </h3>",
+      "code": "<h3>Try more techniques yourself using this article: <a href='https://scribbler.live/2024/07/30/Optimizing-JavaScript-Code-for-Web-Performance.html'>Optimizing JavaScript Code for Web Performance</a> </h3>",
       "status": "",
-      "output": "<h3>Try more techniques yourself using this article: <a href=\"\">Optimizing JavaScript Code for Web Performance</a> </h3>",
+      "output": "<h3>Try more techniques yourself using this article: <a href=\"https://scribbler.live/2024/07/30/Optimizing-JavaScript-Code-for-Web-Performance.html\">Optimizing JavaScript Code for Web Performance</a> </h3>",
       "type": "html"
     }
   ],
