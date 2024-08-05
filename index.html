@@ -6,10 +6,10 @@
         const data = await response.json();
         let htmlString = '<ul>';
         const scribblerURL = "https://app.scribbler.live";
-        const exampleURL="https://examples.scriibler.live/";
+        const exampleURL="https://examples.scribbler.live/";
         for (let file of data) {
           if(file.name.includes(".jsnb") )
-          htmlString += `<li><a href="${scribblerURL+"?jsnb="=exampleURL+file.path}">${file.name.replaceAll("-"," ").replaceAll("_","").replace(".jsnb","")}</a></li>`;
+          htmlString += `<li><a href="${scribblerURL+"?jsnb="+exampleURL+file.path}">${file.name.replaceAll("-"," ").replaceAll("_","").replace(".jsnb","")}</a></li>`;
         }
 
         htmlString += '</ul>';
