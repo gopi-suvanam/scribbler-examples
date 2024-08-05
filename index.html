@@ -12,9 +12,10 @@
         }
 
         htmlString += '</ul>';
-        document.getElementsByTagName('body')[0].innerHTML = htmlString;
+        document.getElementById('list').innerHTML = htmlString;
       })()
     </script>
     <h1>List of Sample Notebooks</h1>
+    <div id='list'></div>
   <body>
 </html>
