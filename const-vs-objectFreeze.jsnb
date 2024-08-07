@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "name": "Const vs Freeze<br>",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>const</h1>",
+      "status": "",
+      "output": "<h1>const</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const user = { name: \"Alice\", age: 30 };\nuser.age = 31; // This is allowed\n user = { name: \"Bob\", age: 25 }; // This will throw an error\n",
+      "status": "[-]",
+      "output": "<p class=\"error\">Assignment to constant variable.</p>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Object.freeze()</h1>",
+      "status": "",
+      "output": "<h1>Object.freeze()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const user = { name: \"Alice\", age: 30 };\nObject.freeze(user);\nuser.age = 31; // This will not change the age property\n user.name = \"Bob\"; // This will also not change the name property\nscrib.show(user)",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "{\n  \"name\": \"Alice\",\n  \"age\": 30\n} <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Deep Freeze</h1>",
+      "status": "",
+      "output": "<h1>Deep Freeze</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function deepFreeze(obj) {\n  Object.keys(obj).forEach(name => {\n    const prop = obj[name];\n    if (typeof prop === 'object' && prop !== null) deepFreeze(prop);\n  });\n  return Object.freeze(obj);\n}\n\nconst user = { name: \"Alice\", details: { age: 30 } };\ndeepFreeze(user);\nuser.details.age = 31; // This will not change the age property\nscrib.show(user)",
+      "status": "[4]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "{\n  \"name\": \"Alice\",\n  \"details\": {\n    \"age\": 30\n  }\n} <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
