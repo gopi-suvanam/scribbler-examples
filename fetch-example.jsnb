@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "name": "Fetch in JS",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Basic Implementation </h1>",
+      "status": "",
+      "output": "<h1>Basic Implementation </h1>",
+      "type": "html"
+    },
+    {
+      "code": "fetch('https://jsonplaceholder.typicode.com/posts/1')\n  .then(response => {\n    if (!response.ok) {\n      throw new Error('Network response was not ok');\n    }\n    return response.json(); // Parses the JSON response into a JavaScript object\n  })\n  .then(data => {\n    scrib.show('Post:', data);\n    // Output: {userId: 1, id: 1, title: \"...\", body: \"...\"}\n  })\n  .catch(error => console.error('Fetch error:', error));\n",
+      "status": "[2]<br><span style=\"font-size:8px\">160ms<span></span></span>",
+      "output": "Post: {\n  \"userId\": 1,\n  \"id\": 1,\n  \"title\": \"sunt aut facere repellat provident occaecati excepturi optio reprehenderit\",\n  \"body\": \"quia et suscipit\\nsuscipit recusandae consequuntur expedita et cum\\nreprehenderit molestiae ut ut quas totam\\nnostrum rerum est autem sunt rem eveniet architecto\"\n} <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1> Fetch with data </h1>",
+      "status": "",
+      "output": "<h1> Fetch with data </h1>",
+      "type": "html"
+    },
+    {
+      "code": "const newPost = {\n  title: 'My New Post',\n  body: 'This is the content of the post.',\n  userId: 1\n};\n\nfetch('https://jsonplaceholder.typicode.com/posts', {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json'\n  },\n  body: JSON.stringify(newPost)\n})\n  .then(response => response.json())\n  .then(data => scrib.show('Created Post:', data))\n  .catch(error => console.error('Error:', error));\n",
+      "status": "[3]<br><span style=\"font-size:8px\">1.675s<span></span></span>",
+      "output": "Created Post: {\n  \"title\": \"My New Post\",\n  \"body\": \"This is the content of the post.\",\n  \"userId\": 1,\n  \"id\": 101\n} <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
