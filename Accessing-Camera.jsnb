@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "name": "Accessing Camera",
+    "name": "Accessing Camera<br>",
     "language_info": {
       "name": "JavaScipt",
       "version": "8.0"
@@ -9,24 +9,18 @@
   "jsnbversion": "v0.1",
   "cells": [
     {
-      "code": "<h1>Accessing the Camera </h1>\n  ",
+      "code": "<video id=\"video\" width=\"640\" height=\"480\" autoplay></video>\n",
       "status": "",
-      "output": "<h1>Accessing the Camera </h1>\n  ",
+      "output": "<video id=\"video\" width=\"640\" height=\"480\" autoplay=\"\"></video>\n",
       "type": "html"
     },
     {
-      "code": "<h2>Camera Access Example for XR</h2>\n    <video id=\"video\" width=\"640\" height=\"480\" autoplay></video>",
-      "status": "",
-      "output": "<h2>Camera Access Example for XR</h2>\n    <video id=\"video\" width=\"640\" height=\"480\" autoplay=\"\"></video>",
-      "type": "html"
-    },
-    {
-      "code": "if(scrib.isSandboxed()){\n alert(\"Take the notebook out of Sandbox by clicking the button ⤯ at the top right corner of this frame. You will be prompted to type in 'I trust' in an alert box.\");\n}\nasync function startCamera() {\n    try {\n        const video = document.getElementById('video');\n        const stream = await navigator.mediaDevices.getUserMedia({ video: true });\n        video.srcObject = stream;\n    } catch (error) {\n        console.error('Error accessing the camera: ', error);\n\t   alert('Unable to access the camera. Please grant permission.');\n    }\n}\n\nstartCamera()",
-      "status": "[5]<br><span style=\"font-size:8px\">33ms<span></span></span>",
+      "code": "if(scrib.isSandboxed()) alert(\"Click the red button on top right corner to take the notebook out of Sandbox\");\nconst vid=scrib.getDom(\"video\");\nnavigator.mediaDevices.getUserMedia({video:true}).then((stream)=>{vid.srcObject=stream});",
+      "status": "[16]<br><span style=\"font-size:8px\">18ms<span></span></span>",
       "output": "",
       "type": "code"
     }
   ],
   "source": "https://github.com/gopi-suvanam/jsnb",
-  "run_on_load": true
+  "run_on_load": false
 }
