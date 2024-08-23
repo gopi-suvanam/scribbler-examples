@@ -16,17 +16,17 @@
     },
     {
       "code": "if(scrib.isSandboxed()) alert(\"Plase take it out of sandbox by clicking the red button on top right corner\");\nconst video = document.getElementById('myVideo');\n\nnavigator.mediaDevices.getUserMedia({ video: true })\n        .then((cameraStream) => {\n          stream = cameraStream;\n          video.srcObject = cameraStream;\n        })\n        .catch((error) => {\n         scrib.show('Error accessing camera:', error.message);\n        });",
-      "status": "[4]<br><span style=\"font-size:8px\">87ms<span></span></span>",
+      "status": "[1]<br><span style=\"font-size:8px\">160ms<span></span></span>",
       "output": "",
       "type": "code"
     },
     {
       "code": "",
-      "status": "",
+      "status": "[2]<br><span style=\"font-size:8px\">1ms<span></span></span>",
       "output": "",
       "type": "code"
     }
   ],
   "source": "https://github.com/gopi-suvanam/jsnb",
-  "run_on_load": false
+  "run_on_load": true
 }
