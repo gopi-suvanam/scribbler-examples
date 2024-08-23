@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "name": "Accessing Camera<br>",
+    "name": "Accessing Camera",
     "language_info": {
       "name": "JavaScipt",
       "version": "8.0"
@@ -9,14 +9,20 @@
   "jsnbversion": "v0.1",
   "cells": [
     {
-      "code": "<video id=\"video\" width=\"640\" height=\"480\" autoplay></video>\n",
+      "code": "<video id=\"myVideo\" width=\"640\" height=\"480\" autoplay></video>\n",
       "status": "",
-      "output": "<video id=\"video\" width=\"640\" height=\"480\" autoplay=\"\"></video>\n",
+      "output": "<video id=\"myVideo\" width=\"640\" height=\"480\" autoplay=\"\"></video>\n",
       "type": "html"
     },
     {
-      "code": "if(scrib.isSandboxed()) alert(\"Click the red button on top right corner to take the notebook out of Sandbox\");\nconst vid=scrib.getDom(\"video\");\nnavigator.mediaDevices.getUserMedia({video:true}).then((stream)=>{vid.srcObject=stream});",
-      "status": "[16]<br><span style=\"font-size:8px\">18ms<span></span></span>",
+      "code": "if(scrib.isSandboxed()) alert(\"Plase take it out of sandbox by clicking the red button on top right corner\");\nconst video = document.getElementById('myVideo');\n\nnavigator.mediaDevices.getUserMedia({ video: true })\n        .then((cameraStream) => {\n          stream = cameraStream;\n          video.srcObject = cameraStream;\n        })\n        .catch((error) => {\n         scrib.show('Error accessing camera:', error.message);\n        });",
+      "status": "[4]<br><span style=\"font-size:8px\">87ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "",
+      "status": "",
       "output": "",
       "type": "code"
     }
