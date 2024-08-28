@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "name": "Spread vs Rest<br>",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Spread Operator </h1>",
+      "status": "",
+      "output": "<h1>Spread Operator </h1>",
+      "type": "html"
+    },
+    {
+      "code": "const arr1 = [1, 2];\nconst arr2 = [3, 4];\nconst mergedArr = [...arr1, ...arr2];\nscrib.show(mergedArr);",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "[\n  1,\n  2,\n  3,\n  4\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "const numbers = [1, 2, 3];\nscrib.show(Math.max(...numbers)); \n// Spreads elements as individual arguments",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "3 <br>",
+      "type": "code"
+    },
+    {
+      "code": "const arr = [1, 2, 3];\nconst newArr = [...arr, 4, 5]; // Spreads [1, 2, 3] into newArr -> [1, 2, 3, 4, 5]\nscrib.show(newArr)",
+      "status": "[6]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "[\n  1,\n  2,\n  3,\n  4,\n  5\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Rest Operator </h1>",
+      "status": "",
+      "output": "<h1>Rest Operator </h1>",
+      "type": "html"
+    },
+    {
+      "code": "function sum(...numbers) {\n  return numbers.reduce((a, b) => a + b, 0);\n}\nscrib.show(sum(1, 2, 3)); // Gathers all arguments into an array [1, 2, 3]",
+      "status": "[4]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "6 <br>",
+      "type": "code"
+    },
+    {
+      "code": "const { a, b, ...others } = { a: 1, b: 2, c: 3, d: 4 };\nscrib.show(others); // { c: 3, d: 4 }",
+      "status": "[5]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "{\n  \"c\": 3,\n  \"d\": 4\n} <br>",
+      "type": "code"
+    },
+    {
+      "code": "const [first, ...rest] = [1, 2, 3];\nscrib.show(first); // 1\nscrib.show(rest);  // [2, 3]",
+      "status": "[7]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "1 <br>[\n  2,\n  3\n] <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
