@@ -9,9 +9,9 @@
   "jsnbversion": "v0.1",
   "cells": [
     {
-      "code": "//>md\n### Note: clck the _Edit->Trust the NB_ to be able to run this notebook properly else it is in sandbox and some features will be disables\n### Run each cell using play button or click the play button at top right corner",
+      "code": "//>md\n### Note: clck the _Edit->Trust the NB_ to be able to run this notebook properly else it is in sandbox and some features will be disabled\n### Run each cell using play button or click the play button at top right corner",
       "status": "",
-      "output": "<h3>Note: clck the <em>Edit-&gt;Trust the NB</em> to be able to run this notebook properly else it is in sandbox and some features will be disables</h3>\n<h3>Run each cell using play button or click the play button at top right corner</h3>\n",
+      "output": "<h3>Note: clck the <em>Edit-&gt;Trust the NB</em> to be able to run this notebook properly else it is in sandbox and some features will be disabled</h3>\n<h3>Run each cell using play button or click the play button at top right corner</h3>\n",
       "type": "html"
     },
     {
