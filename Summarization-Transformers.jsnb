@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "name": "Summarization Using Transformers",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "//>md\n### Note: clck the _Edit->Trust the NB_ to be able to run this notebook properly else it is in sandbox and some features will be disables\n### Run each cell using play button or click the play button at top right corner",
+      "status": "",
+      "output": "<h3>Note: clck the <em>Edit-&gt;Trust the NB</em> to be able to run this notebook properly else it is in sandbox and some features will be disables</h3>\n<h3>Run each cell using play button or click the play button at top right corner</h3>\n",
+      "type": "html"
+    },
+    {
+      "code": "\nconst { pipeline } = await import('https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2/dist/transformers.min.js');\nwindow.pipeline=pipeline;",
+      "status": "[1]<br><span style=\"font-size:8px\">176ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "// Note this will work only if the notebook is taken out of sandbox through Edit->Trust the NB\nconst summarization = await pipeline('summarization', 'Xenova/t5-small' );\nwindow.summarization = summarization;",
+      "status": "[2]<br><span style=\"font-size:8px\">2.625s<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "text=\"The rapid advancement of technology has transformed the way we live, work, and communicate. The internet, social media, and mobile devices have revolutionized the way we access information, connect with others, and share our experiences. Artificial intelligence, machine learning, and data analytics are driving innovation in industries such as healthcare, finance, and transportation. The Internet of Things (IoT) is connecting an vast array of devices, making our homes, cities, and workplaces smarter and more efficient. However, this technological progress also raises important questions about privacy, security, and the digital divide. As we move forward, it is crucial that we prioritize responsible innovation, ensuring that the benefits of technology are equitably distributed and that its risks are mitigated.\"\n\nsummarization(text)",
+      "status": "[3]<br><span style=\"font-size:8px\">1.437s<span></span></span>",
+      "output": "[\n  {\n    \"summary_text\": \"the rapid advancement of technology has transformed the way we live, work, and communicate. the\"\n  }\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "",
+      "status": "",
+      "output": "",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
