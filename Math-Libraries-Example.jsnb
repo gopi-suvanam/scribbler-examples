@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "name": "Math Libraries",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "//>md\n# Math Libraries in JavaScript",
+      "status": "",
+      "output": "<h1>Math Libraries in JavaScript</h1>\n",
+      "type": "html"
+    },
+    {
+      "code": "//>md\n## Math.js",
+      "status": "",
+      "output": "<h2>Math.js</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "await scrib.loadScript('https://cdnjs.cloudflare.com/ajax/libs/mathjs/13.1.1/math.js');\nconst sum = math.add(10, 5);\nconst matrixA = math.matrix([[1, 2], [3, 4]]);\nconst matrixB = math.matrix([[5, 6], [7, 8]]);\nconst product = math.multiply(matrixA, matrixB);\n\nscrib.show(sum);           // Output: 15\n\nscrib.show(product);       // Output: [[19, 22], [43, 50]]",
+      "status": "[4]<br><span style=\"font-size:8px\">1.128s<span></span></span>",
+      "output": "15 <br>{\n  \"mathjs\": \"DenseMatrix\",\n  \"data\": [\n    [\n      19,\n      22\n    ],\n    [\n      43,\n      50\n    ]\n  ],\n  \"size\": [\n    2,\n    2\n  ]\n} <br>",
+      "type": "code"
+    },
+    {
+      "code": "//>md\n## Numeric.js",
+      "status": "",
+      "output": "<h2>Numeric.js</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "await scrib.loadScript(\"https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js\")",
+      "status": "[8]<br><span style=\"font-size:8px\">347ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "const matrix1 = [[1, 2], [3, 4]];\nconst matrix2 = [[5, 6], [7, 8]];\nconst result = numeric.dot(matrix1, matrix2);\nresult",
+      "status": "[11]<br><span style=\"font-size:8px\">8ms<span></span></span>",
+      "output": "[\n  [\n    19,\n    22\n  ],\n  [\n    43,\n    50\n  ]\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "//>md\n## Big.js",
+      "status": "",
+      "output": "<h2>Big.js</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "await scrib.loadScript(\"https://cdnjs.cloudflare.com/ajax/libs/big.js/2.3.0/big.min.js\");\n",
+      "status": "[21]<br><span style=\"font-size:8px\">12ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "// Perform high-precision division\nconst a = new Big(1);\nconst b = new Big(3);\nconst result = a.div(b);\n\nscrib.show(result.toString()); // Output: 0.33333333333333333333...\n",
+      "status": "[22]<br><span style=\"font-size:8px\">19ms<span></span></span>",
+      "output": "0.33333333333333333333 <br>",
+      "type": "code"
+    },
+    {
+      "code": "//>md\n## Algebrite",
+      "status": "",
+      "output": "<h2>Algebrite</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "await scrib.loadScript(\"https://cdn.jsdelivr.net/npm/algebrite@1.4.0/dist/algebrite.bundle-for-browser.min.js\");\n",
+      "status": "[13]<br><span style=\"font-size:8px\">518ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "const derivative = Algebrite.run('d(x^2 + 3*x + 2, x)');\nderivative",
+      "status": "[16]<br><span style=\"font-size:8px\">61ms<span></span></span>",
+      "output": "2*x+3 <br>",
+      "type": "code"
+    },
+    {
+      "code": "//>md\n## Plynomial.js",
+      "status": "",
+      "output": "<h2>Plynomial.js</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "await scrib.loadScript(\"https://cdn.jsdelivr.net/npm/polynomial@1.4.5/polynomial.min.js\")",
+      "status": "[33]<br><span style=\"font-size:8px\">18ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "const poly1 = new Polynomial([1, -3, 2]); // Represents x^2 - 3x + 2\nconst poly2 = new Polynomial([1, 1]);     // Represents x + 1\n\n// Multiply the polynomials\nconst result = poly1.mul(poly2);\n\nresult",
+      "status": "[34]<br><span style=\"font-size:8px\">11ms<span></span></span>",
+      "output": "{\n  \"coeff\": {\n    \"0\": 1,\n    \"1\": -2,\n    \"2\": -1,\n    \"3\": 2\n  }\n} <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
