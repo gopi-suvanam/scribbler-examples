@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "name": "Map &amp; Set Vs WeakMap &amp; WeakSet",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Map</h1>",
+      "status": "",
+      "output": "<h1>Map</h1>",
+      "type": "html"
+    },
+    {
+      "code": "let map = new Map();\nmap.set('name', 'JavaScript');\nscrib.show(map.get('name')); // Output: JavaScript",
+      "status": "[1]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "JavaScript <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Set</h1>",
+      "status": "",
+      "output": "<h1>Set</h1>",
+      "type": "html"
+    },
+    {
+      "code": "let set = new Set();\nset.add('ES6');\nset.add('ES6'); // Duplicates not allowed\nscrib.show(set.size); // Output: 1",
+      "status": "[2]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "1 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>WeakMap</h1>",
+      "status": "",
+      "output": "<h1>WeakMap</h1>",
+      "type": "html"
+    },
+    {
+      "code": "let weakMap = new WeakMap();\nlet obj = {};\nweakMap.set(obj, 'data');",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "{} <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>WeakSet</h1>",
+      "status": "",
+      "output": "<h1>WeakSet</h1>",
+      "type": "html"
+    },
+    {
+      "code": "let weakSet = new WeakSet();\nlet obj = {};\nweakSet.add(obj);",
+      "status": "",
+      "output": "",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
