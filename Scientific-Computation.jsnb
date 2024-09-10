@@ -15,7 +15,7 @@
       "type": "html"
     },
     {
-      "code": "//>md## Simple Harmonic Oscillator Simulation\n  <div id=\"graph\"></div>",
+      "code": "<h2>Simple Harmonic Oscillator Simulation</h2>\n  <div id=\"graph\"></div>",
       "status": "",
       "output": "<h2>Simple Harmonic Oscillator Simulation</h2>\n  <div id=\"graph\"></div>",
       "type": "html"
