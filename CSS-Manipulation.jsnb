@@ -22,8 +22,14 @@
     },
     {
       "code": "//>html\n<p id=\"text\">Hello, World!</p>\n",
-      "status": "[27]<br><span style=\"font-size:8px\">0ms<span></span></span>",
-      "output": "\n<p id=\"text\">Hello, World!</p>\n <br>",
+      "status": "[1]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "\n<p id=\"text\" style=\"color: blue;\">Hello, World!</p>\n <br>",
+      "type": "code"
+    },
+    {
+      "code": "const textElement = document.getElementById('text');\ntextElement.style.color = 'blue';",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "blue <br>",
       "type": "code"
     },
     {
@@ -34,13 +40,13 @@
     },
     {
       "code": "//>html\n<div id=\"container\"></div>\n",
-      "status": "[28]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
       "output": "\n<div id=\"container\" style=\"background-image: url(&quot;https://fastly.picsum.photos/id/250/200/300.jpg&quot;); background-size: cover;\"></div>\n <br>",
       "type": "code"
     },
     {
       "code": "const container = document.getElementById('container');\ncontainer.style.backgroundImage = 'url(\"https://fastly.picsum.photos/id/250/200/300.jpg\")';\ncontainer.style.backgroundSize = 'cover';\n\"\"\n",
-      "status": "[29]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "status": "[4]<br><span style=\"font-size:8px\">0ms<span></span></span>",
       "output": " <br>",
       "type": "code"
     },
@@ -52,13 +58,13 @@
     },
     {
       "code": "//> html\n<h1 id=\"heading1\">Heading 1</h1>\n<h1 id=\"heading2\">Heading 2</h1>\n",
-      "status": "[30]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "status": "[5]<br><span style=\"font-size:8px\">0ms<span></span></span>",
       "output": "\n<h1 id=\"heading1\">Heading 1</h1>\n<h1 id=\"heading2\" style=\"font-size: 12px;\">Heading 2</h1>\n <br>",
       "type": "code"
     },
     {
       "code": "const heading = document.getElementById('heading2');\nheading.style.fontSize = '12px';\n",
-      "status": "[31]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "status": "[6]<br><span style=\"font-size:8px\">0ms<span></span></span>",
       "output": "12px <br>",
       "type": "code"
     },
@@ -70,13 +76,13 @@
     },
     {
       "code": "//> html\n<button id=\"toggle-button\">Toggle</button>\n<div id=\"hidden-div\">Hidden Content</div>\n",
-      "status": "[32]<br><span style=\"font-size:8px\">1ms<span></span></span>",
-      "output": "\n<button id=\"toggle-button\">Toggle</button>\n<div id=\"hidden-div\">Hidden Content</div>\n <br>",
+      "status": "[7]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "\n<button id=\"toggle-button\">Toggle</button>\n<div id=\"hidden-div\" style=\"display: block;\">Hidden Content</div>\n <br>",
       "type": "code"
     },
     {
       "code": "const toggleButton = document.getElementById('toggle-button');\nconst hiddenDiv = document.getElementById('hidden-div');\n\ntoggleButton.addEventListener('click', () => {\n  hiddenDiv.style.display = hiddenDiv.style.display === 'none' ? 'block' : 'none';\n});",
-      "status": "[33]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "status": "[8]<br><span style=\"font-size:8px\">0ms<span></span></span>",
       "output": "",
       "type": "code"
     }
