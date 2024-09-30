@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "name": "CSS Manipulation",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "//>md\n# CSS Manipulation Using JavaScript",
+      "status": "",
+      "output": "<h1>CSS Manipulation Using JavaScript</h1>\n",
+      "type": "html"
+    },
+    {
+      "code": "//>md\n## Example 1: Changing Text Color\n",
+      "status": "",
+      "output": "<h2>Example 1: Changing Text Color</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "//>html\n<p id=\"text\">Hello, World!</p>\n",
+      "status": "[27]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "\n<p id=\"text\">Hello, World!</p>\n <br>",
+      "type": "code"
+    },
+    {
+      "code": "//>md\n## Example 2: Adding Background Image\n",
+      "status": "",
+      "output": "<h2>Example 2: Adding Background Image</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "//>html\n<div id=\"container\"></div>\n",
+      "status": "[28]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "\n<div id=\"container\" style=\"background-image: url(&quot;https://fastly.picsum.photos/id/250/200/300.jpg&quot;); background-size: cover;\"></div>\n <br>",
+      "type": "code"
+    },
+    {
+      "code": "const container = document.getElementById('container');\ncontainer.style.backgroundImage = 'url(\"https://fastly.picsum.photos/id/250/200/300.jpg\")';\ncontainer.style.backgroundSize = 'cover';\n\"\"\n",
+      "status": "[29]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": " <br>",
+      "type": "code"
+    },
+    {
+      "code": "//>md ## Example 3: Changing Font Size",
+      "status": "",
+      "output": "<h2>Example 3: Changing Font Size</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "//> html\n<h1 id=\"heading1\">Heading 1</h1>\n<h1 id=\"heading2\">Heading 2</h1>\n",
+      "status": "[30]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "\n<h1 id=\"heading1\">Heading 1</h1>\n<h1 id=\"heading2\" style=\"font-size: 12px;\">Heading 2</h1>\n <br>",
+      "type": "code"
+    },
+    {
+      "code": "const heading = document.getElementById('heading2');\nheading.style.fontSize = '12px';\n",
+      "status": "[31]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "12px <br>",
+      "type": "code"
+    },
+    {
+      "code": "//>md ## Example 4: Toggling Hide/Show\n",
+      "status": "",
+      "output": "<h2>Example 4: Toggling Hide/Show</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "//> html\n<button id=\"toggle-button\">Toggle</button>\n<div id=\"hidden-div\">Hidden Content</div>\n",
+      "status": "[32]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "\n<button id=\"toggle-button\">Toggle</button>\n<div id=\"hidden-div\">Hidden Content</div>\n <br>",
+      "type": "code"
+    },
+    {
+      "code": "const toggleButton = document.getElementById('toggle-button');\nconst hiddenDiv = document.getElementById('hidden-div');\n\ntoggleButton.addEventListener('click', () => {\n  hiddenDiv.style.display = hiddenDiv.style.display === 'none' ? 'block' : 'none';\n});",
+      "status": "[33]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
