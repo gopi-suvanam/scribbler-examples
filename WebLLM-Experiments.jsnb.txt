@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "name": "Web LLM Example",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "//>md\n# LLM in the borwser using WebLLM\n\nThis is an example of how an LLM can be used safely in the browser without the need for servers or external services. This proves one can use AI in edge computing. This particular notebook requires GPU with atleast 8GB of VRAM.\n\nReferance: [Web LLM Github](https://github.com/mlc-ai/web-llm)\n\t\t\t\t\t\t\t\nNote: The notebook takes 3-4 four minutes to load the LLM for the first time. Next time onwards it will only take 25 seconds as the model is cached.",
+      "status": "",
+      "output": "<h1>LLM in the borwser using WebLLM</h1>\n<p>This is an example of how an LLM can be used safely in the browser without the need for servers or external services. This proves one can use AI in edge computing. This particular notebook requires GPU with atleast 8GB of VRAM.</p>\n<p>Referance: <a href=\"https://github.com/mlc-ai/web-llm\">Web LLM Github</a></p>\n<p>Note: The notebook takes 3-4 four minutes to load the LLM for the first time. Next time onwards it will only take 25 seconds as the model is cached.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "\nif(scrib.isSandboxed()) scrib.show(\"<p style='color:red' >You will have to take the notebook out of sandbox by clicking the red ⤯ button at the top right corner and then enter the phrase 'I trust'. Do this only if you got the notebook from a trusted source</p>\")",
+      "status": "[1]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "webllm = await import(\"https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@0.2.72/lib/index.min.js\");",
+      "status": "[2]<br><span style=\"font-size:8px\">53ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "<h2>Loading Progress</h2>\n<progress id=\"loading-progress-bar\" value=\"0\" max=\"1\"></progress>\n<span id=\"loading-progress-text\">0%</span>\n",
+      "status": "",
+      "output": "<h2>Loading Progress</h2>\n<progress id=\"loading-progress-bar\" value=\"1\" max=\"1\"></progress>\n<span id=\"loading-progress-text\">100%</span>\n",
+      "type": "html"
+    },
+    {
+      "code": "\n\n// Callback function to update model loading progress\nconst progressBar = document.getElementById('loading-progress-bar');\nconst progressText = document.getElementById('loading-progress-text');\nconst initProgressCallback = (initProgress) => {\n  const progressValue = initProgress.progress;\n  progressBar.value = progressValue;\n  progressText.textContent = `${Math.round(progressValue * 100)}%`;\n}\n\nconst selectedModel = \"Llama-3.1-8B-Instruct-q4f32_1-MLC\";\nprogressText.textContent = \"Initializing : 0%\"\nconst engine = await webllm.CreateMLCEngine(\n  selectedModel,\n  { initProgressCallback: initProgressCallback }, // engineConfig\n);\nwindow.engine=engine;",
+      "status": "[3]<br><span style=\"font-size:8px\">20.23s<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "<input type=\"text\" id=\"query\" value=\"Who is the prime minister of India?\"></input>",
+      "status": "",
+      "output": "<input type=\"text\" id=\"query\" value=\"Who is the prime minister of India?\">",
+      "type": "html"
+    },
+    {
+      "code": "let query=document.getElementById('query').value;\nlet messages = [\n  { role: \"system\", content: \"You are a helpful AI assistant.\" },\n  { role: \"user\", content: query}\n]\n\nlet reply = await engine.chat.completions.create({\n  messages,\n});\nscrib.show(reply.choices[0].message.content);\n//scrib.show(reply.usage);",
+      "status": "[4]<br><span style=\"font-size:8px\">3.009s<span></span></span>",
+      "output": "As of my last update, the Prime Minister of India is Narendra Modi. He has been serving in this position since May 26, 2014, and has been re-elected for a second term in 2019. <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": true
+}
