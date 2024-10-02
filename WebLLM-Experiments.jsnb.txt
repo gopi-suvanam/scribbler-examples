@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "name": "Web LLM Example",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "//>md\n# LLM in the borwser using WebLLM\n\nThis is an example of how an LLM can be used safely in the browser without the need for servers or external services. This proves one can use AI in edge computing. This particular notebook requires GPU with atleast 8GB of VRAM.\n\nReferance: [Web LLM Github](https://github.com/mlc-ai/web-llm)\n\t\t\t\t\t\t\t\nNote: The notebook takes 3-4 four minutes to load the LLM for the first time. Next time onwards it will only take 25 seconds as the model is cached. Simple queries are taking 3-5 seconds.",
+      "status": "",
+      "output": "<h1>LLM in the borwser using WebLLM</h1>\n<p>This is an example of how an LLM can be used safely in the browser without the need for servers or external services. This proves one can use AI in edge computing. This particular notebook requires GPU with atleast 8GB of VRAM.</p>\n<p>Referance: <a href=\"https://github.com/mlc-ai/web-llm\">Web LLM Github</a></p>\n<p>Note: The notebook takes 3-4 four minutes to load the LLM for the first time. Next time onwards it will only take 25 seconds as the model is cached. Simple queries are taking 3-5 seconds.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "\nif(scrib.isSandboxed()) scrib.show(\"<p style='color:red' >You will have to take the notebook out of sandbox by clicking the red ⤯ button at the top right corner and then enter the phrase 'I trust'. Do this only if you got the notebook from a trusted source</p>\")",
+      "status": "[1]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "webllm = await import(\"https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@0.2.72/lib/index.min.js\");",
+      "status": "[2]<br><span style=\"font-size:8px\">47ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "<h2>Loading Progress</h2>\n<progress id=\"loading-progress-bar\" value=\"0\" max=\"1\"></progress>\n<span id=\"loading-progress-text\">0%</span>\n",
+      "status": "",
+      "output": "<h2>Loading Progress</h2>\n<progress id=\"loading-progress-bar\" value=\"1\" max=\"1\"></progress>\n<span id=\"loading-progress-text\">100%</span>\n",
+      "type": "html"
+    },
+    {
+      "code": "\n\n// Callback function to update model loading progress\nconst progressBar = document.getElementById('loading-progress-bar');\nconst progressText = document.getElementById('loading-progress-text');\nconst initProgressCallback = (initProgress) => {\n  const progressValue = initProgress.progress;\n  progressBar.value = progressValue;\n  progressText.textContent = `${Math.round(progressValue * 100)}%`;\n}\n\nconst selectedModel = \"Llama-3.1-8B-Instruct-q4f32_1-MLC\";\nprogressText.textContent = \"Initializing : 0%\"\nconst engine = await webllm.CreateMLCEngine(\n  selectedModel,\n  { initProgressCallback: initProgressCallback }, // engineConfig\n);\nwindow.engine=engine;",
+      "status": "[3]<br><span style=\"font-size:8px\">23.703s<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "<input type=\"text\" id=\"query\" value=\"Write code for checking is a string Palindrome in Python\"></input>",
+      "status": "",
+      "output": "<input type=\"text\" id=\"query\" value=\"Write code for checking is a string Palindrome in Python\">",
+      "type": "html"
+    },
+    {
+      "code": "let query=document.getElementById('query').value;\nlet messages = [\n  { role: \"system\", content: \"You are a helpful AI assistant.\" },\n  { role: \"user\", content: query}\n]\n\nlet reply = await engine.chat.completions.create({\n  messages,\n});\nscrib.show(marked.marked(reply.choices[0].message.content));\n//scrib.show(reply.usage);",
+      "status": "[4]<br><span style=\"font-size:8px\">14.052s<span></span></span>",
+      "output": "<h1><strong>Palindrome Checker in Python</strong></h1>\n<p>A palindrome is a string that reads the same backward as forward. Here's a simple function in Python to check if a given string is a palindrome:</p>\n<pre><code class=\"language-python\">def is_palindrome(s):\n    \"\"\"\n    Returns True if the input string is a palindrome, False otherwise.\n    \n    :param s: The input string\n    :return: A boolean indicating whether the string is a palindrome\n    \"\"\"\n    s = ''.join(c for c in s if c.isalnum()).lower()  # Remove non-alphanumeric characters and convert to lowercase\n    return s == s[::-1]  # Check if the string is equal to its reverse\n\n# Example usage:\nprint(is_palindrome(\"Madam\"))  # True\nprint(is_palindrome(\"hello\"))  # False\nprint(is_palindrome(\"A man, a plan, a canal: Panama\"))  # True\n</code></pre>\n<p>In this code:</p>\n<ol>\n<li>We define a function <code>is_palindrome</code> that takes a string <code>s</code> as input.</li>\n<li>We remove non-alphanumeric characters from the string and convert it to lowercase using a generator expression and the <code>isalnum</code> method.</li>\n<li>We check if the resulting string is equal to its reverse using slicing (<code>s[::-1]</code>).</li>\n<li>If the string is equal to its reverse, we return <code>True</code>; otherwise, we return <code>False</code>.</li>\n</ol>\n<p>This function handles cases where the input string contains non-alphanumeric characters and is case-sensitive.</p>\n <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": true
+}
