@@ -16,13 +16,13 @@
     },
     {
       "code": "\nif(scrib.isSandboxed()) scrib.show(\"<p style='color:red' >You will have to take the notebook out of sandbox by clicking the red ⤯ button at the top right corner and then enter the phrase 'I trust'. Do this only if you got the notebook from a trusted source</p>\")",
-      "status": "[1]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "status": "[1]<br><span style=\"font-size:8px\">0ms<span></span></span>",
       "output": "",
       "type": "code"
     },
     {
       "code": "webllm = await import(\"https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@0.2.72/lib/index.min.js\");",
-      "status": "[2]<br><span style=\"font-size:8px\">53ms<span></span></span>",
+      "status": "[2]<br><span style=\"font-size:8px\">21ms<span></span></span>",
       "output": "",
       "type": "code"
     },
@@ -34,7 +34,7 @@
     },
     {
       "code": "\n\n// Callback function to update model loading progress\nconst progressBar = document.getElementById('loading-progress-bar');\nconst progressText = document.getElementById('loading-progress-text');\nconst initProgressCallback = (initProgress) => {\n  const progressValue = initProgress.progress;\n  progressBar.value = progressValue;\n  progressText.textContent = `${Math.round(progressValue * 100)}%`;\n}\n\nconst selectedModel = \"Llama-3.1-8B-Instruct-q4f32_1-MLC\";\nprogressText.textContent = \"Initializing : 0%\"\nconst engine = await webllm.CreateMLCEngine(\n  selectedModel,\n  { initProgressCallback: initProgressCallback }, // engineConfig\n);\nwindow.engine=engine;",
-      "status": "[3]<br><span style=\"font-size:8px\">20.23s<span></span></span>",
+      "status": "[3]<br><span style=\"font-size:8px\">19.399s<span></span></span>",
       "output": "",
       "type": "code"
     },
@@ -45,9 +45,9 @@
       "type": "html"
     },
     {
-      "code": "let query=document.getElementById('query').value;\nlet messages = [\n  { role: \"system\", content: \"You are a helpful AI assistant.\" },\n  { role: \"user\", content: query}\n]\n\nlet reply = await engine.chat.completions.create({\n  messages,\n});\nscrib.show(reply.choices[0].message.content);\n//scrib.show(reply.usage);",
-      "status": "[4]<br><span style=\"font-size:8px\">3.009s<span></span></span>",
-      "output": "As of my last update, the Prime Minister of India is Narendra Modi. He has been serving in this position since May 26, 2014, and has been re-elected for a second term in 2019. <br>",
+      "code": "let query=document.getElementById('query').value;\nlet messages = [\n  { role: \"system\", content: \"You are a helpful AI assistant.\" },\n  { role: \"user\", content: query}\n]\n\nlet reply = await engine.chat.completions.create({\n  messages,\n});\nscrib.show(marked.marked(reply.choices[0].message.content));\n//scrib.show(reply.usage);",
+      "status": "[7]<br><span style=\"font-size:8px\">7.886s<span></span></span>",
+      "output": "<p>Here is a simple JavaScript code for generating Fibonacci series:</p>\n<pre><code class=\"language-javascript\">function fibonacci(n) {\n  let fibSeries = [0, 1];\n  while (fibSeries.length &lt; n) {\n    fibSeries.push(fibSeries[fibSeries.length - 1] + fibSeries[fibSeries.length - 2]);\n  }\n  return fibSeries;\n}\n\nconsole.log(fibonacci(10));\n</code></pre>\n<p>In this code:</p>\n<ul>\n<li>The function <code>fibonacci(n)</code> generates the first <code>n</code> numbers in the Fibonacci series.</li>\n<li>The array <code>fibSeries</code> stores the numbers in the series.</li>\n<li>The loop generates each number in the series by adding the last two numbers in the series.</li>\n<li>The series is returned after the loop.</li>\n</ul>\n<p>When you run this code, it will print the first 10 numbers in the Fibonacci series.</p>\n <br>",
       "type": "code"
     }
   ],
