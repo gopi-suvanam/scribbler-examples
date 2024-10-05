@@ -9,33 +9,33 @@
   "jsnbversion": "v0.1",
   "cells": [
     {
-      "code": "function kaprekarConstant(n) {\n  if (n.toString().length !== 4) {\n    throw new Error(\"Input must be a 4-digit number.\");\n  }\n  n_prev=n;\n  let iterations = 0;\n  while (true) {\n    const asc = parseInt(n.toString().split('').sort().join(''));\n    const desc = parseInt(n.toString().split('').sort((a, b) => b - a).join(''));\n    n_prev=n;\n\tn = desc - asc;\n    iterations++;\n\tif(n_prev==n) return {iterations,n}; \n  }\n\n}\n",
-      "status": "[14]<br><span style=\"font-size:8px\">2ms<span></span></span>",
+      "code": "function kaprekarConstant(n) {\n  if (n.toString().length !== 4) {\n    throw new Error(\"Input must be a 4-digit number.\");\n  }\n  n_prev=n;\n  let iterations = 0;\n  while (true) {\n    const asc = parseInt(n.toString().split('').sort().join(''));\n    const desc = parseInt(n.toString().split('').sort((a, b) => b - a).join(''));\n    n_prev=n;\n\tn = desc - asc;\n\n\tif(n_prev==n) return {iterations,n}; \n\t iterations++;\n  }\n\n}\n",
+      "status": "[6]<br><span style=\"font-size:8px\">2ms<span></span></span>",
       "output": "",
       "type": "code"
     },
     {
       "code": "kaprekarConstant(2022)",
-      "status": "[15]<br><span style=\"font-size:8px\">2ms<span></span></span>",
-      "output": "{\n  \"iterations\": 5,\n  \"n\": 6174\n} <br>",
+      "status": "[7]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "{\n  \"iterations\": 4,\n  \"n\": 6174\n} <br>",
       "type": "code"
     },
     {
       "code": "kaprekarConstant(1233)",
-      "status": "[16]<br><span style=\"font-size:8px\">1ms<span></span></span>",
-      "output": "{\n  \"iterations\": 4,\n  \"n\": 6174\n} <br>",
+      "status": "[8]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "{\n  \"iterations\": 3,\n  \"n\": 6174\n} <br>",
       "type": "code"
     },
     {
       "code": "kaprekarConstant(7856)",
-      "status": "[17]<br><span style=\"font-size:8px\">1ms<span></span></span>",
-      "output": "{\n  \"iterations\": 4,\n  \"n\": 6174\n} <br>",
+      "status": "[9]<br><span style=\"font-size:8px\">2ms<span></span></span>",
+      "output": "{\n  \"iterations\": 3,\n  \"n\": 6174\n} <br>",
       "type": "code"
     },
     {
-      "code": "kaprekarConstant(3987)",
-      "status": "[18]<br><span style=\"font-size:8px\">1ms<span></span></span>",
-      "output": "{\n  \"iterations\": 8,\n  \"n\": 6174\n} <br>",
+      "code": "kaprekarConstant(6174)",
+      "status": "[10]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "{\n  \"iterations\": 0,\n  \"n\": 6174\n} <br>",
       "type": "code"
     }
   ],
