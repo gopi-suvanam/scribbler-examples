@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "name": "GPU-JS",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "//>md\n# GPU with GPU.js in JavaScript\n",
+      "status": "",
+      "output": "<h1>GPU with GPU.js in JavaScript</h1>\n",
+      "type": "html"
+    },
+    {
+      "code": "//>md\n## Loading the library",
+      "status": "",
+      "output": "<h2>Loading the library</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "// Loading the sc ript\nawait scrib.loadScript(\"https://cdn.jsdelivr.net/npm/gpu.js@2.10.2/dist/gpu-browser.min.js\")\n",
+      "status": "[22]<br><span style=\"font-size:8px\">61ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "//>md ## Matrix Addition",
+      "status": "",
+      "output": "<h2>Matrix Addition</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "const gpu = new GPU.GPU();\n\n// Create a GPU-accelerated kernel function\nconst addMatrices = gpu.createKernel(function(a, b) {\n    return a[this.thread.y][this.thread.x] + b[this.thread.y][this.thread.x];\n}).setOutput([512, 512]); // Matrix of size 512x512\n\n// Initialize two matrices with some values\nconst matrixA = [...Array(512)].map(() => Array(512).fill(1));\nconst matrixB = [...Array(512)].map(() => Array(512).fill(2));\n\n// Perform matrix addition using the GPU\nconst result = addMatrices(matrixA, matrixB);\nresult.shape()",
+      "status": "[24]<br><span style=\"font-size:8px\">67ms<span></span></span>",
+      "output": "[\n  512,\n  512\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "//>md ## Image Processing",
+      "status": "",
+      "output": "<h2>Image Processing</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "async function convertImageToBase64(imgUrl) {\n  // Fetch the image as a blob\n  const response = await fetch(imgUrl);\n  const blob = await response.blob();\n\n  // Use FileReader to convert blob to base64 string\n  return new Promise((resolve, reject) => {\n    const reader = new FileReader();\n    reader.onloadend = () => {\n      resolve(reader.result);  // Base64 string\n    };\n    reader.onerror = reject;  // Handle errors\n    reader.readAsDataURL(blob);  // Start reading the blob\n  });\n}",
+      "status": "[16]<br><span style=\"font-size:8px\">2ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "const gpu = new GPU.GPU();\n\n// Kernel to convert the image to grayscale\nconst grayscale = gpu.createKernel(function(image, width,height) {\n    const x = this.thread.x;\n    const y = this.thread.y;\n    const pixelIndex = ((height - y - 1) * width + x) * 4; // Flip y-coordinate to correct upside-down issue\n    \n    // Get the RGBA values\n    const r = image[pixelIndex];\n    const g = image[pixelIndex + 1];\n    const b = image[pixelIndex + 2];\n    const a = image[pixelIndex + 3];\n    \n    // Calculate grayscale value\n    const gray = (r + g + b) / 3;\n    \n    // Return RGBA (grayscale with original alpha)\n    this.color(gray / 255, gray / 255, gray / 255, a / 255);\n}).setOutput([500, 500])  // Match this with the image dimensions\n.setGraphical(true);\n\n// Load an image and convert it to grayscale\nconst img = new Image();\nconst imgData=await convertImageToBase64(\"https://upload.wikimedia.org/wikipedia/en/7/7d/Lenna_%28test_image%29.png\");\nimg.src = imgData; // Replace with your image URL\n\nimg.onload = function() {\n    // Create a canvas to get image data\n    const canvas = document.createElement('canvas');\n    const ctx = canvas.getContext('2d');\n\n    if (!ctx) {\n        console.error(\"Failed to get canvas context\");\n        return; // Exit if context is null\n    }\n\n    canvas.width = img.width;\n    canvas.height = img.height;\n    \n    // Draw the image onto the canvas\n    ctx.drawImage(img, 0, 0);\n    \n    // Get image data as a 1D array (Uint8ClampedArray)\n    const imageData = ctx.getImageData(0, 0, img.width, img.height).data;\n    \n    // Execute the kernel\n    grayscale(imageData, img.width,img.height);\n    \n    // Render the result to the page\n    const canvasOutput = grayscale.canvas;\n    scrib.show(\"Processed Image\");\n    scrib.currCell().appendChild(canvasOutput);\n};\n\n// Error handling for image loading\nimg.onerror = function() {\n    console.error(\"Failed to load image\");\n};\n",
+      "status": "[30]<br><span style=\"font-size:8px\">140ms<span></span></span>",
+      "output": "Processed Image <br><canvas width=\"500\" height=\"500\"></canvas>",
+      "type": "code"
+    },
+    {
+      "code": "//>md ## Matrix Multiplication",
+      "status": "",
+      "output": "<h2>Matrix Multiplication</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "const gpu = new GPU.GPU();\n\nconst dotProduct = gpu.createKernel(function(a, b) {\n    return a[this.thread.x] * b[this.thread.x];\n}).setOutput([10000000]);\n\nconst vectorA = new Array(10000000).fill(1);\nconst vectorB = new Array(10000000).fill(2);\n\nconst prod = dotProduct(vectorA, vectorB);\nconst result = (prod.reduce((acc, val) => acc + val, 0)); // Sum the results\nresult",
+      "status": "[36]<br><span style=\"font-size:8px\">589ms<span></span></span>",
+      "output": "20000000 <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
