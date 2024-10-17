@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "name": "XIRR Using Finance JS",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "await scrib.loadScript('https://cdn.jsdelivr.net/npm/financejs@4.1.0/finance.min.js');\n//In node js you will have to:\n//npm install financejs\n//var Finance = require('financejs');",
+      "status": "[10]<br><span style=\"font-size:8px\">8ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "// Define cash flows and dates\n  const cashFlows = [\n    { date: '2022-01-01', amount: -10000 }, // Initial investment\n    { date: '2022-06-01', amount: 3000 },\n    { date: '2022-12-01', amount: 4000 },\n    { date: '2023-06-01', amount: 5000 },\n    { date: '2023-12-01', amount: 6000 },\n  ];\nvar finance = new Finance();\n   finance.XIRR(cashFlows.map(cf=>cf.amount),cashFlows.map(cf=>new Date(cf.date)),0 );\n",
+      "status": "[8]<br><span style=\"font-size:8px\">5ms<span></span></span>",
+      "output": "61.15 <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
