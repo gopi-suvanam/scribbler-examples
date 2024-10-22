@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Scribbler AI",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "//> md\n# Power of AI for Coding\n - Click AI and choose a model\n - Wait for the model ot load (It will be slow for th first time, next time it will be faster)\n - Run the next couple of cells",
+      "status": "",
+      "output": "<h1>Power of AI for Coding</h1>\n<ul>\n<li>Click AI and choose a model</li>\n<li>Wait for the model ot load (It will be slow for th first time, next time it will be faster)</li>\n<li>Run the next couple of cells</li>\n</ul>\n",
+      "type": "html"
+    },
+    {
+      "code": "//> Write a code for checking palindrome",
+      "status": "[-]",
+      "output": "<p class=\"error\">Error: AI not loaded</p>",
+      "type": "code"
+    },
+    {
+      "code": "//> Write a code to load jQuery and make the body green",
+      "status": "",
+      "output": "",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
