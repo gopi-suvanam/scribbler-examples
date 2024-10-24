@@ -181,7 +181,7 @@ class TVMDPMSolverMultistepScheduler {
 }
 
 class StableDiffusionPipeline {
-  constructor(tvm, tokenizer, schedulerConsts, cacheMetadata) {
+  constructor(tvm, tokenizer, schedulerConsts, cacheMetadata,canvas) {
     if (cacheMetadata == undefined) {
       throw Error("Expect cacheMetadata");
     }
@@ -190,7 +190,7 @@ class StableDiffusionPipeline {
     this.maxTokenLength = 77;
 
     this.device = this.tvm.webgpu();
-    this.tvm.bindCanvas(document.getElementById("canvas"));
+    this.tvm.bindCanvas(canvas);
     // VM functions
     this.vm = this.tvm.detachFromCurrentScope(
       this.tvm.createVirtualMachine(this.device)
@@ -402,7 +402,7 @@ class StableDiffusionPipeline {
 
 
 
-async function  getWebStableDiffusion(initProgressCallback){
+async function  getWebStableDiffusion(initProgressCallback,canvas){
 
 		 
 		const config={
@@ -458,7 +458,7 @@ async function  getWebStableDiffusion(initProgressCallback){
 
 		const tokenizer = await tvmjsGlobalEnv.getTokenizer(config.tokenizer);
 		const pipeline = tvm.withNewScope(() => {
-			return new StableDiffusionPipeline(tvm, tokenizer, schedulerConst, tvm.cacheMetadata);
+			return new StableDiffusionPipeline(tvm, tokenizer, schedulerConst, tvm.cacheMetadata,canvas);
 		  });
 		await pipeline.asyncLoadWebGPUPiplines();
 		return pipeline;
