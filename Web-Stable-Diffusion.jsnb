@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "name": "Stable Diffusion Experiment",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<span id=\"init-progress-tracker-label\">Stable Diffusion Not Loaded</span>\n<progress id=\"init-progress-tracker-progress\" max=\"100\" value=\"100\"> </progress>\n<button onclick=\"loadSDEngine()\">Load Sd</button>",
+      "status": "",
+      "output": "<span id=\"init-progress-tracker-label\">Loading GPU shader modules[269/269]: 100% completed, 6 secs elapsed.</span>\n<progress id=\"init-progress-tracker-progress\" max=\"100\" value=\"100\"> </progress>\n<button onclick=\"loadSDEngine()\">Load Sd</button>",
+      "type": "html"
+    },
+    {
+      "code": "async function loadSDEngine(){\n  await scrib.loadScript(\"https://websd.mlc.ai/dist/tvmjs_runtime.wasi.js\");\n  await scrib.loadScript(\"https://websd.mlc.ai/dist/tvmjs.bundle.js\");\n  tvmjsGlobalEnv={};\n  await scrib.loadScript(\"http://localhost:8000/stable_diffusion.js\");\n  await scrib.loadScript(\"https://websd.mlc.ai/assets/js/srcset-polyfill.js\");\n  tokenizers=await import( \"https://websd.mlc.ai/dist/tokenizers-wasm/tokenizers_wasm.js\");\n  TokenizerWasm = tokenizers.TokenizerWasm;\n  init=tokenizers.default;\n  async function getTokenizer(name) {\n\tawait init();\n\tconst jsonText = await (await fetch(\"https://huggingface.co/\" + name + \"/raw/main/tokenizer.json\")).text();\n\treturn new TokenizerWasm(jsonText);\n  }\n  tvmjsGlobalEnv.getTokenizer = getTokenizer;  \n  function initProgressCallback(report) {\n\tdocument.getElementById(\"init-progress-tracker-label\").innerHTML = report.text;\n\tdocument.getElementById(\"init-progress-tracker-progress\").value = report.progress * 100;\n  }\n  window.sdEngine=await getWebStableDiffusion(initProgressCallback);\n}",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "function progressCallback(stage, counter, numSteps, totalNumSteps) {\n  const timeElapsed = (performance.now() - this.tstart) / 1000;\n  let text = \"Generating ... at stage \" + stage;\n  if (stage == \"unet\") {\n\tcounter += 1;\n\ttext += \" step [\" + counter + \"/\" + numSteps + \"]\"\n  }\n  if (stage == \"vae\") {\n\tcounter = totalNumSteps;\n  }\n  text += \", \" + Math.ceil(timeElapsed) + \" secs elapsed.\";\n  document.getElementById(\"progress-tracker-label\").innerHTML = text;\n  document.getElementById(\"progress-tracker-progress\").value = (counter / totalNumSteps) * 100;\n}\n ",
+      "status": "[5]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "async function generate(){\n  const prompt = document.getElementById(\"inputPrompt\").value;\n  const negPrompt = document.getElementById(\"negativePrompt\").value;\n  const schedulerId = document.getElementById(\"schedulerId\").value;\n  const vaeCycle = document.getElementById(\"vaeCycle\").value;\n  progressCallback.tstart=performance.now();\n  await sdEngine.generate(prompt, negPrompt, progressCallback, schedulerId, vaeCycle);\n}",
+      "status": "[7]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "<div>\n  Select Model:   <select name=\"model\" id=\"modelId\">\n    <option >Stable-Diffusion-XL</option>\n    <option selected=\"selected\">Stable-Diffusion-1.5</option>\n  </select>\n</div>\n\n<script src=\"dist/stable_diffusion.js\"></script>\n\n<div>\n  Input prompt: <input\n  name=\"inputPrompt\"\n  id=\"inputPrompt\"\n  type=\"text\"\n  value=\"A photo of an astronaut riding a horse on mars\"\n  size=\"77\"/> <br>\n  Negative prompt (optional): <input\n  name=\"negativePrompt\"\n  id=\"negativePrompt\"\n  type=\"text\"\n  value=\"\"\n  size=\"77\"/>\n</div>\n\n<div>\n  Select scheduler -\n  <select name=\"scheduler\" id=\"schedulerId\">\n    <option value=\"0\">Multi-step DPM Solver (20 steps)</option>\n    <option value=\"1\">PNDM (50 steps)</option>\n    <option value=\"2\">Euler Discrete Scheduler</option>\n  </select>\n\n  <br>\n\n  Render intermediate steps (may slow down execution) -\n  <select name=\"vae-cycle\" id=\"vaeCycle\">\n    <option value=\"-1\">No</option>\n    <option value=\"2\">Run VAE every two UNet steps after step 10</option>\n  </select>\n\n  <div id=\"progress\">\n    <label id=\"gpu-tracker-label\"></label><br>\n    <label id=\"progress-tracker-label\"></label><br>\n    <progress id=\"progress-tracker-progress\" max=\"100\" value=\"100\"> </progress>\n  </div>\n  <button onclick=\"generate()\">Generate</button>\n</div>",
+      "status": "",
+      "output": "<div>\n  Select Model:   <select name=\"model\" id=\"modelId\">\n    <option>Stable-Diffusion-XL</option>\n    <option selected=\"selected\">Stable-Diffusion-1.5</option>\n  </select>\n</div>\n\n<script src=\"dist/stable_diffusion.js\"></script>\n\n<div>\n  Input prompt: <input name=\"inputPrompt\" id=\"inputPrompt\" type=\"text\" value=\"A photo of an astronaut riding a horse on mars\" size=\"77\"> <br>\n  Negative prompt (optional): <input name=\"negativePrompt\" id=\"negativePrompt\" type=\"text\" value=\"\" size=\"77\">\n</div>\n\n<div>\n  Select scheduler -\n  <select name=\"scheduler\" id=\"schedulerId\">\n    <option value=\"0\">Multi-step DPM Solver (20 steps)</option>\n    <option value=\"1\">PNDM (50 steps)</option>\n    <option value=\"2\">Euler Discrete Scheduler</option>\n  </select>\n\n  <br>\n\n  Render intermediate steps (may slow down execution) -\n  <select name=\"vae-cycle\" id=\"vaeCycle\">\n    <option value=\"-1\">No</option>\n    <option value=\"2\">Run VAE every two UNet steps after step 10</option>\n  </select>\n\n  <div id=\"progress\">\n    <label id=\"gpu-tracker-label\"></label><br>\n    <label id=\"progress-tracker-label\">Generating ... at stage vae, NaN secs elapsed.</label><br>\n    <progress id=\"progress-tracker-progress\" max=\"100\" value=\"100\"> </progress>\n  </div>\n  <button onclick=\"generate()\">Generate</button>\n</div>",
+      "type": "html"
+    },
+    {
+      "code": "<div>\n<canvas id=\"canvas\" width=\"512\" height=\"512\"></canvas>\n</div>",
+      "status": "",
+      "output": "<div>\n<canvas id=\"canvas\" width=\"512\" height=\"512\"></canvas>\n</div>",
+      "type": "html"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
