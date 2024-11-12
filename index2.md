@@ -2,7 +2,7 @@
 layout: default
 title: List of Sample Scribbler Notebooks in JavaScript
 ---
-
+<h2> site.documments </h2>
 <ul class="row">
   {% for file in site.documents %}
     {% if file.path contains '.jsnb' %}
