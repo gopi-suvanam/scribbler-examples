@@ -3,7 +3,6 @@ layout: default
 title: List of Sample Scribbler Notebooks in JavaScript
 ---
 <h1>List of Sample Scribbler Notebooks in JavaScript</h1>
-<h2> site.documments </h2>
 pages {{ site.pages | inspect }}
 documents {{ site.documents | inspect }}
 files {{ site.static_files| inspect }}
