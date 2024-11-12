@@ -17,10 +17,13 @@ Click on any of the notebooks below to open it in Scribbler and start exploring.
 {% for file in site.static_files %}
   {% if file.path contains '.jsnb' %}
     {% assign files_by_subdirectory[file.path] = file.path %}
+    
   {% endif %}
 {% endfor %}
 
-
+{% for path in files_by_subdirectory %}
+{{ path }}
+{% endfor %}
 
 <hr>
 
