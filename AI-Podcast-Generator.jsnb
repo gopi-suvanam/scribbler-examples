@@ -21,9 +21,9 @@
       "type": "code"
     },
     {
-      "code": "//>md\n### Steps to follow\n- Get Gemini API key here: <a href='https://aistudio.google.com/apikey' target=\"_blank\">https://aistudio.google.com/apikey</a>\n- Save it here: <a href=\"https://app.scribbler.live/secrets.html\" target=\"_blank\">Scribbler Secrets</a>. Use the name \"GOOGLE-API_KEY\"\n- Take the notebook out of sandbox byt clicking red button at the top right corner.\n- Run rest of the code. change the prompt above to whatever you like.\n",
+      "code": "//>md\n### Steps to follow\n- Get Gemini API key here: <a href='https://aistudio.google.com/apikey' target=\"_blank\">https://aistudio.google.com/apikey</a>\n- Save it here: <a href=\"https://app.scribbler.live/secrets.html\" target=\"_blank\">Scribbler Secrets</a>. Use the name \"GOOGLE-API-KEY\"\n- Take the notebook out of sandbox byt clicking red button at the top right corner.\n- Run rest of the code. change the prompt above to whatever you like.\n",
       "status": "",
-      "output": "<h3>Steps to follow</h3>\n<ul>\n<li>Get Gemini API key here: <a href=\"https://aistudio.google.com/apikey\" target=\"_blank\">https://aistudio.google.com/apikey</a></li>\n<li>Save it here: <a href=\"https://app.scribbler.live/secrets.html\" target=\"_blank\">Scribbler Secrets</a>. Use the name \"GOOGLE-API_KEY\"</li>\n<li>Take the notebook out of sandbox byt clicking red button at the top right corner.</li>\n<li>Run rest of the code. change the prompt above to whatever you like.</li>\n</ul>\n",
+      "output": "<h3>Steps to follow</h3>\n<ul>\n<li>Get Gemini API key here: <a href=\"https://aistudio.google.com/apikey\" target=\"_blank\">https://aistudio.google.com/apikey</a></li>\n<li>Save it here: <a href=\"https://app.scribbler.live/secrets.html\" target=\"_blank\">Scribbler Secrets</a>. Use the name \"GOOGLE-API-KEY\"</li>\n<li>Take the notebook out of sandbox byt clicking red button at the top right corner.</li>\n<li>Run rest of the code. change the prompt above to whatever you like.</li>\n</ul>\n",
       "type": "html"
     },
     {
