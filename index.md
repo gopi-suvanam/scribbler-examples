@@ -27,7 +27,7 @@ Click on any of the notebooks below to open it in Scribbler and start exploring.
   {% endif %}
 {% endfor %}
 
-{{files_by_subdirectory | inspect }}
+assigned without appending {{files_by_subdirectory | inspect }}
 
 {% for subdirectory in files_by_subdirectory %}
   <h2>{{ subdirectory }}</h2>
