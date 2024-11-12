@@ -3,7 +3,6 @@ layout: default
 title: Sample Scribbler Notebooks in JavaScript
 description: 
 ---
-# List of Sample Scribbler Notebooks in JavaScript
 
 
 
