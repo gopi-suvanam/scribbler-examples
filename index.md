@@ -19,9 +19,6 @@ Click on any of the notebooks below to open it in Scribbler and start exploring.
     {% else %}
       {% assign subdirectory = path_parts[0] %}
     {% endif %}
-    {{path_parts | inspect}}
-    {{subdirectory}}
-    {{file.path}}
     {% if files_by_subdirectory[subdirectory] %}
       {% assign files_by_subdirectory[subdirectory] = files_by_subdirectory[subdirectory] | append: file %}
     {% else %}
@@ -29,6 +26,8 @@ Click on any of the notebooks below to open it in Scribbler and start exploring.
     {% endif %}
   {% endif %}
 {% endfor %}
+
+{{files_by_subdirectory | inspect }}
 
 {% for subdirectory in files_by_subdirectory %}
   <h2>{{ subdirectory }}</h2>
