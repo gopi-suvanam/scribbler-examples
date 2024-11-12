@@ -10,6 +10,12 @@ Browse through our list of sample notebooks and get inspired by the creative pos
 Click on any of the notebooks below to open it in Scribbler and start exploring. You can also modify and remix the code to create your own unique projects. Happy scribbling!
 <hr>
 
+{{ site.static_files | inspect }}
+{% for file in site.static_files %}
+  {{ file.path | inspect }}
+{% endfor %}
+
+
 {% assign files_by_subdirectory = {} %}
 {% for file in site.static_files %}
   {% if file.path contains '.jsnb' %}
