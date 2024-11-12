@@ -3,7 +3,6 @@ layout: default
 title: List of Sample Scribbler Notebooks in JavaScript
 ---
 
-{{site.pages}}
 <ul class="row">
   {% for file in site.pages %}
     {% if file.path contains '.jsnb' %}
