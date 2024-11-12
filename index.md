@@ -71,6 +71,6 @@ Click on any of the notebooks below to open it in Scribbler and start exploring.
         {% endif %}
       {% endfor %}
     </ul>
-  {% endif %}
+
 
 
