@@ -9,6 +9,38 @@ Browse through our list of sample notebooks and get inspired by the creative pos
 
 Click on any of the notebooks below to open it in Scribbler and start exploring. You can also modify and remix the code to create your own unique projects. Happy scribbling!
 <hr>
+
+{% assign files_by_subdirectory = {} %}
+{% for file in site.static_files %}
+  {% if file.path contains '.jsnb' %}
+    {% assign path_parts = file.path | split: '/' %}
+    {% if path_parts.size == 1 %}
+      {% assign subdirectory = 'Miscellaneous' %}
+    {% else %}
+      {% assign subdirectory = path_parts[0] %}
+    {% endif %}
+    {% if files_by_subdirectory[subdirectory] %}
+      {% assign files_by_subdirectory[subdirectory] = files_by_subdirectory[subdirectory] | append: file %}
+    {% else %}
+      {% assign files_by_subdirectory[subdirectory] = [file] %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% for subdirectory in files_by_subdirectory %}
+  <h2>{{ subdirectory }}</h2>
+  <ul class="row">
+    {% for file in files_by_subdirectory[subdirectory] %}
+      <li class="col-md-3 col-sm-6 col-xs-12 mb-4 sampleCard">
+        <a href="https://app.scribbler.live/?jsnb=https://examples.scribbler.live{{ file.path }}">{{ file.name | replace: '-', ' ' | replace: '_', ' ' | remove: '.jsnb' }}</a>
+     
+      </li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
+<hr>
+
 <ul class="row">
   {% for file in site.static_files %}
     {% if file.path contains '.jsnb' %}
