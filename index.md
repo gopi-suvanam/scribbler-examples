@@ -19,7 +19,7 @@ Click on any of the notebooks below to open it in Scribbler and start exploring.
 {% assign files_by_subdirectory = {} %}
 {% for file in site.static_files %}
   {% if file.path contains '.jsnb' %}
-    {% assign files_by_subdirectory[file.path] = file %}
+    {% assign files_by_subdirectory[file.path] = file.path %}
   {% endif %}
 {% endfor %}
 Testing {{ files_by_subdirectory | inspect }}
