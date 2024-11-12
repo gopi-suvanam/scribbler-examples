@@ -20,9 +20,9 @@ Click on any of the notebooks below to open it in Scribbler and start exploring.
       {% assign subdirectory = path_parts[0] %}
     {% endif %}
     {% if files_by_subdirectory[subdirectory] %}
-      {% assign files_by_subdirectory[subdirectory] = files_by_subdirectory[subdirectory] | append: file %}
+      {% assign files_by_subdirectory[subdirectory] = file %}
     {% else %}
-      {% assign files_by_subdirectory[subdirectory] = [file] %}
+      {% assign files_by_subdirectory[subdirectory] = file %}
     {% endif %}
   {% endif %}
 {% endfor %}
