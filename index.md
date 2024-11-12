@@ -59,18 +59,18 @@ Click on any of the notebooks below to open it in Scribbler and start exploring.
 
 
 <h2>Miscallaneous</h2>
-    <ul class="row">
-      {% for file in site.static_files %}
-        {% assign path = file.path | replace: '^/', '' %}
-    {% assign path_parts = path | split: '/' %}
-  
-        {% if file.path contains '.jsnb' and path_parts.size == 1 %}
-          <li class="col-md-3 col-sm-6 col-xs-12 mb-4 sampleCard">
-            <a href="https://app.scribbler.live/?jsnb=https://examples.scribbler.live{{ file.path }}">{{ file.name | replace: '-', ' ' | replace: '_', ' ' | remove: '.jsnb' }}</a>
-          </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
+<ul class="row">
+  {% for file in site.static_files %}
+    {% assign path = file.path | replace: '^/', '' %}
+{% assign path_parts = path | split: '/' %}
+
+    {% if file.path contains '.jsnb' and path_parts.size == 1 %}
+      <li class="col-md-3 col-sm-6 col-xs-12 mb-4 sampleCard">
+        <a href="https://app.scribbler.live/?jsnb=https://examples.scribbler.live{{ file.path }}">{{ file.name | replace: '-', ' ' | replace: '_', ' ' | remove: '.jsnb' }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
 
 
 
