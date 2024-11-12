@@ -4,7 +4,7 @@ title: List of Sample Scribbler Notebooks in JavaScript
 ---
 
 <h1>List of Sample Scribbler Notebooks in JavaScript</h1>
-
+{{site.files}}
 <ul class="row">
   {% for file in site.files %}
     {% if file.path contains '.jsnb' %}
