@@ -14,6 +14,7 @@ Click on any of the notebooks below to open it in Scribbler and start exploring.
 {% for file in site.static_files %}
   {% if file.path contains '.jsnb' %}
     {% assign path_parts = file.path | split: '/' %}
+    {{ path_parts[0]}}
     {% if path_parts.size == 1 %}
       {% assign subdirectory = 'Miscellaneous' %}
     {% else %}
