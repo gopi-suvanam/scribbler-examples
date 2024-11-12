@@ -11,6 +11,9 @@
         
   </head>
   <body>
-    {{content}}
+    <h1 class="title" >{{ pageTitle | strip_html |  escape }}</h1>
+    <div class="content">
+      {{content}}
+    </div>
   </body>
 </html>
