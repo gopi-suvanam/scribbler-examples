@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "name": "Enumerating Primes",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Enumerating Prime Numbers</h2>\nEnumerating prime numbers, which means listing or finding all prime numbers within a certain range or up to a specific limit, is useful for several reasons:\n<br>\n1. Number Theory and Mathematics: Enumerating prime numbers helps mathematicians study and understand their properties, patterns, and distribution. \n<br>\n2. Cryptography: Prime numbers play a crucial role in modern cryptography, particularly in algorithms like RSA (Rivest-Shamir-Adleman). \n<br>\n3. Computer Science and Algorithms: Prime numbers are used in various computer science algorithms and data structures. \n<br>\n4. Random Number Generation: Prime numbers are often used in random number generation algorithms. \n<br>\nIn summary, enumerating prime numbers is not only a fundamental task in mathematics but also a practical necessity in various fields of science, technology, and computer science. It enables researchers, engineers, and developers to solve complex problems, secure communication, optimize algorithms, and advance our understanding of the mathematical universe.",
+      "status": "",
+      "output": "<h1>Enumerating Prime Numbers</h1>\nEnumerating prime numbers, which means listing or finding all prime numbers within a certain range or up to a specific limit, is useful for several reasons:\n<br>\n1. Number Theory and Mathematics: Enumerating prime numbers helps mathematicians study and understand their properties, patterns, and distribution. \n<br>\n2. Cryptography: Prime numbers play a crucial role in modern cryptography, particularly in algorithms like RSA (Rivest-Shamir-Adleman). \n<br>\n3. Computer Science and Algorithms: Prime numbers are used in various computer science algorithms and data structures. \n<br>\n4. Random Number Generation: Prime numbers are often used in random number generation algorithms. \n<br>\nIn summary, enumerating prime numbers is not only a fundamental task in mathematics but also a practical necessity in various fields of science, technology, and computer science. It enables researchers, engineers, and developers to solve complex problems, secure communication, optimize algorithms, and advance our understanding of the mathematical universe.",
+      "type": "html"
+    },
+    {
+      "code": "<h2>Trial Division</h2> This is the simplest method to find prime numbers. It involves dividing the number to be checked by all numbers less than it to see if any of them evenly divide it. If none do, the number is prime. However, this method is slow for very large numbers.\n",
+      "status": "",
+      "output": "<h2>Trial Division</h2> This is the simplest method to find prime numbers. It involves dividing the number to be checked by all numbers less than it to see if any of them evenly divide it. If none do, the number is prime. However, this method is slow for very large numbers.\n",
+      "type": "html"
+    },
+    {
+      "code": "isPrime=function (n) {\n\t  if (n <= 1) return false;\n\t  if (n <= 3) return true;\n\t\n\t  if (n % 2 === 0 || n % 3 === 0) return false;\n\t\n\t  for (let i = 5; i * i <= n; i += 6) {\n\t    if (n % i === 0 || n % (i + 2) === 0) return false;\n\t  }\n\t\n\t  return true;\n\t}",
+      "status": "[1]<br><span style=\"font-size:8px\">57ms<span></span></span>",
+      "output": "function (n) {\n\t  if (n &lt;= 1) return false;\n\t  if (n &lt;= 3) return true;\n\t\n\t  if (n % 2 === 0 || n % 3 === 0) return false;\n\t\n\t  for (let i = 5; i * i &lt;= n; i += 6) {\n\t    if (n % i === 0 || n % (i + 2) === 0) return false;\n\t  }\n\t\n\t  return true;\n\t} <br>",
+      "type": "code"
+    },
+    {
+      "code": "\nshow(\"testing...\")\np=1003;\nshow(p,\"is\",isPrime(p)?\"prime\":\"composite\")\nshow(\"<h4>Change the number above i.e. p and press the play button at the top-right of this cell to check if the number is prime</h4>\")\n",
+      "status": "[15]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "testing... <br>1003 is composite <br><h4>Change the number above i.e. p and press the play button at the top-right of this cell to check if the number is prime</h4> <br>",
+      "type": "code"
+    },
+    {
+      "code": "\n<h2>Sieve of Eratosthenes</h2> \nThis is an ancient and efficient algorithm for generating prime numbers up to a specified limit, not for finding individual primes. It works by iteratively marking the multiples of each prime starting from 2, which eventually leaves only the prime numbers as unmarked. The Sieve of Eratosthenes is a classic algorithm for finding all prime numbers up to a specified limit (n). \n<ul>\n  <li>It initializes an array sieve of size n + 1 with true values, assuming all numbers are prime initially.</li>\n<li>It iterates through numbers starting from 2 up to the square root of n.</li>\n<li>For each prime number p, it marks its multiples as false in the sieve array.</li>\n<li>Finally, it collects all the remaining true values in the sieve array, which correspond to prime numbers up to n.</li>\n</ul>",
+      "status": "",
+      "output": "\n<h2>Sieve of Eratosthenes</h2> \nThis is an ancient and efficient algorithm for generating prime numbers up to a specified limit, not for finding individual primes. It works by iteratively marking the multiples of each prime starting from 2, which eventually leaves only the prime numbers as unmarked. The Sieve of Eratosthenes is a classic algorithm for finding all prime numbers up to a specified limit (n). \n<ul>\n  <li>It initializes an array sieve of size n + 1 with true values, assuming all numbers are prime initially.</li>\n<li>It iterates through numbers starting from 2 up to the square root of n.</li>\n<li>For each prime number p, it marks its multiples as false in the sieve array.</li>\n<li>Finally, it collects all the remaining true values in the sieve array, which correspond to prime numbers up to n.</li>\n</ul>",
+      "type": "html"
+    },
+    {
+      "code": "sieveOfEratosthenes=function (n) {\n\t  const primes = [];\n\t  const sieve = new Array(n + 1).fill(true);\n\t  \n\t  for (let p = 2; p * p <= n; p++) {\n\t    if (sieve[p]) {\n\t      for (let i = p * p; i <= n; i += p) {\n\t        sieve[i] = false;\n\t      }\n\t    }\n\t  }\n\t  \n\t  for (let i = 2; i <= n; i++) {\n\t    if (sieve[i]) {\n\t      primes.push(i);\n\t    }\n\t  }\n\t  \n\t  return primes;\n\t}",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "function (n) {\n\t  const primes = [];\n\t  const sieve = new Array(n + 1).fill(true);\n\t  \n\t  for (let p = 2; p * p &lt;= n; p++) {\n\t    if (sieve[p]) {\n\t      for (let i = p * p; i &lt;= n; i += p) {\n\t        sieve[i] = false;\n\t      }\n\t    }\n\t  }\n\t  \n\t  for (let i = 2; i &lt;= n; i++) {\n\t    if (sieve[i]) {\n\t      primes.push(i);\n\t    }\n\t  }\n\t  \n\t  return primes;\n\t} <br>",
+      "type": "code"
+    },
+    {
+      "code": "n=100;\nprimes=sieveOfEratosthenes(n)\nshow(\"Primes upto\",n,\":\",primes)\nshow(\"<h4>Change the number above i.e. n and press the play button at the top-right of this cell to get primes upto that number. </h4>\")\n",
+      "status": "[16]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Primes upto 100 : [\n  2,\n  3,\n  5,\n  7,\n  11,\n  13,\n  17,\n  19,\n  23,\n  29,\n  31,\n  37,\n  41,\n  43,\n  47,\n  53,\n  59,\n  61,\n  67,\n  71,\n  73,\n  79,\n  83,\n  89,\n  97\n] <br><h4>Change the number above i.e. n and press the play button at the top-right of this cell to get primes upto that number. </h4> <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

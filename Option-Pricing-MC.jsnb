@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "name": "Option Pricing Using Monte-Carlo Simulation",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Option Pricing Using Monte-Carlo Simulation</h1>\nOption pricing is the process of determining the theoretical value of a financial option. It involves complex mathematical models and techniques to calculate the fair price of an option based on various factors such as the current price of the underlying asset, strike price, time to expiration, volatility, interest rates, and dividends. The pricing models, such as the Black-Scholes model, help estimate the value of options and provide insights into the risk and potential returns associated with option trading. Accurate option pricing is essential for investors and traders to make informed decisions, manage risk, and design effective trading strategies in the financial markets.\n<br>We will use simulation to price a call option. We will do this without any library - just using for-loops and Math functions. We will speeden the code using <a href=\"/di-libs/\" target=\"_blank\">DI-Libs</a>.",
+      "status": "",
+      "output": "<h1>Option Pricing Using Monte-Carlo Simulation</h1>\nOption pricing is the process of determining the theoretical value of a financial option. It involves complex mathematical models and techniques to calculate the fair price of an option based on various factors such as the current price of the underlying asset, strike price, time to expiration, volatility, interest rates, and dividends. The pricing models, such as the Black-Scholes model, help estimate the value of options and provide insights into the risk and potential returns associated with option trading. Accurate option pricing is essential for investors and traders to make informed decisions, manage risk, and design effective trading strategies in the financial markets.\n<br>We will use simulation to price a call option. We will do this without any library - just using for-loops and Math functions. We will speeden the code using <a href=\"/di-libs/\" target=\"_blank\">DI-Libs</a>.",
+      "type": "html"
+    },
+    {
+      "code": " optionPriceMC=function(strike, expiration, volatility, riskFreeRate, spot, simulations) {\n\t  let totalPayoff = 0;\n\t  const dt = 1.0 / 365; // time step of one day\n\t  const sqrtDt = Math.sqrt(dt);\n\t  const drift = riskFreeRate - 0.5 * volatility ** 2; //this comes from Ito's lemma\n\n\t  for (let i = 0; i < simulations; i++) {\n\t    let price = spot;\n\t    for (let t = 0; t < expiration; t += dt) {\n\t      const z = normalRandom(); // generate a random number from a normal distribution\n\t      price *= Math.exp(drift * dt + volatility * sqrtDt * z);\n\t    }\n\t    const payoff = Math.max(price - strike, 0); // payoff at expiration\n\t    totalPayoff += payoff * Math.exp(-riskFreeRate * expiration); // discounted payoff\n\t  }\n\t\n\t  const optionPrice = totalPayoff / simulations;\n\t  return optionPrice;\n\t}\n\t\n\tfunction normalRandom() { //Approximation to normaldistribution\n\t  let u = 0, v = 0;\n\t  while (u === 0) u = Math.random(); // ensure u is not 0\n\t  while (v === 0) v = Math.random(); // ensure v is not 0\n\t  return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);\n\t}\n\t",
+      "status": "[1]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "function(strike, expiration, volatility, riskFreeRate, spot, simulations) {\n\t  let totalPayoff = 0;\n\t  const dt = 1.0 / 365; // time step of one day\n\t  const sqrtDt = Math.sqrt(dt);\n\t  const drift = riskFreeRate - 0.5 * volatility ** 2; //this comes from Ito's lemma\n\n\t  for (let i = 0; i &lt; simulations; i++) {\n\t    let price = spot;\n\t    for (let t = 0; t &lt; expiration; t += dt) {\n\t      const z = normalRandom(); // generate a random number from a normal distribution\n\t      price *= Math.exp(drift * dt + volatility * sqrtDt * z);\n\t    }\n\t    const payoff = Math.max(price - strike, 0); // payoff at expiration\n\t    totalPayoff += payoff * Math.exp(-riskFreeRate * expiration); // discounted payoff\n\t  }\n\t\n\t  const optionPrice = totalPayoff / simulations;\n\t  return optionPrice;\n\t} <br>",
+      "type": "code"
+    },
+    {
+      "code": "optionPriceMC(100,30/365.0,0.2,0.01,100,100000)",
+      "status": "[2]<br><span style=\"font-size:8px\">10.714s<span></span></span>",
+      "output": "2.3323609848816518 <br>",
+      "type": "code"
+    },
+    {
+      "code": "\nblack_scholes.call_price(100,100,0.01,0.2,30/365.0)",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "{\n  \"price\": 2.3275634021786473,\n  \"gamma\": 0.06809696371428008,\n  \"vega\": 11.194021432484394,\n  \"theta\": -14.113268008708788,\n  \"rho\": 4.059248760433754\n} <br>",
+      "type": "code"
+    },
+    {
+      "code": "//Using di-libs to clean the code and improve speed\noptionPriceMC_di_libs=function(strike, expiration, volatility, riskFreeRate, spot, simulations) {\n  let totalPayoff = 0;\n  const dt = 1.0 / 365; // time step of one day\n  const sqrtDt = Math.sqrt(dt);\n  const drift = riskFreeRate - 0.5 * volatility ** 2; //this comes from Ito's lemma\n  const num_steps=Math.round(expiration/dt);\n  const random_vars=random.twod.normal(simulations,num_steps,drift*dt,volatility * sqrtDt); //This is defined in di-libs\n  const prices=random_vars.map(row=>Math.exp(row.sum())*spot);\n  const disc_fact=Math.exp(-riskFreeRate * expiration);\n  const payoff= K=>{return p=>Math.max(p-K,0)*disc_fact}; //Returns a function. Uses closure.\n  \n  const payoffs=prices.map(payoff(strike));\n  \n  return payoffs.mean();\n}",
+      "status": "[1]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "function(strike, expiration, volatility, riskFreeRate, spot, simulations) {\n  let totalPayoff = 0;\n  const dt = 1.0 / 365; // time step of one day\n  const sqrtDt = Math.sqrt(dt);\n  const drift = riskFreeRate - 0.5 * volatility ** 2; //this comes from Ito's lemma\n  const num_steps=Math.round(expiration/dt);\n  const random_vars=random.twod.normal(simulations,num_steps,drift*dt,volatility * sqrtDt); //This is defined in di-libs\n  const prices=random_vars.map(row=&gt;Math.exp(row.sum())*spot);\n  const disc_fact=Math.exp(-riskFreeRate * expiration);\n  const payoff= K=&gt;{return p=&gt;Math.max(p-K,0)*disc_fact}; //Returns a function. Uses closure.\n  \n  const payoffs=prices.map(payoff(strike));\n  \n  return payoffs.mean();\n} <br>",
+      "type": "code"
+    },
+    {
+      "code": "optionPriceMC_di_libs(100,30/365.0,0.2,0.01,100,100000) // This will be much faster than the earlier for-loop base simulation but the underlying algorithm is same.",
+      "status": "[2]<br><span style=\"font-size:8px\">834ms<span></span></span>",
+      "output": "2.33269369320075 <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
