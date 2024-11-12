@@ -13,17 +13,24 @@ Click on any of the notebooks below to open it in Scribbler and start exploring.
 
 
 
-{% assign files_by_subdirectory = {} %}
+{% assign files_by_subdirectory = "" %}
 {% for file in site.static_files %}
   {% if file.path contains '.jsnb' %}
-    {% assign files_by_subdirectory[file.path] = file.path %}
-    
+    {% unless files_by_subdirectory contains file.path %}
+      {% assign files_by_subdirectory = files_by_subdirectory | append: file.path | append: "," %}
+    {% endunless %}
   {% endif %}
 {% endfor %}
 
-{% for path in files_by_subdirectory %}
-{{ path }}
+{% assign paths = files_by_subdirectory | split: "," %}
+
+{% for path in paths %}
+  {% if path != "" %}
+    {{ path }}
+  {% endif %}
 {% endfor %}
+
+
 
 <hr>
 
