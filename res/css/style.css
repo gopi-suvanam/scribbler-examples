@@ -15,13 +15,17 @@
       min-height:100px;
     }
 
-    h1{
+   .title{
 
       background-color: #fede02;
       line-height: 2;
       color: #555;
-      padding-left: 20px;
+      padding: 30px;
+      
     }
     #list{
       padding:40px;
     }
+   .content{
+     padding:30px;
+   }
