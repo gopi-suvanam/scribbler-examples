@@ -4,6 +4,9 @@ title: List of Sample Scribbler Notebooks in JavaScript
 ---
 <h1>List of Sample Scribbler Notebooks in JavaScript</h1>
 <h2> site.documments </h2>
+{{ site.pages | inspect }}
+{{ site.documents | inspect }}
+{{ site.static_files| inspect }}
 
 
 
