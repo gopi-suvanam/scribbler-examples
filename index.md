@@ -62,6 +62,7 @@ Click on any of the notebooks below to open it in Scribbler and start exploring.
 <ul class="row">
   {% for file in site.static_files %}
     {% assign path = file.path | replace: '^/', '' %}
+    {{path}}
     {% assign path_parts = path | split: '/' %}
     {{ path_parts | inspect}}
     {% if file.path contains '.jsnb' and path_parts.size == 1 %}
