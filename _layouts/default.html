@@ -33,29 +33,22 @@
                             </button>
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                                 <ul id="nav" class="navbar-nav ms-auto">
-                                    <li class="nav-item">
-                                        <a href="#home" class="page-scroll active"
-                                            aria-label="Toggle navigation">Home</a>
-                                    </li>
+                                    
                                     <li class="nav-item">
                                         <a href="#features" class="page-scroll"
                                             aria-label="Toggle navigation">Features</a>
                                     </li>
 
-                                    <li class="nav-item">
-                                        <a href="#usecases" class="page-scroll"
-                                            aria-label="Toggle navigation">Use Cases</a>
-                                    </li>
+                                    
                                     <li class="nav-item">
                                         <a href="/docs" aria-label="Toggle navigation">Docs</a>
                                     </li>                                    
 
-                                    <li class="nav-item">
-                                        <a href="/samples.html" aria-label="Toggle navigation">Gallery</a>
-                                    </li>
+                                    
                                     <li class="nav-item">
                                         <a href="/tutorials" aria-label="Toggle navigation">Tutorials</a>
                                     </li>
+                                    
                                    <li class="nav-item">
                                         <a href="/blog" aria-label="Toggle navigation">Blog</a>
                                     </li> 
@@ -87,8 +80,32 @@
             </div> <!-- row -->
         </div> <!-- container -->
     </header>
+        <!-- Start Hero Area -->
+    <section id="home" class="hero-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 col-md-12 col-12">
+                    <div class="hero-content">
+                        <h1 class="wow fadeInLeft" data-wow-delay=".4s">{{ pageTitle | strip_html |  escape }}</h1>
+                        <p class="wow fadeInLeft" data-wow-delay=".6s">Simple Interface for Experimenting in JavaScript. Developed for Open Source using Open Source.</p>
+                        <div class="button wow fadeInLeft" data-wow-delay=".8s">
+                            <a href="https://app.scribbler.live" target="_blank"  class="btn"><i class="lni lni-play"></i>Start (No Login)</a>
+                            <a href="https://github.com/gopi-suvanam/scribbler" target="_blank" class="btn btn-alt"><i class="lni lni-github-original"></i><i class="lni lni-star-filled"></i>on Github</a>
+                        </div>
+                        <p class="wow fadeInLeft" data-wow-delay=".6s"><strong>Learning • Scientific computation • AI/ML  </strong></p>
+                        <p>Happy experimenting!</p>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-12 col-12">
+                    <div class="hero-image wow fadeInRight" style="text-align:center" data-wow-delay=".4s">
+                        <img style="width:40%;margin:auto" src="assets/images/hero/phone.png" alt="#">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
       
-    <h1 class="title" >{{ pageTitle | strip_html |  escape }}</h1>
     <div class="content">
       {{content}}
     </div>
