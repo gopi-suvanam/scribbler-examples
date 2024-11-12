@@ -13,6 +13,15 @@ Click on any of the notebooks below to open it in Scribbler and start exploring.
 {% assign files_by_subdirectory = {} %}
 {% for file in site.static_files %}
   {% if file.path contains '.jsnb' %}
+    {% assign files_by_subdirectory[file.path] = file %}
+  {% endif %}
+{% endfor %}
+Testing {{ files_by_subdirectory | inspect }}
+
+
+{% assign files_by_subdirectory = {} %}
+{% for file in site.static_files %}
+  {% if file.path contains '.jsnb' %}
     {% assign path_parts = file.path | split: '/' %}
     {% if path_parts.size == 1 or path_parts[0] == "" %}
       {% assign subdirectory = 'Miscellaneous' %}
