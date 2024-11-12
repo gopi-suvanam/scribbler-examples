@@ -17,19 +17,20 @@ Click on any of the notebooks below to open it in Scribbler and start exploring.
 {% for file in site.static_files %}
   {% if file.path contains '.jsnb' %}
     {% assign path_parts = file.path | split: '/' %}
+    
     {% if path_parts.size == 1 or path_parts[0] == "" %}
       {% assign subdirectory = 'Miscellaneous' %}
     {% else %}
       {% assign subdirectory = path_parts[0] %}
     {% endif %}
     
-    {% unless sub_directories contains subdirectory%}
+    {% unless sub_directories contains subdirectory %}
       {% assign sub_directories = sub_directories | append: subdirectory | append: "," %}
     {% endunless %}
   {% endif %}
 {% endfor %}
 
-{% assign sub_directories = sub_directories | split: "," %}
+{% assign sub_directories = sub_directories | split: "," | uniq %}
 
 {% for subdirectory in sub_directories %}
   {% if subdirectory != "" %}
@@ -37,17 +38,34 @@ Click on any of the notebooks below to open it in Scribbler and start exploring.
   {% endif %}
 {% endfor %}
 
-
-
 <hr>
 
-<ul class="row">
-  {% for file in site.static_files %}
-    {% if file.path contains '.jsnb' %}
-      <li class="col-md-3 col-sm-6 col-xs-12 mb-4 sampleCard">
-        <a href="https://app.scribbler.live/?jsnb=https://examples.scribbler.live{{ file.path }}">{{ file.name | replace: '-', ' ' | replace: '_', ' ' | remove: '.jsnb' }}</a>
-     
-      </li>
-    {% endif %}
-  {% endfor %}
-</ul>
+{% for subdirectory in sub_directories %}
+  {% if subdirectory != "" %}
+    <h2>{{ subdirectory }}</h2>
+    <ul class="row">
+      {% for file in site.static_files %}
+        {% if file.path contains '.jsnb' and file.path starts_with subdirectory %}
+          <li class="col-md-3 col-sm-6 col-xs-12 mb-4 sampleCard">
+            <a href="https://app.scribbler.live/?jsnb=https://examples.scribbler.live{{ file.path }}">{{ file.name | replace: '-', ' ' | replace: '_', ' ' | remove: '.jsnb' }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endfor %}
+
+
+<h2>Miscallaneous</h2>
+    <ul class="row">
+      {% for file in site.static_files %}
+        {% if file.path contains '.jsnb' and file.path starts_with "/" %}
+          <li class="col-md-3 col-sm-6 col-xs-12 mb-4 sampleCard">
+            <a href="https://app.scribbler.live/?jsnb=https://examples.scribbler.live{{ file.path }}">{{ file.name | replace: '-', ' ' | replace: '_', ' ' | remove: '.jsnb' }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+
