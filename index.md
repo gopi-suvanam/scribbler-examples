@@ -9,12 +9,13 @@ Browse through our list of sample notebooks and get inspired by the creative pos
 
 Click on any of the notebooks below to open it in Scribbler and start exploring. You can also modify and remix the code to create your own unique projects. Happy scribbling!
 <hr>
+Added path parts.. 
 
 {% assign files_by_subdirectory = {} %}
 {% for file in site.static_files %}
   {% if file.path contains '.jsnb' %}
     {% assign path_parts = file.path | split: '/' %}
-    {{ path_parts[0]}}
+    {{ path_parts  | inspect }} 
     {% if path_parts.size == 1 %}
       {% assign subdirectory = 'Miscellaneous' %}
     {% else %}
