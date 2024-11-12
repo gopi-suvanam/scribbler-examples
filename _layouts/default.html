@@ -12,6 +12,81 @@
         
   </head>
   <body>
+      <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                            <b class="navbar-brand" href="index.html">
+                                Scribbler
+                            </b>
+                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                    <li class="nav-item">
+                                        <a href="#home" class="page-scroll active"
+                                            aria-label="Toggle navigation">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#features" class="page-scroll"
+                                            aria-label="Toggle navigation">Features</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="#usecases" class="page-scroll"
+                                            aria-label="Toggle navigation">Use Cases</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/docs" aria-label="Toggle navigation">Docs</a>
+                                    </li>                                    
+
+                                    <li class="nav-item">
+                                        <a href="/samples.html" aria-label="Toggle navigation">Gallery</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/tutorials" aria-label="Toggle navigation">Tutorials</a>
+                                    </li>
+                                   <li class="nav-item">
+                                        <a href="/blog" aria-label="Toggle navigation">Blog</a>
+                                    </li> 
+                                    <!-- <li class="nav-item">
+                                        <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse"
+                                            data-bs-target="#submenu-1-4" aria-controls="navbarSupportedContent"
+                                            aria-expanded="false" aria-label="Toggle navigation">Blog</a>
+                                        <ul class="sub-menu collapse" id="submenu-1-4">
+                                            <li class="nav-item"><a href="javascript:void(0)">Blog Grid Sidebar</a>
+                                            </li>
+                                            <li class="nav-item"><a href="javascript:void(0)">Blog Single</a></li>
+                                            <li class="nav-item"><a href="javascript:void(0)">Blog Single
+                                                    Sibebar</a></li>
+                                        </ul>
+                                    </li> -->
+                                    
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                            <div class="button add-list-button">
+                                <a href="https://app.scribbler.live/" target="_blank" class="btn">Start now</a>
+                            </div>
+                            <div class="button add-list-button">
+                                <a href="https://github.com/gopi-suvanam/scribbler" target="_blank" class="btn btn-alt"><i class="lni lni-github-original"></i>Github</a>
+                            </div>
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+      
     <h1 class="title" >{{ pageTitle | strip_html |  escape }}</h1>
     <div class="content">
       {{content}}
