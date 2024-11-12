@@ -8,7 +8,7 @@ Welcome to our collection of sample Scribbler Notebooks in JavaScript! These int
 Browse through our list of sample notebooks and get inspired by the creative possibilities of Scribbler. Whether you're a student, teacher, or developer, our notebooks are designed to help you learn, create, and innovate.
 
 Click on any of the notebooks below to open it in Scribbler and start exploring. You can also modify and remix the code to create your own unique projects. Happy scribbling!
-
+___
 <ul class="row">
   {% for file in site.static_files %}
     {% if file.path contains '.jsnb' %}
