@@ -12,7 +12,7 @@ title: List of Sample Scribbler Notebooks in JavaScript
   {% for file in site.static_files %}
     {% if file.path contains '.jsnb' %}
       <li class="col-md-3 col-sm-4 mb-4 card">
-        <a href="https://app.scribbler.live/?jsnb={{ file.path }}">{{ file.name | replace: '-', ' ' | replace: '_', ' ' | remove: '.jsnb' }}</a>
+        <a href="https://app.scribbler.live/?jsnb=https://examples.scribbler.live{{ file.path }}">{{ file.name | replace: '-', ' ' | replace: '_', ' ' | remove: '.jsnb' }}</a>
       </li>
     {% endif %}
   {% endfor %}
