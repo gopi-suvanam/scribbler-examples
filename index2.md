@@ -3,7 +3,6 @@ layout: default
 title: List of Sample Scribbler Notebooks in JavaScript
 ---
 
-<h1>List of Sample Scribbler Notebooks in JavaScript</h1>
 {{site.pages}}
 <ul class="row">
   {% for file in site.pages %}
