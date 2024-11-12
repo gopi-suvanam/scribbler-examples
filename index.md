@@ -20,12 +20,12 @@ Browse through our list of sample notebooks and get inspired by the creative pos
     {% if file.path contains '.jsnb' %}
       <li class="col-md-3 col-sm-4 mb-4 sampleCard">
         <a href="https://app.scribbler.live/?jsnb=https://examples.scribbler.live{{ file.path }}">{{ file.name | replace: '-', ' ' | replace: '_', ' ' | remove: '.jsnb' }}</a>
-        <i class="bi bi-pencil">
-          <a href="https://app.scribbler.live/?jsnb=https://examples.scribbler.live{{ file.path }}"></a>
-          </i>
-        <i class="bi bi-play-btn-fill">
-          <a href="https://app.scribbler.live/?jsnb=https://examples.scribbler.live{{ file.path }}"></a>
-         </i>
+        
+          <a href="https://app.scribbler.live/?jsnb=https://examples.scribbler.live{{ file.path }}"> <i class="bi bi-pencil"></i></a>
+         
+       
+          <a href="https://app.scribbler.live/?jsnb=https://examples.scribbler.live{{ file.path }}&hide-menu=true&hide-code=true"> <i class="bi bi-play-btn-fill"></i></a>
+         
       </li>
     {% endif %}
   {% endfor %}
