@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "name": "String-Methods-2",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>includes()</h1>",
+      "status": "",
+      "output": "<h1>includes()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const str = \"Learning JavaScript is fun!\";\nconst hasJavaScript = str.includes(\"JavaScript\"); // Outputs: true\nscrib.show(hasJavaScript)",
+      "status": "[1]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "true <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>startsWith() / endsWith()</h1>",
+      "status": "",
+      "output": "<h1>startsWith() / endsWith()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const str = \"Hello, World!\";\nconst startsWithHello = str.startsWith(\"Hello\"); // Outputs: true\nconst endsWithWorld = str.endsWith(\"World!\");    // Outputs: true\nscrib.show(startsWithHello)\nscrib.show(endsWithWorld)",
+      "status": "[2]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "true <br>true <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>charAt() / charCodeAt()</h1>",
+      "status": "",
+      "output": "<h1>charAt() / charCodeAt()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const str = \"JavaScript\";\nconst char = str.charAt(4); // Outputs: \"S\"\nconst code = str.charCodeAt(4); // Outputs: 83\nscrib.show(char)\nscrib.show(code)",
+      "status": "[3]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "S <br>83 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>concat()</h1>",
+      "status": "",
+      "output": "<h1>concat()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const str1 = \"Hello, \";\nconst str2 = \"World!\";\nconst result = str1.concat(str2); // Outputs: \"Hello, World!\"\nscrib.show(result)",
+      "status": "[4]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Hello, World! <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>repeat()</h1>",
+      "status": "",
+      "output": "<h1>repeat()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const str = \"Repeat! \";\nconst repeatedStr = str.repeat(3); // Outputs: \"Repeat! Repeat! Repeat! \"\nscrib.show(repeatedStr)",
+      "status": "[5]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Repeat! Repeat! Repeat!  <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Practical Application</h1>",
+      "status": "",
+      "output": "<h1>Practical Application</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const input = \"Hello, JavaScript!\";\nif (input.startsWith(\"Hello\")) {\n  const newStr = input.concat(\" Let's learn more.\").repeat(2);\n  scrib.show(newStr); // Outputs: \"Hello, JavaScript! Let's learn more. Hello, JavaScript! Let's learn more.\"\n}\n",
+      "status": "[6]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Hello, JavaScript! Let's learn more.Hello, JavaScript! Let's learn more. <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

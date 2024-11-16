@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "New JSNB",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "await scrib.loadScript(\"https://cdn.jsdelivr.net/npm/arquero@latest\");",
+      "status": "[1]<br><span style=\"font-size:8px\">414ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "// Average hours of sunshine per month, from https://usclimatedata.com/.\nconst dt =aq. table({\n  'Seattle': [69, 108, 178, 207, 253, 268, 312, 281, 221, 142, 72, 52],\n  'Chicago': [135, 136, 187, 215, 281, 311, 318, 283, 226, 193, 113, 106],\n  'San Francisco': [165, 182, 251, 281, 314, 330, 300, 272, 267, 243, 189, 156]\n});\n\n// Sorted differences between Seattle and Chicago.\n// Table expressions use arrow function syntax.\ndt.derive({\n    month: d => aq.op.row_number(),\n    diff:  d => d.Seattle - d.Chicago\n  })\n  .select('month', 'diff')\n  .orderby(aq.desc('diff'))\n  .print();\n\n// Is Seattle more correlated with San Francisco or Chicago?\n// Operations accept column name strings outside a function context.\ndt.rollup({\n    corr_sf:  aq.op.corr('Seattle', 'San Francisco'),\n    corr_chi: aq.op.corr('Seattle', 'Chicago')\n  })\n  .print();\n\n// Aggregate statistics per city, as output objects.\n// Reshape (fold) the data to a two column layout: city, sun.\ndt.fold(aq.all(), { as: ['city', 'sun'] })\n  .groupby('city')\n  .rollup({\n    min:  d => aq.op.min(d.sun), // functional form of op.min('sun')\n    max:  d => aq.op.max(d.sun),\n    avg:  d => aq.op.average(d.sun),\n    med:  d => aq.op.median(d.sun),\n    // functional forms permit flexible table expressions\n    skew: ({sun: s}) => (aq.op.mean(s) - aq.op.median(s)) / aq.op.stdev(s) || 0\n  })\n  .objects()\n\n",
+      "status": "[3]<br><span style=\"font-size:8px\">10ms<span></span></span>",
+      "output": "[\n  {\n    \"city\": \"Seattle\",\n    \"min\": 52,\n    \"max\": 312,\n    \"avg\": 180.25,\n    \"med\": 192.5,\n    \"skew\": -0.13534747360017363\n  },\n  {\n    \"city\": \"Chicago\",\n    \"min\": 106,\n    \"max\": 318,\n    \"avg\": 208.66666666666666,\n    \"med\": 204,\n    \"skew\": 0.06087751674420046\n  },\n  {\n    \"city\": \"San Francisco\",\n    \"min\": 156,\n    \"max\": 330,\n    \"avg\": 245.8333333333333,\n    \"med\": 259,\n    \"skew\": -0.22118937673042458\n  }\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "",
+      "status": "",
+      "output": "",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

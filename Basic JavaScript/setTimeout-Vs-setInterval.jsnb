@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "name": "setTimeout vs setInterval",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>setTimeout</h1>",
+      "status": "",
+      "output": "<h1>setTimeout</h1>",
+      "type": "html"
+    },
+    {
+      "code": "setTimeout(() => {\n  scib.show('This message appears after 3 seconds');\n}, 3000); // Executes after 3000 milliseconds (3 seconds)",
+      "status": "",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "<h1>setInterval</h1>",
+      "status": "",
+      "output": "<h1>setInterval</h1>",
+      "type": "html"
+    },
+    {
+      "code": "setInterval(() => {\n  scrib.show('This message appears every 2 seconds');\n}, 2000); // Executes every 2000 milliseconds (2 seconds)\n",
+      "status": "",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Practical Example - setTimeout</h1>",
+      "status": "",
+      "output": "<h1>Practical Example - setTimeout</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const timeoutID = setTimeout(() => {\n  scrib.show('One-time delayed message');\n}, 5000);\n\n// Clear the timeout if needed\nclearTimeout(timeoutID);\n",
+      "status": "",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Practical Example - setInterval</h1>",
+      "status": "",
+      "output": "<h1>Practical Example - setInterval</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const intervalID = setInterval(() => {\n scrib.show('Repeated message every 3 seconds');\n}, 3000);\n\n// Clear the interval if needed\nclearInterval(intervalID);\n",
+      "status": "",
+      "output": "",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

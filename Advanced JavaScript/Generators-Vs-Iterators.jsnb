@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "name": "Generators Vs Iterators",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Iterators</h1>",
+      "status": "",
+      "output": "<h1>Iterators</h1>",
+      "type": "html"
+    },
+    {
+      "code": "let myArray = [1, 2, 3];\nlet iterator = myArray[Symbol.iterator]();\n\nscrib.show(iterator.next()); // { value: 1, done: false }\nscrib.show(iterator.next()); // { value: 2, done: false }\nscrib.show(iterator.next()); // { value: 3, done: false }\nscrib.show(iterator.next()); // { value: undefined, done: true }\n",
+      "status": "[2]<br><span style=\"font-size:8px\">3ms<span></span></span>",
+      "output": "{\n  \"value\": 1,\n  \"done\": false\n} <br>{\n  \"value\": 2,\n  \"done\": false\n} <br>{\n  \"value\": 3,\n  \"done\": false\n} <br>{\n  \"done\": true\n} <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Generators</h1>",
+      "status": "",
+      "output": "<h1>Generators</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function* myGenerator() {\n  yield 1;\n  yield 2;\n  yield 3;\n}\n\nconst gen = myGenerator();\nscrib.show(gen.next()); // { value: 1, done: false }\nscrib.show(gen.next()); // { value: 2, done: false }\nscrib.show(gen.next()); // { value: 3, done: false }\nscrib.show(gen.next()); // { value: undefined, done: true }\n",
+      "status": "[3]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "{\n  \"value\": 1,\n  \"done\": false\n} <br>{\n  \"value\": 2,\n  \"done\": false\n} <br>{\n  \"value\": 3,\n  \"done\": false\n} <br>{\n  \"done\": true\n} <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Infinite Sequence Generator</h1>",
+      "status": "",
+      "output": "<h1>Infinite Sequence Generator</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function* infiniteGenerator() {\n  let i = 0;\n  while (true) {\n    yield i++;\n  }\n}\n\nconst infinite = infiniteGenerator();\nscrib.show(infinite.next().value); // 0\nscrib.show(infinite.next().value); // 1",
+      "status": "[4]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "0 <br>1 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Custom Iterators</h1>",
+      "status": "",
+      "output": "<h1>Custom Iterators</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const customIterable = {\n  [Symbol.iterator]: function* () {\n    yield 'A';\n    yield 'B';\n    yield 'C';\n  }\n};\n\nfor (let value of customIterable) {\n  scrib.show(value); // A, B, C\n}\n",
+      "status": "[5]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "A <br>B <br>C <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

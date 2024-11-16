@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "name": "SVG vs Canvas",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "//>md\n# SVG vs Canvas",
+      "status": "",
+      "output": "<h1>SVG vs Canvas</h1>\n",
+      "type": "html"
+    },
+    {
+      "code": "//>md\n## SVG Example",
+      "status": "",
+      "output": "<h2>SVG Example</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "//>html  \n<svg width=\"200\" height=\"200\">\n    <circle cx=\"100\" cy=\"100\" r=\"80\" stroke=\"green\" stroke-width=\"4\" fill=\"yellow\" />\n </svg>",
+      "status": "[3]<br><span style=\"font-size:8px\">8ms<span></span></span>",
+      "output": "  \n<svg width=\"200\" height=\"200\">\n    <circle cx=\"100\" cy=\"100\" r=\"80\" stroke=\"green\" stroke-width=\"4\" fill=\"yellow\"></circle>\n  </svg> <br>",
+      "type": "code"
+    },
+    {
+      "code": "//>md\n## Canvas Example",
+      "status": "",
+      "output": "<h2>Canvas Example</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "//>html\n<canvas id=\"myCanvas\" width=\"200\" height=\"200\"></canvas>",
+      "status": "[4]<br><span style=\"font-size:8px\">145ms<span></span></span>",
+      "output": "\n<canvas id=\"myCanvas\" width=\"200\" height=\"200\"></canvas> <br>",
+      "type": "code"
+    },
+    {
+      "code": "const canvas = document.getElementById('myCanvas');\nconst ctx = canvas.getContext('2d');\n\nctx.beginPath();\nctx.arc(100, 100, 80, 0, 2 * Math.PI);\nctx.fillStyle = 'yellow';\nctx.fill();\nctx.lineWidth = 4;\nctx.strokeStyle = 'green';\nctx.stroke();\n",
+      "status": "[5]<br><span style=\"font-size:8px\">243ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

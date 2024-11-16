@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "name": "JS Contest",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1  style=\"color:#555\">To-Do List </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n     JS Challenge on Scribbler!!\n    </p><br></div>",
+      "status": "",
+      "output": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1 style=\"color:#555\">To-Do List </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n     JS Challenge on Scribbler!!\n    </p><br></div>",
+      "type": "html"
+    },
+    {
+      "code": "<h2>Instructions</h2>\nThis is a contest on JavaScript using Scribbler. For details on using Scribbler check out: <a target='_blank' href='https://scribbler.live/docs'>Docs</a>. Follow the instructions and win badges for fastest JS coders and most innovative JS coders.\n<ol>\n  <li>Identify and fix the syntax and logic errors in both the HTML and JavaScript cells.</li>\n  <li>Fix any incorrect logic and syntax errors</li>\n  <li>Test the application to ensure it works correctly (i.e., tasks can be added and removed).</li>\n  <li>Enhancing the Application: Add time stamp, Allow users to assign a priority, Enhance the UI with Style</li>\n   <li>Optional: Implement functionality to edit a task when it is clicked </li>\n  <li>Push the notebook to <a href='https://scribbler.live/docs#github-integration'  target='_blank'>Github</a> using File->GitHub (you will need a github token and a public repository to which you can push the code to)\n   <li>Copy the sharable link from the URL or from File->Share/Publish</li>\n   <li>DM the link to <a href='https://www.linkedin.com/company/scribbler-live/' target='_blank'>Scribbler Linkedin Page</a></li>\n  </ol>",
+      "status": "",
+      "output": "<h2>Instructions</h2>\nThis is a contest on JavaScript using Scribbler. For details on using Scribbler check out: <a target=\"_blank\" href=\"https://scribbler.live/docs\">Docs</a>. Follow the instructions and win badges for fastest JS coders and most innovative JS coders.\n<ol>\n  <li>Identify and fix the syntax and logic errors in both the HTML and JavaScript cells.</li>\n  <li>Fix any incorrect logic and syntax errors</li>\n  <li>Test the application to ensure it works correctly (i.e., tasks can be added and removed).</li>\n  <li>Enhancing the Application: Add time stamp, Allow users to assign a priority, Enhance the UI with Style</li>\n   <li>Optional: Implement functionality to edit a task when it is clicked </li>\n  <li>Push the notebook to <a href=\"https://scribbler.live/docs#github-integration\" target=\"_blank\">Github</a> using File-&gt;GitHub (you will need a github token and a public repository to which you can push the code to)\n   </li><li>Copy the sharable link from the URL or from File-&gt;Share/Publish</li>\n   <li>DM the link to <a href=\"https://www.linkedin.com/company/scribbler-live/\" target=\"_blank\">Scribbler Linkedin Page</a></li>\n  </ol>",
+      "type": "html"
+    },
+    {
+      "code": "<button id=\"addTaskBtn\">Add Task</button>\n    <ul id=\"taskList\">\n        <!-- Tasks will be appended here -->\n    </ul>",
+      "status": "",
+      "output": "<button id=\"addTaskBtn\">Add Task</button>\n    <ul id=\"taskList\">\n        <!-- Tasks will be appended here -->\n    </ul>",
+      "type": "html"
+    },
+    {
+      "code": "//JavaScript Code  (with Bugs)\n\n\ndocument.getElementById('addTaskBtn').addEventListener('click', function() {\n    var taskInput = document.getElementById('taskInput').value;\n    if (taskInput !== \"\") {\n        var taskList = document.getElementById('taskList');\n        var li = document.createElement('li');\n        li.textContent = taskInput;\n        taskList.appendChild(li);\n        document.getElementById('taskInput').value = \"\"; // Clear input\n    } else {\n        alert(\"Task cannot be empty!\");\n    }\n});\n\ndocument.getElementById('taskList').addEventListener('click', function(e) {\n    if (e.target.tagName === 'LI') {\n        e.target.remove(); // Remove task on click\n    }\n});\n",
+      "status": "[1]<br><span style=\"font-size:8px\">6ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

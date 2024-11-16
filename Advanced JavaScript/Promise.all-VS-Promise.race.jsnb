@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "name": "Promise.all-vs-Promise.race",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Promise.all</h1>",
+      "status": "",
+      "output": "<h1>Promise.all</h1>",
+      "type": "html"
+    },
+    {
+      "code": "let p1 = Promise.resolve('Task 1');\nlet p2 = Promise.resolve('Task 2');\nlet p3 = Promise.resolve('Task 3');\n\nPromise.all([p1, p2, p3])\n  .then((values) => scrib.show(values)) // ['Task 1', 'Task 2', 'Task 3']\n  .catch((err) => scrib.show(err));\n",
+      "status": "[2]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "[\n  \"Task 1\",\n  \"Task 2\",\n  \"Task 3\"\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Promise.race</h1>",
+      "status": "",
+      "output": "<h1>Promise.race</h1>",
+      "type": "html"
+    },
+    {
+      "code": "let p1 = new Promise((resolve) => setTimeout(resolve, 1000, 'Task 1'));\nlet p2 = new Promise((resolve) => setTimeout(resolve, 500, 'Task 2'));\n\nPromise.race([p1, p2])\n  .then((value) => scrib.show(value)) // 'Task 2'\n  .catch((err) => scrib.show(err));\n",
+      "status": "[3]<br><span style=\"font-size:8px\">502ms<span></span></span>",
+      "output": "Task 2 <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

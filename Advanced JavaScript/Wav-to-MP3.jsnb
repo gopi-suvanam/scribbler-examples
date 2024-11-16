@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "name": "Wav to MP3",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1  style=\"color:#555\">Wav to MP3 </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        Simple interface for converting .wav files to .mp3 files\n    </p><br></div>",
+      "status": "",
+      "output": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1 style=\"color:#555\">Wav to MP3 </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        Simple interface for converting .wav files to .mp3 files\n    </p><br></div>",
+      "type": "html"
+    },
+    {
+      "code": "await scrib.loadScript(\"https://cdn.jsdelivr.net/npm/lamejs@1.2.0/lame.min.js\")",
+      "status": "[6]<br><span style=\"font-size:8px\">5ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "<input type=\"file\" id=\"fileInput\"></input>\n<button onclick=\"convertToMp3()\">Convert to MP3</button>\n\n\n   ",
+      "status": "",
+      "output": "<input type=\"file\" id=\"fileInput\">\n<button onclick=\"convertToMp3()\">Convert to MP3</button>\n\n\n   ",
+      "type": "html"
+    },
+    {
+      "code": "  document.getElementById('fileInput').addEventListener('change', function(event) {\n    const file = event.target.files[0];\n    if (file && file.type === 'audio/wav') {\n      const reader = new FileReader();\n      reader.onload = function(e) {\n        const arrayBuffer = e.target.result;\n        convertToMp3(arrayBuffer);\n      };\n      reader.readAsArrayBuffer(file);\n    } else {\n      alert('Please upload a .wav file.');\n    }\n  });\n\n  function convertToMp3(arrayBuffer) {\n    // Decode the WAV file\n    const wav = lamejs.WavHeader.readHeader(new DataView(arrayBuffer));\n    const samples = new Int16Array(arrayBuffer, wav.dataOffset, wav.dataLen / 2);\n    \n    // Create MP3 encoder instance\n    const mp3Encoder = new lamejs.Mp3Encoder(1, wav.sampleRate, 128); // 1 channel (mono), 128 kbps\n\n    // Encode WAV to MP3\n    const mp3Data = [];\n    const sampleBlockSize = 1152;\n    for (let i = 0; i < samples.length; i += sampleBlockSize) {\n      const sampleChunk = samples.subarray(i, i + sampleBlockSize);\n      const mp3buf = mp3Encoder.encodeBuffer(sampleChunk);\n      if (mp3buf.length > 0) {\n        mp3Data.push(mp3buf);\n      }\n    }\n\n    // Finish the MP3 encoding\n    const end = mp3Encoder.flush();\n    if (end.length > 0) {\n      mp3Data.push(end);\n    }\n\n    // Convert MP3 data to Blob and create download link\n    const blob = new Blob(mp3Data, { type: 'audio/mp3' });\n    const url = URL.createObjectURL(blob);\n    const link = document.createElement('a');\n    link.href = url;\n    link.download = 'output.mp3';\n    document.body.appendChild(link);\n    link.click();\n    document.body.removeChild(link);\n  }\n\"loaded\"",
+      "status": "[5]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "loaded <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": true
+}

@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "name": "Fetch Image and Display",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<input type=\"file\" id=\"imageInput\" />\n<button id=\"submitButton\">Submit</button>\n<div id=\"imageContainer\"></div>",
+      "status": "",
+      "output": "<input type=\"file\" id=\"imageInput\">\n<button id=\"submitButton\">Submit</button>\n<div id=\"imageContainer\"></div>",
+      "type": "html"
+    },
+    {
+      "code": "const imageInput = document.getElementById('imageInput');\nconst submitButton = document.getElementById('submitButton');\nconst imageContainer = document.getElementById('imageContainer');\n\nsubmitButton.addEventListener('click', () => {\n  const selectedFile = imageInput.files[0];\n  if (selectedFile) {\n    const reader = new FileReader();\n    reader.onload = (event) => {\n      const imageData = event.target.result;\n      const imgElement = document.createElement('img');\n      imgElement.src = imageData;\n      imageContainer.innerHTML = '';\n      imageContainer.appendChild(imgElement);\n    };\n    reader.readAsDataURL(selectedFile);\n  }\n});",
+      "status": "[5]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": true
+}

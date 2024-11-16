@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "name": "Optimizing Code",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Optimizing JavaScript Code</h1>",
+      "status": "",
+      "output": "<h1>Optimizing JavaScript Code</h1>",
+      "type": "html"
+    },
+    {
+      "code": "<h2>Batch DOM Manipulations</h2>\n<ul id=\"list\"></ul>",
+      "status": "",
+      "output": "<h2>Batch DOM Manipulations</h2>\n<ul id=\"list\"><li>Item 0</li><li>Item 1</li><li>Item 2</li><li>Item 3</li><li>Item 4</li><li>Item 5</li><li>Item 6</li><li>Item 7</li><li>Item 8</li><li>Item 9</li></ul>",
+      "type": "html"
+    },
+    {
+      "code": "const list = document.getElementById('list');\nconst fragment = document.createDocumentFragment(); // Using a DocumentFragment\n\nfor (let i = 0; i < 10; i++) {\n  const listItem = document.createElement('li');\n  listItem.textContent = `Item ${i}`;\n  fragment.appendChild(listItem); // Manipulating the fragment\n}\n\nlist.appendChild(fragment); // Single DOM manipulation\n\n",
+      "status": "[4]<br><span style=\"font-size:8px\">6ms<span></span></span>",
+      "output": "{} <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>Optimize Loops and Iterations</h2>",
+      "status": "[1]<br><span style=\"font-size:8px\">6ms<span></span></span>",
+      "output": "",
+      "type": "html"
+    },
+    {
+      "code": "//Inefficient Loop\nconst array = [1, 2, 3, 4, 5];\nlet sum = 0;\n\nfor (let i = 0; i < array.length; i++) {\n  sum += array[i];\n}\nsum",
+      "status": "[5]<br><span style=\"font-size:8px\">16ms<span></span></span>",
+      "output": "15 <br>",
+      "type": "code"
+    },
+    {
+      "code": "//Optimized Loop\nconst array = [1, 2, 3, 4, 5];\nconst sum = array.reduce((acc, val) => acc + val, 0);\nsum",
+      "status": "[6]<br><span style=\"font-size:8px\">6ms<span></span></span>",
+      "output": "15 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>Defer Long-Running Scripts</h2>",
+      "status": "",
+      "output": "<h2>Defer Long-Running Scripts</h2>",
+      "type": "html"
+    },
+    {
+      "code": "function longRunningTask() {\n  // Long calculation\n  let result = 0;\n  for (let i = 1; i < 1e9; i++) {\n    result +=1/ i;\n  }\n  scrib.show(result);\n}\n\n// Defer the task to avoid blocking UI\nsetTimeout(longRunningTask, 0)",
+      "status": "[17]<br><span style=\"font-size:8px\">8ms<span></span></span>",
+      "output": "3382 <br>21.30048150134855 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h3>Try more techniques yourself using this article:\n<a href='https://scribbler.live/2024/07/30/Optimizing-JavaScript-Code-for-Web-Performance.html'>Optimizing JavaScript Code for Web Performance</a> </h3>",
+      "status": "",
+      "output": "<h3>Try more techniques yourself using this article:\n<a href=\"https://scribbler.live/2024/07/30/Optimizing-JavaScript-Code-for-Web-Performance.html\">Optimizing JavaScript Code for Web Performance</a> </h3>",
+      "type": "html"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

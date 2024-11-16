@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "name": "Style test",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<style>\n  .game-container {\n    position: relative;\n    width: 300px; /* adjust the width as needed */\n    height: 300px; /* adjust the height as needed */\n  }\n  .red-box {\n    position: absolute;\n    top: 0;\n    left: 0;\n    background-color: red;\n    width: 100px;\n    height: 100px;\n  }\n  .blue-box {\n    position: absolute;\n    top: 20px;\n    left: 20px;\n    background-color: blue;\n    width: 100px;\n    height: 100px;\n  }\n</style>\n\n<div class=\"game-container\">\n  <div class=\"red-box\"></div>\n  <div class=\"blue-box\"></div>\n</div>\n",
+      "status": "",
+      "output": "<style>\n  .game-container {\n    position: relative;\n    width: 300px; /* adjust the width as needed */\n    height: 300px; /* adjust the height as needed */\n  }\n  .red-box {\n    position: absolute;\n    top: 0;\n    left: 0;\n    background-color: red;\n    width: 100px;\n    height: 100px;\n  }\n  .blue-box {\n    position: absolute;\n    top: 20px;\n    left: 20px;\n    background-color: blue;\n    width: 100px;\n    height: 100px;\n  }\n</style>\n\n<div class=\"game-container\">\n  <div class=\"red-box\"></div>\n  <div class=\"blue-box\"></div>\n</div>\n",
+      "type": "html"
+    },
+    {
+      "code": "",
+      "status": "",
+      "output": "",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

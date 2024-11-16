@@ -1,2 +1,10 @@
 include:
   - '*.jsnb'
+
+subdirectories:
+  - "Basic JavaScript"
+  - "Advanced JavaScript"
+  - "AI-DataScience"
+  - "XR-ImageProcessing"
+  - "Scientific Computation"
+  - "Libraries-APIs"

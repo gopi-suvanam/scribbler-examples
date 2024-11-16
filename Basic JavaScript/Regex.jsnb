@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "name": "Regex<br>",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Checking for Matches</h1>",
+      "status": "",
+      "output": "<h1>Checking for Matches</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const pattern = /hello/;\nconst text = \"Hello, world!\";\n\nscrib.show(pattern.test(text));",
+      "status": "[5]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "false <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Extracting Matches</h1>",
+      "status": "",
+      "output": "<h1>Extracting Matches</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const pattern = /world/;\nconst text = \"Hello, world!\";\n\nscrib.show(pattern.exec(text));",
+      "status": "[2]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "[\n  \"world\"\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1> Using both in Regex </h1>",
+      "status": "",
+      "output": "<h1> Using both in Regex </h1>",
+      "type": "html"
+    },
+    {
+      "code": "const pattern = /[0-9]+/;\nconst text = \"The price is $99.99\";\n\nscrib.show(pattern.test(text)); \nscrib.show(pattern.exec(text)); ",
+      "status": "[7]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "true <br>[\n  \"99\"\n] <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

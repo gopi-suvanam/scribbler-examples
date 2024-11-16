@@ -1,0 +1,134 @@
+{
+  "metadata": {
+    "name": "Math Functions<br>",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>1. Math.random()</h1>",
+      "status": "",
+      "output": "<h1>1. Math.random()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "let randomNumber = Math.random();\nscrib.show(randomNumber);\n// e.g., 0.482562329",
+      "status": "[1]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "0.20434099393723315 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>2. Math.floor()</h1>",
+      "status": "",
+      "output": "<h1>2. Math.floor()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "let num = Math.floor(4.9); \nscrib.show(num);\n// Output: 4",
+      "status": "[2]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "4 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>3. Math.ceil()</h1>",
+      "status": "",
+      "output": "<h1>3. Math.ceil()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "let num = Math.ceil(4.1); \nscrib.show(num);\n// Output: 5",
+      "status": "[3]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "5 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>4. Math.round()</h1>",
+      "status": "",
+      "output": "<h1>4. Math.round()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "let num = Math.round(4.5); \nscrib.show(num);\n// Output: 5",
+      "status": "[4]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "5 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>5. Math.max() and Math.min()</h1>",
+      "status": "",
+      "output": "<h1>5. Math.max() and Math.min()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "let maxNum = Math.max(10, 20, 30);// Output: 30\nscrib.show(maxNum);\nlet minNum = Math.min(10, 20, 30); // Output: 10\nscrib.show(minNum);",
+      "status": "[5]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "30 <br>10 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>6. Math.abs()</h1>",
+      "status": "",
+      "output": "<h1>6. Math.abs()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "let absNum = Math.abs(-50); // Output: 50\nscrib.show(absNum);",
+      "status": "[6]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "50 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>7. Math.sqrt()</h1>",
+      "status": "",
+      "output": "<h1>7. Math.sqrt()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "let squareRoot = Math.sqrt(16); // Output: 4\nscrib.show(squareRoot);",
+      "status": "[7]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "4 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1> 8. Math.pow()<h1> ",
+      "status": "",
+      "output": "<h1> 8. Math.pow()</h1><h1> </h1>",
+      "type": "html"
+    },
+    {
+      "code": "let power = Math.pow(2, 3); // Output: 8 (2^3)\nscrib.show(power);",
+      "status": "[8]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "8 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>9. Math.trunc()</h1>",
+      "status": "",
+      "output": "<h1>9. Math.trunc()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "let num = Math.trunc(4.9); // Output: 4\nscrib.show(num);",
+      "status": "[9]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "4 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>10. Math.sign()</h1>",
+      "status": "",
+      "output": "<h1>10. Math.sign()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "let sign = Math.sign(-100); // Output: -1\nscrib.show(sign);",
+      "status": "[10]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "-1 <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

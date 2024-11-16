@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "name": "Maps Using Leaflet",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1  style=\"color:#555\">Interactive Maps in JavaScript with Leaflet.js</h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        Leaflet.js provides a powerful and flexible framework for creating interactive maps on the web. \n    </p><br></div>",
+      "status": "",
+      "output": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1 style=\"color:#555\">Interactive Maps in JavaScript with Leaflet.js</h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        Leaflet.js provides a powerful and flexible framework for creating interactive maps on the web. \n    </p><br></div>",
+      "type": "html"
+    },
+    {
+      "code": "\nWith its simple API and extensive documentation, developers can easily integrate maps into their web applications and provide users with engaging and informative experiences. <br><b>Next cell contains a simple div and also the leaflet.js style sheet is loaded.</b>",
+      "status": "",
+      "output": "\nWith its simple API and extensive documentation, developers can easily integrate maps into their web applications and provide users with engaging and informative experiences. <br><b>Next cell contains a simple div and also the leaflet.js style sheet is loaded.</b>",
+      "type": "html"
+    },
+    {
+      "code": "    <link rel=\"stylesheet\" href=\"https://unpkg.com/leaflet/dist/leaflet.css\" />\n    <div id=\"map\" style=\"height: 400px;\"></div>\n",
+      "status": "",
+      "output": "    <link rel=\"stylesheet\" href=\"https://unpkg.com/leaflet/dist/leaflet.css\">\n    <div id=\"map\" style=\"height: 400px; position: relative;\" class=\"leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom\" tabindex=\"0\"><div class=\"leaflet-pane leaflet-map-pane\" style=\"transform: translate3d(0px, 0px, 0px);\"><div class=\"leaflet-pane leaflet-tile-pane\"><div class=\"leaflet-layer \" style=\"z-index: 1; opacity: 1;\"><div class=\"leaflet-tile-container leaflet-zoom-animated\" style=\"z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);\"><img alt=\"\" src=\"https://a.tile.openstreetmap.org/13/4093/2723.png\" class=\"leaflet-tile leaflet-tile-loaded\" style=\"width: 256px; height: 256px; transform: translate3d(290px, -91px, 0px); opacity: 1;\"><img alt=\"\" src=\"https://b.tile.openstreetmap.org/13/4094/2723.png\" class=\"leaflet-tile leaflet-tile-loaded\" style=\"width: 256px; height: 256px; transform: translate3d(546px, -91px, 0px); opacity: 1;\"><img alt=\"\" src=\"https://b.tile.openstreetmap.org/13/4093/2724.png\" class=\"leaflet-tile leaflet-tile-loaded\" style=\"width: 256px; height: 256px; transform: translate3d(290px, 165px, 0px); opacity: 1;\"><img alt=\"\" src=\"https://c.tile.openstreetmap.org/13/4094/2724.png\" class=\"leaflet-tile leaflet-tile-loaded\" style=\"width: 256px; height: 256px; transform: translate3d(546px, 165px, 0px); opacity: 1;\"><img alt=\"\" src=\"https://c.tile.openstreetmap.org/13/4092/2723.png\" class=\"leaflet-tile leaflet-tile-loaded\" style=\"width: 256px; height: 256px; transform: translate3d(34px, -91px, 0px); opacity: 1;\"><img alt=\"\" src=\"https://c.tile.openstreetmap.org/13/4095/2723.png\" class=\"leaflet-tile leaflet-tile-loaded\" style=\"width: 256px; height: 256px; transform: translate3d(802px, -91px, 0px); opacity: 1;\"><img alt=\"\" src=\"https://a.tile.openstreetmap.org/13/4092/2724.png\" class=\"leaflet-tile leaflet-tile-loaded\" style=\"width: 256px; height: 256px; transform: translate3d(34px, 165px, 0px); opacity: 1;\"><img alt=\"\" src=\"https://a.tile.openstreetmap.org/13/4095/2724.png\" class=\"leaflet-tile leaflet-tile-loaded\" style=\"width: 256px; height: 256px; transform: translate3d(802px, 165px, 0px); opacity: 1;\"><img alt=\"\" src=\"https://b.tile.openstreetmap.org/13/4091/2723.png\" class=\"leaflet-tile leaflet-tile-loaded\" style=\"width: 256px; height: 256px; transform: translate3d(-222px, -91px, 0px); opacity: 1;\"><img alt=\"\" src=\"https://a.tile.openstreetmap.org/13/4096/2723.png\" class=\"leaflet-tile leaflet-tile-loaded\" style=\"width: 256px; height: 256px; transform: translate3d(1058px, -91px, 0px); opacity: 1;\"><img alt=\"\" src=\"https://c.tile.openstreetmap.org/13/4091/2724.png\" class=\"leaflet-tile leaflet-tile-loaded\" style=\"width: 256px; height: 256px; transform: translate3d(-222px, 165px, 0px); opacity: 1;\"><img alt=\"\" src=\"https://b.tile.openstreetmap.org/13/4096/2724.png\" class=\"leaflet-tile leaflet-tile-loaded\" style=\"width: 256px; height: 256px; transform: translate3d(1058px, 165px, 0px); opacity: 1;\"></div></div></div><div class=\"leaflet-pane leaflet-overlay-pane\"></div><div class=\"leaflet-pane leaflet-shadow-pane\"><img src=\"https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png\" class=\"leaflet-marker-shadow leaflet-zoom-animated\" alt=\"\" style=\"margin-left: -12px; margin-top: -41px; width: 41px; height: 41px; transform: translate3d(534px, 247px, 0px);\"></div><div class=\"leaflet-pane leaflet-marker-pane\"><img src=\"https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png\" class=\"leaflet-marker-icon leaflet-zoom-animated leaflet-interactive\" alt=\"Marker\" tabindex=\"0\" role=\"button\" style=\"margin-left: -12px; margin-top: -41px; width: 25px; height: 41px; transform: translate3d(534px, 247px, 0px); z-index: 247;\"></div><div class=\"leaflet-pane leaflet-tooltip-pane\"></div><div class=\"leaflet-pane leaflet-popup-pane\"><div class=\"leaflet-popup  leaflet-zoom-animated\" style=\"opacity: 1; transform: translate3d(535px, 213px, 0px); bottom: -7px; left: -104px;\"><div class=\"leaflet-popup-content-wrapper\"><div class=\"leaflet-popup-content\" style=\"width: 162px;\"><b>Hello world!</b><br>This is a Leaflet marker.</div></div><div class=\"leaflet-popup-tip-container\"><div class=\"leaflet-popup-tip\"></div></div><a class=\"leaflet-popup-close-button\" role=\"button\" aria-label=\"Close popup\" href=\"#close\"><span aria-hidden=\"true\">×</span></a></div></div><div class=\"leaflet-proxy leaflet-zoom-animated\" style=\"transform: translate3d(1.04805e+06px, 697379px, 0px) scale(4096);\"></div></div><div class=\"leaflet-control-container\"><div class=\"leaflet-top leaflet-left\"><div class=\"leaflet-control-zoom leaflet-bar leaflet-control\"><a class=\"leaflet-control-zoom-in\" href=\"#\" title=\"Zoom in\" role=\"button\" aria-label=\"Zoom in\" aria-disabled=\"false\"><span aria-hidden=\"true\">+</span></a><a class=\"leaflet-control-zoom-out\" href=\"#\" title=\"Zoom out\" role=\"button\" aria-label=\"Zoom out\" aria-disabled=\"false\"><span aria-hidden=\"true\">−</span></a></div></div><div class=\"leaflet-top leaflet-right\"></div><div class=\"leaflet-bottom leaflet-left\"></div><div class=\"leaflet-bottom leaflet-right\"><div class=\"leaflet-control-attribution leaflet-control\"><a href=\"https://leafletjs.com\" title=\"A JavaScript library for interactive maps\"><svg aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"8\" viewBox=\"0 0 12 8\" class=\"leaflet-attribution-flag\"><path fill=\"#4C7BE1\" d=\"M0 0h12v4H0z\"></path><path fill=\"#FFD500\" d=\"M0 4h12v3H0z\"></path><path fill=\"#E0BC00\" d=\"M0 7h12v1H0z\"></path></svg> Leaflet</a> <span aria-hidden=\"true\">|</span> © <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors</div></div></div></div>\n",
+      "type": "html"
+    },
+    {
+      "code": "scrib.loadScript(\"https://unpkg.com/leaflet/dist/leaflet.js\",false)",
+      "status": "[7]<br><span style=\"font-size:8px\">84ms<span></span></span>",
+      "output": "true <br>",
+      "type": "code"
+    },
+    {
+      "code": "var map = L.map('map').setView([51.505, -0.09], 13);\n\n// Add a base tile layer from OpenStreetMap\nconst dummy=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {\n  attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'\n}).addTo(map);\n",
+      "status": "[8]<br><span style=\"font-size:8px\">18ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "// Add a marker to the map\nvar marker = L.marker([51.5, -0.09]).addTo(map);\n\n// Add a popup to the marker\nconst l=marker.bindPopup(\"<b>Hello world!</b><br>This is a Leaflet marker.\").openPopup();\n",
+      "status": "[9]<br><span style=\"font-size:8px\">7ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

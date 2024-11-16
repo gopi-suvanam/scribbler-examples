@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "name": "Tensorflow Example",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "//>md\n## Web-Based Machine Learning Models Using TensorFlow.js",
+      "status": "",
+      "output": "<h2>Web-Based Machine Learning Models Using TensorFlow.js</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "await scrib.loadScript(\"https://cdn.jsdelivr.net/npm/@tensorflow/tfjs\");",
+      "status": "[1]<br><span style=\"font-size:8px\">1.392s<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "//Step 1: Load Data\nconst response = await fetch('https://raw.githubusercontent.com/ageron/handson-ml/master/datasets/housing/housing.csv');\nconst data=await response.text();\nconst parsedData = data.split('\\n').slice(1).map(row => {\n        const cols = row.split(',');\n        return {\n          medianIncome: parseFloat(cols[7]),\n          totalRooms: parseFloat(cols[3]),\n          population: parseFloat(cols[5]),\n          medianHouseValue: parseFloat(cols[8]) / 100000 // Scale target variable\n        };\n      });\nwindow.parsedData=parsedData;",
+      "status": "[2]<br><span style=\"font-size:8px\">2.703s<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "parsedData=parsedData.filter(d => !isNaN(d.medianIncome) && !isNaN(d.totalRooms) && !isNaN(d.population) && !isNaN(d.medianHouseValue));",
+      "status": "[3]<br><span style=\"font-size:8px\">75ms<span></span></span>",
+      "output": "<p class=\"error\">Object too large to show.</p><br>",
+      "type": "code"
+    },
+    {
+      "code": "// Step 2: Preprocess the data\n    function preprocessData(data) {\n      const inputs = data.map(d => [d.medianIncome, d.totalRooms, d.population]);\n      const labels = data.map(d => d.medianHouseValue);\n\n      // Convert to tensors\n      const inputTensor = tf.tensor2d(inputs);\n      const labelTensor = tf.tensor2d(labels, [labels.length, 1]);\n\n      // Normalize the data\n      const inputMax = inputTensor.max();\n      const inputMin = inputTensor.min();\n      const normalizedInputs = inputTensor.sub(inputMin).div(inputMax.sub(inputMin));\n\n      const labelMax = labelTensor.max();\n      const labelMin = labelTensor.min();\n      const normalizedLabels = labelTensor.sub(labelMin).div(labelMax.sub(labelMin));\n\n      return {\n        inputs: normalizedInputs,\n        labels: normalizedLabels,\n        inputMax,\n        inputMin,\n        labelMax,\n        labelMin\n      };\n    }\n",
+      "status": "[4]<br><span style=\"font-size:8px\">8ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "  // Step 3: Create the model\n    function createModel() {\n      const model = tf.sequential();\n\n      model.add(tf.layers.dense({ inputShape: [3], units: 50, activation: 'relu' }));\n      model.add(tf.layers.dense({ units: 50, activation: 'relu' }));\n      model.add(tf.layers.dense({ units: 1 }));\n\n      model.compile({\n        optimizer: tf.train.adam(),\n        loss: 'meanSquaredError'\n      });\n\n      return model;\n    }\n\n// Step 4: Train the model\n    async function trainModel(model, inputs, labels) {\n      return model.fit(inputs, labels, {\n        epochs: 4,\n        batchSize: 32,\n        shuffle: true,\n        validationSplit: 0.2,\n        callbacks: {\n          onEpochEnd: (epoch, logs) => {\n            console.log(`Epoch ${epoch}: Loss = ${logs.loss}`);\n          }\n        }\n      });\n    }\n\n    // Step 5: Make predictions\n    function predict(model, inputData, inputMin, inputMax, labelMin, labelMax) {\n      const normalizedInput = tf.tensor2d(inputData).sub(inputMin).div(inputMax.sub(inputMin));\n      const predictions = model.predict(normalizedInput);\n      const unnormalizedPredictions = predictions.mul(labelMax.sub(labelMin)).add(labelMin);\n      return unnormalizedPredictions.arraySync();\n    }",
+      "status": "[5]<br><span style=\"font-size:8px\">9ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "\nconst { inputs, labels, inputMax, inputMin, labelMax, labelMin } =preprocessData(parsedData);\n\n// Create and train the model\nconst model = createModel();\nscrib.show(\"Starting to train. Please note that it will take a bit of time to run. Have patience\")\nawait trainModel(model, inputs, labels);\n\nwindow.model=model;      \n",
+      "status": "[6]<br><span style=\"font-size:8px\">49.17s<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "// Predict on new data\nconst { inputs, labels, inputMax, inputMin, labelMax, labelMin } =preprocessData(parsedData);\nconst testInput = [[8.3252, 880, 322]]; // Example: median income, total rooms, population\nconst predictions = predict(model, testInput, inputMin, inputMax, labelMin, labelMax);\nscrib.show('Predicted Median House Value (in $100k):', predictions);",
+      "status": "[7]<br><span style=\"font-size:8px\">47ms<span></span></span>",
+      "output": "Predicted Median House Value (in $100k): [\n  [\n    1.9349496364593506\n  ]\n] <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "name": "Regular Expressions (RegEx) for Text Manipulation",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Search for a Word</h1>",
+      "status": "",
+      "output": "<h1>Search for a Word</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const text = \"JavaScript is awesome!\";\nconst pattern = /awesome/;\nscrib.show(pattern.test(text)); // Output: true",
+      "status": "[1]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "true <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Replace Text</h1>",
+      "status": "",
+      "output": "<h1>Replace Text</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const text = \"Hello World!\";\nconst newText = text.replace(/World/, \"JavaScript\");\nscrib.show(newText); // Output: \"Hello JavaScript!\"",
+      "status": "[2]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Hello JavaScript! <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Extract Data<h1>",
+      "status": "",
+      "output": "<h1>Extract Data</h1><h1></h1>",
+      "type": "html"
+    },
+    {
+      "code": "const text = \"Price is $100\";\nconst price = text.match(/\\$\\d+/);\nscrib.show(price[0]); // Output: \"$100\"",
+      "status": "[3]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "$100 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Validate an Email</h1>",
+      "status": "",
+      "output": "<h1>Validate an Email</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const email = \"test@example.com\";\nconst emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$/;\nscrib.show(emailPattern.test(email)); // Output: true",
+      "status": "[4]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "true <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

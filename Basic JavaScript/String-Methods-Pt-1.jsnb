@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "name": "String Methods -1",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>substring() / substr()</h1>",
+      "status": "",
+      "output": "<h1>substring() / substr()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const str = \"Hello, World!\";\nconst result = str.substring(0, 5); // Outputs: \"Hello\"\nscrib.show(result)",
+      "status": "[4]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Hello <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>split()</h1>",
+      "status": "",
+      "output": "<h1>split()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const str = \"apple,banana,cherry\";\nconst result = str.split(','); // Outputs: [\"apple\", \"banana\", \"cherry\"]\nscrib.show(result)",
+      "status": "[5]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "[\n  \"apple\",\n  \"banana\",\n  \"cherry\"\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>replace()</h1>",
+      "status": "",
+      "output": "<h1>replace()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const str = \"Hello, World!\";\nconst result = str.replace(\"World\", \"JavaScript\"); // Outputs: \"Hello, JavaScript!\"\nscrib.show(result)",
+      "status": "[6]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Hello, JavaScript! <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>toLowerCase() / toUpperCase()</h1>",
+      "status": "",
+      "output": "<h1>toLowerCase() / toUpperCase()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const str = \"Hello, World!\";\nconst lower = str.toLowerCase(); // Outputs: \"hello, world!\"\nconst upper = str.toUpperCase(); // Outputs: \"HELLO, WORLD!\"\nscrib.show(lower)\nscrib.show(upper)",
+      "status": "[7]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "hello, world! <br>HELLO, WORLD! <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>trim()</h1>",
+      "status": "",
+      "output": "<h1>trim()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const str = \"   Hello, World!   \";\nconst result = str.trim(); // Outputs: \"Hello, World!\"\nscrib.show(result)",
+      "status": "[8]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Hello, World! <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Practical Application</h1>",
+      "status": "",
+      "output": "<h1>Practical Application</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const userInput = \"   Hello, JavaScript World!   \";\nconst formattedInput = userInput.trim().toLowerCase().replace(\"javascript\", \"JS\");\nscrib.show(formattedInput); // Outputs: \"hello, js world!\"",
+      "status": "[9]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "hello, JS world! <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "React Plugin Test",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "await import(\"https://cdn.jsdelivr.net/gh/gopi-suvanam/scribbler-plugins/react-plugin.js\")",
+      "status": "[1]<br><span style=\"font-size:8px\">3.151s<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "<div id=\"root\"></div>",
+      "status": "",
+      "output": "<div id=\"root\"><div><h1>Hello, Scribbler with React and JSX!</h1><p>This is a JSX example.</p></div></div>",
+      "type": "html"
+    },
+    {
+      "code": "//>jsx\n    const App = () => (\n      <div>\n        <h1>Hello, Scribbler with React and JSX!</h1>\n        <p>This is a JSX example.</p>\n      </div>\n    );\n\n    ReactDOM.render(\n      <App />,\n      document.getElementById('root')\n    );\n  ",
+      "status": "[3]<br><span style=\"font-size:8px\">29ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

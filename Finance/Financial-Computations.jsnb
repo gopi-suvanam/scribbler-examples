@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "name": "Financial Computations",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1  style=\"color:#555\">Financial Computation  </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\nJavaScript, with its flexibility and ease of use, is well-suited for performing financial calculations.    </p><br></div>",
+      "status": "",
+      "output": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1 style=\"color:#555\">Financial Computation  </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\nJavaScript, with its flexibility and ease of use, is well-suited for performing financial calculations.    </p><br></div>",
+      "type": "html"
+    },
+    {
+      "code": "<h2>Net Present Value (NPV)</h2>",
+      "status": "",
+      "output": "<h2>Net Present Value (NPV)</h2>",
+      "type": "html"
+    },
+    {
+      "code": "function calculateNPV(rate, cashflows) {\n    let npv = 0;\n    for (let i = 0; i < cashflows.length; i++) {\n        npv += cashflows[i] / Math.pow(1 + rate, i + 1);\n    }\n    return npv;\n}\n\nconst cashflows = [-1000, 200, 300, 400, 500]; // Initial investment followed by cash inflows\nconst discountRate = 0.1; // Discount rate\nconst npv = calculateNPV(discountRate, cashflows);\nscrib.show(\"Net Present Value (NPV):\", npv.toFixed(2));",
+      "status": "[1]<br><span style=\"font-size:8px\">7ms<span></span></span>",
+      "output": "Net Present Value (NPV): 65.26 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>Internal Rate of Return (IRR)</h2>",
+      "status": "[-]",
+      "output": "<p class=\"error\">Unexpected token '&lt;'</p>",
+      "type": "html"
+    },
+    {
+      "code": "function calculateIRR(cashflows) {\n    const tolerance = 0.0001;\n    let irr = 0.1; // Initial guess\n    let error = 1;\n    while (Math.abs(error) > tolerance) {\n        let npv = 0;\n        let dnpv = 0;\n        for (let i = 0; i < cashflows.length; i++) {\n            npv += cashflows[i] / Math.pow(1 + irr, i + 1);\n            dnpv -= (i + 1) * cashflows[i] / Math.pow(1 + irr, i + 2);\n        }\n        error = npv / dnpv;\n        irr -= error;\n    }\n    return irr;\n}\n\nconst cashflows = [-1000, 200, 300, 400, 500]; // Initial investment followed by cash inflows\nconst irr = calculateIRR(cashflows) * 100; // Convert to percentage\nscrib.show(\"Internal Rate of Return (IRR):\", irr.toFixed(2) + \"%\");",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Internal Rate of Return (IRR): 12.83% <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h2>Option Pricing</h2>",
+      "status": "",
+      "output": "<h2>Option Pricing</h2>",
+      "type": "html"
+    },
+    {
+      "code": "function calculateBlackScholesCallPrice(S, K, T, r, sigma) {\n    const d1 = (Math.log(S / K) + (r + (sigma ** 2) / 2) * T) / (sigma * Math.sqrt(T));\n    const d2 = d1 - sigma * Math.sqrt(T);\n    const N1 = cumulativeDistributionFunction(d1);\n    const N2 = cumulativeDistributionFunction(d2);\n    return S * N1 - K * Math.exp(-r * T) * N2;\n}\n\nfunction cumulativeDistributionFunction(x) {\n    const a1 = 0.319381530;\n    const a2 = -0.356563782;\n    const a3 = 1.781477937;\n    const a4 = -1.821255978;\n    const a5 = 1.330274429;\n    const k = 1 / (1 + 0.2316419 * Math.abs(x));\n    const cdf = 1 - 1 / Math.sqrt(2 * Math.PI) * Math.exp(-x * x / 2) * (a1 * k + a2 * Math.pow(k, 2) + a3 * Math.pow(k, 3) + a4 * Math.pow(k, 4) + a5 * Math.pow(k, 5));\n    if (x >= 0) {\n        return cdf;\n    } else {\n        return 1 - cdf;\n    }\n}\n\nconst S = 100; // Current stock price\nconst K = 105; // Strike price\nconst T = 1; // Time to expiration (in years)\nconst r = 0.05; // Risk-free interest rate\nconst sigma = 0.2; // Volatility\nconst callPrice = calculateBlackScholesCallPrice(S, K, T, r, sigma);\nscrib.show(\"Call Option Price:\", callPrice.toFixed(2));\n",
+      "status": "[3]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Call Option Price: 8.02 <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

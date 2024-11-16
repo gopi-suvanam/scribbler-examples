@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "name": "this Keyword<br>",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>this in Global Context</h1>",
+      "status": "",
+      "output": "<h1>this in Global Context</h1>",
+      "type": "html"
+    },
+    {
+      "code": "scrib.show(this === window); // Outputs: true (in the browser)",
+      "status": "[4]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "true <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Function Context</h1>",
+      "status": "",
+      "output": "<h1>Function Context</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function greet() {\n  scrib.show(\"Hello, \" + this.name);\n}\n\nconst person = { name: \"Alice\", greet: greet };\nperson.greet(); // Outputs: Hello, Alice\n",
+      "status": "[5]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Hello, Alice <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Arrow Functions</h1>",
+      "status": "",
+      "output": "<h1>Arrow Functions</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const printName = () => {\n  scrib.show(\"My name is \" + this.name);\n};\n\nconst user = { name: \"Bob\", printName: printName };\nuser.printName(); // Outputs: My name is undefined\n",
+      "status": "[6]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "My name is  <br>{} <br>{} <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1> Event Handlers </h1>",
+      "status": "",
+      "output": "<h1> Event Handlers </h1>",
+      "type": "html"
+    },
+    {
+      "code": "<button onclick=\"console.log(this)\">Click me</button>",
+      "status": "",
+      "output": "<button onclick=\"console.log(this)\">Click me</button>",
+      "type": "html"
+    },
+    {
+      "code": "<h1>Constructor Functions</h1>",
+      "status": "",
+      "output": "<h1>Constructor Functions</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function Person(name) {\n  this.name = name;\n}\n\nconst alice = new Person(\"Alice\");\nscrib.show(alice.name); // Outputs: Alice\n",
+      "status": "[7]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Alice <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "name": "Reverse a String",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>1. Using Built-in Methods</h1>",
+      "status": "",
+      "output": "<h1>1. Using Built-in Methods</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function reverseString(str) {\n  return str.split(\"\").reverse().join(\"\");\n}\n\nscrib.show(reverseString(\"Hello World\")); // Output: \"dlroW olleH\"",
+      "status": "[1]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "dlroW olleH <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>2. Using a Loop </h1>",
+      "status": "",
+      "output": "<h1>2. Using a Loop </h1>",
+      "type": "html"
+    },
+    {
+      "code": "function reverseString(str) {\n  let reversed = \"\";\n  for (let i = str.length - 1; i >= 0; i--) {\n    reversed += str[i];\n  }\n  return reversed;\n}\n\nscrib.show(reverseString(\"Hello World\")); // Output: \"dlroW olleH\"",
+      "status": "[2]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "dlroW olleH <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>3. Using Recursion</h1>",
+      "status": "",
+      "output": "<h1>3. Using Recursion</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function reverseString(str) {\n  if (str === \"\") {\n    return \"\";\n  } else {\n    return reverseString(str.slice(1)) + str[0];\n  }\n}\n\nscrib.show(reverseString(\"Hello World\")); // Output: \"dlroW olleH\"",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "dlroW olleH <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

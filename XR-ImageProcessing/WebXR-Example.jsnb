@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "name": "WebXR Example",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>WebXR Example</h1>",
+      "status": "",
+      "output": "<h1>WebXR Example</h1>",
+      "type": "html"
+    },
+    {
+      "code": "<canvas id=\"xr-canvas\" style=\"height:400px;width:400px\"></canvas>\n    <button id=\"enter-vr\" disabled>Enter VR</button>\n",
+      "status": "",
+      "output": "<canvas id=\"xr-canvas\" style=\"height:400px;width:400px\"></canvas>\n    <button id=\"enter-vr\" disabled=\"\">Enter VR</button>\n",
+      "type": "html"
+    },
+    {
+      "code": "const canvas = document.getElementById('xr-canvas');\nconst enterVRButton = document.getElementById('enter-vr');\nconst gl = canvas.getContext('webgl');\n\nlet xrSession = null;\nlet xrReferenceSpace = null;\nif(scrib.isSandboxed()) alert(\"Click `⤯` button at the top right corner to take the notebook out of sandbox\");\nfunction initWebXR() {\n    if (navigator.xr) {\n\t      console.log(\"here\");\n\n        navigator.xr.isSessionSupported('immersive-vr').then((supported) => {\n            if (supported) {\n                enterVRButton.disabled = false;\n                enterVRButton.addEventListener('click', onEnterVR);\n            }else{\n\t\t\t  alert(\"Immersive VR is not supported on this device. Please try with a VR-enabled device.\");\n\t\t\t}\n        });\n    } else {\n        console.log('WebXR not supported');\n    }\n}\n\nfunction onEnterVR() {\n    navigator.xr.requestSession('immersive-vr').then(onSessionStarted);\n}\n\nfunction onSessionStarted(session) {\n    xrSession = session;\n    xrSession.addEventListener('end', onSessionEnded);\n    xrSession.updateRenderState({ baseLayer: new XRWebGLLayer(xrSession, gl) });\n\n    xrSession.requestReferenceSpace('local').then((referenceSpace) => {\n        xrReferenceSpace = referenceSpace;\n        xrSession.requestAnimationFrame(onXRFrame);\n    });\n}\n\nfunction onSessionEnded() {\n    xrSession = null;\n}\n\nfunction onXRFrame(time, frame) {\n    const session = frame.session;\n    session.requestAnimationFrame(onXRFrame);\n\n    const pose = frame.getViewerPose(xrReferenceSpace);\n    if (pose) {\n        gl.bindFramebuffer(gl.FRAMEBUFFER, session.renderState.baseLayer.framebuffer);\n        gl.clearColor(0.0, 0.0, 0.0, 1.0);\n        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);\n\n        for (const view of pose.views) {\n            const viewport = session.renderState.baseLayer.getViewport(view);\n            gl.viewport(viewport.x, viewport.y, viewport.width, viewport.height);\n            renderScene(view);\n        }\n    }\n}\n\nfunction renderScene(view) {\n    // Simple rotating cube\n    const cubeVertices = new Float32Array([\n        -1, -1, -1,  1, -1, -1,  1,  1, -1, -1,  1, -1,\n        -1, -1,  1,  1, -1,  1,  1,  1,  1, -1,  1,  1,\n        -1, -1, -1, -1,  1, -1, -1,  1,  1, -1, -1,  1,\n         1, -1, -1,  1,  1, -1,  1,  1,  1,  1, -1,  1,\n        -1, -1, -1,  1, -1, -1,  1, -1,  1, -1, -1,  1,\n        -1,  1, -1,  1,  1, -1,  1,  1,  1, -1,  1,  1\n    ]);\n\n    const cubeColors = new Float32Array([\n        1, 0, 0, 1,  0, 1, 0, 1,  0, 0, 1, 1,  1, 1, 0, 1,\n        1, 0, 0, 1,  0, 1, 0, 1,  0, 0, 1, 1,  1, 1, 0, 1,\n        1, 0, 0, 1,  0, 1, 0, 1,  0, 0, 1, 1,  1, 1, 0, 1,\n        1, 0, 0, 1,  0, 1, 0, 1,  0, 0, 1, 1,  1, 1, 0, 1,\n        1, 0, 0, 1,  0, 1, 0, 1,  0, 0, 1, 1,  1, 1, 0, 1,\n        1, 0, 0, 1,  0, 1, 0, 1,  0, 0, 1, 1,  1, 1, 0, 1\n    ]);\n\n    const positionBuffer = gl.createBuffer();\n    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);\n    gl.bufferData(gl.ARRAY_BUFFER, cubeVertices, gl.STATIC_DRAW);\n\n    const colorBuffer = gl.createBuffer();\n    gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);\n    gl.bufferData(gl.ARRAY_BUFFER, cubeColors, gl.STATIC_DRAW);\n\n    // Add rotation logic and shader setup here\n}\n\ninitWebXR();",
+      "status": "[1]<br><span style=\"font-size:8px\">2.372s<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "",
+      "status": "[2]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": true
+}

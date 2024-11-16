@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "name": "in Operator<br>",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Checking Object Properties</h1>",
+      "status": "",
+      "output": "<h1>Checking Object Properties</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const myObject = { name: \"TechWizard\", role: \"Creator\" };\n\nscrib.show(\"name\" in myObject);  // Outputs: true\nscrib.show(\"age\" in myObject);   // Outputs: false",
+      "status": "[1]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "true <br>false <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Exploring Array Indices</h1>",
+      "status": "",
+      "output": "<h1>Exploring Array Indices</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const myArray = [10, 20, 30];\n\nscrib.show(0 in myArray);  // Outputs: true\nscrib.show(3 in myArray);  // Outputs: false\n",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "true <br>false <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Distinguishing Between Properties and Methods</h1>",
+      "status": "",
+      "output": "<h1>Distinguishing Between Properties and Methods</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const myArray = [10, 20, 30];\nscrib.show(\"toString\" in myArray);   // Outputs: true (inherited from Array prototype)\nscrib.show(\"length\" in myArray);     // Outputs: true (property of the array)",
+      "status": "[3]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "true <br>true <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Enhancing Code Robustness</h1>",
+      "status": "",
+      "output": "<h1>Enhancing Code Robustness</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const user = { name: \"John\", age: 30 };\n\n// Check if a property exists before accessing it\nif (\"email\" in user) {\n  scrib.show(user.email);\n} else {\n  scrib.show(\"Email not found\");\n}",
+      "status": "[4]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Email not found <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

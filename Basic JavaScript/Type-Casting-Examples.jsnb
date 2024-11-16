@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "name": "New JSNB",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Implicit and Explicit Conversion</h1>",
+      "status": "",
+      "output": "<h1>Implicit and Explicit Conversion</h1>",
+      "type": "html"
+    },
+    {
+      "code": "// Implicit\nconst num = 42;\nconst str = \"Hello, \" + num; \nscrib.show(typeof(str))\n\n// Explicit\nconst explicitNum = \"123\";\nconst convertedNum = parseInt(explicitNum); \nscrib.show(typeof(convertedNum))",
+      "status": "[1]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "string <br>number <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Power of String concatination</h1>",
+      "status": "",
+      "output": "<h1>Power of String concatination</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const age = 25;\nconst message = \"I am \" + age + \" years old.\";  // Implicitly converts age to string\nscrib.show(message)",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "I am 25 years old. <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Conversion to Integer</h1>",
+      "status": "",
+      "output": "<h1>Conversion to Integer</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const numericString = \"42\";\nconst numericValue = parseInt(numericString);  // Explicitly converts string to number\nscrib.show(typeof(numericValue))",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "number <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Explicit String Conversion</h1>",
+      "status": "",
+      "output": "<h1>Explicit String Conversion</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const numValue = 42;\nconst strValue = String(numValue);  // Explicitly converts number to string\nscrib.show(typeof(strValue))",
+      "status": "[4]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "string <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>== v/s ===</h1>",
+      "status": "",
+      "output": "<h1>== v/s ===</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const num1 = 42;\nconst str1 = \"42\";\n\nscrib.show(num1 === str1);  // Outputs: false (strict equality)\nscrib.show(num1 == str1);   // Outputs: true (loose equality with implicit conversion)\n",
+      "status": "[5]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "false <br>true <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}

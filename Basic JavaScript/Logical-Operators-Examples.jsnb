@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "name": "New JSNB",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "var varX=1;\nvar varY=1;\nvar varZ=2;",
+      "status": "[5]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "//|| is logical or\n(varX===varY) || (varY==varZ)",
+      "status": "[6]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "true <br>",
+      "type": "code"
+    },
+    {
+      "code": "//|| is logical and\n(varX===varY) && (varY==varZ)",
+      "status": "[7]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "false <br>",
+      "type": "code"
+    },
+    {
+      "code": "//|| evaluates expressions until a truthy value comes.. \n(varY===varZ) || (varX==varY)",
+      "status": "[37]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "true <br>",
+      "type": "code"
+    },
+    {
+      "code": "//?? evaluates one expression after another from left and stops when it encounters first not nul/undefined\n(varX===varY) ?? (varY==varZ)//|| is logical and\n",
+      "status": "[26]<br><span style=\"font-size:8px\">4ms<span></span></span>",
+      "output": "true <br>",
+      "type": "code"
+    },
+    {
+      "code": "(varY===varZ) ?? (varX==varY)",
+      "status": "[29]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "false <br>",
+      "type": "code"
+    },
+    {
+      "code": "null ?? 'hello'",
+      "status": "[30]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "hello <br>",
+      "type": "code"
+    },
+    {
+      "code": "varX.somethingUndefined ?? 'hello'",
+      "status": "[32]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "hello <br>",
+      "type": "code"
+    },
+    {
+      "code": "varX.somethingUndefined ?? varY.somethingUndefined ",
+      "status": "[38]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
