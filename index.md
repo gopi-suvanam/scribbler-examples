@@ -18,7 +18,7 @@ Click on any of the notebooks below to open it in Scribbler and start exploring.
 	<h2>{{ subdirectory | replace: "-", " & " }}</h2>
     <ul class="row">
       {% for file in site.static_files %}
-        {% if file.path contains '.jsnb' and file.path starts_with subdirectory %}
+         {% if file.extname == '.jsnb' and file.path contains subdirectory %}
           <li class="col-md-3 col-sm-6 col-xs-12 mb-4 sampleCard">
             <a href="https://app.scribbler.live/?jsnb=https://examples.scribbler.live{{ file.path }}">{{ file.name | replace: '-', ' ' | replace: '_', ' ' | remove: '.jsnb' }}</a>
           </li>
