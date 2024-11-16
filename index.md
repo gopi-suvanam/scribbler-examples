@@ -12,7 +12,7 @@ Click on any of the notebooks below to open it in Scribbler and start exploring.
 
 
 
-
+{% raw %}
 {% for subdirectory in site.subdirectories %}
   {% if subdirectory != "" %}
 	<h2>{{ subdirectory | replace: "-", " & " }}</h2>
@@ -27,6 +27,7 @@ Click on any of the notebooks below to open it in Scribbler and start exploring.
     </ul>
   {% endif %}
 {% endfor %}
+
 
 
 
