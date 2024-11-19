@@ -39,7 +39,7 @@
       "type": "code"
     },
     {
-      "code": "\"\"\n/*if(result){\n  result.candidates[0].content.parts.forEach(text=>{\n\tscrib.show(marked.marked(text.text));\n  } );\n}\n*/",
+      "code": "if(result){\n  result.candidates[0].content.parts.forEach(text=>{\n\tscrib.show(marked.marked(text.text));\n  } );\n}\n",
       "status": "[4]<br><span style=\"font-size:8px\">4ms<span></span></span>",
       "output": " <br>",
       "type": "code"
