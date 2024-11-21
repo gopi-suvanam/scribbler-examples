@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "name": "Palindrome",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>1.Using Built-in Methods</h1>",
+      "status": "",
+      "output": "<h1>1.Using Built-in Methods</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function isPalindrome(str) {\n  const cleanedStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');\n  return cleanedStr === cleanedStr.split('').reverse().join('');\n}\n\nscrib.show(isPalindrome(\"Madam\")); // Output: true\nscrib.show(isPalindrome(\"Hello\")); // Output: false",
+      "status": "[1]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "true <br>false <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>2.Using a Loop</h1>",
+      "status": "",
+      "output": "<h1>2.Using a Loop</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function isPalindrome(str) {\n  const cleanedStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');\n  let left = 0;\n  let right = cleanedStr.length - 1;\n\n  while (left < right) {\n    if (cleanedStr[left] !== cleanedStr[right]) {\n      return false;\n    }\n    left++;\n    right--;\n  }\n  return true;\n}\n\nscrib.show(isPalindrome(\"Madam\")); // Output: true\nscrib.show(isPalindrome(\"Hello\")); // Output: false",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "true <br>false <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>3.Using Recursion</h1>",
+      "status": "",
+      "output": "<h1>3.Using Recursion</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function isPalindrome(str) {\n  const cleanedStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');\n\n  function recursiveCheck(left, right) {\n    if (left >= right) {\n      return true;\n    }\n    if (cleanedStr[left] !== cleanedStr[right]) {\n      return false;\n    }\n    return recursiveCheck(left + 1, right - 1);\n  }\n\n  return recursiveCheck(0, cleanedStr.length - 1);\n}\n\nscrib.show(isPalindrome(\"Madam\")); // Output: true\nscrib.show(isPalindrome(\"Hello\")); // Output: false",
+      "status": "[4]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "true <br>false <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
