@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "name": "New JSNB",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "0 == +false",
+      "status": "[19]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "true <br>",
+      "type": "code"
+    },
+    {
+      "code": "'1'==true",
+      "status": "[20]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "true <br>",
+      "type": "code"
+    },
+    {
+      "code": "true == []",
+      "status": "[21]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "false <br>",
+      "type": "code"
+    },
+    {
+      "code": "true ==![]",
+      "status": "[22]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "false <br>",
+      "type": "code"
+    },
+    {
+      "code": "\"b\" + \"a\" + +\"a\" + \"a\"",
+      "status": "[23]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "baNaNa <br>",
+      "type": "code"
+    },
+    {
+      "code": "var wtf=(![] + [])[+[]] +\n  (![] + [])[+!+[]] +\n  ([![]] + [][[]])[+!+[] + [+[]]] +\n  (![] + [])[!+[] + !+[]];\nscrib.show(\"Now lets see wtf\");\n",
+      "status": "[24]<br><span style=\"font-size:8px\">2ms<span></span></span>",
+      "output": "Now lets see wtf <br>",
+      "type": "code"
+    },
+    {
+      "code": "wtf",
+      "status": "[25]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "fail <br>",
+      "type": "code"
+    },
+    {
+      "code": "parseInt(0.000001)",
+      "status": "[26]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "0 <br>",
+      "type": "code"
+    },
+    {
+      "code": "parseInt(0.0000001)",
+      "status": "[27]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "1 <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
