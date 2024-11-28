@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "name": "New JSNB",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>1. Using Math.max() and Spread Operator</h1>",
+      "status": "",
+      "output": "<h1>1. Using Math.max() and Spread Operator</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function findMax(arr) {\n  return Math.max(...arr);\n}\n\nscrib.show(findMax([1, 2, 3, 4, 5])); \n// Output: 5",
+      "status": "[1]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "5 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>2. Using Array.prototype.reduce()</h1>",
+      "status": "",
+      "output": "<h1>2. Using Array.prototype.reduce()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function findMax(arr) {\n  return arr.reduce((max, current) => Math.max(max, current), -Infinity);\n}\n\nscrib.show(findMax([1, 2, 3, 4, 5])); // Output: 5",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "5 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>3. Using a Simple Loop </h1>",
+      "status": "",
+      "output": "<h1>3. Using a Simple Loop </h1>",
+      "type": "html"
+    },
+    {
+      "code": "function findMax(arr) {\n  let max = arr[0];\n  for (let i = 1; i < arr.length; i++) {\n    if (arr[i] > max) {\n      max = arr[i];\n    }\n  }\n  return max;\n}\n\nscrib.show(findMax([1, 2, 3, 4, 5])); // Output: 5",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "5 <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
