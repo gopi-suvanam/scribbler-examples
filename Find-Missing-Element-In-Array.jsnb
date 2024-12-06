@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "name": "Missing Number in Array",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>1. Using Arithmetic Progression Formula</h1>",
+      "status": "",
+      "output": "<h1>1. Using Arithmetic Progression Formula</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function findMissingNumber(arr) {\n  const n = arr.length + 1;\n  const sumOfConsecutiveNumbers = (n * (n + 1)) / 2;\n  const sumOfArray = arr.reduce((a, b) => a + b, 0);\n  return sumOfConsecutiveNumbers - sumOfArray;\n}\n\nscrib.show(findMissingNumber([1, 2, 3, 5])); \n// Output: 4\n",
+      "status": "[1]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "4 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>2. Using Array.prototype.indexOf() and Loop</h1>",
+      "status": "",
+      "output": "<h1>2. Using Array.prototype.indexOf() and Loop</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function findMissingNumber(arr) {\n  for (let i = 1; i <= arr.length + 1; i++) {\n    if (arr.indexOf(i) === -1) {\n      return i;\n    }\n  }\n}\n\nscrib.show(findMissingNumber([1, 2, 3, 5])); \n// Output: 4",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "4 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>3. Using Array.prototype.filter() and Loop</h1>",
+      "status": "",
+      "output": "<h1>3. Using Array.prototype.filter() and Loop</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function findMissingNumber(arr) {\n  for (let i = 1; i <= arr.length + 1; i++) {\n    if (arr.filter((num) => num === i).length === 0) {\n      return i;\n    }\n  }\n}\n\nscrib.show(findMissingNumber([1, 2, 3, 5])); \n// Output: 4",
+      "status": "[4]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "4 <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
