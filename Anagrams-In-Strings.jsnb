@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "name": "Anagram in Strings",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>1. Using Sorting</h1>",
+      "status": "",
+      "output": "<h1>1. Using Sorting</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function areAnagrams(str1, str2) {\n  return [...str1].sort().join('') === [...str2].sort().join('');\n}\n\nscrib.show(areAnagrams('listen', 'silent')); // Output: true\nscrib.show(areAnagrams('hello', 'world')); // Output: false",
+      "status": "[1]<br><span style=\"font-size:8px\">508ms<span></span></span>",
+      "output": "true <br>false <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>2. Using Object to Count Characters </h1>",
+      "status": "",
+      "output": "<h1>2. Using Object to Count Characters </h1>",
+      "type": "html"
+    },
+    {
+      "code": "function areAnagrams(str1, str2) {\n  if (str1.length !== str2.length) return false;\n\n  const charCount = {};\n\n  for (let char of str1) {\n    charCount[char] = (charCount[char] || 0) + 1;\n  }\n\n  for (let char of str2) {\n    charCount[char] = (charCount[char] || 0) - 1;\n    if (charCount[char] < 0) return false;\n  }\n\n  return true;\n}\n\nscrib.show(areAnagrams('listen', 'silent')); // Output: true\nscrib.show(areAnagrams('hello', 'world')); // Output: false",
+      "status": "[3]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "true <br>false <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>3. Using Array.prototype.every()</h1>",
+      "status": "",
+      "output": "<h1>3. Using Array.prototype.every()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function areAnagrams(str1, str2) {\n  if (str1.length !== str2.length) return false;\n\n  return [...str1].every((char) => {\n    const index = str2.indexOf(char);\n    if (index !== -1) {\n      str2 = str2.slice(0, index) + str2.slice(index + 1);\n      return true;\n    }\n    return false;\n  });\n}\n\nscrib.show(areAnagrams('listen', 'silent')); // Output: true\nscrib.show(areAnagrams('hello', 'world')); // Output: false",
+      "status": "[4]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "true <br>false <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
