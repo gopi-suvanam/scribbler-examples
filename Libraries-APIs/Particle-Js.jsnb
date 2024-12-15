@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "name": "Particle JS",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "await scrib.loadScript(\"https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js\", false);\n",
+      "status": "[16]<br><span style=\"font-size:8px\">27ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "<h1>Canvas</h1>\n<div id=\"particles-js\" style=\" width: 100%; height: 500px;background-color:darkblue\"></div>\n",
+      "status": "",
+      "output": "<h1>Canvas</h1>\n<div id=\"particles-js\" style=\" width: 100%; height: 500px;background-color:darkblue\"><canvas class=\"particles-js-canvas-el\" width=\"1070\" height=\"500\" style=\"width: 100%; height: 100%;\"></canvas></div>\n",
+      "type": "html"
+    },
+    {
+      "code": "// Configuration for particles.js\nconst particleConfig = {\n  particles: {\n    number: {\n      value: 80,\n      density: {\n        enable: true,\n        value_area: 800\n      }\n    },\n    color: { value: \"#ffffff\" },\n    shape: {\n      type: \"circle\",\n      stroke: {\n        width: 0,\n        color: \"#000000\"\n      },\n      polygon: { nb_sides: 5 },\n      image: {\n        src: \"https://cdn.pixabay.com/photo/2017/01/31/22/06/snowflake-2025951_960_720.png\",\n        width: 100,\n        height: 100\n      }\n    },\n    opacity: { value: 0.5 },\n    size: { value: 5 },\n    line_linked: {\n      enable: true,\n      distance: 150,\n      color: \"#ffffff\",\n      opacity: 0.4,\n      width: 1\n    },\n    move: {\n      enable: true,\n      speed: 6,\n      direction: \"none\",\n      random: false,\n      straight: false,\n      out_mode: \"out\",\n      bounce: false\n    }\n  },\n  interactivity: {\n    detect_on: \"canvas\",\n    events: {\n      onhover: { enable: true, mode: \"repulse\" },\n      onclick: { enable: true, mode: \"push\" },\n      resize: true\n    }\n  },\n  retina_detect: true\n};\n\n// Initialize particles.js\nparticlesJS(\"particles-js\", particleConfig);\n",
+      "status": "[17]<br><span style=\"font-size:8px\">3ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "",
+      "status": "[18]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
