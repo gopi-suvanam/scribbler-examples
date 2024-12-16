@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "name": "String Functions",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>1. Split Function</h1>",
+      "status": "",
+      "output": "<h1>1. Split Function</h1>",
+      "type": "html"
+    },
+    {
+      "code": "let text = \"Learn JavaScript today!\";\nlet words = text.split(\" \");  \nscrib.show(words);  \n// Output: [\"Learn\", \"JavaScript\", \"today!\"]",
+      "status": "[1]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "[\n  \"Learn\",\n  \"JavaScript\",\n  \"today!\"\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>2. Join Function</h1>",
+      "status": "",
+      "output": "<h1>2. Join Function</h1>",
+      "type": "html"
+    },
+    {
+      "code": "let words = [\"Learn\", \"JavaScript\", \"today!\"];\nlet sentence = words.join(\" \");  \nscrib.show(sentence);  \n// Output: \"Learn JavaScript today!\"",
+      "status": "[2]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Learn JavaScript today! <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>3. Slice Function </h1>",
+      "status": "",
+      "output": "<h1>3. Slice Function </h1>",
+      "type": "html"
+    },
+    {
+      "code": "let text = \"Learn JavaScript\";\nlet part = text.slice(6, 16);  \nscrib.show(part);  \n// Output: \"JavaScript\"",
+      "status": "[3]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "JavaScript <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
