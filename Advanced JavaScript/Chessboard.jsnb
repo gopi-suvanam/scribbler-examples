@@ -1,0 +1,158 @@
+{
+  "metadata": {
+    "name": "Chess",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1  style=\"color:#555\">JavaScript Code for Chess Board Game</h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        This notebook show html, css and vanilla JavaScript. Use the notebook to make your own gaming app.\n    </p><br></div>",
+      "status": "",
+      "output": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1 style=\"color:#555\">JavaScript Code for Chess Board Game</h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        This notebook show html, css and vanilla JavaScript. Use the notebook to make your own gaming app.\n    </p><br></div>",
+      "type": "html"
+    },
+    {
+      "code": "//>md\n### **Chess Game Notebook on Scribbler**\n\n- **Objective:** Create a playable two-player chess game on Scribbler with draggable pieces and a chessboard.\n- **Functionality:**\n  - **Chessboard Display:** Renders a chessboard with pieces in their starting positions.\n  - **Piece Movement:** Allows players to drag and drop pieces according to chess rules.\n  - **Piece Captures:** Captured pieces are removed from the board.\n  - **Turn Management:** Alternates turns between players (white and black).\n  - **Winning Condition:** Alerts when a player wins the game.\n\n- **Utility:**\n  - **Interactive Learning:** Demonstrates basic game logic, event handling, and DOM manipulation.\n  - **Chess Simulation:** A tool for learning and practicing chess.\n  - **Drag-and-Drop Implementation:** Teaches handling drag events and updating the board dynamically.\n\n- **Motivation:**\n  - **Starting Point for Advanced Chess Applications:** Foundation for developing more complex chess games or features like AI opponents, multiplayer modes, or game analysis: [Chess with AI: Premium Scribbler Notebook]()\n  - **Training for Building JS Board Games:** A hands-on project that builds skills in JavaScript game development and interactive UI creation.\n  - **Prototyping and Fun:** A fun project to showcase the power of HTML and JS for interactive applications.",
+      "status": "",
+      "output": "<h3><strong>Chess Game Notebook on Scribbler</strong></h3>\n<ul>\n<li><p><strong>Objective:</strong> Create a playable two-player chess game on Scribbler with draggable pieces and a chessboard.</p>\n</li>\n<li><p><strong>Functionality:</strong></p>\n<ul>\n<li><strong>Chessboard Display:</strong> Renders a chessboard with pieces in their starting positions.</li>\n<li><strong>Piece Movement:</strong> Allows players to drag and drop pieces according to chess rules.</li>\n<li><strong>Piece Captures:</strong> Captured pieces are removed from the board.</li>\n<li><strong>Turn Management:</strong> Alternates turns between players (white and black).</li>\n<li><strong>Winning Condition:</strong> Alerts when a player wins the game.</li>\n</ul>\n</li>\n<li><p><strong>Utility:</strong></p>\n<ul>\n<li><strong>Interactive Learning:</strong> Demonstrates basic game logic, event handling, and DOM manipulation.</li>\n<li><strong>Chess Simulation:</strong> A tool for learning and practicing chess.</li>\n<li><strong>Drag-and-Drop Implementation:</strong> Teaches handling drag events and updating the board dynamically.</li>\n</ul>\n</li>\n<li><p><strong>Motivation:</strong></p>\n<ul>\n<li><strong>Starting Point for Advanced Chess Applications:</strong> Foundation for developing more complex chess games or features like AI opponents, multiplayer modes, or game analysis: <a href=\"\">Chess with AI: Premium Scribbler Notebook</a></li>\n<li><strong>Training for Building JS Board Games:</strong> A hands-on project that builds skills in JavaScript game development and interactive UI creation.</li>\n<li><strong>Prototyping and Fun:</strong> A fun project to showcase the power of HTML and JS for interactive applications.</li>\n</ul>\n</li>\n</ul>\n",
+      "type": "html"
+    },
+    {
+      "code": "//>md\n**Note:** this code does not enforce all rules. It enforces only turns and pawn moves. More more accurate and elaborate rules and design we can use [Chess Board JS](https://chessboardjs.com/). Also you can make a simple **AI algorithm** to play against the user. Both of these are implemented in this premium (paid) notebook:\n<button>Chess with AI: Premium Scribbler Notebook</button>",
+      "status": "",
+      "output": "<p><strong>Note:</strong> this code does not enforce all rules. It enforces only turns and pawn moves. More more accurate and elaborate rules and design we can use <a href=\"https://chessboardjs.com/\">Chess Board JS</a>. Also you can make a simple <strong>AI algorithm</strong> to play against the user. Both of these are implemented in this premium (paid) notebook:\n<button>Chess with AI: Premium Scribbler Notebook</button></p>\n",
+      "type": "html"
+    },
+    {
+      "code": "//>md\n### Step 0: Start with a simple HTML container. \nWe will add grid and pieces using JavaScript.",
+      "status": "",
+      "output": "<h3>Step 0: Start with a simple HTML container.</h3>\n<p>We will add grid and pieces using JavaScript.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "//>html\n<div id=\"chess-container\"></div>\n",
+      "status": "[131]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "\n<div id=\"chess-container\" style=\"display: grid; grid-template-columns: repeat(8, 50px); grid-template-rows: repeat(8, 50px); border: 2px solid black; width: 400px; margin: 20px auto;\"><div id=\"a8\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-a8\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♜</div></div><div id=\"b8\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-b8\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♞</div></div><div id=\"c8\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-c8\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♝</div></div><div id=\"d8\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-d8\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♛</div></div><div id=\"e8\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-e8\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♚</div></div><div id=\"f8\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-f8\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♝</div></div><div id=\"g8\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-g8\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♞</div></div><div id=\"h8\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-h8\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♜</div></div><div id=\"a7\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-a7\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♟</div></div><div id=\"b7\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-b7\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♟</div></div><div id=\"c7\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-c7\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♟</div></div><div id=\"d7\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-d7\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♟</div></div><div id=\"e7\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-e7\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♟</div></div><div id=\"f7\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-f7\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♟</div></div><div id=\"g7\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-g7\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♟</div></div><div id=\"h7\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-h7\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♟</div></div><div id=\"a6\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"></div><div id=\"b6\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"></div><div id=\"c6\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"></div><div id=\"d6\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"></div><div id=\"e6\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"></div><div id=\"f6\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"></div><div id=\"g6\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"></div><div id=\"h6\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"></div><div id=\"a5\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"></div><div id=\"b5\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"></div><div id=\"c5\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"></div><div id=\"d5\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"></div><div id=\"e5\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"></div><div id=\"f5\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"></div><div id=\"g5\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"></div><div id=\"h5\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"></div><div id=\"a4\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"></div><div id=\"b4\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"></div><div id=\"c4\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"></div><div id=\"d4\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"></div><div id=\"e4\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"></div><div id=\"f4\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"></div><div id=\"g4\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"></div><div id=\"h4\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"></div><div id=\"a3\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"></div><div id=\"b3\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"></div><div id=\"c3\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"></div><div id=\"d3\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"></div><div id=\"e3\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"></div><div id=\"f3\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"></div><div id=\"g3\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"></div><div id=\"h3\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"></div><div id=\"a2\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-a2\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♙</div></div><div id=\"b2\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-b2\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♙</div></div><div id=\"c2\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-c2\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♙</div></div><div id=\"d2\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-d2\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♙</div></div><div id=\"e2\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-e2\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♙</div></div><div id=\"f2\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-f2\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♙</div></div><div id=\"g2\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-g2\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♙</div></div><div id=\"h2\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-h2\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♙</div></div><div id=\"a1\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-a1\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♖</div></div><div id=\"b1\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-b1\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♘</div></div><div id=\"c1\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-c1\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♗</div></div><div id=\"d1\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-d1\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♕</div></div><div id=\"e1\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-e1\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♔</div></div><div id=\"f1\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-f1\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♗</div></div><div id=\"g1\" style=\"width: 50px; height: 50px; background-color: rgb(221, 221, 221); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-g1\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♘</div></div><div id=\"h1\" style=\"width: 50px; height: 50px; background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center;\"><div id=\"piece-h1\" draggable=\"true\" style=\"font-size: 30px; cursor: grab;\">♖</div></div></div>\n <br>",
+      "type": "code"
+    },
+    {
+      "code": "//>md\n### **Step 1: Chessboard Setup**\n",
+      "status": "",
+      "output": "<h3><strong>Step 1: Chessboard Setup</strong></h3>\n",
+      "type": "html"
+    },
+    {
+      "code": "window.chessContainer = document.getElementById(\"chess-container\");\nchessContainer.style.display = \"grid\";\nchessContainer.style.gridTemplateColumns = \"repeat(8, 50px)\";\nchessContainer.style.gridTemplateRows = \"repeat(8, 50px)\";\nchessContainer.style.border = \"2px solid black\";\nchessContainer.style.width = \"400px\";\nchessContainer.style.margin = \"20px auto\";\n\nwindow.board = [];\nwindow.pieces = {};",
+      "status": "[132]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "{} <br>",
+      "type": "code"
+    },
+    {
+      "code": "//>md\n#### Explanation:\n- This sets up the chessboard container as an 8x8 grid.\n- The size of each square is fixed at 50px, making the entire board 400px wide.\n- Two objects, `board` and `pieces`, are initialized to manage the squares and piece positions.\n",
+      "status": "",
+      "output": "<h4>Explanation:</h4>\n<ul>\n<li>This sets up the chessboard container as an 8x8 grid.</li>\n<li>The size of each square is fixed at 50px, making the entire board 400px wide.</li>\n<li>Two objects, <code>board</code> and <code>pieces</code>, are initialized to manage the squares and piece positions.</li>\n</ul>\n",
+      "type": "html"
+    },
+    {
+      "code": "//>md\n### **Step 2: Initialize Board**\n",
+      "status": "",
+      "output": "<h3><strong>Step 2: Initialize Board</strong></h3>\n",
+      "type": "html"
+    },
+    {
+      "code": "// Chessboard initialization\nfunction initializeBoard() {\n  const initialPositions = {\n    \"a2\": \"wp\", \"b2\": \"wp\", \"c2\": \"wp\", \"d2\": \"wp\", \"e2\": \"wp\", \"f2\": \"wp\", \"g2\": \"wp\", \"h2\": \"wp\",\n    \"a7\": \"bp\", \"b7\": \"bp\", \"c7\": \"bp\", \"d7\": \"bp\", \"e7\": \"bp\", \"f7\": \"bp\", \"g7\": \"bp\", \"h7\": \"bp\",\n    \"a1\": \"wr\", \"h1\": \"wr\", \"a8\": \"br\", \"h8\": \"br\",\n    \"b1\": \"wn\", \"g1\": \"wn\", \"b8\": \"bn\", \"g8\": \"bn\",\n    \"c1\": \"wb\", \"f1\": \"wb\", \"c8\": \"bb\", \"f8\": \"bb\",\n    \"d1\": \"wq\", \"d8\": \"bq\",\n    \"e1\": \"wk\", \"e8\": \"bk\",\n  };\n\n  for (let row = 8; row >= 1; row--) {\n    for (let col = 0; col < 8; col++) {\n      const square = String.fromCharCode(97 + col) + row; // a1, b2, etc.\n      const tile = document.createElement(\"div\");\n      tile.id = square;\n      tile.style.width = \"50px\";\n      tile.style.height = \"50px\";\n      tile.style.backgroundColor = (row + col) % 2 === 0 ? \"#fff\" : \"#ddd\";\n      tile.style.display = \"flex\";\n      tile.style.justifyContent = \"center\";\n      tile.style.alignItems = \"center\";\n      tile.addEventListener(\"dragover\", (e) => e.preventDefault());\n      tile.addEventListener(\"drop\", () => handleDrop(square));\n      chessContainer.appendChild(tile);\n      board.push(tile);\n\n      const piece = initialPositions[square];\n      if (piece) {\n        pieces[square] = piece;\n        createPieceElement(tile, square, piece);\n      }\n    }\n  }\n}",
+      "status": "[133]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "//>md\n#### Explanation:\n- `initialPositions` contains the starting positions of all chess pieces.\n- Each square is represented as a `div` element and styled based on its position (light or dark).\n- Pieces are placed in their initial positions using the `createPieceElement` function.\n- Event listeners for drag-and-drop are added to every square.",
+      "status": "",
+      "output": "<h4>Explanation:</h4>\n<ul>\n<li><code>initialPositions</code> contains the starting positions of all chess pieces.</li>\n<li>Each square is represented as a <code>div</code> element and styled based on its position (light or dark).</li>\n<li>Pieces are placed in their initial positions using the <code>createPieceElement</code> function.</li>\n<li>Event listeners for drag-and-drop are added to every square.</li>\n</ul>\n",
+      "type": "html"
+    },
+    {
+      "code": "//>md\n### **Step 3: Create Piece Element**\n",
+      "status": "",
+      "output": "<h3><strong>Step 3: Create Piece Element</strong></h3>\n",
+      "type": "html"
+    },
+    {
+      "code": "// Create piece element\nfunction createPieceElement(parent, square, piece) {\n   if (parent.firstChild) {\n    parent.removeChild(parent.firstChild);\n  }\n\n\n  \n  const pieceElement = document.createElement(\"div\");\n  pieceElement.id = `piece-${square}`;\n  pieceElement.draggable = true;\n  pieceElement.style.fontSize = \"30px\";\n  pieceElement.style.cursor = \"grab\";\n  pieceElement.textContent = getPieceSymbol(piece);\n  pieceElement.addEventListener(\"dragstart\", () => handleDragStart(square));\n  \n  parent.appendChild(pieceElement);\n}\n\n// Utility function to get Unicode for chess pieces\nfunction getPieceSymbol(piece) {\n  const symbols = {\n    \"wp\": \"♙\", \"bp\": \"♟\",\n    \"wr\": \"♖\", \"br\": \"♜\",\n    \"wn\": \"♘\", \"bn\": \"♞\",\n    \"wb\": \"♗\", \"bb\": \"♝\",\n    \"wq\": \"♕\", \"bq\": \"♛\",\n    \"wk\": \"♔\", \"bk\": \"♚\",\n  };\n  return symbols[piece];\n}",
+      "status": "[134]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "//>md\n#### Explanation:\n- `createPieceElement` creates the visual representation of a chess piece and makes it draggable.\n- `getPieceSymbol` maps pieces to their corresponding Unicode characters for rendering.\n",
+      "status": "",
+      "output": "<h4>Explanation:</h4>\n<ul>\n<li><code>createPieceElement</code> creates the visual representation of a chess piece and makes it draggable.</li>\n<li><code>getPieceSymbol</code> maps pieces to their corresponding Unicode characters for rendering.</li>\n</ul>\n",
+      "type": "html"
+    },
+    {
+      "code": "// Game state\nlet selectedSquare = null;\nwindow.currentPlayer = \"w\"; // \"w\" for white, \"b\" for black\n\n// Handle drag start\nfunction handleDragStart(square) {\n  if (pieces[square] && pieces[square][0] === currentPlayer) {\n    selectedSquare = square;\n  } else {\n    alert(\"It's not your turn!\");\n  }\n}\n\n// Handle drop\nfunction handleDrop(square) {\n  if (!selectedSquare) return;\n  const validMove=isValidMove(selectedSquare, square);\n  if (  validMove[0]) {\n    movePiece(selectedSquare, square);\n\n    // Switch player after a valid move\n    currentPlayer = currentPlayer === \"w\" ? \"b\" : \"w\";\n\n    checkWinCondition();\n  } else {\n    alert(\"Invalid move! \"+validMove[1]);\n  }\n\n  selectedSquare = null;\n}\n",
+      "status": "[135]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "w <br>",
+      "type": "code"
+    },
+    {
+      "code": "//>md\n### **Step 4: Drag-and-Drop Logic**\n",
+      "status": "",
+      "output": "<h3><strong>Step 4: Drag-and-Drop Logic</strong></h3>\n",
+      "type": "html"
+    },
+    {
+      "code": "//>md\n#### Explanation:\n- `handleDragStart` stores the square being dragged.\n- `handleDrop` validates the move and updates the game state if valid; otherwise, it alerts the user.\n",
+      "status": "",
+      "output": "<h4>Explanation:</h4>\n<ul>\n<li><code>handleDragStart</code> stores the square being dragged.</li>\n<li><code>handleDrop</code> validates the move and updates the game state if valid; otherwise, it alerts the user.</li>\n</ul>\n",
+      "type": "html"
+    },
+    {
+      "code": "//>md\n### **Step 5: Move and Validate Pieces**\n",
+      "status": "",
+      "output": "<h3><strong>Step 5: Move and Validate Pieces</strong></h3>\n",
+      "type": "html"
+    },
+    {
+      "code": "// Validate move (basic)\nfunction isValidMove(from, to) {\n  const movingPiece = pieces[from];\n  if (!movingPiece){\n\t\n\treturn [false,\"No piece\"];\n  }\n\n  const targetPiece = pieces[to];\n  console.log(targetPiece,movingPiece);\n  if (targetPiece && targetPiece[0] === movingPiece[0]) return [false, \" Can't capture same color\"];\n\n  // Example pawn movement validation\n  if (movingPiece[1] === \"p\") {\n    const direction = movingPiece[0] === \"w\" ? 1 : -1;\n    const [fromFile, fromRank] = [from.charCodeAt(0), parseInt(from[1])];\n    const [toFile, toRank] = [to.charCodeAt(0), parseInt(to[1])];\n\n    // Single step forward\n    if (fromFile === toFile && !targetPiece && toRank === fromRank + direction) return [true,\"Valid move. Single step\"];\n\n    // Two steps forward (only if on starting position)\n    const startingRank = movingPiece[0] === \"w\" ? 2 : 7;\n    if (fromFile === toFile && fromRank === startingRank && !targetPiece && toRank === fromRank + 2 * direction) {\n      return [true,\"Valid move. Double step\"];\n    }\n\n    // Capture diagonally\n    if (Math.abs(fromFile - toFile) === 1 && targetPiece && toRank === fromRank + direction) return [true,\"Valid move. Diagonal capture\"];\n\n    return [false,\"Pawn can only move one step\"];\n  }\n\n  return [true, \"Allow all other moves for simplicity\"];\n}\n\n\n// Move the piece\nfunction movePiece(from, to) {\n  const movingPiece = pieces[from];\n  if (!movingPiece) return;\n\n  // Remove the piece from the target square (if any)\n  console.log(\"removing :\",pieces[to]);\n  delete pieces[to];\n \n  pieces[to] = movingPiece;\n  delete pieces[from];\n  \n\n   // Update board\n  const fromElement = document.getElementById(from);\n  const toElement = document.getElementById(to);\n  fromElement.innerHTML = \"\";\n  createPieceElement(toElement, to, movingPiece);\n}\n",
+      "status": "[136]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "//>md\n#### Explanation:\n- `isValidMove` contains simple rules for pawn movement and capturing.\n- `movePiece` updates the piece positions and visually moves the piece to its new square.\n",
+      "status": "",
+      "output": "<h4>Explanation:</h4>\n<ul>\n<li><code>isValidMove</code> contains simple rules for pawn movement and capturing.</li>\n<li><code>movePiece</code> updates the piece positions and visually moves the piece to its new square.</li>\n</ul>\n",
+      "type": "html"
+    },
+    {
+      "code": "//>md\n### **Step 6: Check for Winner and Reset**\n",
+      "status": "",
+      "output": "<h3><strong>Step 6: Check for Winner and Reset</strong></h3>\n",
+      "type": "html"
+    },
+    {
+      "code": "// Check win condition\n\n\nfunction checkWinCondition() {\n  const whiteKing = Object.values(pieces).includes(\"wk\");\n  const blackKing = Object.values(pieces).includes(\"bk\");\n\n  if (!whiteKing) {\n    alert(\"Black wins!\");\n    resetBoard();\n  } else if (!blackKing) {\n    alert(\"White wins!\");\n    resetBoard();\n  }\n}\n\n// Reset board\nfunction resetBoard() {\n  chessContainer.innerHTML = \"\";\n  board.length = 0;\n  Object.keys(pieces).forEach(key => delete pieces[key]);\n  initializeBoard();\n}\n\n// Initialize board\ninitializeBoard();",
+      "status": "[137]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "//>md\n#### Explanation:\n- `checkWinCondition` detects if either king has been captured.\n- If a king is missing, an alert announces the winner and the board resets.\n- If a ",
+      "status": "",
+      "output": "<h4>Explanation:</h4>\n<ul>\n<li><code>checkWinCondition</code> detects if either king has been captured.</li>\n<li>If a king is missing, an alert announces the winner and the board resets.</li>\n<li>If a</li>\n</ul>\n",
+      "type": "html"
+    },
+    {
+      "code": "\nNow that you have checked out how to easily implement Chessboard in HTML and JS, check out our paid premium notebook for AI chess and more advanced UI using chessboard.js:\n\n<button>Chess with AI: Premium Scribbler Notebook</button>",
+      "status": "",
+      "output": "\nNow that you have checked out how to easily implement Chessboard in HTML and JS, check out our paid premium notebook for AI chess and more advanced UI using chessboard.js:\n\n<button>Chess with AI: Premium Scribbler Notebook</button>",
+      "type": "html"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
