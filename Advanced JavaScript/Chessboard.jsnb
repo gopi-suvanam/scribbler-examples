@@ -9,9 +9,9 @@
   "jsnbversion": "v0.1",
   "cells": [
     {
-      "code": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1  style=\"color:#555\">JavaScript Code for AI for Chess</h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        This notebook shows how you can use html, css and vanilla JavaScript for building a board game. Use the notebook to make your own gaming app.\n    </p><br></div>",
+      "code": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1  style=\"color:#555\">JavaScript Code for Chess Board Game</h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        This notebook shows how you can use html, css and vanilla JavaScript for building a board game. Use the notebook to make your own gaming app.\n    </p><br></div>",
       "status": "",
-      "output": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1 style=\"color:#555\">JavaScript Code for AI for Chess</h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        This notebook shows how you can use html, css and vanilla JavaScript for building a board game. Use the notebook to make your own gaming app.\n    </p><br></div>",
+      "output": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1 style=\"color:#555\">JavaScript Code for Chess Board Game</h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        This notebook shows how you can use html, css and vanilla JavaScript for building a board game. Use the notebook to make your own gaming app.\n    </p><br></div>",
       "type": "html"
     },
     {
@@ -100,7 +100,7 @@
     },
     {
       "code": "// Game state\nlet selectedSquare = null;\nwindow.currentPlayer = \"w\"; // \"w\" for white, \"b\" for black\n\n// Handle drag start\nfunction handleDragStart(square) {\n  if (pieces[square] && pieces[square][0] === currentPlayer) {\n    selectedSquare = square;\n  } else {\n    alert(\"It's not your turn!\");\n  }\n}\n\n// Handle drop\nfunction handleDrop(square) {\n  if (!selectedSquare) return;\n  const validMove=isValidMove(selectedSquare, square);\n  if (  validMove[0]) {\n    movePiece(selectedSquare, square);\n\n    // Switch player after a valid move\n    currentPlayer = currentPlayer === \"w\" ? \"b\" : \"w\";\n\n    checkWinCondition();\n  } else {\n    alert(\"Invalid move! \"+validMove[1]);\n  }\n\n  selectedSquare = null;\n}\n",
-      "status": "[5]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "status": "[5]<br><span style=\"font-size:8px\">0ms<span></span></span>",
       "output": "w <br>",
       "type": "code"
     },
@@ -142,7 +142,7 @@
     },
     {
       "code": "// Check win condition\n\n\nfunction checkWinCondition() {\n  const whiteKing = Object.values(pieces).includes(\"wk\");\n  const blackKing = Object.values(pieces).includes(\"bk\");\n\n  if (!whiteKing) {\n    alert(\"Black wins!\");\n    resetBoard();\n  } else if (!blackKing) {\n    alert(\"White wins!\");\n    resetBoard();\n  }\n}\n\n// Reset board\nfunction resetBoard() {\n  chessContainer.innerHTML = \"\";\n  board.length = 0;\n  Object.keys(pieces).forEach(key => delete pieces[key]);\n  initializeBoard();\n}\n\n// Initialize board\ninitializeBoard();",
-      "status": "[7]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "status": "[7]<br><span style=\"font-size:8px\">0ms<span></span></span>",
       "output": "",
       "type": "code"
     },
