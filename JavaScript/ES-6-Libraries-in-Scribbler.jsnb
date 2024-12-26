@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "name": "ES6 Modules in Scribbler",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "//>md\n## Lodash",
+      "status": "",
+      "output": "<h2>Lodash</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "//Loading\nawait scrib.loadScript(\"https://cdn.jsdelivr.net/npm/lodash@latest/lodash.min.js\");\n",
+      "status": "[6]<br><span style=\"font-size:8px\">44ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "//Using lodash\n_.chunk(['a', 'b', 'c', 'd'], 2);",
+      "status": "[5]<br><span style=\"font-size:8px\">5ms<span></span></span>",
+      "output": "[\n  [\n    \"a\",\n    \"b\"\n  ],\n  [\n    \"c\",\n    \"d\"\n  ]\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "//>md\n## Moment",
+      "status": "[7]<br><span style=\"font-size:8px\">10ms<span></span></span>",
+      "output": "<h2>Moment</h2>\n <br>",
+      "type": "code"
+    },
+    {
+      "code": "await scrib.loadScript(\"https://cdn.jsdelivr.net/npm/moment@latest/min/moment.min.js\")",
+      "status": "[8]<br><span style=\"font-size:8px\">176ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "//Using Moment\nlet a = moment('2016-01-01'); \nlet b = a.add(1, 'week'); \na.format();\na",
+      "status": "[10]<br><span style=\"font-size:8px\">10ms<span></span></span>",
+      "output": "\"2016-01-07T18:30:00.000Z\" <br>",
+      "type": "code"
+    },
+    {
+      "code": "//>md\n## Chart.js",
+      "status": "",
+      "output": "<h2>Chart.js</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "//Loading chart.js\nawait scrib.loadScript(\"https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js\")",
+      "status": "[12]<br><span style=\"font-size:8px\">217ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "//Using chart.js. First create a canvas\n`<canvas id=\"myChart\"></canvas>`",
+      "status": "[13]<br><span style=\"font-size:8px\">8ms<span></span></span>",
+      "output": "<div class=\"chartjs-size-monitor\"><div class=\"chartjs-size-monitor-expand\"><div class=\"\"></div></div><div class=\"chartjs-size-monitor-shrink\"><div class=\"\"></div></div></div><canvas id=\"myChart\" style=\"display: block; width: 1041px; height: 520px;\" width=\"1041\" height=\"520\" class=\"chartjs-render-monitor\"></canvas> <br>",
+      "type": "code"
+    },
+    {
+      "code": "const ctx = document.getElementById('myChart');\nnew Chart(ctx, {\n    type: 'bar',\n    data: {\n      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],\n      datasets: [{\n        label: '# of Votes',\n        data: [12, 19, 3, 5, 2, 3],\n        borderWidth: 1\n      }]\n    }\n  });\n\"Chart Loaded\"",
+      "status": "[17]<br><span style=\"font-size:8px\">10ms<span></span></span>",
+      "output": "Chart Loaded <br>",
+      "type": "code"
+    },
+    {
+      "code": "//>md\n## Math JS\n",
+      "status": "",
+      "output": "<h2>Math JS</h2>\n",
+      "type": "html"
+    },
+    {
+      "code": "await scrib.loadScript(\"https://cdnjs.cloudflare.com/ajax/libs/mathjs/14.0.1/math.js\")",
+      "status": "[26]<br><span style=\"font-size:8px\">524ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "\nmath.evaluate('1.2 * (2 + 4.5)')   ",
+      "status": "[27]<br><span style=\"font-size:8px\">278ms<span></span></span>",
+      "output": "7.8 <br>",
+      "type": "code"
+    },
+    {
+      "code": "$('select.dropdown')\n  .dropdown('set selected', ['meteor', 'ember'])\n;",
+      "status": "[-]",
+      "output": "<p class=\"error\">$ is not defined</p>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/jsnb",
+  "run_on_load": false
+}
