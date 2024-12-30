@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "name": "Destructuring Assignment",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "### Destructuring Assignment in JavaScript: A Deep Dive\n\nDestructuring assignment is a powerful feature in JavaScript that allows you to unpack values from arrays or objects into distinct variables.  This simplifies code, making it more readable and maintainable.  Let's explore its various applications with examples.\n\n\n#### 1. Array Destructuring\n\nArray destructuring allows you to extract elements from an array into separate variables.  The order of variables corresponds to the order of elements in the array.\n",
+      "status": "",
+      "output": "<h3>Destructuring Assignment in JavaScript: A Deep Dive</h3>\n<p>Destructuring assignment is a powerful feature in JavaScript that allows you to unpack values from arrays or objects into distinct variables.  This simplifies code, making it more readable and maintainable.  Let's explore its various applications with examples.</p>\n<h4>1. Array Destructuring</h4>\n<p>Array destructuring allows you to extract elements from an array into separate variables.  The order of variables corresponds to the order of elements in the array.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "// Example 1: Basic array destructuring\nlet arr = [10, 20, 30];\nlet [a, b, c] = arr;\nscrib.show(`a = ${a}, b = ${b}, c = ${c}`); // Output: a = 10, b = 20, c = 30\n\n\n// Example 2: Skipping elements\nlet [x, , z] = arr;  // Skip the second element (20)\nscrib.show(`x = ${x}, z = ${z}`); // Output: x = 10, z = 30\n\n// Example 3: Rest operator\nlet [first, ...rest] = arr; // first gets the first element, rest gets the remaining elements as an array\nscrib.show(`first = ${first}, rest = ${JSON.stringify(rest)}`); // Output: first = 10, rest = [20,30]\n\n// Example 4: Default values\nlet [p, q, r = 40] = [50, 60]; // r gets a default value if not provided in the array\nscrib.show(`p = ${p}, q = ${q}, r = ${r}`); //Output: p = 50, q = 60, r = 40",
+      "status": "[13]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "a = 10, b = 20, c = 30 <br>x = 10, z = 30 <br>first = 10, rest = [20,30] <br>p = 50, q = 60, r = 40 <br>",
+      "type": "code"
+    },
+    {
+      "code": "#### 2. Object Destructuring\n\nObject destructuring is similar but uses property names to assign values to variables.\n\n",
+      "status": "",
+      "output": "<h4>2. Object Destructuring</h4>\n<p>Object destructuring is similar but uses property names to assign values to variables.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "// Example 1: Basic object destructuring\nlet obj = { name: \"Scribbler\", version: \"1.0\", author: \"AI\" };\nlet { name, version } = obj;\nscrib.show(`Name: ${name}, Version: ${version}`); // Output: Name: Scribbler, Version: 1.0\n\n// Example 2: Different variable names\nlet { name: appName, version: appVersion } = obj; // Assign to variables with different names\nscrib.show(`App Name: ${appName}, App Version: ${appVersion}`); // Output: App Name: Scribbler, App Version: 1.0\n\n// Example 3: Nested objects\nlet nestedObj = { address: { street: \"123 Main St\", city: \"Anytown\" } };\nlet { address: { street, city } } = nestedObj; // Destructure nested object\nscrib.show(`Street: ${street}, City: ${city}`); // Output: Street: 123 Main St, City: Anytown\n\n// Example 4: Default values\nlet { feature = \"Not Available\" } = {}; // Provide default values for missing properties\nscrib.show(`Feature: ${feature}`); // Output: Feature: Not Available\n\n// Example 5: Rest operator\nlet { name: myName, ...restProps } = obj; // name is assigned, restProps gets the other properties\nscrib.show(`My Name: ${myName}, Rest Props: ${JSON.stringify(restProps)}`);",
+      "status": "[14]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Name: Scribbler, Version: 1.0 <br>App Name: Scribbler, App Version: 1.0 <br>Street: 123 Main St, City: Anytown <br>Feature: Not Available <br>My Name: Scribbler, Rest Props: {\"version\":\"1.0\",\"author\":\"AI\"} <br>",
+      "type": "code"
+    },
+    {
+      "code": "#### 3. Destructuring in Function Parameters\n\nDestructuring can be seamlessly integrated into function parameters, simplifying function calls and argument handling.\n\n",
+      "status": "",
+      "output": "<h4>3. Destructuring in Function Parameters</h4>\n<p>Destructuring can be seamlessly integrated into function parameters, simplifying function calls and argument handling.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "// Example 1: Array destructuring in function parameters\nfunction printArray([first, second]) {\n  scrib.show(`First: ${first}, Second: ${second}`);\n}\nprintArray([100,200]); // Output: First: 100, Second: 200\n\n// Example 2: Object destructuring in function parameters\nfunction printObject({ name, version }) {\n  scrib.show(`App Name: ${name}, App Version: ${version}`);\n}\nprintObject({ name: \"App\", version: \"2.0\" }); // Output: App Name: App, App Version: 2.0",
+      "status": "[15]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "First: 100, Second: 200 <br>App Name: App, App Version: 2.0 <br>",
+      "type": "code"
+    },
+    {
+      "code": "Destructuring assignment significantly enhances the readability and efficiency of JavaScript code.  Its flexible capabilities for handling arrays and objects make it a valuable tool for any JavaScript developer.\n",
+      "status": "",
+      "output": "<p>Destructuring assignment significantly enhances the readability and efficiency of JavaScript code.  Its flexible capabilities for handling arrays and objects make it a valuable tool for any JavaScript developer.</p>\n",
+      "type": "html"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/scribbler",
+  "run_on_load": false
+}
