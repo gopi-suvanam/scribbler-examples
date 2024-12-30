@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "name": "Scribbler Notebook",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "### Lesson: Asynchronous JavaScript with Promises and `await` in Scribbler\n\nThis lesson demonstrates asynchronous programming in JavaScript using promises and the `await` keyword, leveraging Scribbler's unique capabilities.\n\n#### Part 1: Introduction to Promises\n\nA promise is an object representing the eventual completion (or failure) of an asynchronous operation.  It has three states:\n\n1. **Pending:** The initial state, neither fulfilled nor rejected.\n2. **Fulfilled:** The operation completed successfully.\n3. **Rejected:** The operation failed.\n\nWe create a promise using the `Promise` constructor, which takes a function with two arguments: `resolve` and `reject`.  `resolve` is called when the operation succeeds, and `reject` is called when it fails.\n",
+      "status": "",
+      "output": "<h3>Lesson: Asynchronous JavaScript with Promises and <code>await</code> in Scribbler</h3>\n<p>This lesson demonstrates asynchronous programming in JavaScript using promises and the <code>await</code> keyword, leveraging Scribbler's unique capabilities.</p>\n<h4>Part 1: Introduction to Promises</h4>\n<p>A promise is an object representing the eventual completion (or failure) of an asynchronous operation.  It has three states:</p>\n<ol>\n<li><strong>Pending:</strong> The initial state, neither fulfilled nor rejected.</li>\n<li><strong>Fulfilled:</strong> The operation completed successfully.</li>\n<li><strong>Rejected:</strong> The operation failed.</li>\n</ol>\n<p>We create a promise using the <code>Promise</code> constructor, which takes a function with two arguments: <code>resolve</code> and <code>reject</code>.  <code>resolve</code> is called when the operation succeeds, and <code>reject</code> is called when it fails.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "// Example 1: A simple promise\nconst myPromise = new Promise((resolve, reject) => {\n  setTimeout(() => {\n    const success = true; // Simulate success or failure\n    if (success) {\n      resolve(\"Operation successful!\");\n    } else {\n      reject(\"Operation failed!\");\n    }\n  }, 2000); // Simulate an asynchronous operation taking 2 seconds\n});\n\nmyPromise\n  .then(result => scrib.show(\"Success:\", result))\n  .catch(error => scrib.show(\"Error:\", error));\n",
+      "status": "[29]<br><span style=\"font-size:8px\">2.016s<span></span></span>",
+      "output": "Success: Operation successful! <br>",
+      "type": "code"
+    },
+    {
+      "code": "#### Part 2: Using `async`/`await`\n\nThe `async`/`await` syntax makes asynchronous code look and behave a bit more like synchronous code, improving readability.  An `async` function always returns a promise.  The `await` keyword can only be used inside an `async` function. It pauses execution until the promise resolves.\n\n",
+      "status": "",
+      "output": "<h4>Part 2: Using <code>async</code>/<code>await</code></h4>\n<p>The <code>async</code>/<code>await</code> syntax makes asynchronous code look and behave a bit more like synchronous code, improving readability.  An <code>async</code> function always returns a promise.  The <code>await</code> keyword can only be used inside an <code>async</code> function. It pauses execution until the promise resolves.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "// Example 2: Async/await with a promise\nasync function myAsyncFunction() {\n  try {\n    const result = await myPromise; // Wait for myPromise to resolve\n    scrib.show(\"Async/Await Success:\", result);\n  } catch (error) {\n    scrib.show(\"Async/Await Error:\", error);\n  }\n}\n\nmyAsyncFunction();",
+      "status": "[30]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Async/Await Error: {} <br>",
+      "type": "code"
+    },
+    {
+      "code": "#### Part 3:  `await` with Scribbler's functions\n\nScribbler's special functions like `scrib.uploadFile()` and `scrib.waitForDom()` return promises.  We can use `await` to simplify their usage.\n",
+      "status": "",
+      "output": "<h4>Part 3:  <code>await</code> with Scribbler's functions</h4>\n<p>Scribbler's special functions like <code>scrib.uploadFile()</code> and <code>scrib.waitForDom()</code> return promises.  We can use <code>await</code> to simplify their usage.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "//Example 3: Using await with scrib.uploadFile\nasync function uploadAndShowFile() {\n    try {\n        const fileContent = await scrib.uploadFile();\n        scrib.show(\"Uploaded file content:\\n\", fileContent);\n    } catch (error) {\n        scrib.show(\"Error uploading file:\", error);\n    }\n}\n\nuploadAndShowFile();\n\n\n// Example 4: Using await with scrib.waitForDom\nasync function waitForElement() {\n    try {\n        const element = await scrib.waitForDom(\"myElement\"); // Replace with your element ID\n        if (element) {\n            scrib.show(\"Element found!\", element);\n        } else {\n            scrib.show(\"Element not found!\");\n        }\n    } catch (error) {\n        scrib.show(\"Error waiting for element:\", error);\n    }\n}\n\n//Add an element to the DOM (this would typically be done dynamically by your application).\nlet newDiv = document.createElement('div');\nnewDiv.id = 'myElement';\nnewDiv.innerHTML = \"This is my element\";\ndocument.body.appendChild(newDiv);\n\nwaitForElement();\n",
+      "status": "[31]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Element found! {} <br>",
+      "type": "code"
+    },
+    {
+      "code": "#### Part 4: Handling Multiple Promises\n\nSometimes you need to wait for multiple promises to resolve before proceeding. You can use `Promise.all` for this:\n\n",
+      "status": "",
+      "output": "<h4>Part 4: Handling Multiple Promises</h4>\n<p>Sometimes you need to wait for multiple promises to resolve before proceeding. You can use <code>Promise.all</code> for this:</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "// Example 5:  Promise.all for multiple asynchronous operations\nasync function multiplePromises() {\n  const promise1 = new Promise(resolve => setTimeout(() => resolve(\"Promise 1 resolved\"), 1000));\n  const promise2 = new Promise(resolve => setTimeout(() => resolve(\"Promise 2 resolved\"), 2000));\n\n  try {\n    const results = await Promise.all([promise1, promise2]);\n    scrib.show(\"All promises resolved:\", results);\n  } catch (error) {\n    scrib.show(\"Error with promises:\", error);\n  }\n}\n\nmultiplePromises();",
+      "status": "[32]<br><span style=\"font-size:8px\">2.006s<span></span></span>",
+      "output": "All promises resolved: [\n  \"Promise 1 resolved\",\n  \"Promise 2 resolved\"\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "Remember to replace `\"myElement\"` in Example 4 with the actual ID of an element you've added to your HTML.  This lesson showcases the power of promises and async/await for managing asynchronous operations, particularly within the Scribbler environment.  The `try...catch` blocks ensure robust error handling.\n",
+      "status": "",
+      "output": "<p>Remember to replace <code>\"myElement\"</code> in Example 4 with the actual ID of an element you've added to your HTML.  This lesson showcases the power of promises and async/await for managing asynchronous operations, particularly within the Scribbler environment.  The <code>try...catch</code> blocks ensure robust error handling.</p>\n",
+      "type": "html"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/scribbler",
+  "run_on_load": false
+}
