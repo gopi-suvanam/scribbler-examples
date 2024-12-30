@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "name": "Arrow Functions in JavaScript",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "### Arrow Functions: Concise Syntax for Functions\n\nArrow functions provide a shorter syntax for writing functions in JavaScript. They are especially useful for simple functions that can be expressed in a single line.  Here are some examples demonstrating their usage and key features.\n\n**Example 1: Basic Arrow Function**\n",
+      "status": "",
+      "output": "<h3>Arrow Functions: Concise Syntax for Functions</h3>\n<p>Arrow functions provide a shorter syntax for writing functions in JavaScript. They are especially useful for simple functions that can be expressed in a single line.  Here are some examples demonstrating their usage and key features.</p>\n<p><strong>Example 1: Basic Arrow Function</strong></p>\n",
+      "type": "html"
+    },
+    {
+      "code": "// Traditional function\nfunction add(x, y) {\n  return x + y;\n}\n\n// Equivalent arrow function\nconst addArrow = (x, y) => x + y;\n\nscrib.show(\"Traditional function: \", add(5, 3)); // Output: 8\nscrib.show(\"Arrow function: \", addArrow(5, 3)); // Output: 8",
+      "status": "[5]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Traditional function:  8 <br>Arrow function:  8 <br>",
+      "type": "code"
+    },
+    {
+      "code": "This example shows how a simple function can be rewritten using the arrow function syntax.  The `(x, y) => x + y` concisely defines a function that takes two arguments (`x` and `y`) and returns their sum.  The `return` keyword is implicit when the function body is a single expression.\n\n\n**Example 2: Arrow Function with Multiple Statements**\n",
+      "status": "",
+      "output": "<p>This example shows how a simple function can be rewritten using the arrow function syntax.  The <code>(x, y) =&gt; x + y</code> concisely defines a function that takes two arguments (<code>x</code> and <code>y</code>) and returns their sum.  The <code>return</code> keyword is implicit when the function body is a single expression.</p>\n<p><strong>Example 2: Arrow Function with Multiple Statements</strong></p>\n",
+      "type": "html"
+    },
+    {
+      "code": "// Arrow function with multiple statements\nconst greet = (name) => {\n  let message = \"Hello, \" + name + \"!\";\n  return message;\n};\n\nscrib.show(greet(\"World\")); // Output: Hello, World!",
+      "status": "[6]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Hello, World! <br>",
+      "type": "code"
+    },
+    {
+      "code": "When an arrow function has multiple statements, curly braces `{}` are required, and the `return` keyword becomes explicit.\n\n\n**Example 3: Arrow Function with Implicit Return and Object Literal**\n",
+      "status": "",
+      "output": "<p>When an arrow function has multiple statements, curly braces <code>{}</code> are required, and the <code>return</code> keyword becomes explicit.</p>\n<p><strong>Example 3: Arrow Function with Implicit Return and Object Literal</strong></p>\n",
+      "type": "html"
+    },
+    {
+      "code": "// Using parentheses for implicit return of an object literal\nconst createPerson = (name, age) => ({ name, age });\n\nscrib.show(createPerson(\"Alice\", 30)); // Output: {name: \"Alice\", age: 30}",
+      "status": "[7]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "{\n  \"name\": \"Alice\",\n  \"age\": 30\n} <br>",
+      "type": "code"
+    },
+    {
+      "code": "Notice the use of parentheses around the object literal `({ name, age })`. This is necessary to distinguish the object literal from a function body. Without the parentheses, the curly braces would be interpreted as the start of a function body.\n\n\n**Example 4: Arrow Function with No Arguments**\n",
+      "status": "",
+      "output": "<p>Notice the use of parentheses around the object literal <code>({ name, age })</code>. This is necessary to distinguish the object literal from a function body. Without the parentheses, the curly braces would be interpreted as the start of a function body.</p>\n<p><strong>Example 4: Arrow Function with No Arguments</strong></p>\n",
+      "type": "html"
+    },
+    {
+      "code": "// Arrow function with no arguments\nconst getTimestamp = () => new Date().getTime();\n\nscrib.show(getTimestamp()); // Output: Current timestamp",
+      "status": "[8]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "1735571494436 <br>",
+      "type": "code"
+    },
+    {
+      "code": "Arrow functions can also be defined without any arguments.  The empty parentheses `()` indicate this.\n\n\n**Example 5: Arrow function and `this` keyword**\n",
+      "status": "",
+      "output": "<p>Arrow functions can also be defined without any arguments.  The empty parentheses <code>()</code> indicate this.</p>\n<p><strong>Example 5: Arrow function and <code>this</code> keyword</strong></p>\n",
+      "type": "html"
+    },
+    {
+      "code": "const obj = {\n  name: \"Scribbler\",\n  logName: function() {\n      setTimeout(function(){\n          scrib.show(this.name); //this will not refer to obj.\n      }, 1000)\n  },\n    logNameArrow: function() {\n        setTimeout(() => {\n            scrib.show(this.name); //this will refer to obj\n        }, 1000)\n    }\n}\nobj.logName();\nobj.logNameArrow();\n",
+      "status": "[9]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "In the above example `this` inside the traditional function will not refer to `obj`.  However, inside an arrow function `this` will retain its lexical `this` binding.\n\n\nThese examples illustrate the flexibility and conciseness of arrow functions. They are a valuable addition to the JavaScript language, simplifying code and making it more readable, especially when dealing with shorter, more functional-style programming constructs.  Remember that arrow functions do not have their own `this` binding and inherit the `this` value from their surrounding lexical scope.\n",
+      "status": "",
+      "output": "<p>In the above example <code>this</code> inside the traditional function will not refer to <code>obj</code>.  However, inside an arrow function <code>this</code> will retain its lexical <code>this</code> binding.</p>\n<p>These examples illustrate the flexibility and conciseness of arrow functions. They are a valuable addition to the JavaScript language, simplifying code and making it more readable, especially when dealing with shorter, more functional-style programming constructs.  Remember that arrow functions do not have their own <code>this</code> binding and inherit the <code>this</code> value from their surrounding lexical scope.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "//No Javascript needed for this example. All code is within the HTML.",
+      "status": "[10]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": " <br>Scribbler <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/scribbler",
+  "run_on_load": false
+}
