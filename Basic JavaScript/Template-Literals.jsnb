@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "name": "Scribbler Notebook",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "### Lesson: JavaScript Template Literals\n\nTemplate literals provide a powerful way to create strings in JavaScript, offering significant improvements over traditional string concatenation.  They allow for easy embedding of expressions and multiline strings, leading to cleaner and more readable code.\n\n#### 1. Basic Syntax\n\nTemplate literals are enclosed in backticks (`` ` ``) instead of single or double quotes.\n",
+      "status": "",
+      "output": "<h3>Lesson: JavaScript Template Literals</h3>\n<p>Template literals provide a powerful way to create strings in JavaScript, offering significant improvements over traditional string concatenation.  They allow for easy embedding of expressions and multiline strings, leading to cleaner and more readable code.</p>\n<h4>1. Basic Syntax</h4>\n<p>Template literals are enclosed in backticks (<code>`</code>) instead of single or double quotes.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "let name = \"Alice\";\nlet greeting = `Hello, ${name}!`;\nscrib.show(greeting); // Output: Hello, Alice!",
+      "status": "[5]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Hello, Alice! <br>",
+      "type": "code"
+    },
+    {
+      "code": "The `${}` syntax allows embedding expressions directly within the string.  The expression inside the curly braces is evaluated, and its result is inserted into the string.\n\n#### 2. Multiline Strings\n\nTemplate literals make creating multiline strings incredibly simple.  No more string concatenation or cumbersome `\\n` escape sequences.\n",
+      "status": "",
+      "output": "<p>The <code>${}</code> syntax allows embedding expressions directly within the string.  The expression inside the curly braces is evaluated, and its result is inserted into the string.</p>\n<h4>2. Multiline Strings</h4>\n<p>Template literals make creating multiline strings incredibly simple.  No more string concatenation or cumbersome <code>\\n</code> escape sequences.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "let poem = `The fog comes\non little cat feet.\nIt sits looking\nover harbor and city\non silent haunches\nand then moves on.`;\nscrib.show(poem);",
+      "status": "[6]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "The fog comes\non little cat feet.\nIt sits looking\nover harbor and city\non silent haunches\nand then moves on. <br>",
+      "type": "code"
+    },
+    {
+      "code": "#### 3. Embedding Expressions\n\nYou can embed any valid JavaScript expression within the `${}`. This includes variables, function calls, and even complex calculations.\n",
+      "status": "",
+      "output": "<h4>3. Embedding Expressions</h4>\n<p>You can embed any valid JavaScript expression within the <code>${}</code>. This includes variables, function calls, and even complex calculations.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "let x = 5;\nlet y = 10;\nlet sum = `The sum of ${x} and ${y} is ${x + y}`;\nscrib.show(sum); // Output: The sum of 5 and 10 is 15\n\nlet currentDate = new Date();\nlet dateString = `Today's date is: ${currentDate.toDateString()}`;\nscrib.show(dateString);",
+      "status": "[7]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "The sum of 5 and 10 is 15 <br>Today's date is: Mon Dec 30 2024 <br>",
+      "type": "code"
+    },
+    {
+      "code": "#### 4. Tagged Templates\n\nTemplate literals can be used with *tagged templates*.  A tagged template is a function that receives the template literal's parts as arguments. This allows for custom processing of the template string.\n",
+      "status": "",
+      "output": "<h4>4. Tagged Templates</h4>\n<p>Template literals can be used with <em>tagged templates</em>.  A tagged template is a function that receives the template literal's parts as arguments. This allows for custom processing of the template string.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "function highlight(strings, ...values) {\n  let result = \"\";\n  for (let i = 0; i < strings.length; i++) {\n    result += strings[i];\n    if (i < values.length) {\n      result += `<span style=\"background-color:yellow;\">${values[i]}</span>`;\n    }\n  }\n  return result;\n}\n\nlet name2 = \"Bob\";\nlet highlightedString = highlight`Hello, ${name2}!`;\nscrib.show(highlightedString); //Output will be Hello, <span style=\"background-color:yellow;\">Bob</span>!  (Rendered as highlighted HTML)\n",
+      "status": "[8]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Hello, <span style=\"background-color:yellow;\">Bob</span>! <br>",
+      "type": "code"
+    },
+    {
+      "code": "#### 5.  Escaping Backticks within Template Literals\n\nIf you need to include a backtick character within a template literal, escape it with a backslash:\n",
+      "status": "",
+      "output": "<h4>5.  Escaping Backticks within Template Literals</h4>\n<p>If you need to include a backtick character within a template literal, escape it with a backslash:</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "let escapedBacktick = `This string contains a backtick: \\``;\nscrib.show(escapedBacktick); //Output: This string contains a backtick: `",
+      "status": "[9]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "This string contains a backtick: ` <br>",
+      "type": "code"
+    },
+    {
+      "code": "#### 6. Practical Example:  Creating HTML\n\nTemplate literals are ideal for building HTML strings dynamically.\n",
+      "status": "",
+      "output": "<h4>6. Practical Example:  Creating HTML</h4>\n<p>Template literals are ideal for building HTML strings dynamically.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "let products = [\n  { name: \"Product A\", price: 10 },\n  { name: \"Product B\", price: 20 },\n];\n\nlet html = `\n  <ul>\n    ${products.map(product => `\n      <li>\n        <h2>${product.name}</h2>\n        <p>Price: $${product.price}</p>\n      </li>\n    `).join('')}\n  </ul>\n`;\n\nscrib.show(html); // Outputs an unordered list with product details.",
+      "status": "[10]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "\n  <ul>\n    \n      <li>\n        <h2>Product A</h2>\n        <p>Price: $10</p>\n      </li>\n    \n      <li>\n        <h2>Product B</h2>\n        <p>Price: $20</p>\n      </li>\n    \n  </ul>\n <br>",
+      "type": "code"
+    },
+    {
+      "code": "This lesson demonstrates the versatility and benefits of using template literals in your JavaScript code.  They significantly improve code readability and simplify string manipulation tasks.  Remember to use `scrib.show()` to display the output within the Scribbler environment.\n",
+      "status": "",
+      "output": "<p>This lesson demonstrates the versatility and benefits of using template literals in your JavaScript code.  They significantly improve code readability and simplify string manipulation tasks.  Remember to use <code>scrib.show()</code> to display the output within the Scribbler environment.</p>\n",
+      "type": "html"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/scribbler",
+  "run_on_load": false
+}
