@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "name": "Let and Const Examples",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "### Example 1: `let` keyword\n",
+      "status": "",
+      "output": "<h3>Example 1: <code>let</code> keyword</h3>\n",
+      "type": "html"
+    },
+    {
+      "code": "let message = \"Hello, world!\";\nscrib.show(message); // Output: Hello, world!\n\nmessage = \"The value has changed!\";\nscrib.show(message); // Output: The value has changed!",
+      "status": "[9]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Hello, world! <br>The value has changed! <br>",
+      "type": "code"
+    },
+    {
+      "code": "**Explanation:**  `let` declares a block-scoped variable.  This means the variable `message` is only accessible within the block of code (e.g., function, loop, or code block within `{}`) where it's defined.  Its value can be reassigned, as shown in the example.\n\n\n### Example 2: `const` keyword\n",
+      "status": "",
+      "output": "<p><strong>Explanation:</strong>  <code>let</code> declares a block-scoped variable.  This means the variable <code>message</code> is only accessible within the block of code (e.g., function, loop, or code block within <code>{}</code>) where it's defined.  Its value can be reassigned, as shown in the example.</p>\n<h3>Example 2: <code>const</code> keyword</h3>\n",
+      "type": "html"
+    },
+    {
+      "code": "const PI = 3.14159;\nscrib.show(PI); // Output: 3.14159\n\n// PI = 3.14; // This will cause an error because you cannot reassign a const.",
+      "status": "[10]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "3.14159 <br>",
+      "type": "code"
+    },
+    {
+      "code": "**Explanation:** `const` declares a block-scoped constant.  Once assigned a value, the value of a `const` cannot be reassigned.  Attempting to reassign it will result in a runtime error.  Note that this doesn't mean the value is immutable; if the value is an object, you can modify its properties.\n\n\n### Example 3: `let` with array\n",
+      "status": "",
+      "output": "<p><strong>Explanation:</strong> <code>const</code> declares a block-scoped constant.  Once assigned a value, the value of a <code>const</code> cannot be reassigned.  Attempting to reassign it will result in a runtime error.  Note that this doesn't mean the value is immutable; if the value is an object, you can modify its properties.</p>\n<h3>Example 3: <code>let</code> with array</h3>\n",
+      "type": "html"
+    },
+    {
+      "code": "let numbers = [1, 2, 3];\nscrib.show(numbers); // Output: [1, 2, 3]\n\nnumbers.push(4); // Modifying the array (adding an element) is allowed\nscrib.show(numbers); // Output: [1, 2, 3, 4]\n\nnumbers = [5,6,7]; //Reassigning the array is allowed.\nscrib.show(numbers); // Output: [5, 6, 7]\n",
+      "status": "[11]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "[\n  1,\n  2,\n  3\n] <br>[\n  1,\n  2,\n  3,\n  4\n] <br>[\n  5,\n  6,\n  7\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "**Explanation:**  Even though `numbers` is declared with `let`,  it's still possible to *modify* the array (e.g., using `push`, `pop`, `splice`). However, reassigning `numbers` to a completely new array is also allowed because `let` allows reassignment.\n\n\n### Example 4: `const` with array\n",
+      "status": "",
+      "output": "<p><strong>Explanation:</strong>  Even though <code>numbers</code> is declared with <code>let</code>,  it's still possible to <em>modify</em> the array (e.g., using <code>push</code>, <code>pop</code>, <code>splice</code>). However, reassigning <code>numbers</code> to a completely new array is also allowed because <code>let</code> allows reassignment.</p>\n<h3>Example 4: <code>const</code> with array</h3>\n",
+      "type": "html"
+    },
+    {
+      "code": "const colors = [\"red\", \"green\", \"blue\"];\nscrib.show(colors); // Output: ['red', 'green', 'blue']\n\ncolors.push(\"yellow\"); // Modifying the array is allowed.\nscrib.show(colors); // Output: ['red', 'green', 'blue', 'yellow']\n\n// colors = [\"cyan\", \"magenta\"]; // This will cause an error, as you cannot reassign a const.",
+      "status": "[12]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "[\n  \"red\",\n  \"green\",\n  \"blue\"\n] <br>[\n  \"red\",\n  \"green\",\n  \"blue\",\n  \"yellow\"\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "**Explanation:** Similar to Example 3,  a `const` array can be *modified* after its initial declaration. However,  reassigning the `const` variable `colors` to a different array is prohibited.  The `const` keyword prevents reassignment of the variable itself, not the modification of the array's contents.\n\n\n### Example 5: `let` in a loop\n",
+      "status": "",
+      "output": "<p><strong>Explanation:</strong> Similar to Example 3,  a <code>const</code> array can be <em>modified</em> after its initial declaration. However,  reassigning the <code>const</code> variable <code>colors</code> to a different array is prohibited.  The <code>const</code> keyword prevents reassignment of the variable itself, not the modification of the array's contents.</p>\n<h3>Example 5: <code>let</code> in a loop</h3>\n",
+      "type": "html"
+    },
+    {
+      "code": "for (let i = 0; i < 3; i++) {\n  scrib.show(\"Iteration: \" + i);\n}\n// scrib.show(i); // This would cause an error because 'i' is only defined within the loop.\n",
+      "status": "[13]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Iteration: 0 <br>Iteration: 1 <br>Iteration: 2 <br>",
+      "type": "code"
+    },
+    {
+      "code": "**Explanation:** The `let` keyword ensures that the loop counter `i` is only accessible within the `for` loop's scope.  Outside the loop, `i` is not defined.  This is in contrast to using `var`, which would have created a function-scoped variable.\n",
+      "status": "",
+      "output": "<p><strong>Explanation:</strong> The <code>let</code> keyword ensures that the loop counter <code>i</code> is only accessible within the <code>for</code> loop's scope.  Outside the loop, <code>i</code> is not defined.  This is in contrast to using <code>var</code>, which would have created a function-scoped variable.</p>\n",
+      "type": "html"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/scribbler",
+  "run_on_load": false
+}
