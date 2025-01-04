@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "name": "Tailwind CSS",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "#Tailwind CSS Examples\n",
+      "status": "",
+      "output": "<h3>HTML (Cell 1)</h3>\n",
+      "type": "html"
+    },
+    {
+      "code": "//>html\n<link href=\"https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css\" rel=\"stylesheet\">\n\n<div class=\"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded\">\n  Hover over me!\n</div>\n\n<p class=\"text-gray-700 text-lg\">This is a paragraph with Tailwind CSS styling.</p>\n\n<button class=\"bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded\">\n  Click Me!\n</button>\n\n<div class=\"flex\">\n  <div class=\"bg-red-500 w-1/2 h-24\"></div>\n  <div class=\"bg-yellow-500 w-1/2 h-24\"></div>\n</div>",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "\n<link href=\"https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css\" rel=\"stylesheet\">\n\n<div class=\"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded\">\n  Hover over me!\n</div>\n\n<p class=\"text-gray-700 text-lg\">This is a paragraph with Tailwind CSS styling.</p>\n\n<button class=\"bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded\">\n  Click Me!\n</button>\n\n<div class=\"flex\">\n  <div class=\"bg-red-500 w-1/2 h-24\"></div>\n  <div class=\"bg-yellow-500 w-1/2 h-24\"></div>\n</div> <br>",
+      "type": "code"
+    },
+    {
+      "code": "### JavaScript (Cell 2)\n",
+      "status": "",
+      "output": "<h3>JavaScript (Cell 2)</h3>\n",
+      "type": "html"
+    },
+    {
+      "code": "// No JavaScript needed for this example.  The HTML uses only Tailwind CSS classes.\n//To show the HTML elements, you can use scrib.show if you want to render this in a Scribbler cell.\nscrib.show(document.querySelector('body').innerHTML);\n",
+      "status": "[4]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "<p class=\"error\">Object too large to show.</p><br>",
+      "type": "code"
+    },
+    {
+      "code": "### Explanation:\n\nThe HTML cell includes a `<link>` tag to load Tailwind CSS from a CDN (Content Delivery Network).  This makes it easy to use Tailwind CSS without needing to download and install it locally.\n\nAfter that, the HTML uses various Tailwind CSS classes to style different elements.  For example:\n\n* `bg-blue-500`: Sets the background color to blue.\n* `hover:bg-blue-700`: Changes the background color to a darker blue on hover.\n* `text-white`: Sets the text color to white.\n* `font-bold`: Makes the text bold.\n* `py-2 px-4`: Adds padding.\n* `rounded`: Rounds the corners.\n* `text-gray-700`: Sets text color to gray.\n* `text-lg`: Sets text size to large.\n* `flex`: Enables flexbox layout.\n* `w-1/2`: Sets width to half.\n* `h-24`: Sets height to 24 units.\n\n\n\nThe JavaScript cell is empty because this example only demonstrates the use of Tailwind CSS classes in HTML.  No JavaScript is necessary for this specific task.  If you were to add interactivity, that's where you would place the JavaScript code.  The `scrib.show()` call at the end displays the content of the  `body` element in Scribbler's output.\n",
+      "status": "",
+      "output": "<h3>Explanation:</h3>\n<p>The HTML cell includes a <code>&lt;link&gt;</code> tag to load Tailwind CSS from a CDN (Content Delivery Network).  This makes it easy to use Tailwind CSS without needing to download and install it locally.</p>\n<p>After that, the HTML uses various Tailwind CSS classes to style different elements.  For example:</p>\n<ul>\n<li><code>bg-blue-500</code>: Sets the background color to blue.</li>\n<li><code>hover:bg-blue-700</code>: Changes the background color to a darker blue on hover.</li>\n<li><code>text-white</code>: Sets the text color to white.</li>\n<li><code>font-bold</code>: Makes the text bold.</li>\n<li><code>py-2 px-4</code>: Adds padding.</li>\n<li><code>rounded</code>: Rounds the corners.</li>\n<li><code>text-gray-700</code>: Sets text color to gray.</li>\n<li><code>text-lg</code>: Sets text size to large.</li>\n<li><code>flex</code>: Enables flexbox layout.</li>\n<li><code>w-1/2</code>: Sets width to half.</li>\n<li><code>h-24</code>: Sets height to 24 units.</li>\n</ul>\n<p>The JavaScript cell is empty because this example only demonstrates the use of Tailwind CSS classes in HTML.  No JavaScript is necessary for this specific task.  If you were to add interactivity, that's where you would place the JavaScript code.  The <code>scrib.show()</code> call at the end displays the content of the  <code>body</code> element in Scribbler's output.</p>\n",
+      "type": "html"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/scribbler",
+  "run_on_load": false
+}
