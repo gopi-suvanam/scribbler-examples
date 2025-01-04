@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "name": "Moment.js Examples",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "# Moment.js with Code Examples",
+      "status": "",
+      "output": "<h1>Moment.js with Code Examples</h1>\n",
+      "type": "html"
+    },
+    {
+      "code": "### Cell 1: Load moment.js via CDN\n",
+      "status": "",
+      "output": "<h3>Cell 1: Load moment.js via CDN</h3>\n",
+      "type": "html"
+    },
+    {
+      "code": "try {\n  await scrib.loadScript(\"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js\");\n  scrib.show(\"moment.js loaded successfully!\");\n} catch (error) {\n  scrib.show(\"Error loading moment.js:\", error);\n}",
+      "status": "[14]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "moment.js loaded successfully! <br>",
+      "type": "code"
+    },
+    {
+      "code": "### Cell 2: Display the current date and time\n",
+      "status": "",
+      "output": "<h3>Cell 2: Display the current date and time</h3>\n",
+      "type": "html"
+    },
+    {
+      "code": "scrib.show(moment().format('LLLL'));",
+      "status": "[15]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Saturday, January 4, 2025 7:11 PM <br>",
+      "type": "code"
+    },
+    {
+      "code": "### Cell 3: Explanation\n\nThis cell demonstrates a basic example of using moment.js. The `moment().format('LLLL')` function call formats the current date and time according to the specified format string ('LLLL' provides a long format including day of the week, month, day, year, and time).\n\n\n### Cell 4:  Adding 10 days to the current date\n",
+      "status": "",
+      "output": "<h3>Cell 3: Explanation</h3>\n<p>This cell demonstrates a basic example of using moment.js. The <code>moment().format('LLLL')</code> function call formats the current date and time according to the specified format string ('LLLL' provides a long format including day of the week, month, day, year, and time).</p>\n<h3>Cell 4:  Adding 10 days to the current date</h3>\n",
+      "type": "html"
+    },
+    {
+      "code": "let futureDate = moment().add(10, 'days');\nscrib.show(\"Date after adding 10 days: \" + futureDate.format('YYYY-MM-DD'));",
+      "status": "[16]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Date after adding 10 days: 2025-01-14 <br>",
+      "type": "code"
+    },
+    {
+      "code": "### Cell 5: Explanation\n\nThis cell demonstrates the `add()` method of moment.js, used to add 10 days to the current date. The result is then formatted as 'YYYY-MM-DD'.\n\n### Cell 6:  Formatting a specific date\n",
+      "status": "",
+      "output": "<h3>Cell 5: Explanation</h3>\n<p>This cell demonstrates the <code>add()</code> method of moment.js, used to add 10 days to the current date. The result is then formatted as 'YYYY-MM-DD'.</p>\n<h3>Cell 6:  Formatting a specific date</h3>\n",
+      "type": "html"
+    },
+    {
+      "code": "let specificDate = moment('2024-03-15', 'YYYY-MM-DD');\nscrib.show(\"Formatted specific date: \" + specificDate.format('MMMM Do YYYY, h:mm:ss a'));",
+      "status": "[17]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Formatted specific date: March 15th 2024, 12:00:00 am <br>",
+      "type": "code"
+    },
+    {
+      "code": "### Cell 7: Explanation\n\nThis cell demonstrates how to create a moment object from a specific date string and format it using a custom format string.  The format string `'MMMM Do YYYY, h:mm:ss a'` provides a long and very detailed date and time format.\n\n### Cell 8:  Calculating the difference between two dates\n",
+      "status": "",
+      "output": "<h3>Cell 7: Explanation</h3>\n<p>This cell demonstrates how to create a moment object from a specific date string and format it using a custom format string.  The format string <code>'MMMM Do YYYY, h:mm:ss a'</code> provides a long and very detailed date and time format.</p>\n<h3>Cell 8:  Calculating the difference between two dates</h3>\n",
+      "type": "html"
+    },
+    {
+      "code": "let date1 = moment('2024-01-01');\nlet date2 = moment('2024-03-15');\nlet diff = date2.diff(date1, 'days');\nscrib.show(\"Difference between dates in days: \" + diff);",
+      "status": "[18]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Difference between dates in days: 74 <br>",
+      "type": "code"
+    },
+    {
+      "code": "### Cell 9: Explanation\n\nThis example shows how to calculate the difference between two dates in days using the `diff()` method.  The result shows the number of days between the two specified dates.\n\n\n",
+      "status": "",
+      "output": "<h3>Cell 9: Explanation</h3>\n<p>This example shows how to calculate the difference between two dates in days using the <code>diff()</code> method.  The result shows the number of days between the two specified dates.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "",
+      "status": "[19]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/scribbler",
+  "run_on_load": false
+}
