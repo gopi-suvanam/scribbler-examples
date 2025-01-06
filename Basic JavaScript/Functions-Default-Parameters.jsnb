@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Functions with Default Paramters",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "# Using functions with Default Parameters\n",
+      "status": "",
+      "output": "<h1>Using functions with Default Parameters</h1>\n",
+      "type": "html"
+    },
+    {
+      "code": "function greet(name = \"Guest\", message = \"Welcome!\") {\n  scrib.show(`Hello, ${name}! ${message}`);\n}\n\ngreet(); // Output: Hello, Guest! Welcome!\ngreet(\"Alice\"); // Output: Hello, Alice! Welcome!\ngreet(\"Bob\", \"Good to see you!\"); // Output: Hello, Bob! Good to see you!\n\n//Example with multiple default parameters\n\nfunction calculateArea(width = 10, height = 5){\n    let area = width * height;\n    scrib.show(`Area is ${area}`);\n}\n\ncalculateArea(); //Area is 50\ncalculateArea(20); //Area is 100\ncalculateArea(20,15); //Area is 300\n",
+      "status": "[56]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Hello, Guest! Welcome! <br>Hello, Alice! Welcome! <br>Hello, Bob! Good to see you! <br>Area is 50 <br>Area is 100 <br>Area is 300 <br>",
+      "type": "code"
+    },
+    {
+      "code": "The code demonstrates the use of default parameters in JavaScript functions.  Let's break down each example:\n\n**Example 1: `greet` function**\n\nThe `greet` function takes two parameters: `name` and `message`. Both have default values:  `name` defaults to \"Guest\", and `message` defaults to \"Welcome!\".\n\n* `greet();`: This call uses the default values for both parameters, resulting in the output \"Hello, Guest! Welcome!\".\n* `greet(\"Alice\");`: This call provides a value for `name` (\"Alice\"), but uses the default value for `message` (\"Welcome!\"), resulting in \"Hello, Alice! Welcome!\".\n* `greet(\"Bob\", \"Good to see you!\");`: This call provides values for both parameters, overriding the defaults, resulting in \"Hello, Bob! Good to see you!\".\n\n**Example 2: `calculateArea` function**\n\nThe `calculateArea` function calculates the area of a rectangle and uses default parameters for `width` (10) and `height` (5).\n\n* `calculateArea();`: Uses default values for both `width` and `height`, calculating an area of 50 (10 * 5).\n* `calculateArea(20);`: Provides a value for `width` (20), but uses the default value for `height` (5), calculating an area of 100 (20 * 5).\n* `calculateArea(20, 15);`: Provides values for both `width` (20) and `height` (15), calculating an area of 300 (20 * 15).\n\n\nIn both examples, the use of default parameters makes the functions more flexible and easier to use, as they can be called with fewer arguments than they are defined to accept.  The missing arguments will simply use the default values provided in the function definition.\n",
+      "status": "",
+      "output": "<p>The code demonstrates the use of default parameters in JavaScript functions.  Let's break down each example:</p>\n<p><strong>Example 1: <code>greet</code> function</strong></p>\n<p>The <code>greet</code> function takes two parameters: <code>name</code> and <code>message</code>. Both have default values:  <code>name</code> defaults to \"Guest\", and <code>message</code> defaults to \"Welcome!\".</p>\n<ul>\n<li><code>greet();</code>: This call uses the default values for both parameters, resulting in the output \"Hello, Guest! Welcome!\".</li>\n<li><code>greet(\"Alice\");</code>: This call provides a value for <code>name</code> (\"Alice\"), but uses the default value for <code>message</code> (\"Welcome!\"), resulting in \"Hello, Alice! Welcome!\".</li>\n<li><code>greet(\"Bob\", \"Good to see you!\");</code>: This call provides values for both parameters, overriding the defaults, resulting in \"Hello, Bob! Good to see you!\".</li>\n</ul>\n<p><strong>Example 2: <code>calculateArea</code> function</strong></p>\n<p>The <code>calculateArea</code> function calculates the area of a rectangle and uses default parameters for <code>width</code> (10) and <code>height</code> (5).</p>\n<ul>\n<li><code>calculateArea();</code>: Uses default values for both <code>width</code> and <code>height</code>, calculating an area of 50 (10 * 5).</li>\n<li><code>calculateArea(20);</code>: Provides a value for <code>width</code> (20), but uses the default value for <code>height</code> (5), calculating an area of 100 (20 * 5).</li>\n<li><code>calculateArea(20, 15);</code>: Provides values for both <code>width</code> (20) and <code>height</code> (15), calculating an area of 300 (20 * 15).</li>\n</ul>\n<p>In both examples, the use of default parameters makes the functions more flexible and easier to use, as they can be called with fewer arguments than they are defined to accept.  The missing arguments will simply use the default values provided in the function definition.</p>\n",
+      "type": "html"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/scribbler",
+  "run_on_load": false
+}
