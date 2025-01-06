@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "name": "Spread and Rest",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "### Spread Operator (...)\n\nThe spread operator expands an iterable (like an array or string) into individual elements.\n\n",
+      "status": "",
+      "output": "<h3>Spread Operator (...)</h3>\n<p>The spread operator expands an iterable (like an array or string) into individual elements.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "**JavaScript:**\n",
+      "status": "",
+      "output": "<p><strong>JavaScript:</strong></p>\n",
+      "type": "html"
+    },
+    {
+      "code": "// Example 1: Copying arrays\nlet arr1 = [1, 2, 3];\nlet arr2 = [...arr1]; // Creates a new array with the same elements as arr1\narr2.push(4);\nscrib.show(\"Original array:\", arr1);\nscrib.show(\"Copied array:\", arr2);\n\n\n// Example 2: Concatenating arrays\nlet arr3 = [4, 5, 6];\nlet arr4 = [...arr1, ...arr3]; // Concatenates arr1 and arr3\nscrib.show(\"Concatenated array:\", arr4);\n\n// Example 3: Spreading into function arguments\nfunction myFunc(a, b, c) {\n  scrib.show(\"Arguments:\", a, b, c);\n}\nlet arr5 = [7, 8, 9];\nmyFunc(...arr5); // Passes elements of arr5 as individual arguments\n\n//Example 4: Spread operator with objects\nlet obj1 = {a:1, b:2};\nlet obj2 = {...obj1, c:3};\nscrib.show(\"Spread operator with objects\", obj2);\n\n\n",
+      "status": "[17]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Original array: [\n  1,\n  2,\n  3\n] <br>Copied array: [\n  1,\n  2,\n  3,\n  4\n] <br>Concatenated array: [\n  1,\n  2,\n  3,\n  4,\n  5,\n  6\n] <br>Arguments: 7 8 9 <br>Spread operator with objects {\n  \"a\": 1,\n  \"b\": 2,\n  \"c\": 3\n} <br>",
+      "type": "code"
+    },
+    {
+      "code": "### Rest Operator (...)\n\nThe rest operator collects multiple elements into a single array.  It's often used in function parameters.\n\n",
+      "status": "",
+      "output": "<h3>Rest Operator (...)</h3>\n<p>The rest operator collects multiple elements into a single array.  It's often used in function parameters.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "**JavaScript:**\n",
+      "status": "",
+      "output": "<p><strong>JavaScript:</strong></p>\n",
+      "type": "html"
+    },
+    {
+      "code": "// Example 1: Collecting multiple arguments\nfunction sum(...numbers) {\n  let total = 0;\n  for (let number of numbers) {\n    total += number;\n  }\n  scrib.show(\"Sum:\", total);\n}\n\nsum(1, 2, 3, 4, 5); // Passes multiple arguments\nsum(10, 20); // Works with any number of arguments\n\n// Example 2: Destructuring with rest\nlet arr6 = [10,20,30,40,50];\nlet [first, second, ...rest] = arr6;\nscrib.show(\"First:\", first, \"Second:\", second, \"Rest:\", rest);\n\n",
+      "status": "[18]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Sum: 15 <br>Sum: 30 <br>First: 10 Second: 20 Rest: [\n  30,\n  40,\n  50\n] <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/scribbler",
+  "run_on_load": false
+}
