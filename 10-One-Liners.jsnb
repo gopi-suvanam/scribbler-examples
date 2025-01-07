@@ -1,0 +1,134 @@
+{
+  "metadata": {
+    "name": "10 JavaScript One-Liners",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>1. Reverse a String</h1>",
+      "status": "",
+      "output": "<h1>1. Reverse a String</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const reverseString = str => str.split('').reverse().join('');\nscrib.show(reverseString(\"hello\")); // \"olleh\"",
+      "status": "[1]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "olleh <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>2. Check if a String is a Palindrome</h1>",
+      "status": "",
+      "output": "<h1>2. Check if a String is a Palindrome</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const isPalindrome = str => str === str.split('').reverse().join('');\nscrib.show(isPalindrome(\"madam\")); // true",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "true <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>3. Find the Maximum in an Array</h1>",
+      "status": "",
+      "output": "<h1>3. Find the Maximum in an Array</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const max = arr => Math.max(...arr);\nscrib.show(max([3, 7, 2, 8, 1])); // 8",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "8 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>4. Remove Duplicates from an Array</h1>",
+      "status": "",
+      "output": "<h1>4. Remove Duplicates from an Array</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const unique = arr => [...new Set(arr)];\nscrib.show(unique([1, 2, 2, 3, 4, 4])); // [1, 2, 3, 4]\n",
+      "status": "[4]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "[\n  1,\n  2,\n  3,\n  4\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1> 5. Generate a Random Integer Between Two Numbers </h1>",
+      "status": "",
+      "output": "<h1> 5. Generate a Random Integer Between Two Numbers </h1>",
+      "type": "html"
+    },
+    {
+      "code": "const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;\nscrib.show(randomInt(5, 10)); // Random number between 5 and 10\n",
+      "status": "[6]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "5 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>6. Flatten a Multi-Dimensional Array </h1>",
+      "status": "",
+      "output": "<h1>6. Flatten a Multi-Dimensional Array </h1>",
+      "type": "html"
+    },
+    {
+      "code": "const flatten = arr => arr.flat(Infinity);\nscrib.show(flatten([1, [2, [3, [4]]]])); // [1, 2, 3, 4]",
+      "status": "[7]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "[\n  1,\n  2,\n  3,\n  4\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>7. Check if a Number is Even or Odd </h1>",
+      "status": "",
+      "output": "<h1>7. Check if a Number is Even or Odd </h1>",
+      "type": "html"
+    },
+    {
+      "code": "const isEven = num => num % 2 === 0;\nscrib.show(isEven(4)); // true",
+      "status": "[8]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "true <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>8. Capitalize the First Letter of a String</h1>",
+      "status": "",
+      "output": "<h1>8. Capitalize the First Letter of a String</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);\nscrib.show(capitalize(\"javascript\")); // \"Javascript\"",
+      "status": "[9]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Javascript <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>9. Sum of an Array</h1>",
+      "status": "",
+      "output": "<h1>9. Sum of an Array</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const sum = arr => arr.reduce((acc, num) => acc + num, 0);\nscrib.show(sum([1, 2, 3, 4])); // 10",
+      "status": "[11]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "10 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1> 10. Get the Current Date in YYYY-MM-DD Format </h1>",
+      "status": "",
+      "output": "<h1> 10. Get the Current Date in YYYY-MM-DD Format </h1>",
+      "type": "html"
+    },
+    {
+      "code": "const today = new Date().toISOString().split('T')[0];\nscrib.show(today); // \"2025-01-07\"\n",
+      "status": "[12]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "2025-01-07 <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/scribbler",
+  "run_on_load": false
+}
