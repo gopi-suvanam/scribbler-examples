@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "name": "Case Conversion in JavaScript",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>1. Convert to Lowercase </h1>",
+      "status": "",
+      "output": "<h1>1. Convert to Lowercase </h1>",
+      "type": "html"
+    },
+    {
+      "code": "const text = \"Hello World!\";\nscrib.show(text.toLowerCase()); \n// \"hello world!\"",
+      "status": "[1]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "hello world! <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>2. Convert to Uppercase </h1>",
+      "status": "",
+      "output": "<h1>2. Convert to Uppercase </h1>",
+      "type": "html"
+    },
+    {
+      "code": "const text = \"Hello World!\";\nscrib.show(text.toUpperCase()); \n// \"HELLO WORLD!\"",
+      "status": "[2]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "HELLO WORLD! <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>3. Capitalize the First Letter</h1>",
+      "status": "",
+      "output": "<h1>3. Capitalize the First Letter</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();\nscrib.show(capitalize(\"hello\")); \n// \"Hello\"\n",
+      "status": "[4]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Hello <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>4. Title Case (Capitalize Each Word) </h1>",
+      "status": "",
+      "output": "<h1>4. Title Case (Capitalize Each Word) </h1>",
+      "type": "html"
+    },
+    {
+      "code": "const titleCase = str =>\n  str.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');\n\nscrib.show(titleCase(\"hello world from javascript\")); \n// \"Hello World From Javascript\"",
+      "status": "[6]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Hello World From Javascript <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/scribbler",
+  "run_on_load": false
+}
