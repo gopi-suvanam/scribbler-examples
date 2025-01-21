@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "name": "Array Destructuring",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>Basic Example</h1>",
+      "status": "",
+      "output": "<h1>Basic Example</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const fruits = [\"Apple\", \"Banana\", \"Cherry\"];\n// Destructure into variables\nconst [first, second, third] = fruits;\nscrib.show(first);  // \"Apple\"\nscrib.show(second); // \"Banana\"\nscrib.show(third);  // \"Cherry\"",
+      "status": "[3]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Apple <br>Banana <br>Cherry <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1> 1. Skipping Elements </h1>\nYou can skip array elements while destructuring:",
+      "status": "",
+      "output": "<h1> 1. Skipping Elements </h1>\nYou can skip array elements while destructuring:",
+      "type": "html"
+    },
+    {
+      "code": "const numbers = [1, 2, 3, 4];\nconst [, second, , fourth] = numbers;\nscrib.show(second); // 2\nscrib.show(fourth); // 4",
+      "status": "[4]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "2 <br>4 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1> 2. Default Values </h1>\nSet default values for missing elements:",
+      "status": "",
+      "output": "<h1> 2. Default Values </h1>\nSet default values for missing elements:",
+      "type": "html"
+    },
+    {
+      "code": "const colors = [\"Red\"];\nconst [primary, secondary = \"Blue\"] = colors;\nscrib.show(primary);   // \"Red\"\nscrib.show(secondary); // \"Blue\"",
+      "status": "[5]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Red <br>Blue <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>3. Destructuring with Rest </h1>\nCapture remaining elements using the rest operator:",
+      "status": "",
+      "output": "<h1>3. Destructuring with Rest </h1>\nCapture remaining elements using the rest operator:",
+      "type": "html"
+    },
+    {
+      "code": "const animals = [\"Dog\", \"Cat\", \"Horse\", \"Cow\"];\nconst [first, ...rest] = animals;\nscrib.show(first); // \"Dog\"\nscrib.show(rest);  // [\"Cat\", \"Horse\", \"Cow\"]",
+      "status": "[6]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "Dog <br>[\n  \"Cat\",\n  \"Horse\",\n  \"Cow\"\n] <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/scribbler",
+  "run_on_load": false
+}
