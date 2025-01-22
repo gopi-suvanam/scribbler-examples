@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "name": "CRUD in Arrays",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>1. Insert an Element at a Specific Position </h1>\nUse the splice() method to add elements.",
+      "status": "",
+      "output": "<h1>1. Insert an Element at a Specific Position </h1>\nUse the splice() method to add elements.",
+      "type": "html"
+    },
+    {
+      "code": "const numbers = [1, 2, 4, 5];\n// Insert 3 at index 2\nnumbers.splice(2, 0, 3);\nscrib.show(numbers); // [1, 2, 3, 4, 5]\\",
+      "status": "[1]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "[\n  1,\n  2,\n  3,\n  4,\n  5\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>2. Remove an Element </h1>\nRemove one or more elements using splice().",
+      "status": "",
+      "output": "<h1>2. Remove an Element </h1>\nRemove one or more elements using splice().",
+      "type": "html"
+    },
+    {
+      "code": "const numbers = [1, 2, 3, 4, 5];\n// Remove the element at index 2\nnumbers.splice(2, 1);\nscrib.show(numbers); // [1, 2, 4, 5]",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "[\n  1,\n  2,\n  4,\n  5\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>3. Replace an Element</h1>\nReplace elements by combining splice().",
+      "status": "",
+      "output": "<h1>3. Replace an Element</h1>\nReplace elements by combining splice().",
+      "type": "html"
+    },
+    {
+      "code": "const numbers = [1, 2, 4, 5];\n// Replace the element at index 2 with 3\nnumbers.splice(2, 1, 3);\nscrib.show(numbers); // [1, 2, 3, 5]",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "[\n  1,\n  2,\n  3,\n  5\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1> 4. Add an Element to the End </h1>\nUse push() to append elements to the array.",
+      "status": "",
+      "output": "<h1> 4. Add an Element to the End </h1>\nUse push() to append elements to the array.",
+      "type": "html"
+    },
+    {
+      "code": "const numbers = [1, 2, 3];\nnumbers.push(4);\nscrib.show(numbers); // [1, 2, 3, 4]",
+      "status": "[4]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "[\n  1,\n  2,\n  3,\n  4\n] <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/scribbler",
+  "run_on_load": false
+}
