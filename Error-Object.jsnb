@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "name": "Error Object",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>1. Creating an Error</h1>",
+      "status": "",
+      "output": "<h1>1. Creating an Error</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const error = new Error(\"Something went wrong!\");\nscrib.show(error.name);    // \"Error\"\nscrib.show(error.message); // \"Something went wrong!\"",
+      "status": "[1]<br><span style=\"font-size:8px\">2ms<span></span></span>",
+      "output": "Error <br>Something went wrong! <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>2. Throwing an Error</h1>\nManually trigger an error when a condition is not met",
+      "status": "",
+      "output": "<h1>2. Throwing an Error</h1>\nManually trigger an error when a condition is not met",
+      "type": "html"
+    },
+    {
+      "code": "function divide(a, b) {\n  if (b === 0) {\n    throw new Error(\"Division by zero is not allowed!\");\n  }\n  return a / b;\n}\n\ntry {\n  scrib.show(divide(10, 0));\n} catch (error) {\n  scrib.show(error.message); // \"Division by zero is not allowed!\"\n}\n",
+      "status": "[2]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Division by zero is not allowed! <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>3. Custom Error Types </h1>\nCreate custom error types for better clarity",
+      "status": "",
+      "output": "<h1>3. Custom Error Types </h1>\nCreate custom error types for better clarity",
+      "type": "html"
+    },
+    {
+      "code": "class ValidationError extends Error {\n  constructor(message) {\n    super(message);\n    this.name = \"ValidationError\";\n  }\n}\n\ntry {\n  throw new ValidationError(\"Invalid input data!\");\n} catch (error) {\n  scrib.show(error.name);    // \"ValidationError\"\n  scrib.show(error.message); // \"Invalid input data!\"\n}\n",
+      "status": "[3]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "ValidationError <br>Invalid input data! <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/scribbler",
+  "run_on_load": false
+}
