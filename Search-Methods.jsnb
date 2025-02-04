@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "name": "Search Methods",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>1. indexOf()</h1>",
+      "status": "",
+      "output": "<h1>1. indexOf()</h1>",
+      "type": "html"
+    },
+    {
+      "code": "const text = \"JavaScript is awesome!\";\nscrib.show(text.indexOf(\"is\")); // 11\nscrib.show(text.indexOf(\"Python\")); // -1 (not found)",
+      "status": "[1]<br><span style=\"font-size:8px\">2ms<span></span></span>",
+      "output": "11 <br>-1 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>2. lastIndexOf() – Find the Last Occurrence </h1>",
+      "status": "",
+      "output": "<h1>2. lastIndexOf() – Find the Last Occurrence </h1>",
+      "type": "html"
+    },
+    {
+      "code": "const text = \"Hello JavaScript, Hello World!\";\nscrib.show(text.lastIndexOf(\"Hello\")); // 19",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "18 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>3.  includes(), Check if a String Contains a Word </h1>",
+      "status": "",
+      "output": "<h1>3.  includes(), Check if a String Contains a Word </h1>",
+      "type": "html"
+    },
+    {
+      "code": "const text = \"JavaScript is fun!\";\nscrib.show(text.includes(\"fun\")); // true\nscrib.show(text.includes(\"boring\")); // false",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "true <br>false <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>4. startsWith() – Check if a String Starts with a Word </h1>",
+      "status": "",
+      "output": "<h1>4. startsWith() – Check if a String Starts with a Word </h1>",
+      "type": "html"
+    },
+    {
+      "code": "const text = \"JavaScript is powerful!\";\nscrib.show(text.startsWith(\"Java\")); // true\nscrib.show(text.startsWith(\"Script\")); // false",
+      "status": "[4]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "true <br>false <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>5. endsWith() – Check if a String Ends with a Word </h1>",
+      "status": "",
+      "output": "<h1>5. endsWith() – Check if a String Ends with a Word </h1>",
+      "type": "html"
+    },
+    {
+      "code": "const text = \"Learning JavaScript!\";\nscrib.show(text.endsWith(\"!\")); // true\nscrib.show(text.endsWith(\"Java\")); // false",
+      "status": "[5]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "true <br>false <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/scribbler",
+  "run_on_load": false
+}
