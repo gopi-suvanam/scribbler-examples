@@ -442,7 +442,7 @@ async function  getWebStableDiffusion(initProgressCallback,canvas){
 				"Found an error initializing the WebGPU device " + err.toString()
 			  );
 			  console.log(err.stack);
-			  throw Error("Find an error initializing WebGPU: " + err.toString());
+			  throw Error("Found an error initializing WebGPU: " + err.toString());
 			}
 
 		tvm.registerInitProgressCallback(initProgressCallback);
