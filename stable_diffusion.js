@@ -434,7 +434,7 @@ async function  getWebStableDiffusion(initProgressCallback,canvas){
 				console.log("Initialize GPU device: " + label);
 				tvm.initWebGPU(output.device);
 			  } else {
-				coslole.log( "This browser env do not support WebGPU");
+				console.log( "This browser env do not support WebGPU");
 				throw Error("This browser env do not support WebGPU");
 			  }
 			} catch (err) {
