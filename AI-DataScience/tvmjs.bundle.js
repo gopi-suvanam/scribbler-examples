@@ -558,7 +558,7 @@
                 if (adapter.features.has("shader-f16")) {
                     requiredFeatures.push("shader-f16");
                 }
-                const adapterInfo = yield adapter.requestAdapterInfo();
+                const adapterInfo = yield adapter.info;
                 const device = yield adapter.requestDevice({
                     requiredLimits: {
                         maxBufferSize: requiedMaxBufferSize,
