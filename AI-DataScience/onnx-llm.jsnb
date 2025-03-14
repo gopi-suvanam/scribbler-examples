@@ -10,98 +10,44 @@
   "cells": [
     {
       "code": "\nconst transformers =await import(\"https://cdn.jsdelivr.net/npm/@huggingface/transformers\");\nwindow.transformers=transformers;",
-      "status": "[4]<br><span style=\"font-size:8px\">11ms<span></span></span>",
+      "status": "[1]<br><span style=\"font-size:8px\">168ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "if(scrib.isSandboxed()) scrib.show(\"<p style='color:red' >You will have to take the notebook out of sandbox by clicking the red ⤯ button at the top right corner and then enter the phrase 'I trust'. Do this only if you got the notebook from a trusted source</p>\")",
+      "status": "[7]<br><span style=\"font-size:8px\">2ms<span></span></span>",
       "output": "",
       "type": "code"
     },
     {
       "code": "\nawait scrib.loadScript(\"https://cdn.jsdelivr.net/npm/onnxruntime-web@1.21.0/dist/ort.min.js\")",
-      "status": "[5]<br><span style=\"font-size:8px\">14ms<span></span></span>",
+      "status": "[2]<br><span style=\"font-size:8px\">8ms<span></span></span>",
       "output": "",
       "type": "code"
     },
     {
-      "code": "model=\"onnx-community/Llama-3.2-3B\"",
-      "status": "[3]<br><span style=\"font-size:8px\">5ms<span></span></span>",
-      "output": "onnx-community/Llama-3.2-3B <br>",
+      "code": "model=\"onnx-community/Llama-3.2-1B\"",
+      "status": "[3]<br><span style=\"font-size:8px\">3ms<span></span></span>",
+      "output": "onnx-community/Llama-3.2-1B <br>",
       "type": "code"
     },
     {
-      "code": "pipeline=await transformers.pipeline('text-generation', model,{ \n  model_file_name: 'model',dtype:\"q8\",sessionOptions: {\n            executionProviders: [\"webgpu\"],  // Use \"webgpu\" if supported\n        }\n});",
-      "status": "[*]",
+      "code": "\n\npipeline=await transformers.pipeline('text-generation', model,{ \n  model_file_name: 'model',dtype:\"int8\",sessionOptions: {\n            executionProviders: [\"webgpu\"],  // Use \"webgpu\" if supported\n        }\n});",
+      "status": "[4]<br><span style=\"font-size:8px\">3.521s<span></span></span>",
       "output": "",
       "type": "code"
     },
     {
-      "code": "prompt = \"Tell me a joke in 3 lines\";\n\n// Run the text generation pipeline\noutput = await pipeline(prompt, { max_new_tokens: 500 });\n\noutput[0].generated_text",
-      "status": "[8]<br><span style=\"font-size:8px\">275.002s<span></span></span>",
+      "code": "prompt = \"Tell me a joke in 3 lines\";\n\n// Run the text generation pipeline\noutput = await pipeline(prompt, { max_new_tokens: 500 });\n\n",
+      "status": "[5]<br><span style=\"font-size:8px\">230.174s<span></span></span>",
       "output": "",
       "type": "code"
     },
     {
-      "code": "output",
-      "status": "[9]<br><span style=\"font-size:8px\">5ms<span></span></span>",
-      "output": "[\n  {\n    \"generated_text\": \"Tell me a joke in 3 lines:\\n\\nA simple joke should be told quickly and with a smile on your face. It is the simplest yet easiest way to entertain someone without wasting too much time or energy.\\n\\n## A Brief Introduction\\n\\nThis lesson focuses on how you can use a few words to make a punchline, or end of a joke, stand out to engage an audience. We will also provide examples of common punchlines that are commonly used at sporting events.\\nWhen telling jokes as part of a presentation, it is important not to take too long to tell the entire joke, but still have the punchline grab all attention in short amount of time with a smiley smile, \\\"Haha\\\" or other positive feedback from the audience. Punchlines don’t need to contain the whole story of the joke; they only require information about what happened near the end, and often just one line.\\n\\n## Examples\\n\\nThe following two example jokes include punchlines: \\n\\nPunchline (1): The joke begins by talking about a group of cows entering a room together. After this description comes the punchline, which tells us exactly where the joke goes next - right into a field!\\n\\n PUNCH LINE: \\\"Oh no, they’re going to starve in a cornfield.\\\"\\n\\nPunchline (2): In the second example we see a man jumping off a cliff onto a horse-drawn carriage, before ending with the punchline of: \\\"It’s funny cause he was so heavy!\\\"\\n\\n## How to Develop Effective Punchlines\\n\\n### Use a Word Play or Rhetorical Question\\nOne effective way to develop punchlines involves word play like the examples above. When asking “Why do people buy cars?” the answer could be: \\n\\\"Poor reasons for owning cars.\\\"  \\nOr \\\"What causes some drivers to feel happy?\\\"  \\nAnother way is through rhetorical questions. Here's a great example:\\n\\\"How do giraffes get their food?\\\"\\n\\\"I guess it must be because they stand up!\\\"  \\n\\n### Humor Within the Punchline\\nHumor can also go inside the punchline itself. For this example, let's start off with:\\n\\\"A car is made.\\\"\\nAfter that line, continue:\\n\\\"The driver has fun driving.\\\"\\n\\nHere is our punchline: **\\\"Driving cars makes people happy,\\\"** making sure to maintain the humor within! This approach ensures readers find it funny and memorable.\\n\\n### Using a Common Phrase\\nAnother tactic to increase the effectiveness of your punchline is using a common phrase that evokes a reaction from the listeners\"\n  }\n] <br>",
-      "type": "code"
-    },
-    {
-      "code": "\n\nconst session = await ort.InferenceSession.create(\n  \"https://huggingface.co/onnx-community/Qwen2.5-1.5B-Instruct/resolve/main/onnx/model_quantized.onnx\",\n   { executionProviders: ['webgpu'] }\n\n\n);\n\n\nconsole.log(\"session\",session);\nwindow.ortSession=session;\n\n",
-      "status": "[4]<br><span style=\"font-size:8px\">89.218s<span></span></span>",
-      "output": "",
-      "type": "code"
-    },
-    {
-      "code": "\n\n// Get user input\nconst inputText = \"Tell me a joke.\";\n\n// Tokenize input\nconst tokenized = await tokenizer.encode(inputText);\n// Convert tokenized input to BigInt64Array for ONNX\nconst inputIds = new BigInt64Array(tokenized.map(BigInt));\nconsole.log(inputIds.length);\n// Convert tokenized input to ONNX tensor\nconst inputTensor = new ort.Tensor(\"int64\", inputIds, [1, inputIds.length]);\nconst positionIds = new Int32Array(inputIds.length);\n// If attention mask is required, create it\nconst attentionMask = new ort.Tensor(\n  \"int32\", \n  new Int32Array(new Array(inputIds.length).fill(1)), \n  [1, inputIds.length]\n);\n\n// Run inference\nlet pastKeyValues = {};\npastKeyValues = {};\nfor (let key of ortSession.outputNames) {\n  if (key.startsWith(\"present\")) {\n\tpastKeyValues[key] = 0;\n  }\n}\n\nconst feed = { input_ids: inputTensor, attention_mask: attentionMask ,position_ids:positionIds,...pastKeyValues};\nconst output = await ortSession.run(feed);\n\n\nconsole.log(\"ONNX Model Output:\", output);\n\n\n",
-      "status": "[-]",
-      "output": "<p class=\"error\">input 'past_key_values.0.key' is missing in 'feeds'.</p>",
-      "type": "code"
-    },
-    {
-      "code": "ortSession.inputNames",
-      "status": "[5]<br><span style=\"font-size:8px\">1ms<span></span></span>",
-      "output": "[\n  \"input_ids\",\n  \"attention_mask\",\n  \"position_ids\",\n  \"past_key_values.0.key\",\n  \"past_key_values.0.value\",\n  \"past_key_values.1.key\",\n  \"past_key_values.1.value\",\n  \"past_key_values.2.key\",\n  \"past_key_values.2.value\",\n  \"past_key_values.3.key\",\n  \"past_key_values.3.value\",\n  \"past_key_values.4.key\",\n  \"past_key_values.4.value\",\n  \"past_key_values.5.key\",\n  \"past_key_values.5.value\",\n  \"past_key_values.6.key\",\n  \"past_key_values.6.value\",\n  \"past_key_values.7.key\",\n  \"past_key_values.7.value\",\n  \"past_key_values.8.key\",\n  \"past_key_values.8.value\",\n  \"past_key_values.9.key\",\n  \"past_key_values.9.value\",\n  \"past_key_values.10.key\",\n  \"past_key_values.10.value\",\n  \"past_key_values.11.key\",\n  \"past_key_values.11.value\",\n  \"past_key_values.12.key\",\n  \"past_key_values.12.value\",\n  \"past_key_values.13.key\",\n  \"past_key_values.13.value\",\n  \"past_key_values.14.key\",\n  \"past_key_values.14.value\",\n  \"past_key_values.15.key\",\n  \"past_key_values.15.value\",\n  \"past_key_values.16.key\",\n  \"past_key_values.16.value\",\n  \"past_key_values.17.key\",\n  \"past_key_values.17.value\",\n  \"past_key_values.18.key\",\n  \"past_key_values.18.value\",\n  \"past_key_values.19.key\",\n  \"past_key_values.19.value\",\n  \"past_key_values.20.key\",\n  \"past_key_values.20.value\",\n  \"past_key_values.21.key\",\n  \"past_key_values.21.value\",\n  \"past_key_values.22.key\",\n  \"past_key_values.22.value\",\n  \"past_key_values.23.key\",\n  \"past_key_values.23.value\",\n  \"past_key_values.24.key\",\n  \"past_key_values.24.value\",\n  \"past_key_values.25.key\",\n  \"past_key_values.25.value\",\n  \"past_key_values.26.key\",\n  \"past_key_values.26.value\",\n  \"past_key_values.27.key\",\n  \"past_key_values.27.value\"\n] <br>",
-      "type": "code"
-    },
-    {
-      "code": "const generator = await window.transformers.pipeline(\n  \"text-generation\", \n  \"Xenova/Llama-3.2-1B-Instruct\"\n);\n\n// Define the list of messages\nconst messages = [\n  { role: \"system\", content: \"You are a helpful assistant.\" },\n  { role: \"user\", content: \"Tell me a joke.\" }\n];\n\n// Convert messages to a format suitable for the model\nconst inputText = messages.map(m => `${m.role}: ${m.content}`).join(\"\\n\");\n\n// Generate a response\nconst output = await generator(inputText, { max_new_tokens: 128 });\n\n// Log the generated response\nconsole.log(output[0].generated_text);",
-      "status": "[-]",
-      "output": "<p class=\"error\">Could not locate file: \"https://huggingface.co/Xenova/Llama-3.2-1B-Instruct/resolve/main/onnx/decoder_model_merged_quantized.onnx\".</p>",
-      "type": "code"
-    },
-    {
-      "code": "ort.env.wasm.wasmPaths = \"https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/\";\nort.env.wasm.numThreads = 4;\nort.env.wasm.simd = true; // Enable SIMD for performance boost\n",
-      "status": "[2]<br><span style=\"font-size:8px\">1ms<span></span></span>",
-      "output": "true <br>",
-      "type": "code"
-    },
-    {
-      "code": "const modelUrl = \"https://huggingface.co/onnx-community/Qwen2.5-1.5B/resolve/main/onnx/model.onnx\";\n\n\nasync function loadModel() {\n    try {\n        const session = await ort.InferenceSession.create(modelUrl);\n        console.log(\"ONNX model loaded successfully.\");\n        return session;\n    } catch (error) {\n        console.error(\"Error loading ONNX model:\", error);\n    }\n}\n\n\nwindow.session = await loadModel();",
-      "status": "[6]<br><span style=\"font-size:8px\">756ms<span></span></span>",
-      "output": "",
-      "type": "code"
-    },
-    {
-      "code": "session",
-      "status": "[-]",
-      "output": "<p class=\"error\">session is not defined</p>",
-      "type": "code"
-    },
-    {
-      "code": "",
-      "status": "[3]<br><span style=\"font-size:8px\">2ms<span></span></span>",
-      "output": "",
-      "type": "code"
-    },
-    {
-      "code": "",
-      "status": "",
-      "output": "",
-      "type": "code"
-    },
-    {
-      "code": "",
-      "status": "",
-      "output": "",
+      "code": "output[0].generated_text",
+      "status": "[6]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Tell me a joke in 3 lines of code. The first two lines are the same as the first two lines of the previous example. The third line is the same as the third line of the previous example. The fourth line is the same as the fourth line of the previous example. The fifth line is the same as the fifth line of the previous example. The sixth line is the same as the sixth line of the previous example. The seventh line is the same as the seventh line of the previous example. The eighth line is the same as the eighth line of the previous example. The ninth line is the same as the ninth line of the previous example. The tenth line is the same as the tenth line of the previous example. The eleventh line is the same as the eleventh line of the previous example. The twelfth line is the same as the twelfth line of the previous example. The thirteenth line is the same as the thirteenth line of the previous example. The fourteenth line is the same as the fourteenth line of the previous example. The fifteenth line is the same as the fifteenth line of the previous example. The sixteenth line is the same as the sixteenth line of the previous example. The seventeenth line is the same as the seventeenth line of the previous example. The eighteenth line is the same as the eighteenth line of the previous example. The nineteenth line is the same as the nineteenth line of the previous example. The twentieth line is the same as the twentieth line of the previous example. The twenty-first line is the same as the twenty-first line of the previous example. The twenty-second line is the same as the twenty-second line of the previous example. The twenty-third line is the same as the twenty-third line of the previous example. The twenty-fourth line is the same as the twenty-fourth line of the previous example. The twenty-fifth line is the same as the twenty-fifth line of the previous example. The twenty-sixth line is the same as the twenty-sixth line of the previous example. The twenty-seventh line is the same as the twenty-seventh line of the previous example. The twenty-eighth line is the same as the twenty-eighth line of the previous example. The twenty-ninth line is the same as the twenty-ninth line of the previous example. The thirtieth line is the same as the thirtieth line of the previous example. The thirty-first line is the <br>",
       "type": "code"
     }
   ],
