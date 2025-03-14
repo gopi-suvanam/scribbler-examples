@@ -9,25 +9,25 @@
   "jsnbversion": "v0.1",
   "cells": [
     {
-      "code": "const transformers =await import(\"https://cdn.jsdelivr.net/npm/@huggingface/transformers\");\nwindow.transformers=transformers;",
-      "status": "[1]<br><span style=\"font-size:8px\">50ms<span></span></span>",
+      "code": "\nconst transformers =await import(\"https://cdn.jsdelivr.net/npm/@huggingface/transformers\");\nwindow.transformers=transformers;",
+      "status": "[4]<br><span style=\"font-size:8px\">11ms<span></span></span>",
       "output": "",
       "type": "code"
     },
     {
-      "code": "await scrib.loadScript(\"https://cdn.jsdelivr.net/npm/onnxruntime-web@1.21.0/dist/ort.min.js\")",
-      "status": "[2]<br><span style=\"font-size:8px\">12ms<span></span></span>",
+      "code": "\nawait scrib.loadScript(\"https://cdn.jsdelivr.net/npm/onnxruntime-web@1.21.0/dist/ort.min.js\")",
+      "status": "[5]<br><span style=\"font-size:8px\">14ms<span></span></span>",
       "output": "",
       "type": "code"
     },
     {
       "code": "model=\"onnx-community/Llama-3.2-3B\"",
-      "status": "[3]<br><span style=\"font-size:8px\">3ms<span></span></span>",
+      "status": "[3]<br><span style=\"font-size:8px\">5ms<span></span></span>",
       "output": "onnx-community/Llama-3.2-3B <br>",
       "type": "code"
     },
     {
-      "code": "\npipeline=await transformers.pipeline('text-generation', model,{ \n  model_file_name: 'model',dtype:\"q8\",sessionOptions: {\n            executionProviders: [\"webgpu\"],  // Use \"webgpu\" if supported\n        }\n});",
+      "code": "pipeline=await transformers.pipeline('text-generation', model,{ \n  model_file_name: 'model',dtype:\"q8\",sessionOptions: {\n            executionProviders: [\"webgpu\"],  // Use \"webgpu\" if supported\n        }\n});",
       "status": "[*]",
       "output": "",
       "type": "code"
