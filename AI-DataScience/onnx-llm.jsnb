@@ -27,7 +27,7 @@
       "type": "code"
     },
     {
-      "code": "\npipeline=await transformers.pipeline('text-generation', model,{ \n  model_file_name: 'model',sessionOptions: {\n            executionProviders: [\"webgpu\"],  // Use \"webgpu\" if supported\n        }\n});",
+      "code": "\npipeline=await transformers.pipeline('text-generation', model,{ \n  model_file_name: 'model',dtype:\"q8\",sessionOptions: {\n            executionProviders: [\"webgpu\"],  // Use \"webgpu\" if supported\n        }\n});",
       "status": "[*]",
       "output": "",
       "type": "code"
