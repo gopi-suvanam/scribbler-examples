@@ -1,0 +1,134 @@
+{
+  "metadata": {
+    "name": "Top 10 JS Interview Problems<br>",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<h1>1. Reversing a String </h1>",
+      "status": "",
+      "output": "<h1>1. Reversing a String </h1>",
+      "type": "html"
+    },
+    {
+      "code": "function reverseStr(str) {\n  return str.split('').reverse().join('');\n}\nscrib.show(reverseStr(\"ABC\"));",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "CBA <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>2. Check Palindrome</h1>",
+      "status": "",
+      "output": "<h1>2. Check Palindrome</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function isPalindrome(str) {\n  return str === str.split('').reverse().join('');\n}\nscrib.show(isPalindrome(\"MADAM\"));",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "true <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>3. FizzBuzz</h1>",
+      "status": "",
+      "output": "<h1>3. FizzBuzz</h1>",
+      "type": "html"
+    },
+    {
+      "code": "for (let i = 1; i <= 10; i++) {\n  let out = '';\n  if (i % 3 === 0) out += 'Fizz';\n  if (i % 5 === 0) out += 'Buzz';\n  scrib.show(out || i);\n}",
+      "status": "[5]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "1 <br>2 <br>Fizz <br>4 <br>Buzz <br>Fizz <br>7 <br>8 <br>Fizz <br>Buzz <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>4. Find the Factorial of a Number</h1>",
+      "status": "",
+      "output": "<h1>4. Find the Factorial of a Number</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function factorial(n) {\n  return n <= 1 ? 1 : n * factorial(n - 1);\n}\nscrib.show(factorial(5));",
+      "status": "[6]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "120 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>5. Find the Largest Number in an Array </h1>",
+      "status": "",
+      "output": "<h1>5. Find the Largest Number in an Array </h1>",
+      "type": "html"
+    },
+    {
+      "code": "function findMax(arr) {\n  return Math.max(...arr);\n}\n\nscrib.show(findMax([1,2,3,56]));",
+      "status": "[7]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "56 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>6. Remove Duplicates from an Array</h1>",
+      "status": "",
+      "output": "<h1>6. Remove Duplicates from an Array</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function removeDuplicates(arr) {\n  return [...new Set(arr)];\n}\nscrib.show(removeDuplicates([1,1,2,2,2]));",
+      "status": "[8]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "[\n  1,\n  2\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>7. Count Occurrences of a Character in a String</h1>",
+      "status": "",
+      "output": "<h1>7. Count Occurrences of a Character in a String</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function charCount(str, char) {\n  return str.split(char).length - 1;\n}\nscrib.show(charCount(\"Hello World\", 'l'));",
+      "status": "[9]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "3 <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>8. Find the First Non-Repeating Character</h1>",
+      "status": "",
+      "output": "<h1>8. Find the First Non-Repeating Character</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function firstUniqueChar(str) {\n  for (let char of str) {\n    if (str.indexOf(char) === str.lastIndexOf(char)) return char;\n  }\n  return null;\n}\nscrib.show(firstUniqueChar(\"Hello World\"));",
+      "status": "[10]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "H <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>9. Flatten a Nested Array</h1>",
+      "status": "",
+      "output": "<h1>9. Flatten a Nested Array</h1>",
+      "type": "html"
+    },
+    {
+      "code": "function flatten(arr) {\n  return arr.flat(Infinity);\n}\nscrib.show(flatten([1,2,[3,4]]));",
+      "status": "[12]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "[\n  1,\n  2,\n  3,\n  4\n] <br>",
+      "type": "code"
+    },
+    {
+      "code": "<h1>10. Check if Two Strings Are Anagrams </h1>",
+      "status": "",
+      "output": "<h1>10. Check if Two Strings Are Anagrams </h1>",
+      "type": "html"
+    },
+    {
+      "code": "function isAnagram(a, b) {\n  return a.split('').sort().join('') === b.split('').sort().join('');\n}\nscrib.show(isAnagram(\"listen\",\"silent\"));",
+      "status": "[14]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "true <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/scribbler",
+  "run_on_load": false
+}
