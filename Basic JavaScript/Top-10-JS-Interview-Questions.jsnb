@@ -1,0 +1,200 @@
+{
+  "metadata": {
+    "name": "Scribbler Notebook",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "\n## **10 JavaScript Interview Questions You Should Know — Explained with Code**\n\nJavaScript is full of nuances, quirks, and powerful features that are essential for becoming a confident developer. In this article, we’ll walk through 10 important concepts—like hoisting, closures, and event delegation—using clear explanations and real code snippets. Whether you’re brushing up or learning fresh, this is your go-to guide.\n\n\n\n### 1. **`var`, `let`, and `const`**\n\nJavaScript offers three ways to declare variables: `var`, `let`, and `const`. Each behaves a little differently:\n\n* `var` is **function-scoped**, hoisted, and can be redeclared.\n* `let` and `const` are **block-scoped** and not redeclarable in the same scope.\n* `const` cannot be reassigned.\n\n",
+      "status": "",
+      "output": "<h2><strong>10 JavaScript Interview Questions You Should Know — Explained with Code</strong></h2>\n<p>JavaScript is full of nuances, quirks, and powerful features that are essential for becoming a confident developer. In this article, we’ll walk through 10 important concepts—like hoisting, closures, and event delegation—using clear explanations and real code snippets. Whether you’re brushing up or learning fresh, this is your go-to guide.</p>\n<h3>1. <strong><code>var</code>, <code>let</code>, and <code>const</code></strong></h3>\n<p>JavaScript offers three ways to declare variables: <code>var</code>, <code>let</code>, and <code>const</code>. Each behaves a little differently:</p>\n<ul>\n<li><code>var</code> is <strong>function-scoped</strong>, hoisted, and can be redeclared.</li>\n<li><code>let</code> and <code>const</code> are <strong>block-scoped</strong> and not redeclarable in the same scope.</li>\n<li><code>const</code> cannot be reassigned.</li>\n</ul>\n",
+      "type": "html"
+    },
+    {
+      "code": "function testScope() {\n  if (true) {\n    var a = 10;\n    let b = 20;\n  }\n\n  scrib.show(a); // ✅ 10\n  scrib.show(b); // ❌ ReferenceError\n}\ntestScope()",
+      "status": "[-]",
+      "output": "10 <br><p class=\"error\">b is not defined</p>",
+      "type": "code"
+    },
+    {
+      "code": "function testScope() {\n  if (true) {\n    const b = 20;\n\tb=30;\n  }\n\n}\ntestScope()",
+      "status": "[-]",
+      "output": "<p class=\"error\">Assignment to constant variable.</p>",
+      "type": "code"
+    },
+    {
+      "code": "\n\n\n### 2. **Hoisting**\n\n**Hoisting** means JavaScript moves declarations to the top of their scope. But only function declarations and `var` are hoisted, not `let` or `const`.\n\n",
+      "status": "",
+      "output": "<h3>2. <strong>Hoisting</strong></h3>\n<p><strong>Hoisting</strong> means JavaScript moves declarations to the top of their scope. But only function declarations and <code>var</code> are hoisted, not <code>let</code> or <code>const</code>.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "scrib.show(a); // undefined\nvar a = 5;\n\nscrib.show(b); // ❌ ReferenceError\nlet b = 10;\n",
+      "status": "[-]",
+      "output": "undefined <br><p class=\"error\">Cannot access 'b' before initialization</p>",
+      "type": "code"
+    },
+    {
+      "code": "greet(); // ✅ Works\n\nfunction greet() {\n  scrib.show(\"Hello!\");\n}\n",
+      "status": "[2]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Hello! <br>",
+      "type": "code"
+    },
+    {
+      "code": "\n\n\n### 3. **`this` Keyword**\n\n`this` refers to the context in which a function is called. It can vary:\n\n",
+      "status": "",
+      "output": "<h3>3. <strong><code>this</code> Keyword</strong></h3>\n<p><code>this</code> refers to the context in which a function is called. It can vary:</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "const obj = {\n  name: \"Scribbler\",\n  sayName() {\n    scrib.show(this.name);\n  }\n};\n\nobj.sayName(); // Scribbler\n\nconst say = obj.sayName;\nsay(); // undefined or window/global depending on strict mode\n",
+      "status": "[3]<br><span style=\"font-size:8px\">2ms<span></span></span>",
+      "output": "Scribbler <br> <br>",
+      "type": "code"
+    },
+    {
+      "code": "\nIn arrow functions, `this` is **lexically bound**:\n\n",
+      "status": "",
+      "output": "<p>In arrow functions, <code>this</code> is <strong>lexically bound</strong>:</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "const obj = {\n  counter: 0,\n  inc: () => {\n    scrib.show(this.counter); // not what you expect\n  }\n};\n\nobj.inc(); // undefined\n",
+      "status": "[5]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "undefined <br>",
+      "type": "code"
+    },
+    {
+      "code": "\n\n\n### 4. **Closures**\n\nA **closure** is when a function remembers the variables from its outer scope, even after that scope has returned.\n\n",
+      "status": "",
+      "output": "<h3>4. <strong>Closures</strong></h3>\n<p>A <strong>closure</strong> is when a function remembers the variables from its outer scope, even after that scope has returned.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "function makeCounter() {\n  let count = 0;\n  return function () {\n    count++;\n    return count;\n  };\n}\n\nconst counter = makeCounter();\nscrib.show(counter()); // 1\nscrib.show(counter()); // 2\n",
+      "status": "[6]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "1 <br>2 <br>",
+      "type": "code"
+    },
+    {
+      "code": "\nClosures are key to encapsulation and data privacy.\n\n\n\n### 5. **Event Delegation**\n\nInstead of adding listeners to each element, add one to a common ancestor. It uses event bubbling.\n\n",
+      "status": "",
+      "output": "<p>Closures are key to encapsulation and data privacy.</p>\n<h3>5. <strong>Event Delegation</strong></h3>\n<p>Instead of adding listeners to each element, add one to a common ancestor. It uses event bubbling.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "//>html\n<ul id=\"list\">\n  <li>One</li>\n  <li>Two</li>\n</ul>\n\n\n",
+      "status": "[9]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "\n<ul id=\"list\">\n  <li>One</li>\n  <li>Two</li>\n</ul>\n\n\n <br>",
+      "type": "code"
+    },
+    {
+      "code": "  document.getElementById(\"list\").addEventListener(\"click\", function (e) {\n    if (e.target.tagName === \"LI\") {\n      scrib.show(\"Clicked:\", e.target.textContent);\n    }\n  });",
+      "status": "[10]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Clicked: One <br>Clicked: Two <br>Clicked: One <br>Clicked: Two <br>",
+      "type": "code"
+    },
+    {
+      "code": "\nEvent delegation is efficient for dynamic content.\n\n\n\n### 6. **`==` vs `===`**\n\n* `==` checks for **equality with type coercion**\n* `===` checks for **strict equality** (no coercion)\n\n",
+      "status": "",
+      "output": "<p>Event delegation is efficient for dynamic content.</p>\n<h3>6. <strong><code>==</code> vs <code>===</code></strong></h3>\n<ul>\n<li><code>==</code> checks for <strong>equality with type coercion</strong></li>\n<li><code>===</code> checks for <strong>strict equality</strong> (no coercion)</li>\n</ul>\n",
+      "type": "html"
+    },
+    {
+      "code": "scrib.show(0 == false)     // true\nscrib.show(0 === false )   // false\nscrib.show('5' == 5 )      // true\nscrib.show('5' === 5 )     // false\n",
+      "status": "[12]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "true <br>false <br>true <br>false <br>",
+      "type": "code"
+    },
+    {
+      "code": "\nAlways prefer `===` unless you have a good reason not to.\n\n\n\n### 7. **Event Loop**\n\nJavaScript is single-threaded but can handle async code using the **event loop**. Tasks are scheduled in the **call stack**, **callback queue**, and **microtask queue**.\n\n",
+      "status": "",
+      "output": "<p>Always prefer <code>===</code> unless you have a good reason not to.</p>\n<h3>7. <strong>Event Loop</strong></h3>\n<p>JavaScript is single-threaded but can handle async code using the <strong>event loop</strong>. Tasks are scheduled in the <strong>call stack</strong>, <strong>callback queue</strong>, and <strong>microtask queue</strong>.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "scrib.show(\"Start\");\n\nsetTimeout(() => scrib.show(\"Timeout\"), 0);\n\nPromise.resolve().then(() => scrib.show(\"Promise\"));\n\nscrib.show(\"End\");\n",
+      "status": "[15]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "Start <br>End <br>Promise <br>Timeout <br>",
+      "type": "code"
+    },
+    {
+      "code": "\n\n\n### 8. **Promises**\n\nPromises handle async operations. They can be `.then()` chained or `await`ed.\n\n",
+      "status": "",
+      "output": "<h3>8. <strong>Promises</strong></h3>\n<p>Promises handle async operations. They can be <code>.then()</code> chained or <code>await</code>ed.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "function getData() {\n  return new Promise((resolve) => {\n    setTimeout(() => resolve(\"Done!\"), 2000);\n  });\n}\n\ngetData().then(scrib.show);\n",
+      "status": "[20]<br><span style=\"font-size:8px\">2.003s<span></span></span>",
+      "output": "Done! <br>",
+      "type": "code"
+    },
+    {
+      "code": "\nUsing `async/await`:\n\n",
+      "status": "",
+      "output": "<p>Using <code>async/await</code>:</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "async function run() {\n  const result = await getData();\n  scrib.show(result);\n}\nrun();",
+      "status": "[21]<br><span style=\"font-size:8px\">2.001s<span></span></span>",
+      "output": "Done! <br>",
+      "type": "code"
+    },
+    {
+      "code": "\n\n\n### 9. **`null` vs `undefined`**\n\n* `undefined` means a variable has been declared but not assigned a value.\n* `null` is an intentional absence of any value.\n\n",
+      "status": "",
+      "output": "<h3>9. <strong><code>null</code> vs <code>undefined</code></strong></h3>\n<ul>\n<li><code>undefined</code> means a variable has been declared but not assigned a value.</li>\n<li><code>null</code> is an intentional absence of any value.</li>\n</ul>\n",
+      "type": "html"
+    },
+    {
+      "code": "let a;\nscrib.show(a); // undefined\n\nlet b = null;\nscrib.show(b); // null\nif(a) scrib.show(\"a has value\");else scrib.show(\"a does not have value\");\nif(a) scrib.show(\"b has value\");else scrib.show(\"b does not have value\");\nlet c=b+2; //works\nscrib.show(\"c:\",c)\nlet d=a+2; //NaN - not a nummber\nscrib.show(\"d:\",d)",
+      "status": "[32]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "undefined <br>null <br>a does not have value <br>b does not have value <br>c: 2 <br>d: NaN <br>",
+      "type": "code"
+    },
+    {
+      "code": "\nUse `null` when you want to intentionally clear a variable.",
+      "status": "",
+      "output": "<p>Use <code>null</code> when you want to intentionally clear a variable.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "\n\n\n\n### 10. **Closures in JavaScript**\nClosures are fundamental in JavaScript and work beautifully inside Scribbler because you can see how values persist in functions.\n\n",
+      "status": "",
+      "output": "<h3>10. <strong>Closures in JavaScript</strong></h3>\n<p>Closures are fundamental in JavaScript and work beautifully inside Scribbler because you can see how values persist in functions.</p>\n",
+      "type": "html"
+    },
+    {
+      "code": "function createCounter() {\n  let counter = 0;\n\n  return function () {\n    counter++;\n    scrib.show(\"Counter:\"+counter);\n  };\n}\n\n window.myCounter = createCounter();\n\n",
+      "status": "[53]<br><span style=\"font-size:8px\">2ms<span></span></span>",
+      "output": "function () {\n    counter++;\n    scrib.show(\"Counter:\"+counter);\n  } <br>Counter:1 <br>Counter:2 <br>Counter:3 <br>",
+      "type": "code"
+    },
+    {
+      "code": "//> html\n<button onclick='myCounter()'>Click me</button>",
+      "status": "[51]<br><span style=\"font-size:8px\">2ms<span></span></span>",
+      "output": "\n<button onclick=\"myCounter()\">Click me</button> <br>",
+      "type": "code"
+    },
+    {
+      "code": "\n\n### What’s Happening?\n\n* `createCounter` returns a function that remembers the `count` variable.\n* Every time you click, the `count` is incremented — even though `createCounter()` has already finished executing.\n* That’s the **closure** — the inner function keeps access to variables in the outer function’s scope.\n\n",
+      "status": "",
+      "output": "<h3>What’s Happening?</h3>\n<ul>\n<li><code>createCounter</code> returns a function that remembers the <code>count</code> variable.</li>\n<li>Every time you click, the <code>count</code> is incremented — even though <code>createCounter()</code> has already finished executing.</li>\n<li>That’s the <strong>closure</strong> — the inner function keeps access to variables in the outer function’s scope.</li>\n</ul>\n",
+      "type": "html"
+    },
+    {
+      "code": "\n\nThese 10 concepts form a foundation for understanding how JavaScript *really* works. If you're building in-browser notebooks, dashboards, or experimenting with front-end ideas, understanding these gives you the power to control behavior, performance, and structure with confidence.\n\n\n#### Check out the [Scribbler Gallery](https://scribbler.live/samples.html) and try out more code live!\n\n",
+      "status": "",
+      "output": "<p>These 10 concepts form a foundation for understanding how JavaScript <em>really</em> works. If you're building in-browser notebooks, dashboards, or experimenting with front-end ideas, understanding these gives you the power to control behavior, performance, and structure with confidence.</p>\n<h4>Check out the <a href=\"https://scribbler.live/samples.html\">Scribbler Gallery</a> and try out more code live!</h4>\n",
+      "type": "html"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/scribbler",
+  "run_on_load": false
+}
