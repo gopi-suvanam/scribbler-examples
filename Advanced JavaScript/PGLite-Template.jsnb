@@ -9,26 +9,20 @@
   "jsnbversion": "v0.1",
   "cells": [
     {
-      "code": "//> module\nimport { PGlite } from 'https://cdn.jsdelivr.net/npm/@electric-sql/pglite/dist/index.js';\nwindow.PGlite=PGlite",
-      "status": "[1]<br><span style=\"font-size:8px\">5ms<span></span></span>",
+      "code": "//> module\nimport { PGlite } from 'https://cdn.jsdelivr.net/npm/@electric-sql/pglite/dist/index.js';\nwindow.db = new PGlite();\n",
+      "status": "[3]<br><span style=\"font-size:8px\">3ms<span></span></span>",
       "output": " <br>",
       "type": "code"
     },
     {
-      "code": "var db = new PGlite();\n'p'",
-      "status": "[2]<br><span style=\"font-size:8px\">5ms<span></span></span>",
-      "output": "p <br>",
-      "type": "code"
-    },
-    {
       "code": "await db.exec(`\n  CREATE TABLE IF NOT EXISTS todo (\n    id SERIAL PRIMARY KEY,\n    task TEXT,\n    done BOOLEAN DEFAULT false\n  );\n  INSERT INTO todo (task, done) VALUES ('Install PGlite from NPM', true);\n  INSERT INTO todo (task, done) VALUES ('Load PGlite', true);\n  INSERT INTO todo (task, done) VALUES ('Create a table', true);\n  INSERT INTO todo (task, done) VALUES ('Insert some data', true);\n  INSERT INTO todo (task) VALUES ('Update a task');\n`)",
-      "status": "[3]<br><span style=\"font-size:8px\">11ms<span></span></span>",
+      "status": "[4]<br><span style=\"font-size:8px\">13ms<span></span></span>",
       "output": "",
       "type": "code"
     },
     {
       "code": "const ret = await db.query(`\n  SELECT * from todo WHERE id = 1;\n`)\nscrib.show(ret.rows)",
-      "status": "[4]<br><span style=\"font-size:8px\">9ms<span></span></span>",
+      "status": "[5]<br><span style=\"font-size:8px\">18ms<span></span></span>",
       "output": "[\n  {\n    \"id\": 1,\n    \"task\": \"Install PGlite from NPM\",\n    \"done\": true\n  }\n] <br>",
       "type": "code"
     }
