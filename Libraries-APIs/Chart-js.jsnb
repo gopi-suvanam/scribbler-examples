@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "name": "Scribbler Notebook",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "# Creating Charts with Chart.js\n\nIn this example, we create a basic **line chart** using Chart.js loaded from a CDN. The chart displays monthly sales data and demonstrates how to set up Chart.js in a browser without any build tools.\n\n### Features:\n- Uses the **UMD version** of Chart.js via CDN.\n- Draws a simple **line chart** with labels and a dataset.\n- Chart is fully **responsive** and includes a **title**",
+      "status": "",
+      "output": "<h1>Creating Charts with Chart.js</h1>\n<p>In this example, we create a basic <strong>line chart</strong> using Chart.js loaded from a CDN. The chart displays monthly sales data and demonstrates how to set up Chart.js in a browser without any build tools.</p>\n<h3>Features:</h3>\n<ul>\n<li>Uses the <strong>UMD version</strong> of Chart.js via CDN.</li>\n<li>Draws a simple <strong>line chart</strong> with labels and a dataset.</li>\n<li>Chart is fully <strong>responsive</strong> and includes a <strong>title</strong></li>\n</ul>\n",
+      "type": "html"
+    },
+    {
+      "code": "await scrib.loadScript(\"https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js\")",
+      "status": "[4]<br><span style=\"font-size:8px\">3ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "//>html\n<canvas id=\"myChart\"></canvas>",
+      "status": "[5]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "output": "\n<canvas id=\"myChart\" width=\"1357\" height=\"678\" style=\"display: block; box-sizing: border-box; height: 754px; width: 1508px;\"></canvas> <br>",
+      "type": "code"
+    },
+    {
+      "code": "const ctx = document.getElementById('myChart').getContext('2d');\n      new Chart(ctx, {\n        type: 'line',\n        data: {\n          labels: ['January', 'February', 'March', 'April', 'May'],\n          datasets: [{\n            label: 'Sales',\n            data: [10, 20, 15, 25, 30],\n            borderColor: 'blue',\n            backgroundColor: 'rgba(0,0,255,0.1)',\n            fill: true\n          }]\n        },\n        options: {\n          responsive: true,\n          plugins: {\n            title: {\n              display: true,\n              text: 'Monthly Sales'\n            }\n          }\n        }\n      });\n0",
+      "status": "[6]<br><span style=\"font-size:8px\">10ms<span></span></span>",
+      "output": "0 <br>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/scribbler",
+  "run_on_load": true
+}
