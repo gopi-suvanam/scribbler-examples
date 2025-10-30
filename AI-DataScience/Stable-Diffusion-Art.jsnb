@@ -21,15 +21,9 @@
       "type": "html"
     },
     {
-      "code": "\n### Please take the notebook out of sandbox by cliking `Edit->Trust the NB`\nCheck the code before you do that and ensure the notebook does not access private info",
-      "status": "",
-      "output": "<h3>Please take the notebook out of sandbox by cliking <code>Edit-&gt;Trust the NB</code></h3>\n<p>Check the code before you do that and ensure the notebook does not access private info</p>\n",
-      "type": "html"
-    },
-    {
       "code": "<span id=\"init-progress-tracker-label\">Stable Diffusion Not Loaded</span>\n<progress id=\"init-progress-tracker-progress\" max=\"100\" value=\"100\"> </progress>\n",
       "status": "",
-      "output": "<p><span id=\"init-progress-tracker-label\">Stable Diffusion Not Loaded</span>\n<progress id=\"init-progress-tracker-progress\" max=\"100\" value=\"100\"> </progress></p>\n",
+      "output": "<p><span id=\"init-progress-tracker-label\">Fetching param cache[25/61]: 821MB fetched. 41% completed, 5 secs elapsed. It can take a while when we first visit this page to populate the cache. Later refreshes will become faster.</span>\n<progress id=\"init-progress-tracker-progress\" max=\"100\" value=\"41.66904525638633\"> </progress></p>\n",
       "type": "html"
     },
     {
@@ -45,20 +39,20 @@
       "type": "html"
     },
     {
-      "code": "\n async function loadSDEngine(){\n  await scrib.loadScript(\"https://websd.mlc.ai/dist/tvmjs_runtime.wasi.js\");\n  await scrib.loadScript(\"https://cdn.jsdelivr.net/gh/gopi-suvanam/scribbler-examples@latest/AI-DataScience/tvmjs-modified.bundle.js\");\n  tvmjsGlobalEnv={};\n  await scrib.loadScript(\"https://examples.scribbler.live/stable_diffusion.js\");\n  await scrib.loadScript(\"https://websd.mlc.ai/assets/js/srcset-polyfill.js\");\n  tokenizers=await import( \"https://websd.mlc.ai/dist/tokenizers-wasm/tokenizers_wasm.js\");\n  TokenizerWasm = tokenizers.TokenizerWasm;\n  init=tokenizers.default;\n  async function getTokenizer(name) {\n\tawait init();\n\tconst jsonText = await (await fetch(\"https://huggingface.co/\" + name + \"/raw/main/tokenizer.json\")).text();\n\treturn new TokenizerWasm(jsonText);\n  }\n  tvmjsGlobalEnv.getTokenizer = getTokenizer;  \n  function initProgressCallback(report) {\n\tdocument.getElementById(\"init-progress-tracker-label\").innerHTML = report.text;\n\tdocument.getElementById(\"init-progress-tracker-progress\").value = report.progress * 100;\n  }\n  window.sdEngine=await getWebStableDiffusion(initProgressCallback,scrib.getDom(\"canvas\"));\n}\nawait loadSDEngine();\ndocument.getElementById(\"init-progress-tracker-label\").innerHTML = \"Model ready to be used\";",
-      "status": "[-]",
-      "output": "<p class=\"error\">Failed to read the 'caches' property from 'Window': Cache storage is disabled because the context is sandboxed and lacks the 'allow-same-origin' flag.</p>",
+      "code": "\n async function loadSDEngine(){\n  await scrib.loadScript(\"https://websd.mlc.ai/dist/tvmjs_runtime.wasi.js\");\n  await scrib.loadScript(\"https://cdn.jsdelivr.net/gh/gopi-suvanam/scribbler-examples/AI-DataScience/tvmjs-modified.bundle.js\");\n  tvmjsGlobalEnv={};\n  await scrib.loadScript(\"https://examples.scribbler.live/stable_diffusion.js\");\n  await scrib.loadScript(\"https://websd.mlc.ai/assets/js/srcset-polyfill.js\");\n  tokenizers=await import( \"https://websd.mlc.ai/dist/tokenizers-wasm/tokenizers_wasm.js\");\n  TokenizerWasm = tokenizers.TokenizerWasm;\n  init=tokenizers.default;\n  async function getTokenizer(name) {\n\tawait init();\n\tconst jsonText = await (await fetch(\"https://huggingface.co/\" + name + \"/raw/main/tokenizer.json\")).text();\n\treturn new TokenizerWasm(jsonText);\n  }\n  tvmjsGlobalEnv.getTokenizer = getTokenizer;  \n  function initProgressCallback(report) {\n\tdocument.getElementById(\"init-progress-tracker-label\").innerHTML = report.text;\n\tdocument.getElementById(\"init-progress-tracker-progress\").value = report.progress * 100;\n  }\n  window.sdEngine=await getWebStableDiffusion(initProgressCallback,scrib.getDom(\"canvas\"));\n}\nawait loadSDEngine();\ndocument.getElementById(\"init-progress-tracker-label\").innerHTML = \"Model ready to be used\";",
+      "status": "[*]",
+      "output": "",
       "type": "code"
     },
     {
       "code": "function progressCallback(stage, counter, numSteps, totalNumSteps) {\n  const timeElapsed = (performance.now() - tstart) / 1000;\n  let text = \"Generating ... at stage \" + stage;\n  if (stage == \"unet\") {\n\tcounter += 1;\n\ttext += \" step [\" + counter + \"/\" + numSteps + \"]\"\n  }\n  if (stage == \"vae\") {\n\tcounter = totalNumSteps;\n  }\n  text += \", \" + Math.ceil(timeElapsed) + \" secs elapsed.\";\n  document.getElementById(\"progress-tracker-label\").innerHTML = text;\n  document.getElementById(\"progress-tracker-progress\").value = (counter / totalNumSteps) * 100;\n}",
-      "status": "[1]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
       "output": "",
       "type": "code"
     },
     {
       "code": "async function generate(){\n  const prompt = document.getElementById(\"inputPrompt\").value;\n  const artist = document.getElementById(\"artist\").value;\n  \n  const negPrompt = document.getElementById(\"negativePrompt\").value;\n  window.tstart=performance.now();\n  await sdEngine.generate(`${artist} style art on: ${prompt}`, negPrompt, progressCallback, 0, vaeCycle);\n}\nscrib.getDom(\"generate\").onclick=generate;\n\"\"",
-      "status": "[2]<br><span style=\"font-size:8px\">1ms<span></span></span>",
+      "status": "[3]<br><span style=\"font-size:8px\">0ms<span></span></span>",
       "output": " <br>",
       "type": "code"
     }
