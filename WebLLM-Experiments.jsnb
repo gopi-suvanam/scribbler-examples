@@ -22,19 +22,19 @@
     },
     {
       "code": "webllm = await import(\"https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@0.2.72/lib/index.min.js\");",
-      "status": "[2]<br><span style=\"font-size:8px\">113ms<span></span></span>",
+      "status": "[2]<br><span style=\"font-size:8px\">55ms<span></span></span>",
       "output": "",
       "type": "code"
     },
     {
       "code": "<h2>Loading Progress</h2>\n<progress id=\"loading-progress-bar\" value=\"0\" max=\"1\"></progress>\n<span id=\"loading-progress-text\">0%</span>\n",
       "status": "",
-      "output": "<h2>Loading Progress</h2>\n<progress id=\"loading-progress-bar\" value=\"1\" max=\"1\"></progress>\n<span id=\"loading-progress-text\">100%</span>\n",
+      "output": "<h2>Loading Progress</h2>\n<progress id=\"loading-progress-bar\" value=\"0.9736842105263158\" max=\"1\"></progress>\n<span id=\"loading-progress-text\">97%</span>\n",
       "type": "html"
     },
     {
       "code": "\n\n// Callback function to update model loading progress\nconst progressBar = document.getElementById('loading-progress-bar');\nconst progressText = document.getElementById('loading-progress-text');\nconst initProgressCallback = (initProgress) => {\n  const progressValue = initProgress.progress;\n  progressBar.value = progressValue;\n  progressText.textContent = `${Math.round(progressValue * 100)}%`;\n}\n\nconst selectedModel = \"Llama-3.2-3B-Instruct-q4f16_1-MLC\";\nprogressText.textContent = \"Initializing : 0%\"\nconst engine = await webllm.CreateMLCEngine(\n  selectedModel,\n  { initProgressCallback: initProgressCallback }, // engineConfig\n);\nwindow.engine=engine;",
-      "status": "[5]<br><span style=\"font-size:8px\">8.9s<span></span></span>",
+      "status": "[*]",
       "output": "",
       "type": "code"
     },
@@ -45,9 +45,15 @@
       "type": "html"
     },
     {
-      "code": "let query=document.getElementById('query').value;\nconst messages = [\n  { role: \"system\", content: \"You are a helpful AI assistant.\" },\n  { role: \"user\", content: query},\n]\n\n// Chunks is an AsyncGenerator object\nconst chunks = await engine.chat.completions.create({\n  messages,\n  temperature: 1,\n  stream: true, // <-- Enable streaming\n  stream_options: { include_usage: true },\n});\n\nlet reply = \"\";\nlet num_tok=0;\nfor await (const chunk of chunks) {\n  reply += chunk.choices[0]?.delta.content || \"\";\n  \tnum_tok=num_tok+1;\n\tscrib.currCell().innerHTML= marked.marked(reply);\n\n}\nscrib.show(\"num_tok\",num_tok)\n//scrib.show(reply.usage);",
-      "status": "[4]<br><span style=\"font-size:8px\">15.45s<span></span></span>",
-      "output": "<h1><strong>Palindrome Function in JavaScript</strong></h1>\n<p>A palindrome is a word, phrase, number, or other sequence of characters that reads the same forward and backward.</p>\n<p>Here is a simple JavaScript function to check if a given string is a palindrome:</p>\n<pre><code class=\"language-javascript\">function isPalindrome(str) {\n  str = str.toLowerCase(); // convert to lowercase\n  let start = 0;\n  let end = str.length - 1;\n\n  while (start &lt; end) {\n    if (str[start] !== str[end]) {\n      return false; // not a palindrome\n    }\n    start++;\n    end--;\n  }\n\n  return true; // is a palindrome\n}\n\nconsole.log(isPalindrome(\"madam\")); // true\nconsole.log(isPalindrome(\"hello\")); // false\nconsole.log(isPalindrome(\"A man, a plan, a canal: Panama\")); // true\n</code></pre>\n<p>This function works by comparing characters from the start and end of the string, moving towards the center. If any pair of characters do not match, the function immediately returns <code>false</code>. If the function completes the comparison without finding any mismatches, it returns <code>true</code>.</p>\n<p>Alternatively, you can use a more concise solution:</p>\n<pre><code class=\"language-javascript\">function isPalindrome(str) {\n  return str.toLowerCase() === str.split(\"\").reverse().join(\"\");\n}\n\nconsole.log(isPalindrome(\"madam\")); // true\nconsole.log(isPalindrome(\"hello\")); // false\nconsole.log(isPalindrome(\"A man, a plan, a canal: Panama\")); // true\n</code></pre>\n<p>This function uses the <code>split(\"\")</code>, <code>reverse()</code>, and <code>join(\"\")</code> methods to reverse the string, and then compares the reversed string with the original string.</p>\n",
+      "code": "let start=new Date()\nlet query=document.getElementById('query').value;\nconst messages = [\n  { role: \"system\", content: \"You are a helpful AI assistant.\" },\n  { role: \"user\", content: query},\n]\n\n// Chunks is an AsyncGenerator object\nconst chunks = await engine.chat.completions.create({\n  messages,\n  temperature: 1,\n  stream: true, // <-- Enable streaming\n  stream_options: { include_usage: true },\n});\n\nlet reply = \"\";\nlet num_tok=0;\nfor await (const chunk of chunks) {\n  reply += chunk.choices[0]?.delta.content || \"\";\n  \tnum_tok=num_tok+1;\n\tscrib.currCell().innerHTML= marked.marked(reply);\n\n}\nlet end=new Date();\nlet time_taken = (end- start)/1000;\nscrib.show(\"num_tok\",num_tok)\nscrib.show(\"Time taken\",time_taken)\nscrib.show(\"tokens per second:\",num_tok/time_taken)\n//scrib.show(reply.usage);",
+      "status": "[12]<br><span style=\"font-size:8px\">1.428s<span></span></span>",
+      "output": "<p>Here's one:</p>\n<p>What do you call a group of cows playing instruments?</p>\n<p>(wait for it...)</p>\n<p>A MOO-sical band!</p>\n<p>How was that? Did I make you smile?</p>\nnum_tok 39 <br>Time taken 1.427 <br>tokens per second: 27.330063069376312 <br>",
+      "type": "code"
+    },
+    {
+      "code": "",
+      "status": "",
+      "output": "",
       "type": "code"
     }
   ],
