@@ -411,7 +411,7 @@ async function  getWebStableDiffusion(initProgressCallback,canvas,model_type){
 					"https://websd.mlc.ai/dist/scheduler_pndm_consts.json"
 				],
 				"wasmUrl": "https://websd.mlc.ai/dist/stable_diffusion_webgpu.wasm",
-				"cacheUrl": "https://huggingface.co/mlc-ai/web-sd/resolve/main/web-sd-shards-v1-5/",
+				"cacheUrl": "https://huggingface.co/mlc-ai/web-sd/resolve/main/"+model_type+"/",
 				"tokenizer": "openai/clip-vit-large-patch14"
 			}	
 		const wasmSourceResponse = await fetch(config.wasmUrl);
