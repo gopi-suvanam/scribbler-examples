@@ -2338,7 +2338,7 @@ fn fragment_clear(@location(0) uv : vec2<f32>) -> @location(0) vec4<f32> {
         fetchNDArrayCache(ndarrayCacheUrl, device, cacheScope = "tvmjs") {
             return __awaiter(this, void 0, void 0, function* () {
                 const artifactCache = new ArtifactCache(cacheScope);
-                const jsonUrl = new URL("ndarray-cache-b16.json", ndarrayCacheUrl).href;
+                const jsonUrl = new URL("ndarray-cache.json", ndarrayCacheUrl).href;
                 const result = yield artifactCache.fetchWithCache(jsonUrl);
                 let list;
                 if (result instanceof Response) {
