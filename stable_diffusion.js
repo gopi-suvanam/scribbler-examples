@@ -386,11 +386,9 @@ class StableDiffusionPipeline {
 	let finalRGBA;	  
     this.tvm.withNewScope(() => {
       const image = this.vaeToImage(latents, this.vaeParams);
-		const rgba = this.imageToRGBA(image);
 		
       this.tvm.showImage(this.imageToRGBA(image));
 
-	finalRGBA = rgba.toArray ? rgba.toArray() : rgba;
     });
     latents.dispose();
     await this.device.sync();
@@ -398,7 +396,7 @@ class StableDiffusionPipeline {
       progressCallback("vae", 1, 1, totalNumSteps);
     }
 	// ✅ RETURN HERE
-return finalRGBA;
+
 
   }
 
