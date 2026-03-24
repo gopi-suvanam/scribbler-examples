@@ -385,14 +385,18 @@ class StableDiffusionPipeline {
     }
     this.tvm.withNewScope(() => {
       const image = this.vaeToImage(latents, this.vaeParams);
+		const rgba = this.imageToRGBA(image);
+		
       this.tvm.showImage(this.imageToRGBA(image));
+
+		return this.tvm.detachFromCurrentScope(rgba);
     });
     latents.dispose();
     await this.device.sync();
     if (progressCallback !== undefined) {
       progressCallback("vae", 1, 1, totalNumSteps);
     }
-	    return this.tvm.detachFromCurrentScope(rgba);
+	    
 
   }
 
