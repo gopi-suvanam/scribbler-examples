@@ -2442,6 +2442,17 @@ fn fragment_clear(@location(0) uv : vec2<f32>) -> @location(0) vec4<f32> {
             if (dtype instanceof DLDataType)
                 return dtype;
             if (typeof dtype == "string") {
+
+                if (dtype === "bfloat16") {
+                    console.warn("bfloat16 not supported, falling back to float32");
+                    return new DLDataType(
+                        2 /* DLDataTypeCode.Float */,
+                        32,
+                        1
+                    );
+                }
+
+                
                 let pattern = dtype;
                 let code, bits = 32, lanes = 1;
                 if (pattern.substring(0, 5) == "float") {
