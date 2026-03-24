@@ -392,6 +392,8 @@ class StableDiffusionPipeline {
     if (progressCallback !== undefined) {
       progressCallback("vae", 1, 1, totalNumSteps);
     }
+	    return this.tvm.detachFromCurrentScope(rgba);
+
   }
 
   clearCanvas() {
