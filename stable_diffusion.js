@@ -402,9 +402,9 @@ class StableDiffusionPipeline {
 
 
 
-async function  getWebStableDiffusion(initProgressCallback,canvas){
+async function  getWebStableDiffusion(initProgressCallback,canvas,model_type){
 
-		 
+		 model_type=model_type||'web-sd-shards-v1-5';
 		const config={
 				"schedulerConstUrl": [
 					"https://websd.mlc.ai/dist/scheduler_dpm_solver_multistep_consts.json",
