@@ -408,6 +408,249 @@ class StableDiffusionPipeline {
 
 
 
+class DiffusionXLPipeline {
+  constructor(tvm, tokenizer1, tokenizer2, schedulerConsts, cacheMetadata) {
+    if (cacheMetadata == undefined) {
+      throw Error("Expect cacheMetadata");
+    }
+    this.tvm = tvm;
+    this.tokenizer1 = tokenizer1;
+    this.tokenizer2 = tokenizer2;
+    this.maxTokenLength = 77;
+
+    this.device = this.tvm.webgpu();
+    this.tvm.bindCanvas(document.getElementById("canvas"));
+    // VM functions
+    this.vm = this.tvm.detachFromCurrentScope(
+      this.tvm.createVirtualMachine(this.device)
+    );
+
+    this.schedulerConsts = schedulerConsts;
+    this.clipToTextEmbeddings1 = this.tvm.detachFromCurrentScope(
+      this.vm.getFunction("clip")
+    );
+    this.clipParams1 = this.tvm.detachFromCurrentScope(
+      this.tvm.getParamsFromCache("clip", cacheMetadata.clipParamSize)
+    );
+    this.clipToTextEmbeddings2 = this.tvm.detachFromCurrentScope(
+      this.vm.getFunction("clip2")
+    );
+    this.clipParams2 = this.tvm.detachFromCurrentScope(
+      this.tvm.getParamsFromCache("clip2", cacheMetadata.clip2ParamSize)
+    );
+    this.unetLatentsToNoisePred = this.tvm.detachFromCurrentScope(
+      this.vm.getFunction("unet")
+    );
+    this.unetParams = this.tvm.detachFromCurrentScope(
+      this.tvm.getParamsFromCache("unet", cacheMetadata.unetParamSize)
+    );
+    this.vaeToImage = this.tvm.detachFromCurrentScope(
+      this.vm.getFunction("vae")
+    );
+    this.vaeParams = this.tvm.detachFromCurrentScope(
+      this.tvm.getParamsFromCache("vae", cacheMetadata.vaeParamSize)
+    );
+    this.imageToRGBA = this.tvm.detachFromCurrentScope(
+      this.vm.getFunction("image_to_rgba")
+    );
+    this.concatEmbeddings = this.tvm.detachFromCurrentScope(
+      this.vm.getFunction("concat_embeddings")
+    );
+    this.concatPoolEmbeddings = this.tvm.detachFromCurrentScope(
+      this.vm.getFunction("concat_pool_embeddings")
+    );
+    this.catLatents = this.tvm.detachFromCurrentScope(
+      this.vm.getFunction("cat_latents")
+    );
+    this.concatEncoderOutputs = this.tvm.detachFromCurrentScope(
+      this.vm.getFunction("concat_enocder_outputs")
+    );
+
+  }
+
+  dispose() {
+    // note: tvm instance is not owned by this class
+    this.concatEmbeddings.dispose();
+    this.imageToRGBA.dispose()
+    this.concatPoolEmbeddings.dispose();
+    this.catLatents.dispose();
+    this.concatEncoderOutputs.dispose();
+    this.vaeParams.dispose();
+    this.vaeToImage.dispose();
+    this.unetParams.dispose();
+    this.unetLatentsToNoisePred.dispose();
+    this.clipParams1.dispose();
+    this.clipToTextEmbeddings1.dispose();
+    this.clipParams2.dispose();
+    this.clipToTextEmbeddings2.dispose();
+    this.vm.dispose();
+  }
+
+  tokenize(prompt, tokenizer) {
+    const encoded = tokenizer.encode(prompt, true).input_ids;
+    const inputIDs = new Int32Array(this.maxTokenLength);
+
+    if (encoded.length < this.maxTokenLength) {
+      inputIDs.set(encoded);
+      const lastTok = encoded[encoded.length - 1];
+      inputIDs.fill(lastTok, encoded.length, inputIDs.length);
+    } else {
+      inputIDs.set(encoded.slice(0, this.maxTokenLength));
+    }
+    return this.tvm.empty([1, this.maxTokenLength], "int32", this.device).copyFrom(inputIDs);
+  }
+
+  async asyncLoadWebGPUPipelines() {
+    await this.tvm.asyncLoadWebGPUPipelines(this.vm.getInternalModule());
+  }
+
+  async generate(
+    prompt,
+    negPrompt = "",
+    progressCallback = undefined,
+    schedulerId = 0,
+    vaeCycle = -1,
+    beginRenderVae = 10
+  ) {
+    this.tvm.beginScope();
+    // get latents
+    const latentShape = [1, 4, 128, 128];
+
+    var unetNumSteps;
+    if (schedulerId == 2) {
+      scheduler = new EulerDiscreteScheduler(
+        this.schedulerConsts[2], latentShape, this.tvm, this.device, this.vm);
+      unetNumSteps = this.schedulerConsts[2]["num_steps"];
+    } else {
+      //raise error
+      throw Error("not supported scheduler");
+    }
+    const totalNumSteps = unetNumSteps + 2;
+
+    if (progressCallback !== undefined) {
+      progressCallback("clip", 0, 1, totalNumSteps);
+    }
+
+    const [embeddings, pool_embeddings] = this.tvm.withNewScope(() => {
+      let posInputIDs1 = this.tokenize(prompt, this.tokenizer1);
+      let posInputIDs2 = this.tokenize(prompt, this.tokenizer2);
+      const posEmbeddings1 = this.clipToTextEmbeddings1(
+        posInputIDs1, this.clipParams1).get(0);
+      const posTemp = this.clipToTextEmbeddings2(
+        posInputIDs2, this.clipParams2);
+      const posEmbeddings2 = posTemp.get(0);
+      const poolPosEmbeddings = posTemp.get(1);
+
+      let negInputIDs1 = this.tokenize(negPrompt, this.tokenizer1);
+      let negInputIDs2 = this.tokenize(negPrompt, this.tokenizer2);
+      const negEmbeddings1 = this.clipToTextEmbeddings1(
+        negInputIDs1, this.clipParams1).get(0);
+      const negTemp = this.clipToTextEmbeddings2(
+        negInputIDs2, this.clipParams2);
+      const negEmbeddings2 = negTemp.get(0);
+      const poolNegEmbeddings = negTemp.get(1);
+      console.log("posEmbeddings1")
+      console.log(posEmbeddings1)
+      const posEmbeddings = this.concatEncoderOutputs(posEmbeddings1, posEmbeddings2);
+      const negEmbeddings = this.concatEncoderOutputs(negEmbeddings1, negEmbeddings2);
+
+      // maintain new latents
+      //TODO: zero out embeddings when negPrompt is empty
+      return [this.tvm.detachFromCurrentScope(
+        this.concatEmbeddings(negEmbeddings, posEmbeddings)
+      ),
+      this.tvm.detachFromCurrentScope(
+        this.concatPoolEmbeddings(poolNegEmbeddings, poolPosEmbeddings)
+      )
+      ];
+    });
+    // use uniform distribution with same variance as normal(0, 1)
+    const scale = Math.sqrt(12) / 2 * 13.1585;
+    let latents = this.tvm.detachFromCurrentScope(
+      this.tvm.uniform(latentShape, -scale, scale, this.tvm.webgpu())
+    );
+    this.tvm.endScope();
+    //---------------------------
+    // Stage 1: UNet + Scheduler
+    //---------------------------
+    if (vaeCycle != -1) {
+      // show first frame
+      this.tvm.withNewScope(() => {
+        const image = this.vaeToImage(latents, this.vaeParams);
+        this.tvm.showImage(this.imageToRGBA(image));
+      });
+      await this.device.sync();
+    }
+    vaeCycle = vaeCycle == -1 ? unetNumSteps : vaeCycle;
+    let lastSync = undefined;
+
+    for (let counter = 0; counter < unetNumSteps; ++counter) {
+      if (progressCallback !== undefined) {
+        progressCallback("unet", counter, unetNumSteps, totalNumSteps);
+      }
+      const timestep = scheduler.timestep[counter];
+      // recycle noisePred, track latents manually
+      const newLatents = this.tvm.withNewScope(() => {
+        this.tvm.attachToCurrentScope(latents);
+        const latent_model_input = this.catLatents(latents);
+        const scaled_latent_model_input = scheduler.scaleModelInput(latent_model_input, counter)
+        const array_id = [1024., 1024., 0., 0., 1024., 1024., 1024., 1024., 0., 0., 1024., 1024.]
+        let add_time_ids = this.tvm.empty([2, 6], "float32", this.tvm.webgpu()).copyFrom(array_id);
+        const noisePred = this.unetLatentsToNoisePred(
+          scaled_latent_model_input, timestep, embeddings, 
+            pool_embeddings, add_time_ids, this.unetParams);
+        // maintain new latents
+        return this.tvm.detachFromCurrentScope(
+          scheduler.step(noisePred, latents, counter)
+        );
+      });
+      latents = newLatents;
+      // use skip one sync, although likely not as useful.
+      if (lastSync !== undefined) {
+        await lastSync;
+      }
+      // async event checker
+      lastSync = this.device.sync();
+
+      // Optionally, we can draw intermediate result of VAE.
+      if ((counter + 1) % vaeCycle == 0 &&
+        (counter + 1) != unetNumSteps &&
+        counter >= beginRenderVae) {
+        this.tvm.withNewScope(() => {
+          const image = this.vaeToImage(latents, this.vaeParams);
+          this.tvm.showImage(this.imageToRGBA(image));
+        });
+        await this.device.sync();
+      }
+    }
+    scheduler.dispose();
+    embeddings.dispose();
+    //-----------------------------
+    // Stage 2: VAE and draw image
+    //-----------------------------
+    if (progressCallback !== undefined) {
+      progressCallback("vae", 0, 1, totalNumSteps);
+    }
+    this.tvm.withNewScope(() => {
+      const image = this.vaeToImage(latents, this.vaeParams);
+      this.tvm.showImage(this.imageToRGBA(image));
+    });
+    latents.dispose();
+    await this.device.sync();
+    if (progressCallback !== undefined) {
+      progressCallback("vae", 1, 1, totalNumSteps);
+    }
+  }
+
+  clearCanvas() {
+    this.tvm.clearCanvas();
+  }
+};
+
+
+
+
+
 async function  getWebStableDiffusion(initProgressCallback,canvas,model_type){
 
 		 model_type=model_type||'web-sd-shards-v1-5';
