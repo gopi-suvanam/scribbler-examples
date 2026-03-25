@@ -281,7 +281,9 @@ class StableDiffusionPipeline {
     schedulerId = 1,
     vaeCycle = -1,
     beginRenderVae = 10,
-	num_steps=20
+	num_steps=20,
+	  latent_height=48,
+	  latent_width=48
   ) {
     // Principle: beginScope/endScope in synchronized blocks,
     // this helps to recycle intermediate memories
@@ -291,7 +293,7 @@ class StableDiffusionPipeline {
     //--------------------------
     this.tvm.beginScope();
     // get latents
-    const latentShape = [1, 4, 64, 64];
+    const latentShape = [1, 4, latent_height, latent_width];
 
     var unetNumSteps;
 	 let scheduler;
