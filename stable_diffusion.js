@@ -278,9 +278,10 @@ class StableDiffusionPipeline {
     prompt,
     negPrompt = "",
     progressCallback = undefined,
-    schedulerId = 0,
+    schedulerId = 1,
     vaeCycle = -1,
-    beginRenderVae = 10
+    beginRenderVae = 10,
+	num_steps=20
   ) {
     // Principle: beginScope/endScope in synchronized blocks,
     // this helps to recycle intermediate memories
@@ -293,15 +294,24 @@ class StableDiffusionPipeline {
     const latentShape = [1, 4, 64, 64];
 
     var unetNumSteps;
-    if (schedulerId == 0) {
-      scheduler = new TVMDPMSolverMultistepScheduler(
-        this.schedulerConsts[0], latentShape, this.tvm, this.device, this.vm);
-      unetNumSteps = this.schedulerConsts[0]["num_steps"];
-    } else {
-      scheduler = new TVMPNDMScheduler(
-        this.schedulerConsts[1], latentShape, this.tvm, this.device, this.vm);
-      unetNumSteps = this.schedulerConsts[1]["num_steps"];
-    }
+	 let scheduler;
+	let maxSteps;
+	
+	if (schedulerId == 0) {
+	  scheduler = new TVMDPMSolverMultistepScheduler(
+	    this.schedulerConsts[0], latentShape, this.tvm, this.device, this.vm);
+	  maxSteps = this.schedulerConsts[0]["num_steps"];
+	} else {
+	  scheduler = new TVMPNDMScheduler(
+	    this.schedulerConsts[1], latentShape, this.tvm, this.device, this.vm);
+	  maxSteps = this.schedulerConsts[1]["num_steps"];
+	}
+	
+	// unified logic
+	unetNumSteps = (num_steps !== undefined)
+	  ? Math.min(num_steps, maxSteps)
+	  : maxSteps;
+	  
     const totalNumSteps = unetNumSteps + 2;
 
     if (progressCallback !== undefined) {
