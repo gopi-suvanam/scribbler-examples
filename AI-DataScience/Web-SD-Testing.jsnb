@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "name": "GPU Art",
+    "language_info": {
+      "name": "JavaScipt",
+      "version": "8.0"
+    }
+  },
+  "jsnbversion": "v0.1",
+  "cells": [
+    {
+      "code": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1  style=\"color:#555\">AI Art Using Web-Stable Diffusion and Web GPU </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        Chose an artist style and give a prompt to get your art.\n    </p><br></div>",
+      "status": "",
+      "output": "<div style=\"text-align:center;background-color:#fede02;color:#555;margin:-10px;margin-left:-20px;margin-right:-20px;\">\n        <br><h1 style=\"color:#555\">AI Art Using Web-Stable Diffusion and Web GPU </h1>\n<p class=\"site-masthead__description mb-0\" style=\"color:#555\">\n        Chose an artist style and give a prompt to get your art.\n    </p><br></div>",
+      "type": "html"
+    },
+    {
+      "code": "//>md\n## Acknowledgements\n- [Stability AI](https://stability.ai/) for Stable Diffusion Models\n- [MLC AI](https://github.com/mlc-ai/mlc-llm) for compiling them into JavaScript using WebGPU",
+      "status": "",
+      "output": "<h2>Acknowledgements</h2>\n<ul>\n<li><a href=\"https://stability.ai/\">Stability AI</a> for Stable Diffusion Models</li>\n<li><a href=\"https://github.com/mlc-ai/mlc-llm\">MLC AI</a> for compiling them into JavaScript using WebGPU</li>\n</ul>\n",
+      "type": "html"
+    },
+    {
+      "code": "### Note: take the notebook out of sandbox for this code to work by clicking the \"Take Noebook Out of Sandbox\" button at the top righ corner or click Edit->\"Trust the NB\"",
+      "status": "",
+      "output": "<h3>Note: take the notebook out of sandbox for this code to work by clicking the \"Take Noebook Out of Sandbox\" button at the top righ corner or click Edit-&gt;\"Trust the NB\"</h3>\n",
+      "type": "html"
+    },
+    {
+      "code": "<span id=\"init-progress-tracker-label\">Stable Diffusion Not Loaded</span>\n<progress id=\"init-progress-tracker-progress\" max=\"100\" value=\"100\"> </progress>\n",
+      "status": "",
+      "output": "<p><span id=\"init-progress-tracker-label\">Fetching param cache[51/61]: 1621MB fetched. 82% completed, 8 secs elapsed. It can take a while when we first visit this page to populate the cache. Later refreshes will become faster.</span>\n<progress id=\"init-progress-tracker-progress\" max=\"100\" value=\"82.32408338730028\"> </progress></p>\n",
+      "type": "html"
+    },
+    {
+      "code": "<div>\n<canvas id=\"canvas\" width=\"1024\" height=\"1024\"></canvas>\n</div>",
+      "status": "",
+      "output": "<div>\n<canvas id=\"canvas\" width=\"1024\" height=\"1024\"></canvas>\n</div>",
+      "type": "html"
+    },
+    {
+      "code": "  await scrib.loadScript(\"https://websd.mlc.ai/dist/tvmjs_runtime.wasi.js\");\n  await scrib.loadScript(\"https://examples.scribbler.live/AI-DataScience/tvmjs-modified.bundle.js\");\n  await scrib.loadScript(\"https://examples.scribbler.live/stable_diffusion.js\");\n  await scrib.loadScript(\"https://websd.mlc.ai/assets/js/srcset-polyfill.js\");\n\n\n async function loadSDEngine(){\n     tvmjsGlobalEnv={};\n\n  const canvas = document.querySelector(\"canvas\"); // 👈 adjust if needed\n\n   \n  tokenizers=await import( \"https://websd.mlc.ai/dist/tokenizers-wasm/tokenizers_wasm.js\");\n  TokenizerWasm = tokenizers.TokenizerWasm;\n  init=tokenizers.default;\n  async function getTokenizer(name) {\n\tawait init();\n\tconst jsonText = await (await fetch(\"https://huggingface.co/\" + name + \"/raw/main/tokenizer.json\")).text();\n\treturn new TokenizerWasm(jsonText);\n  }\n  tvmjsGlobalEnv.getTokenizer = getTokenizer;  \n  function initProgressCallback(report) {\n\tdocument.getElementById(\"init-progress-tracker-label\").innerHTML = report.text;\n\tdocument.getElementById(\"init-progress-tracker-progress\").value = report.progress * 100;\n  }\n  window.sdEngine=await getWebStableDiffusion(initProgressCallback,scrib.getDom(\"canvas\"));\n   \n         \n}\nawait loadSDEngine();\ndocument.getElementById(\"init-progress-tracker-label\").innerHTML = \"Model ready to be used\";",
+      "status": "[*]",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "function progressCallback(stage, counter, numSteps, totalNumSteps) {\n  return;\n}",
+      "status": "[2]<br><span style=\"font-size:8px\">0ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "await scrib.loadScript(\"https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js\");",
+      "status": "[3]<br><span style=\"font-size:8px\">3ms<span></span></span>",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "\n\nasync function generate() {\n  const prompts = [\n    \"A futuristic city floating above the clouds at sunset, neon lights glowing, ultra-detailed, cinematic lighting\",\n   \"A majestic lion made of fire and smoke standing in a dark forest, dramatic atmosphere, high contrast\",\n    \"A cozy reading nook inside a treehouse during rain, warm lighting, books and plants everywhere\",\n    \"An astronaut relaxing on Mars with a picnic setup, Earth visible in the sky, surreal and whimsical\",\n    \"A cyberpunk street market at night with glowing signs, rain reflections, and diverse characters\",\n    \"A dragon flying over a medieval castle during a thunderstorm, epic fantasy art style\",\n    \"A tiny cottage inside a giant mushroom in an enchanted forest, soft magical glow, fairytale vibe\",\n    \"A hyper-realistic portrait of an elderly woman with galaxy textures in her skin, cosmic theme\",\n    \"A futuristic robot painting a landscape on a canvas in a minimalist studio, soft lighting\",\n    \"An underwater city with mermaids and glowing coral structures, bioluminescent colors, fantasy style\"\n  ];\n\n const zip = new JSZip();\n  const timings = [];\n\n  const canvas = document.querySelector(\"canvas\"); // 👈 adjust if needed\n\t\n  const sizes=[256,512,1024];\n  \n  \n\t//canvas.width=1024;canvas.height=1024;\n  for(let j=0;j<sizes.length;j++){\n\tcanvas.height=sizes[j];canvas.width=sizes[j];\n\t  for (let i = 0; i < prompts.length; i++) {\n\t\t\n\t\tconst prompt = prompts[i];\n\t\tconst start = Date.now();\n\n\t\t await sdEngine.generate(\n\t\t  prompt,\n\t\t  \"nudity\",\n\t\t  progressCallback,\n\t\t  0,\n\t\t  2,2\n\t\t);\n\n\n\n\t\t  // Now you have pixel data → draw to 2D canvas\n\n\n\t\tconst end = Date.now();\n\t\ttimings.push({size:j+1,prompt:i+1,timing:(end - start) / 1000});\n\n\n\n\t\tscrib.show((['sm','md','lg'])[j],\"|\",prompt, \"|\", (end - start) / 1000,\"|\", \"seconds\");\n\n\t  }\n  }\n  console.log(timings);\n  window.timings=timings;\n}\ngenerate()",
+      "status": "[*]",
+      "output": "",
+      "type": "code"
+    },
+    {
+      "code": "",
+      "status": "[-]",
+      "output": "<p class=\"error\">Not a 2d Array</p>",
+      "type": "code"
+    }
+  ],
+  "source": "https://github.com/gopi-suvanam/scribbler",
+  "run_on_load": true
+}
